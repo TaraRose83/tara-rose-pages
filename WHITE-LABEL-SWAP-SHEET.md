@@ -26,6 +26,8 @@ _The one checklist that turns a rebuild into a guided find-and-replace. Follow t
 | 9 | **Photography** | `.media` panels | Art-directed duotone placeholders | Drop in real shots. The placeholder is intentional editorial art until then. |
 | 10 | **PDPL / consent** (Founding only) | `PDPLBlock` in the form | data-controller notice, GHL/US disclosure | Update controller entity + jurisdiction per brand. Counsel-review before launch. |
 | 11 | **Countdown deadline** (Founding only) | `Countdown` JS | `2026-08-15` | Set the real close date; closed-state copy already handled. |
+| 12 | **Form API endpoint** (Confidence Mapping · Recruitment · Founding) | `var FORM_ENDPOINT` in each form's `<script>` | `__FORM_ENDPOINT__` | **Nothing is hardwired.** Swap this one placeholder for the brand's CRM/GHL inbound webhook URL and every form POSTs its captured lead there as JSON. While it holds `__FORM_ENDPOINT__` the form stays inert (validates + shows the result/thank-you, sends nothing). |
+| 13 | **Internal page links** | `href="/colour"`, `/cut-finish`, `/treatments`, `/home-care`, `/confidence-mapping`, `/careers`, `/contact`, `/privacy`… | production clean-URL paths | Source templates use production paths (for tararosesalon.com). The **deployed/zipped copy** rewrites them to relative `../folder/file.html` so the preview is clickable (see `scratchpad/build-navigable.py`). `/contact` + `/legal/*` currently map to `#` (no pages built yet). |
 
 ### Palette tokens (edit values, keep names)
 ```
