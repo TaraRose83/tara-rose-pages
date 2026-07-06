@@ -359,8 +359,9 @@ section[style*="var(--cream)"]{ background:#EFE6D9 !important; }
 .mi-top{ display:flex; justify-content:space-between; align-items:baseline; gap:14px; }
 .mi-price{ font-family:var(--fb); font-size:13px; font-weight:600; color:var(--ink); white-space:nowrap; }
 .mi-price.poa{ font-size:11.5px; font-weight:600; color:var(--accent-text); }
-.feature-band{ position:relative; aspect-ratio:16/5; min-height:210px; border-radius:var(--r-md); overflow:hidden; margin:0 0 8px; }
-.feature-band::after{ content:""; position:absolute; inset:0; background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><filter id='fnfb'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='150' height='150' filter='url(%23fnfb)' opacity='0.14'/></svg>") top left/150px 150px repeat, linear-gradient(to top,rgba(20,14,10,.52),transparent 60%); }
+.feature-band{ position:relative; width:100%; aspect-ratio:16/5; border-radius:var(--r-md); overflow:hidden; margin:0 0 8px; }
+.feature-band::after{ content:""; position:absolute; inset:0; background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='680' height='210'><text x='340' y='118' fill='rgba(255,255,255,0.10)' font-family='Georgia,serif' font-style='italic' font-size='30' letter-spacing='15' text-anchor='middle'>TARA ROSE</text></svg>") center/46% no-repeat, url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><filter id='fnfb'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='150' height='150' filter='url(%23fnfb)' opacity='0.14'/></svg>") top left/150px 150px repeat, linear-gradient(to top,rgba(16,18,18,.42),transparent 62%); }
+@media(max-width:640px){ .feature-band{ aspect-ratio:3/2; } .look-band{ aspect-ratio:4/3; } }
 .feature-band .fb-txt{ position:absolute; left:0; bottom:0; z-index:2; padding:24px 28px; }
 .feature-band .fb-k{ font-family:var(--fb); font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:rgba(255,255,255,.82); display:block; margin-bottom:6px; }
 .feature-band .fb-t{ font-family:var(--fd); font-style:italic; font-size:clamp(21px,2.8vw,28px); color:#fff; max-width:20ch; line-height:1.2; }
@@ -390,7 +391,7 @@ section[style*="var(--cream)"]{ background:#EFE6D9 !important; }
 .shade::after{ content:""; position:absolute; inset:0; background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><filter id='fnsh'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='150' height='150' filter='url(%23fnsh)' opacity='0.15'/></svg>") top left/120px 120px repeat, linear-gradient(to top,rgba(20,16,10,.5),transparent 55%); }
 .shade .sl{ position:absolute; left:0; right:0; bottom:0; z-index:2; padding:14px 14px; color:#fff; font-family:var(--fb); font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; }
 .shades-cap{ text-align:center; font-family:var(--fb); font-size:12.5px; font-weight:300; letter-spacing:.02em; color:var(--ink-soft); margin-top:16px; }
-.look-band{ position:relative; aspect-ratio:16/5.4; min-height:190px; border-radius:var(--r-md); overflow:hidden; margin:48px 0; }
+.look-band{ position:relative; width:100%; aspect-ratio:16/5.4; border-radius:var(--r-md); overflow:hidden; margin:48px 0; }
 .look-band::after{ content:""; position:absolute; inset:0; background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><filter id='fnsh'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='150' height='150' filter='url(%23fnsh)' opacity='0.15'/></svg>") top left/150px 150px repeat, linear-gradient(to top,rgba(18,14,10,.55),transparent 62%); }
 .look-band .ll{ position:absolute; left:0; bottom:0; z-index:2; padding:22px 26px; }
 .look-band .ll .lk{ font-family:var(--fb); font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:rgba(255,255,255,.82); display:block; margin-bottom:6px; }
@@ -695,7 +696,7 @@ section[style*="var(--cream)"]{ background:#EFE6D9 !important; }
   </div>
 </section>
 
-<div class="wrap"><div class="feature-band" style="background:radial-gradient(130% 120% at 30% 15%,#bd9a78 0%,#8a6a4c 42%,#4f3a28 80%,#20160e 100%)" role="img" aria-label="Dimension"><div class="fb-txt"><span class="fb-k">Dimension</span><span class="fb-t">Rich, glossy, and quietly expensive.</span></div></div></div>
+<div class="wrap"><div class="feature-band" style="background:radial-gradient(130% 120% at 30% 15%,#bd9a78 0%,#8a6a4c 42%,#4f3a28 80%,#20160e 100%)" role="img" aria-label="Dimension"></div></div>
 
 <!-- ============================ THE BRUNETTE TREATMENT SUBSET ============================ -->
 <section>
@@ -814,7 +815,7 @@ section[style*="var(--cream)"]{ background:#EFE6D9 !important; }
   </div>
 </section>
 
-<div class="wrap"><div class="feature-band" style="background:radial-gradient(120% 160% at 22% 8%,#c8a173 0%,#8a6440 40%,#4a3420 78%,#1c130b 100%)" role="img" aria-label="Home care"><div class="fb-txt"><span class="fb-k">Home care</span><span class="fb-t">The insurance on your brunette, matched to your hair.</span></div></div></div>
+<div class="wrap"><div class="feature-band" style="background:radial-gradient(120% 160% at 22% 8%,#c8a173 0%,#8a6440 40%,#4a3420 78%,#1c130b 100%)" role="img" aria-label="Home care"></div></div>
 
 <!-- ============================ HOME CARE LADDER (mini) ============================ -->
 <section class="ladder">
@@ -975,7 +976,7 @@ section[style*="var(--cream)"]{ background:#EFE6D9 !important; }
   </div>
 </section>
 
-<div class="wrap"><div class="feature-band" style="background:radial-gradient(130% 120% at 30% 15%,#a9764f 0%,#7d5334 42%,#4a3220 80%,#1e130c 100%)" role="img" aria-label="The truth"><div class="fb-txt"><span class="fb-k">The truth</span><span class="fb-t">Expensive brunette is not darker. It is shine.</span></div></div></div>
+<div class="wrap"><div class="feature-band" style="background:radial-gradient(130% 120% at 30% 15%,#a9764f 0%,#7d5334 42%,#4a3220 80%,#1e130c 100%)" role="img" aria-label="The truth"></div></div>
 
 <!-- ============================ MYTHS & TRUTHS (The Shift) ============================ -->
 <section style="background:var(--cream);">
