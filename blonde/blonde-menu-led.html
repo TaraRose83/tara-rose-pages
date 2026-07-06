@@ -399,6 +399,14 @@ section[style*="var(--cream)"]{ background:#EDF3F1 !important; }
 .tcard .stars{ color:var(--accent-deep); font-size:13px; letter-spacing:.2em; margin-bottom:14px; }
 .tcard blockquote{ font-family:var(--fb); font-size:15.5px; font-weight:300; line-height:1.62; color:var(--ink); }
 .tcard cite{ display:block; margin-top:18px; font-family:var(--fd); font-style:italic; font-size:15px; color:var(--ink); }
+/* The Full Loop covers-it-all strip */
+.fullloop{ max-width:840px; margin:26px auto 0; text-align:center; }
+.fullloop__row{ display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:9px; }
+.fl-part{ font-family:var(--fb); font-size:11.5px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft); background:var(--stone-soft); border:1px solid var(--hair); padding:9px 16px; border-radius:var(--r-pill); }
+.fl-part.on{ background:var(--ink-deep); color:#fff; border-color:transparent; }
+.fl-sep{ color:var(--accent-text); font-size:8px; }
+.fl-loop{ color:var(--accent-text); font-family:var(--fb); font-size:15px; margin-left:5px; }
+.loop-belief{ font-family:var(--fd); font-weight:500; font-size:clamp(24px,3.4vw,34px); line-height:1.08; letter-spacing:-.01em; color:var(--ink); text-wrap:balance; }
 </style>
 </head>
 <body>
@@ -540,8 +548,13 @@ section[style*="var(--cream)"]{ background:#EDF3F1 !important; }
 <section style="background:var(--cream);">
   <div class="wrap">
     <div class="sec-head center">
-      <span class="eyebrow">Blonde · The 12-Week Loop</span>
-      <h2>Your blonde doesn't fade. The toner does.</h2>
+      <span class="eyebrow">The Full Loop</span>
+      <h2>Good hair isn't one visit. It's the Full Loop.</h2>
+      <p class="sub">Colour, cut, treatments and home care, all held on one rhythm. Here is how your colour stays on it.</p>
+    </div>
+    <div class="fullloop"><div class="fullloop__row"><span class="fl-part on">Colour</span><span class="fl-sep">&#9679;</span><span class="fl-part">Cut</span><span class="fl-sep">&#9679;</span><span class="fl-part">Treatments</span><span class="fl-sep">&#9679;</span><span class="fl-part">Home Care</span><span class="fl-sep">&#9679;</span><span class="fl-part">Maintenance</span><span class="fl-loop">&#8635;</span></div></div>
+    <div class="sec-head center" style="margin-top:58px;">
+      <h3 class="loop-belief">Your blonde doesn't fade. The toner does.</h3>
       <p class="sub">Fresh blonde was never one appointment held forever. Toner wears off on a clock and the warmth returns, and no one ever showed you the rhythm that holds it. That was never yours to work out alone.</p>
     </div>
     <p class="loop-why">Left alone, blonde drifts brassy, and the fix becomes a full correction: more time, more cost. <b>On the loop, it never gets that far.</b> Three visits across twelve weeks keep the tone topped up, the hair protected, and the result exactly where you left it.</p>
@@ -554,7 +567,7 @@ section[style*="var(--cream)"]{ background:#EDF3F1 !important; }
         <g class="lr-n"><circle cx="82.2" cy="268" r="21"/><text x="82.2" y="268">3</text></g>
       </svg>
       <div class="lr-center">
-        <span class="eyebrow">The 12-Week Loop</span>
+        <span class="eyebrow">The Full Loop</span>
         <p class="lr-title">Your blonde,<br>held on rhythm.</p>
         <span class="lr-mark">&#8635; the loop holds it</span>
       </div>
