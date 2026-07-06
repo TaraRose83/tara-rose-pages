@@ -356,35 +356,84 @@ body{ background:#F6F1EA; }
 .tcard-x{ background:#F2EADF; box-shadow:0 2px 6px rgba(74,58,42,.07), 0 14px 30px -22px rgba(74,58,42,.24); }
 section[style*="var(--cream)"]{ background:#EFE6D9 !important; }
 .menu-line{ box-shadow:0 22px 54px -28px rgba(74,58,42,.55); }
-/* Two-families menu with image placeholders */
+.mi-top{ display:flex; justify-content:space-between; align-items:baseline; gap:14px; }
+.mi-price{ font-family:var(--fb); font-size:13px; font-weight:600; color:var(--ink); white-space:nowrap; }
+.mi-price.poa{ font-size:11.5px; font-weight:600; color:var(--accent-text); }
+.feature-band{ position:relative; aspect-ratio:16/5; min-height:210px; border-radius:var(--r-md); overflow:hidden; margin:0 0 8px; }
+.feature-band::after{ content:""; position:absolute; inset:0; background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><filter id='fnfb'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='150' height='150' filter='url(%23fnfb)' opacity='0.14'/></svg>") top left/150px 150px repeat, linear-gradient(to top,rgba(20,14,10,.52),transparent 60%); }
+.feature-band .fb-txt{ position:absolute; left:0; bottom:0; z-index:2; padding:24px 28px; }
+.feature-band .fb-k{ font-family:var(--fb); font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:rgba(255,255,255,.82); display:block; margin-bottom:6px; }
+.feature-band .fb-t{ font-family:var(--fd); font-style:italic; font-size:clamp(21px,2.8vw,28px); color:#fff; max-width:20ch; line-height:1.2; }
+
+/* Two-families menu + look showcase */
 .menu-intro{ max-width:720px; margin:6px auto 0; text-align:center; }
 .menu-intro .fam-line{ font-family:var(--fb); font-size:15px; font-weight:300; line-height:1.6; color:var(--ink); margin-top:12px; }
 .menu-intro .fam-line b{ font-weight:600; color:var(--accent-text); }
 .menu-fam{ margin-top:52px; }
-.menu-fam__head{ font-family:var(--fd); font-weight:500; font-size:25px; color:var(--ink); padding-bottom:14px; border-bottom:1px solid var(--hair); margin-bottom:28px; }
-.menu-fam__grid{ display:grid; grid-template-columns:.82fr 1.18fr; gap:40px; align-items:start; }
-@media(max-width:820px){ .menu-fam__grid{ grid-template-columns:1fr; gap:26px; } }
-.fam-media{ position:relative; border-radius:var(--r-md); overflow:hidden; aspect-ratio:4/5; min-height:260px;
-  background:radial-gradient(140% 120% at 26% 6%,#e2c6a6 0%,#a9835c 34%,#5c4632 70%,#241a12 100%); }
-.fam-media--b{ background:radial-gradient(140% 120% at 72% 8%,#dcc0a0 0%,#a37c56 36%,#5a4530 72%,#231a11 100%); }
-.fam-media::before{ content:attr(data-label); position:absolute; inset:0; display:flex; align-items:flex-end; padding:18px 20px; color:rgba(255,255,255,.85); font-family:var(--fb); font-size:10px; font-weight:600; letter-spacing:.22em; text-transform:uppercase; z-index:3; }
-.fam-media::after{ content:""; position:absolute; inset:0; z-index:2; pointer-events:none;
-  background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='680' height='210'><text x='340' y='118' fill='rgba(255,255,255,0.09)' font-family='Georgia,serif' font-style='italic' font-size='30' letter-spacing='15' text-anchor='middle'>TARA ROSE</text></svg>") center 42%/62% no-repeat,
-    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><filter id='fnm'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='150' height='150' filter='url(%23fnm)' opacity='0.16'/></svg>") top left/150px 150px repeat,
-    linear-gradient(to top,rgba(24,16,10,.5),transparent 48%); }
-.mcols{ display:grid; grid-template-columns:1fr 1fr; gap:30px; }
-@media(max-width:560px){ .mcols{ grid-template-columns:1fr; gap:26px; } }
+.menu-fam__head{ font-family:var(--fd); font-weight:500; font-size:25px; color:var(--ink); padding-bottom:14px; border-bottom:1px solid var(--hair); margin-bottom:24px; }
+.mcols{ display:grid; grid-template-columns:1fr 1fr; gap:30px 44px; }
+@media(max-width:700px){ .mcols{ grid-template-columns:1fr; gap:26px; } }
 .mcol__label{ font-family:var(--fb); font-size:10.5px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--accent-text); }
 .mcol__price{ font-family:var(--fb); font-size:12.5px; font-weight:600; color:var(--ink-soft); margin:4px 0 18px; }
 .mitem{ margin-bottom:17px; }
 .mitem .mi-tag{ display:inline-block; font-family:var(--fb); font-size:9px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-text); margin-bottom:3px; }
 .mitem .mi-name{ font-family:var(--fd); font-weight:500; font-size:17px; color:var(--ink); line-height:1.15; }
 .mitem .mi-desc{ font-family:var(--fb); font-size:12.5px; font-weight:300; line-height:1.5; color:var(--ink-soft); margin-top:4px; }
-.mitem .poa{ display:inline-block; font-family:var(--fb); font-size:11.5px; font-weight:600; color:var(--accent-text); letter-spacing:.02em; margin-top:2px; }
+.mitem .poa{ display:inline-block; font-family:var(--fb); font-size:11.5px; font-weight:600; color:var(--accent-text); margin-top:2px; }
 .menu-block{ margin-top:50px; }
-.menu-block__head{ font-family:var(--fd); font-weight:500; font-size:22px; color:var(--ink); padding-bottom:12px; border-bottom:1px solid var(--hair); margin-bottom:24px; }
-.menu-grid2{ display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+.menu-block__head{ font-family:var(--fd); font-weight:500; font-size:22px; color:var(--ink); padding-bottom:12px; border-bottom:1px solid var(--hair); margin-bottom:22px; }
+.menu-grid2{ display:grid; grid-template-columns:1fr 1fr; gap:22px 44px; }
 @media(max-width:560px){ .menu-grid2{ grid-template-columns:1fr; } }
+.shades{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin:38px 0 6px; }
+@media(max-width:620px){ .shades{ grid-template-columns:repeat(2,1fr); } }
+.shade{ position:relative; aspect-ratio:3/4; border-radius:var(--r-sm); overflow:hidden; }
+.shade::after{ content:""; position:absolute; inset:0; background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><filter id='fnsh'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='150' height='150' filter='url(%23fnsh)' opacity='0.15'/></svg>") top left/120px 120px repeat, linear-gradient(to top,rgba(20,16,10,.5),transparent 55%); }
+.shade .sl{ position:absolute; left:0; right:0; bottom:0; z-index:2; padding:14px 14px; color:#fff; font-family:var(--fb); font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; }
+.shades-cap{ text-align:center; font-family:var(--fb); font-size:12.5px; font-weight:300; letter-spacing:.02em; color:var(--ink-soft); margin-top:16px; }
+.look-band{ position:relative; aspect-ratio:16/5.4; min-height:190px; border-radius:var(--r-md); overflow:hidden; margin:48px 0; }
+.look-band::after{ content:""; position:absolute; inset:0; background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><filter id='fnsh'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='150' height='150' filter='url(%23fnsh)' opacity='0.15'/></svg>") top left/150px 150px repeat, linear-gradient(to top,rgba(18,14,10,.55),transparent 62%); }
+.look-band .ll{ position:absolute; left:0; bottom:0; z-index:2; padding:22px 26px; }
+.look-band .ll .lk{ font-family:var(--fb); font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:rgba(255,255,255,.82); display:block; margin-bottom:6px; }
+.look-band .ll .lt{ font-family:var(--fd); font-style:italic; font-size:clamp(20px,2.6vw,26px); color:#fff; }
+/* Loop conversion layer */
+.loopspeed{ text-align:center; font-family:var(--fb); font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft); margin-top:8px; }
+.tiers{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; max-width:940px; margin:22px auto 0; }
+@media(max-width:720px){ .tiers{ grid-template-columns:1fr; } }
+.tier{ background:#fff; border:1px solid var(--hair); border-radius:var(--r-md); padding:24px 24px; box-shadow:0 1px 2px rgba(45,46,55,.05),0 12px 28px -22px rgba(45,46,55,.18); }
+.tier .th{ font-family:var(--fd); font-weight:500; font-size:20px; color:var(--ink); margin-bottom:8px; }
+.tier .td{ font-family:var(--fb); font-size:13px; font-weight:300; line-height:1.5; color:var(--ink-soft); }
+.ktable{ width:100%; max-width:820px; margin:0 auto; border-collapse:collapse; }
+.ktable td{ padding:16px 4px; border-bottom:1px solid var(--hair); font-family:var(--fb); font-size:13.5px; font-weight:300; line-height:1.55; color:var(--ink-soft); vertical-align:top; }
+.ktable tr:last-child td{ border-bottom:none; }
+.ktable td.k{ font-family:var(--fd); font-weight:500; font-size:16px; color:var(--ink); width:150px; }
+.loop-why{ max-width:720px; margin:2px auto 0; text-align:center; font-family:var(--fb); font-size:15px; font-weight:300; line-height:1.62; color:var(--ink); }
+.loop-why b{ font-weight:600; color:var(--accent-text); }
+.visits{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; max-width:940px; margin:44px auto 0; }
+@media(max-width:720px){ .visits{ grid-template-columns:1fr; } }
+.visit-card{ background:#fff; border:1px solid var(--hair); border-radius:var(--r-md); padding:26px 26px; box-shadow:0 1px 2px rgba(45,46,55,.05),0 14px 30px -24px rgba(45,46,55,.2); }
+.visit-card .vn{ width:34px; height:34px; border-radius:50%; background:var(--ink-deep); color:var(--accent); display:grid; place-items:center; font-family:var(--fd); font-size:16px; margin-bottom:14px; }
+.visit-card .vk{ font-family:var(--fb); font-size:10px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--accent-text); display:block; }
+.visit-card h4{ font-family:var(--fd); font-weight:500; font-size:22px; color:var(--ink); line-height:1.1; margin:7px 0 0; }
+.visit-card p{ font-family:var(--fb); font-size:13.5px; font-weight:300; line-height:1.55; color:var(--ink-soft); margin-top:10px; }
+.rhythm-compare{ display:grid; grid-template-columns:1fr 1fr; gap:20px; max-width:860px; margin:52px auto 0; }
+@media(max-width:640px){ .rhythm-compare{ grid-template-columns:1fr; } }
+.rcmp{ border-radius:var(--r-md); padding:28px 28px; border:1px solid var(--hair); }
+.rcmp--on{ background:var(--ink-deep); color:#fff; border-color:transparent; box-shadow:0 18px 40px -24px rgba(45,46,55,.4); }
+.rcmp .rcmp-k{ font-family:var(--fb); font-size:10.5px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; margin-bottom:12px; display:block; }
+.rcmp--off .rcmp-k{ color:var(--ink-soft); }
+.rcmp--on .rcmp-k{ color:var(--accent); }
+.rcmp h4{ font-family:var(--fd); font-weight:500; font-size:21px; line-height:1.16; margin-bottom:16px; }
+.rcmp--on h4{ color:#fff; }
+.rcmp ul{ list-style:none; margin:0; padding:0; display:grid; gap:10px; }
+.rcmp li{ display:flex; gap:11px; align-items:flex-start; font-family:var(--fb); font-size:13.5px; font-weight:300; line-height:1.5; }
+.rcmp--off li{ color:var(--ink-soft); }
+.rcmp--on li{ color:rgba(255,255,255,.84); }
+.rcmp li .d{ flex:0 0 6px; width:6px; height:6px; border-radius:50%; margin-top:7px; }
+.rcmp--off li .d{ background:var(--ink-soft); opacity:.45; }
+.rcmp--on li .d{ background:var(--accent); }
+.loop-out{ text-align:center; max-width:640px; margin:34px auto 0; font-family:var(--fd); font-style:italic; font-size:clamp(20px,2.6vw,26px); color:var(--ink); line-height:1.3; }
+.loop-cta{ text-align:center; margin-top:54px; }
+.loop-cta__line{ max-width:560px; margin:0 auto 22px; font-family:var(--fb); font-size:15px; font-weight:300; line-height:1.6; color:var(--ink); }
 </style>
 </head>
 <body>
@@ -487,52 +536,40 @@ section[style*="var(--cream)"]{ background:#EFE6D9 !important; }
       <p class="fam-line"><b>Refresh</b> is light-touch maintenance that keeps your tone rich between full appointments.</p>
       <p class="fam-line"><b>Transformation</b> is the bigger work: more dimension, more depth, a fuller change. Every transformation begins with a consultation.</p>
     </div>
-
-    <!-- Brunette Colour -->
+    <div class="shades">
+      <div class="shade" style="background:radial-gradient(130% 120% at 30% 15%,#cda06e 0%,#a5764a 40%,#5c3f28 78%,#241811 100%)"><span class="sl">Chestnut</span></div>
+      <div class="shade" style="background:radial-gradient(130% 120% at 30% 15%,#bd9a78 0%,#8a6a4c 42%,#4f3a28 80%,#20160e 100%)"><span class="sl">Mocha</span></div>
+      <div class="shade" style="background:radial-gradient(130% 120% at 30% 15%,#a9764f 0%,#7d5334 42%,#4a3220 80%,#1e130c 100%)"><span class="sl">Chocolate</span></div>
+      <div class="shade" style="background:radial-gradient(130% 120% at 30% 15%,#7f5b3c 0%,#513723 42%,#2e1e13 80%,#140c07 100%)"><span class="sl">Espresso</span></div>
+    </div>
+    <p class="shades-cap">Chestnut, mocha, chocolate or espresso. We build the depth and the dimension to suit you.</p>
     <div class="menu-fam">
       <h3 class="menu-fam__head">Brunette Colour</h3>
-      <div class="menu-fam__grid">
-        <div class="fam-media" data-label="Brunette Colour" role="img" aria-label="Brunette colour result"></div>
-        <div class="mcols">
-          <div class="mcol">
-            <div class="mcol__label">Refresh Services</div>
-            <div class="mcol__price">Prices from AED __</div>
-            <div class="mitem"><div class="mi-name">Root Touch</div><p class="mi-desc">Essential root maintenance between visits: a colour top-up that keeps your base fresh and your regrowth seamlessly blended.</p></div>
-            <div class="mitem"><div class="mi-name">All-Over Gloss</div><p class="mi-desc">A single all-over colour for depth, shine, and grey coverage. Made for refreshing dullness with a healthy, polished finish.</p></div>
-            <div class="mitem"><div class="mi-name">Face Frame</div><p class="mi-desc">Delicate placement around the hairline to brighten and contour your face. Ideal for soft enhancement without a full service.</p></div>
-            <div class="mitem"><div class="mi-name">Balayage Refresh</div><p class="mi-desc">A subtle refresh through your parting and hairline to maintain softness between full balayage services.</p></div>
-          </div>
-          <div class="mcol">
-            <div class="mcol__label">Transformation Services</div>
-            <div class="mcol__price">Prices from AED __</div>
-            <div class="mitem"><span class="mi-tag">Our most-loved</span><div class="mi-name">Brunette with Dimension</div><p class="mi-desc">Add soft highlights, lowlights and contouring to create natural movement, richness, and tone variation.</p></div>
-            <div class="mitem"><span class="mi-tag">Our most refined</span><div class="mi-name">The Expensive Brunette</div><p class="mi-desc">Multi-tonal, high-gloss brunette crafted with strategic placement for an elevated, understated look. Inspired by global celebrity trends.</p></div>
-          </div>
-        </div>
+      <div class="mcols">
+        <div class="mcol"><div class="mcol__label">Refresh Services</div><div class="mitem"><div class="mi-top"><span class="mi-name">Root Touch</span><span class="mi-price">AED __</span></div><p class="mi-desc">Essential root maintenance between visits: a colour top-up that keeps your base fresh and your regrowth seamlessly blended.</p></div><div class="mitem"><div class="mi-top"><span class="mi-name">All-Over Gloss</span><span class="mi-price">AED __</span></div><p class="mi-desc">A single all-over colour for depth, shine, and grey coverage. Made for refreshing dullness with a healthy, polished finish.</p></div><div class="mitem"><div class="mi-top"><span class="mi-name">Face Frame</span><span class="mi-price">AED __</span></div><p class="mi-desc">Delicate placement around the hairline to brighten and contour your face. Ideal for soft enhancement without a full service.</p></div><div class="mitem"><div class="mi-top"><span class="mi-name">Balayage Refresh</span><span class="mi-price">AED __</span></div><p class="mi-desc">A subtle refresh through your parting and hairline to maintain softness between full balayage services.</p></div></div>
+        <div class="mcol"><div class="mcol__label">Transformation Services</div><div class="mitem"><span class="mi-tag">Our most-loved</span><div class="mi-top"><span class="mi-name">Brunette with Dimension</span><span class="mi-price">AED __</span></div><p class="mi-desc">Add soft highlights, lowlights and contouring to create natural movement, richness, and tone variation.</p></div><div class="mitem"><span class="mi-tag">Our most refined</span><div class="mi-top"><span class="mi-name">The Expensive Brunette</span><span class="mi-price">AED __</span></div><p class="mi-desc">Multi-tonal, high-gloss brunette crafted with strategic placement for an elevated, understated look. Inspired by global celebrity trends.</p></div></div>
       </div>
     </div>
-
-    <!-- Colour Correction -->
+    <div class="look-band" style="background:radial-gradient(120% 160% at 22% 8%,#c8a173 0%,#8a6440 40%,#4a3420 78%,#1c130b 100%)" role="img" aria-label="A multi-tonal high-gloss brunette">
+      <div class="ll"><span class="lk">The Expensive Brunette</span><span class="lt">Multi-tonal, high-gloss, and quietly expensive</span></div>
+    </div>
     <div class="menu-block">
       <h3 class="menu-block__head">Brunette Transformations: Colour Correction</h3>
       <div class="menu-grid2">
-        <div class="mitem"><div class="mi-name">Colour Correction</div><span class="poa">Price on application</span><p class="mi-desc">Bespoke depth, correction and dimension work, quoted individually after a full consultation.</p></div>
-        <div class="mitem"><div class="mi-name">Balayage Transformation</div><span class="poa">Price on application</span><p class="mi-desc">For dramatic changes, colour corrections, or a complete lightening journey. Includes full balayage and root-to-tip blending.</p></div>
+        <div class="mitem"><div class="mi-top"><span class="mi-name">Colour Correction</span><span class="mi-price poa">Price on application</span></div><p class="mi-desc">Bespoke depth, correction and dimension work, quoted individually after a full consultation.</p></div>
+        <div class="mitem"><div class="mi-top"><span class="mi-name">Balayage Transformation</span><span class="mi-price poa">Price on application</span></div><p class="mi-desc">For dramatic changes, colour corrections, or a complete lightening journey. Includes full balayage and root-to-tip blending.</p></div>
       </div>
     </div>
-
-    <!-- Colour Add-Ons -->
     <div class="menu-block">
       <h3 class="menu-block__head">Colour Add-Ons</h3>
-      <p class="menu-lead" style="margin-bottom:22px">Tailor any colour service with a finishing enhancement.</p>
+      <p class="menu-lead" style="margin-bottom:20px">Tailor any colour service with a finishing enhancement.</p>
       <div class="menu-grid2">
-        <div class="mitem"><div class="mi-name">Added Root Colour</div><span class="poa">Prices from AED __</span><p class="mi-desc">A root colour worked in alongside your foils to refresh regrowth and add depth at the base.</p></div>
-        <div class="mitem"><div class="mi-name">All-Over Colour</div><span class="poa">Prices from AED __</span><p class="mi-desc">A full base colour applied with your foils for complete coverage or a tonal shift, roots to ends.</p></div>
-        <div class="mitem"><div class="mi-name">Ammonia-Free Colour</div><span class="poa">Prices from AED __</span><p class="mi-desc">A gentler colour formula: a kinder option if you have a sensitive scalp, or simply prefer to go ammonia-free.</p></div>
-        <div class="mitem"><div class="mi-name">Ammonia-Free Bleach</div><span class="poa">Prices from AED __</span><p class="mi-desc">A gentler lightening option that lifts while staying kinder to your hair and scalp.</p></div>
+        <div class="mitem"><div class="mi-top"><span class="mi-name">Added Root Colour</span><span class="mi-price">from AED __</span></div><p class="mi-desc">A root colour worked in alongside your foils to refresh regrowth and add depth at the base.</p></div>
+        <div class="mitem"><div class="mi-top"><span class="mi-name">All-Over Colour</span><span class="mi-price">from AED __</span></div><p class="mi-desc">A full base colour applied with your foils for complete coverage or a tonal shift, roots to ends.</p></div>
+        <div class="mitem"><div class="mi-top"><span class="mi-name">Ammonia-Free Colour</span><span class="mi-price">from AED __</span></div><p class="mi-desc">A gentler colour formula: a kinder option if you have a sensitive scalp, or simply prefer to go ammonia-free.</p></div>
+        <div class="mitem"><div class="mi-top"><span class="mi-name">Ammonia-Free Bleach</span><span class="mi-price">from AED __</span></div><p class="mi-desc">A gentler lightening option that lifts while staying kinder to your hair and scalp.</p></div>
       </div>
     </div>
-
     <p class="menu-micro" style="margin-top:36px">Brunette should never feel flat.</p>
     <p class="menu-foot">Prices based on medium-length, average-thickness hair, including toner. Toner is not included with the All-Over Gloss. Going from dark to light will vary. Full quotation given at consultation.</p>
   </div>
@@ -658,6 +695,8 @@ section[style*="var(--cream)"]{ background:#EFE6D9 !important; }
   </div>
 </section>
 
+<div class="wrap"><div class="feature-band" style="background:radial-gradient(130% 120% at 30% 15%,#bd9a78 0%,#8a6a4c 42%,#4f3a28 80%,#20160e 100%)" role="img" aria-label="Dimension"><div class="fb-txt"><span class="fb-k">Dimension</span><span class="fb-t">Rich, glossy, and quietly expensive.</span></div></div></div>
+
 <!-- ============================ THE BRUNETTE TREATMENT SUBSET ============================ -->
 <section>
   <div class="wrap">
@@ -704,10 +743,11 @@ section[style*="var(--cream)"]{ background:#EFE6D9 !important; }
 <section class="loop" style="background:var(--cream);">
   <div class="wrap">
     <div class="sec-head center">
-      <span class="eyebrow">The Maintenance Loop · Brunette</span>
-      <h2>How the brunette is built, then kept.</h2>
-      <p class="sub">Three visits, one rhythm. The loop is the same for every brunette, the prescription inside it is matched to you.</p>
+      <span class="eyebrow">Brunette · The 12-Week Loop</span>
+      <h2>Your brunette doesn't fade. The gloss does.</h2>
+      <p class="sub">Rich brunette was never one appointment held forever. The gloss dulls, the dimension flattens, and no one ever showed you the rhythm that keeps it alive. That was never yours to work out alone.</p>
     </div>
+    <p class="loop-why">Left alone, brunette goes flat and dull, and the fix becomes a full rebuild: more time, more cost. <b>On the loop, it never gets that far.</b> Three visits across twelve weeks keep the gloss up, the dimension rich, and the depth exactly where you left it.</p>
     <div class="loopring" id="loopRing">
       <svg viewBox="0 0 400 400" aria-hidden="true">
         <circle class="lr-amb" cx="200" cy="200" r="176"/>
@@ -721,15 +761,60 @@ section[style*="var(--cream)"]{ background:#EFE6D9 !important; }
         <p class="lr-title">Your brunette,<br>held on rhythm.</p>
         <span class="lr-mark">&#8635; the loop holds it</span>
       </div>
-      <div class="lr-arc" style="left:78%;top:32%">gloss · treat</div>
-      <div class="lr-arc" style="left:22%;top:32%">gloss · finish</div>
-      <div class="lr-lab n1" style="left:50%;top:-6px"><span class="v">Visit 1 · Week 0</span><span class="a">Create</span><span class="s">Built, glossed and set.</span></div>
-      <div class="lr-lab n2" style="left:79.5%;top:79%"><span class="v">Visit 2 · Week 6</span><span class="a">Protect</span><span class="s">Gloss and treat before the shine dulls.</span></div>
-      <div class="lr-lab n3" style="left:20.5%;top:79%"><span class="v">Visit 3 · Week 10&ndash;12</span><span class="a">Keep on Track</span><span class="s">Strengthen and re-set, never a rescue.</span></div>
+      <div class="lr-arc" style="left:78%;top:32%">gloss &middot; treat</div>
+      <div class="lr-arc" style="left:22%;top:32%">gloss &middot; finish</div>
     </div>
-    <p class="anchor">Great hair is not one visit. The plan is what makes it last.</p>
+    <div class="visits">
+      <div class="visit-card"><div class="vn">1</div><span class="vk">Visit One &middot; Week 0</span><h4>Create</h4><p>We build your depth and dimension, then seal it with a gloss for shine and reflection. You leave rich and glossy.</p></div>
+      <div class="visit-card"><div class="vn">2</div><span class="vk">Visit Two &middot; Week 6</span><h4>Protect</h4><p>Before the shine dulls, we re-gloss and treat. A short visit that keeps the dimension alive and the tone true. This is the one that saves the big one.</p></div>
+      <div class="visit-card"><div class="vn">3</div><span class="vk">Visit Three &middot; Week 10 to 12</span><h4>Keep on Track</h4><p>A gloss and re-set, never a rescue. We keep the richness up, so your brunette never goes flat.</p></div>
+    </div>
+    <p class="loopspeed">How often your loop runs is set by your look, from low maintenance to high. Low maintenance does not mean no maintenance.</p>
+    <div class="tiers">
+      <div class="tier"><div class="th">Low Maintenance</div><div class="td">Rich all-over brunette and soft balayage, built to grow out gracefully. A gloss every few weeks, the longest gaps between full visits.</div></div>
+      <div class="tier"><div class="th">Mid Maintenance</div><div class="td">Dimensional brunette with highlights and lowlights, where movement matters. A tighter rhythm of glosses and refreshes keeps it alive.</div></div>
+      <div class="tier"><div class="th">High Maintenance</div><div class="td">The Expensive Brunette and multi-tonal work, for maximum shine and depth. The closest rhythm, with full home-care protection.</div></div>
+    </div>
+    <div class="rhythm-compare">
+      <div class="rcmp rcmp--off">
+        <span class="rcmp-k">Off the loop</span>
+        <h4>The slow slide to flat and dull</h4>
+        <ul>
+          <li><span class="d"></span>The dimension flattens, the shine dulls by week eight</li>
+          <li><span class="d"></span>The next visit is a rebuild, not a refresh</li>
+          <li><span class="d"></span>A full correction costs more than a year of glossing</li>
+          <li><span class="d"></span>You never quite feel salon-shiny</li>
+        </ul>
+      </div>
+      <div class="rcmp rcmp--on">
+        <span class="rcmp-k">On the loop</span>
+        <h4>Brunette that stays rich</h4>
+        <ul>
+          <li><span class="d"></span>Gloss topped up before the shine ever dulls</li>
+          <li><span class="d"></span>Every visit is quick and predictable</li>
+          <li><span class="d"></span>A smaller, steady spend, never a big reset</li>
+          <li><span class="d"></span>Always rich and glossy, never flat</li>
+        </ul>
+      </div>
+    </div>
+    <p class="loop-out">Your brunette stays rich, glossy, and exactly as deep as you left it.</p>
+
+    <div class="sec-head center" style="margin:56px auto 20px;">
+      <h2 style="font-size:clamp(26px,3.4vw,36px);">What keeps it between visits</h2>
+    </div>
+    <table class="ktable">
+      <tr><td class="k">Glossing</td><td>Re-lays your shine and tone before the brunette goes flat. Every 4 to 6 weeks.</td></tr>
+      <tr><td class="k">Treatments</td><td>Prescribed to your hair across the loop: Detox, Colour Longevity, Hydration &amp; Frizz and Strength. Your stylist prescribes, you do not choose blind.</td></tr>
+      <tr><td class="k">Blow-dry</td><td>Keeps your brunette glossy and protected between washes, finished to last in the heat.</td></tr>
+    </table>
+    <div class="loop-cta">
+      <p class="loop-cta__line">This is the plan, not a single appointment. One conversation sets your rhythm, and we keep your brunette rich and glossy from there.</p>
+      <a class="pill pill--accent" href="https://wa.me/971500000000?text=Hi%20Tara%20Rose%2C%20I%20would%20like%20to%20start%20my%20Brunette%20Plan." target="_blank" rel="noopener">Start your Brunette Plan</a>
+    </div>
   </div>
 </section>
+
+<div class="wrap"><div class="feature-band" style="background:radial-gradient(120% 160% at 22% 8%,#c8a173 0%,#8a6440 40%,#4a3420 78%,#1c130b 100%)" role="img" aria-label="Home care"><div class="fb-txt"><span class="fb-k">Home care</span><span class="fb-t">The insurance on your brunette, matched to your hair.</span></div></div></div>
 
 <!-- ============================ HOME CARE LADDER (mini) ============================ -->
 <section class="ladder">
@@ -889,6 +974,8 @@ section[style*="var(--cream)"]{ background:#EFE6D9 !important; }
     </details>
   </div>
 </section>
+
+<div class="wrap"><div class="feature-band" style="background:radial-gradient(130% 120% at 30% 15%,#a9764f 0%,#7d5334 42%,#4a3220 80%,#1e130c 100%)" role="img" aria-label="The truth"><div class="fb-txt"><span class="fb-k">The truth</span><span class="fb-t">Expensive brunette is not darker. It is shine.</span></div></div></div>
 
 <!-- ============================ MYTHS & TRUTHS (The Shift) ============================ -->
 <section style="background:var(--cream);">

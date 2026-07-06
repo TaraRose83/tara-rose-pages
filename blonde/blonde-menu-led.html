@@ -316,35 +316,82 @@ section[style*="var(--cream)"]{ background:#EDF3F1 !important; }
 .scienlist li{ font-family:var(--fb); font-size:14.5px; font-weight:300; color:var(--ink); line-height:1.55; padding:14px 0 14px 18px; border-left:2px solid var(--accent-deep); border-bottom:1px solid var(--hair); }
 .scienlist li:last-child{ border-bottom:none; }
 .scienlist li b{ font-family:var(--fd); font-weight:500; color:var(--ink); }
-/* Two-families menu with image placeholders */
+/* Two-families menu + look showcase */
 .menu-intro{ max-width:720px; margin:6px auto 0; text-align:center; }
 .menu-intro .fam-line{ font-family:var(--fb); font-size:15px; font-weight:300; line-height:1.6; color:var(--ink); margin-top:12px; }
 .menu-intro .fam-line b{ font-weight:600; color:var(--accent-text); }
 .menu-fam{ margin-top:52px; }
-.menu-fam__head{ font-family:var(--fd); font-weight:500; font-size:25px; color:var(--ink); padding-bottom:14px; border-bottom:1px solid var(--hair); margin-bottom:28px; }
-.menu-fam__grid{ display:grid; grid-template-columns:.82fr 1.18fr; gap:40px; align-items:start; }
-@media(max-width:820px){ .menu-fam__grid{ grid-template-columns:1fr; gap:26px; } }
-.fam-media{ position:relative; border-radius:var(--r-md); overflow:hidden; aspect-ratio:4/5; min-height:260px;
-  background:radial-gradient(140% 120% at 26% 6%,#c3e8df 0%,#82bcb1 34%,#3f5b56 70%,#16211f 100%); }
-.fam-media--b{ background:radial-gradient(140% 120% at 72% 8%,#cfe9e3 0%,#8fbfb5 36%,#45605b 72%,#182421 100%); }
-.fam-media::before{ content:attr(data-label); position:absolute; inset:0; display:flex; align-items:flex-end; padding:18px 20px; color:rgba(255,255,255,.85); font-family:var(--fb); font-size:10px; font-weight:600; letter-spacing:.22em; text-transform:uppercase; z-index:3; }
-.fam-media::after{ content:""; position:absolute; inset:0; z-index:2; pointer-events:none;
-  background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='680' height='210'><text x='340' y='118' fill='rgba(255,255,255,0.09)' font-family='Georgia,serif' font-style='italic' font-size='30' letter-spacing='15' text-anchor='middle'>TARA ROSE</text></svg>") center 42%/62% no-repeat,
-    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><filter id='fnm'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='150' height='150' filter='url(%23fnm)' opacity='0.16'/></svg>") top left/150px 150px repeat,
-    linear-gradient(to top,rgba(16,24,22,.5),transparent 48%); }
-.mcols{ display:grid; grid-template-columns:1fr 1fr; gap:30px; }
-@media(max-width:560px){ .mcols{ grid-template-columns:1fr; gap:26px; } }
+.menu-fam__head{ font-family:var(--fd); font-weight:500; font-size:25px; color:var(--ink); padding-bottom:14px; border-bottom:1px solid var(--hair); margin-bottom:24px; }
+.mcols{ display:grid; grid-template-columns:1fr 1fr; gap:30px 44px; }
+@media(max-width:700px){ .mcols{ grid-template-columns:1fr; gap:26px; } }
 .mcol__label{ font-family:var(--fb); font-size:10.5px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--accent-text); }
 .mcol__price{ font-family:var(--fb); font-size:12.5px; font-weight:600; color:var(--ink-soft); margin:4px 0 18px; }
 .mitem{ margin-bottom:17px; }
 .mitem .mi-tag{ display:inline-block; font-family:var(--fb); font-size:9px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-text); margin-bottom:3px; }
 .mitem .mi-name{ font-family:var(--fd); font-weight:500; font-size:17px; color:var(--ink); line-height:1.15; }
 .mitem .mi-desc{ font-family:var(--fb); font-size:12.5px; font-weight:300; line-height:1.5; color:var(--ink-soft); margin-top:4px; }
-.mitem .poa{ display:inline-block; font-family:var(--fb); font-size:11.5px; font-weight:600; color:var(--accent-text); letter-spacing:.02em; margin-top:2px; }
+.mitem .poa{ display:inline-block; font-family:var(--fb); font-size:11.5px; font-weight:600; color:var(--accent-text); margin-top:2px; }
 .menu-block{ margin-top:50px; }
-.menu-block__head{ font-family:var(--fd); font-weight:500; font-size:22px; color:var(--ink); padding-bottom:12px; border-bottom:1px solid var(--hair); margin-bottom:24px; }
-.menu-grid2{ display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+.menu-block__head{ font-family:var(--fd); font-weight:500; font-size:22px; color:var(--ink); padding-bottom:12px; border-bottom:1px solid var(--hair); margin-bottom:22px; }
+.menu-grid2{ display:grid; grid-template-columns:1fr 1fr; gap:22px 44px; }
 @media(max-width:560px){ .menu-grid2{ grid-template-columns:1fr; } }
+/* Shades showcase (the range) */
+.shades{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin:38px 0 6px; }
+@media(max-width:620px){ .shades{ grid-template-columns:repeat(2,1fr); } }
+.shade{ position:relative; aspect-ratio:3/4; border-radius:var(--r-sm); overflow:hidden; }
+.shade::after{ content:""; position:absolute; inset:0; background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><filter id='fnsh'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='150' height='150' filter='url(%23fnsh)' opacity='0.15'/></svg>") top left/120px 120px repeat, linear-gradient(to top,rgba(20,16,10,.5),transparent 55%); }
+.shade .sl{ position:absolute; left:0; right:0; bottom:0; z-index:2; padding:14px 14px; color:#fff; font-family:var(--fb); font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; }
+.shades-cap{ text-align:center; font-family:var(--fb); font-size:12.5px; font-weight:300; letter-spacing:.02em; color:var(--ink-soft); margin-top:16px; }
+/* Look band (feature placement) */
+.look-band{ position:relative; aspect-ratio:16/5.4; min-height:190px; border-radius:var(--r-md); overflow:hidden; margin:48px 0; }
+.look-band::after{ content:""; position:absolute; inset:0; background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><filter id='fnsh'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='150' height='150' filter='url(%23fnsh)' opacity='0.15'/></svg>") top left/150px 150px repeat, linear-gradient(to top,rgba(18,14,10,.55),transparent 62%); }
+.look-band .ll{ position:absolute; left:0; bottom:0; z-index:2; padding:22px 26px; }
+.look-band .ll .lk{ font-family:var(--fb); font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:rgba(255,255,255,.82); display:block; margin-bottom:6px; }
+.look-band .ll .lt{ font-family:var(--fd); font-style:italic; font-size:clamp(20px,2.6vw,26px); color:#fff; }
+
+.loop-cta{ text-align:center; margin-top:54px; }
+.loop-cta__line{ max-width:560px; margin:0 auto 22px; font-family:var(--fb); font-size:15px; font-weight:300; line-height:1.6; color:var(--ink); }
+
+.mi-top{ display:flex; justify-content:space-between; align-items:baseline; gap:14px; }
+.mi-price{ font-family:var(--fb); font-size:13px; font-weight:600; color:var(--ink); white-space:nowrap; }
+.mi-price.poa{ font-size:11.5px; font-weight:600; color:var(--accent-text); }
+.feature-band{ position:relative; aspect-ratio:16/5; min-height:210px; border-radius:var(--r-md); overflow:hidden; margin:0 0 8px; }
+.feature-band.wrapper{ }
+.feature-band::after{ content:""; position:absolute; inset:0; background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><filter id='fnfb'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='150' height='150' filter='url(%23fnfb)' opacity='0.14'/></svg>") top left/150px 150px repeat, linear-gradient(to top,rgba(16,20,20,.5),transparent 60%); }
+.feature-band .fb-txt{ position:absolute; left:0; bottom:0; z-index:2; padding:24px 28px; }
+.feature-band .fb-k{ font-family:var(--fb); font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:rgba(255,255,255,.82); display:block; margin-bottom:6px; }
+.feature-band .fb-t{ font-family:var(--fd); font-style:italic; font-size:clamp(21px,2.8vw,28px); color:#fff; max-width:20ch; line-height:1.2; }
+.fb-wrap{ }
+
+/* Three visits, made explicit */
+.visits{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; max-width:940px; margin:44px auto 0; }
+@media(max-width:720px){ .visits{ grid-template-columns:1fr; } }
+.visit-card{ background:#fff; border:1px solid var(--hair); border-radius:var(--r-md); padding:26px 26px; box-shadow:0 1px 2px rgba(45,46,55,.05),0 14px 30px -24px rgba(45,46,55,.2); }
+.visit-card .vn{ width:34px; height:34px; border-radius:50%; background:var(--ink-deep); color:var(--accent); display:grid; place-items:center; font-family:var(--fd); font-size:16px; margin-bottom:14px; }
+.visit-card .vk{ font-family:var(--fb); font-size:10px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--accent-text); display:block; }
+.visit-card h4{ font-family:var(--fd); font-weight:500; font-size:22px; color:var(--ink); line-height:1.1; margin:7px 0 0; }
+.visit-card p{ font-family:var(--fb); font-size:13.5px; font-weight:300; line-height:1.55; color:var(--ink-soft); margin-top:10px; }
+
+/* 12-Week Loop conversion layer */
+.loop-why{ max-width:720px; margin:2px auto 0; text-align:center; font-family:var(--fb); font-size:15px; font-weight:300; line-height:1.62; color:var(--ink); }
+.loop-why b{ font-weight:600; color:var(--accent-text); }
+.rhythm-compare{ display:grid; grid-template-columns:1fr 1fr; gap:20px; max-width:860px; margin:52px auto 0; }
+@media(max-width:640px){ .rhythm-compare{ grid-template-columns:1fr; } }
+.rcmp{ border-radius:var(--r-md); padding:28px 28px; border:1px solid var(--hair); }
+.rcmp--on{ background:var(--ink-deep); color:#fff; border-color:transparent; box-shadow:0 18px 40px -24px rgba(45,46,55,.4); }
+.rcmp .rcmp-k{ font-family:var(--fb); font-size:10.5px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; margin-bottom:12px; display:block; }
+.rcmp--off .rcmp-k{ color:var(--ink-soft); }
+.rcmp--on .rcmp-k{ color:var(--accent); }
+.rcmp h4{ font-family:var(--fd); font-weight:500; font-size:21px; line-height:1.16; margin-bottom:16px; }
+.rcmp--on h4{ color:#fff; }
+.rcmp ul{ list-style:none; margin:0; padding:0; display:grid; gap:10px; }
+.rcmp li{ display:flex; gap:11px; align-items:flex-start; font-family:var(--fb); font-size:13.5px; font-weight:300; line-height:1.5; }
+.rcmp--off li{ color:var(--ink-soft); }
+.rcmp--on li{ color:rgba(255,255,255,.84); }
+.rcmp li .d{ flex:0 0 6px; width:6px; height:6px; border-radius:50%; margin-top:7px; }
+.rcmp--off li .d{ background:var(--ink-soft); opacity:.45; }
+.rcmp--on li .d{ background:var(--accent); }
+.loop-out{ text-align:center; max-width:640px; margin:34px auto 0; font-family:var(--fd); font-style:italic; font-size:clamp(20px,2.6vw,26px); color:var(--ink); line-height:1.3; }
 
 /* Testimonials (social proof) */
 .tcard{ background:#fff; border:1px solid var(--hair); border-radius:var(--r-md); padding:32px; }
@@ -403,13 +450,13 @@ section[style*="var(--cream)"]{ background:#EDF3F1 !important; }
   <div class="txt">
     <span class="eyebrow">Colour · Blonde</span>
     <h1>Blonde, <em>planned</em> and protected.</h1>
-    <p class="lede p-lg">If your blonde keeps turning brassy or will not hold the cool tone you want, it is not about going lighter or darker. It is about building a plan that holds. Choose the look, we choose the method in your consultation.</p>
+    <p class="lede p-lg">If your blonde keeps turning brassy or will not hold your tone, whether cool, creamy, honey or golden, it is not about going lighter or darker. It is about building a plan that holds. Choose the look, we choose the method in your consultation.</p>
     <div class="cta-row">
       <a class="pill pill--accent" href="https://wa.me/971500000000?text=Hi%20Tara%20Rose%2C%20I%20would%20like%20to%20start%20my%20Blonde%20Hair%20Plan." target="_blank" rel="noopener">Start Your Blonde Plan</a>
       <a class="textlink" href="#menu">See the Blonde Menu</a>
     </div>
   </div>
-  <div class="media" data-label="BLONDE · COOL, DIMENSIONAL, ON RHYTHM" role="img" aria-label="A cool, dimensional blonde result"></div>
+  <div class="media" data-label="BLONDE · TONED, DIMENSIONAL, ON RHYTHM" role="img" aria-label="A toned, dimensional blonde result"></div>
 </section>
 
 <!-- TRUST -->
@@ -433,74 +480,47 @@ section[style*="var(--cream)"]{ background:#EDF3F1 !important; }
       <p class="fam-line"><b>Refresh</b> is light-touch maintenance that keeps your colour fresh between full appointments.</p>
       <p class="fam-line"><b>Transformation</b> is the bigger work: more coverage, more lift, more brightness. Every transformation begins with a consultation.</p>
     </div>
-
-    <!-- Blonde Highlighting -->
+    <div class="shades">
+      <div class="shade" style="background:radial-gradient(130% 120% at 30% 15%,#d6e6e3 0%,#a9c2bd 40%,#5f726d 78%,#26302e 100%)"><span class="sl">Cool</span></div>
+      <div class="shade" style="background:radial-gradient(130% 120% at 30% 15%,#f0e6d2 0%,#d6c4a2 42%,#8a7658 80%,#332a1d 100%)"><span class="sl">Creamy</span></div>
+      <div class="shade" style="background:radial-gradient(130% 120% at 30% 15%,#f2ddb2 0%,#d8ae66 42%,#8f6a38 80%,#2e2113 100%)"><span class="sl">Honey</span></div>
+      <div class="shade" style="background:radial-gradient(130% 120% at 30% 15%,#efce8c 0%,#cf9f4f 42%,#8a6226 80%,#2a1b0b 100%)"><span class="sl">Golden</span></div>
+    </div>
+    <p class="shades-cap">Cool, creamy, honey or golden. We match the tone to you, then build the plan that holds it.</p>
     <div class="menu-fam">
       <h3 class="menu-fam__head">Blonde Highlighting</h3>
-      <div class="menu-fam__grid">
-        <div class="fam-media" data-label="Blonde Highlighting" role="img" aria-label="Blonde highlighting result"></div>
-        <div class="mcols">
-          <div class="mcol">
-            <div class="mcol__label">Refresh Services</div>
-            <div class="mcol__price">Prices from AED __</div>
-            <div class="mitem"><div class="mi-name">Root Touch</div><p class="mi-desc">Essential root maintenance between visits: a colour top-up that keeps your base fresh and your regrowth seamlessly blended.</p></div>
-            <div class="mitem"><div class="mi-name">Blonde Veil</div><p class="mi-desc">Partial highlights to freshen your parting and hairline between full services.</p></div>
-            <div class="mitem"><div class="mi-name">Classic Halo</div><p class="mi-desc">Half-head highlights for soft dimension and a natural lift throughout the top and sides.</p></div>
-            <div class="mitem"><div class="mi-name">Full Blonde Coverage</div><p class="mi-desc">Full-head highlights for a luminous, all-over blonde look.</p></div>
-          </div>
-          <div class="mcol">
-            <div class="mcol__label">Transformation Services</div>
-            <div class="mcol__price">Prices from AED __</div>
-            <div class="mitem"><div class="mi-name">High Impact Blonde</div><p class="mi-desc">Maximum foil coverage for when you want a brighter, bolder blonde with a refined tone.</p></div>
-            <div class="mitem"><div class="mi-name">Global Bleach Application</div><p class="mi-desc">A precision all-over application of bleach lightener: a bespoke, high-transformation service crafted for a bold, dramatic lift.</p></div>
-          </div>
-        </div>
+      <div class="mcols">
+        <div class="mcol"><div class="mcol__label">Refresh Services</div><div class="mitem"><div class="mi-top"><span class="mi-name">Root Touch</span><span class="mi-price">AED __</span></div><p class="mi-desc">Essential root maintenance between visits: a colour top-up that keeps your base fresh and your regrowth seamlessly blended.</p></div><div class="mitem"><div class="mi-top"><span class="mi-name">Blonde Veil</span><span class="mi-price">AED __</span></div><p class="mi-desc">Partial highlights to freshen your parting and hairline between full services.</p></div><div class="mitem"><div class="mi-top"><span class="mi-name">Classic Halo</span><span class="mi-price">AED __</span></div><p class="mi-desc">Half-head highlights for soft dimension and a natural lift throughout the top and sides.</p></div><div class="mitem"><div class="mi-top"><span class="mi-name">Full Blonde Coverage</span><span class="mi-price">AED __</span></div><p class="mi-desc">Full-head highlights for a luminous, all-over blonde look.</p></div></div>
+        <div class="mcol"><div class="mcol__label">Transformation Services</div><div class="mitem"><div class="mi-top"><span class="mi-name">High Impact Blonde</span><span class="mi-price">AED __</span></div><p class="mi-desc">Maximum foil coverage for when you want a brighter, bolder blonde with a refined tone.</p></div><div class="mitem"><div class="mi-top"><span class="mi-name">Global Bleach Application</span><span class="mi-price">AED __</span></div><p class="mi-desc">A precision all-over application of bleach lightener: a bespoke, high-transformation service crafted for a bold, dramatic lift.</p></div></div>
       </div>
     </div>
-
-    <!-- Blonde Balayage -->
+    <div class="look-band" style="background:radial-gradient(120% 160% at 22% 8%,#e8d6b4 0%,#b79a6e 40%,#5c4a34 78%,#231a12 100%)" role="img" aria-label="A hand-painted blonde balayage">
+      <div class="ll"><span class="lk">Blonde Balayage</span><span class="lt">Hand-painted, lived-in, and yours</span></div>
+    </div>
     <div class="menu-fam">
       <h3 class="menu-fam__head">Blonde Balayage</h3>
-      <div class="menu-fam__grid">
-        <div class="fam-media fam-media--b" data-label="Blonde Balayage" role="img" aria-label="Blonde balayage result"></div>
-        <div class="mcols">
-          <div class="mcol">
-            <div class="mcol__label">Refresh Services</div>
-            <div class="mcol__price">Prices from AED __</div>
-            <div class="mitem"><div class="mi-name">Blonde Veil</div><p class="mi-desc">Partial highlights to freshen your parting and hairline between full services.</p></div>
-            <div class="mitem"><div class="mi-name">Balayage Refresh</div><p class="mi-desc">A subtle refresh through your parting and hairline to maintain softness between full balayage services.</p></div>
-          </div>
-          <div class="mcol">
-            <div class="mcol__label">Transformation Services</div>
-            <div class="mcol__price">Prices from AED __</div>
-            <div class="mitem"><div class="mi-name">Classic Balayage</div><p class="mi-desc">Our most-requested look: natural, hand-painted lightness through the top and sides for effortless dimension.</p></div>
-            <div class="mitem"><div class="mi-name">Full Balayage</div><p class="mi-desc">Balayage throughout the full head to create a luminous, blended colour with depth and movement.</p></div>
-          </div>
-        </div>
+      <div class="mcols">
+        <div class="mcol"><div class="mcol__label">Refresh Services</div><div class="mitem"><div class="mi-top"><span class="mi-name">Blonde Veil</span><span class="mi-price">AED __</span></div><p class="mi-desc">Partial highlights to freshen your parting and hairline between full services.</p></div><div class="mitem"><div class="mi-top"><span class="mi-name">Balayage Refresh</span><span class="mi-price">AED __</span></div><p class="mi-desc">A subtle refresh through your parting and hairline to maintain softness between full balayage services.</p></div></div>
+        <div class="mcol"><div class="mcol__label">Transformation Services</div><div class="mitem"><div class="mi-top"><span class="mi-name">Classic Balayage</span><span class="mi-price">AED __</span></div><p class="mi-desc">Our most-requested look: natural, hand-painted lightness through the top and sides for effortless dimension.</p></div><div class="mitem"><div class="mi-top"><span class="mi-name">Full Balayage</span><span class="mi-price">AED __</span></div><p class="mi-desc">Balayage throughout the full head to create a luminous, blended colour with depth and movement.</p></div></div>
       </div>
     </div>
-
-    <!-- Colour Correction -->
     <div class="menu-block">
       <h3 class="menu-block__head">Transformation Blondes: Colour Correction</h3>
       <div class="menu-grid2">
-        <div class="mitem"><div class="mi-name">Colour Correction</div><span class="poa">Price on application</span><p class="mi-desc">Bespoke lightening and correction work, quoted individually after a full consultation.</p></div>
-        <div class="mitem"><div class="mi-name">Balayage Transformation</div><span class="poa">Price on application</span><p class="mi-desc">For dramatic changes, colour corrections, or a complete lightening journey. Includes full balayage and root-to-tip blending.</p></div>
+        <div class="mitem"><div class="mi-top"><span class="mi-name">Colour Correction</span><span class="mi-price poa">Price on application</span></div><p class="mi-desc">Bespoke lightening and correction work, quoted individually after a full consultation.</p></div>
+        <div class="mitem"><div class="mi-top"><span class="mi-name">Balayage Transformation</span><span class="mi-price poa">Price on application</span></div><p class="mi-desc">For dramatic changes, colour corrections, or a complete lightening journey. Includes full balayage and root-to-tip blending.</p></div>
       </div>
     </div>
-
-    <!-- Colour Add-Ons -->
     <div class="menu-block">
       <h3 class="menu-block__head">Colour Add-Ons</h3>
-      <p class="menu-lead" style="margin-bottom:22px">Tailor any colour service with a finishing enhancement.</p>
+      <p class="menu-lead" style="margin-bottom:20px">Tailor any colour service with a finishing enhancement.</p>
       <div class="menu-grid2">
-        <div class="mitem"><div class="mi-name">Added Root Colour</div><span class="poa">Prices from AED __</span><p class="mi-desc">A root colour worked in alongside your foils to refresh regrowth and add depth at the base.</p></div>
-        <div class="mitem"><div class="mi-name">All-Over Colour</div><span class="poa">Prices from AED __</span><p class="mi-desc">A full base colour applied with your foils for complete coverage or a tonal shift, roots to ends.</p></div>
-        <div class="mitem"><div class="mi-name">Ammonia-Free Colour</div><span class="poa">Prices from AED __</span><p class="mi-desc">A gentler colour formula: a kinder option if you have a sensitive scalp, or simply prefer to go ammonia-free.</p></div>
-        <div class="mitem"><div class="mi-name">Ammonia-Free Bleach</div><span class="poa">Prices from AED __</span><p class="mi-desc">A gentler lightening option that lifts while staying kinder to your hair and scalp.</p></div>
+        <div class="mitem"><div class="mi-top"><span class="mi-name">Added Root Colour</span><span class="mi-price">from AED __</span></div><p class="mi-desc">A root colour worked in alongside your foils to refresh regrowth and add depth at the base.</p></div>
+        <div class="mitem"><div class="mi-top"><span class="mi-name">All-Over Colour</span><span class="mi-price">from AED __</span></div><p class="mi-desc">A full base colour applied with your foils for complete coverage or a tonal shift, roots to ends.</p></div>
+        <div class="mitem"><div class="mi-top"><span class="mi-name">Ammonia-Free Colour</span><span class="mi-price">from AED __</span></div><p class="mi-desc">A gentler colour formula: a kinder option if you have a sensitive scalp, or simply prefer to go ammonia-free.</p></div>
+        <div class="mitem"><div class="mi-top"><span class="mi-name">Ammonia-Free Bleach</span><span class="mi-price">from AED __</span></div><p class="mi-desc">A gentler lightening option that lifts while staying kinder to your hair and scalp.</p></div>
       </div>
     </div>
-
     <p class="menu-micro" style="margin-top:36px">Great colour isn't guessed. It's designed.</p>
     <p class="menu-foot">Prices based on roots-to-ends highlights and toner, on medium-length, average-thickness hair. Going from dark to light will vary. Full quotation given at consultation.</p>
   </div>
@@ -520,9 +540,10 @@ section[style*="var(--cream)"]{ background:#EDF3F1 !important; }
   <div class="wrap">
     <div class="sec-head center">
       <span class="eyebrow">Blonde · The 12-Week Loop</span>
-      <h2>Your blonde is one loop of three visits.</h2>
-      <p class="sub">Not three plans. One 12-week loop. Your plan sets how often it runs.</p>
+      <h2>Your blonde doesn't fade. The toner does.</h2>
+      <p class="sub">Fresh blonde was never one appointment held forever. Toner wears off on a clock and the warmth returns, and no one ever showed you the rhythm that holds it. That was never yours to work out alone.</p>
     </div>
+    <p class="loop-why">Left alone, blonde drifts brassy, and the fix becomes a full correction: more time, more cost. <b>On the loop, it never gets that far.</b> Three visits across twelve weeks keep the tone topped up, the hair protected, and the result exactly where you left it.</p>
     <div class="loopring" id="loopRing">
       <svg viewBox="0 0 400 400" aria-hidden="true">
         <circle class="lr-amb" cx="200" cy="200" r="176"/>
@@ -538,28 +559,60 @@ section[style*="var(--cream)"]{ background:#EDF3F1 !important; }
       </div>
       <div class="lr-arc" style="left:78%;top:32%">gloss · treat</div>
       <div class="lr-arc" style="left:22%;top:32%">gloss · finish</div>
-      <div class="lr-lab n1" style="left:50%;top:-6px"><span class="v">Visit 1 · Week 0</span><span class="a">Create</span><span class="s">Built, treated and toned.</span></div>
-      <div class="lr-lab n2" style="left:79.5%;top:79%"><span class="v">Visit 2 · Week 4&ndash;6</span><span class="a">Protect</span><span class="s">Gloss and treat before the warmth returns.</span></div>
-      <div class="lr-lab n3" style="left:20.5%;top:79%"><span class="v">Visit 3 · Week 8&ndash;12</span><span class="a">Keep on Track</span><span class="s">Top-up and re-set, never a rescue.</span></div>
     </div>
-    <p class="loopspeed">Soft runs it slow · Signature on rhythm · Transformation close</p>
+    <div class="visits">
+      <div class="visit-card"><div class="vn">1</div><span class="vk">Visit One · Week 0</span><h4>Create</h4><p>We diagnose your tone, lighten or refresh, and lock it in with a gloss. You leave exactly where you wanted to be.</p></div>
+      <div class="visit-card"><div class="vn">2</div><span class="vk">Visit Two · Week 4 to 6</span><h4>Protect</h4><p>Before the warmth ever shows, we gloss and treat. A short visit that keeps your tone true and the hair strong. This is the one that saves the big one.</p></div>
+      <div class="visit-card"><div class="vn">3</div><span class="vk">Visit Three · Week 8 to 12</span><h4>Keep on Track</h4><p>A top-up and re-set, never a rescue. We keep you ahead of the grow-out, so you are never starting from scratch.</p></div>
+    </div>
+    <p class="loopspeed">How often your loop runs is set by your look, from low maintenance to high. Low maintenance does not mean no maintenance.</p>
 
     <div class="tiers">
-      <div class="tier"><div class="th">Soft</div><div class="td">The lightest loop, longest gaps. For Veil Refresh and Halo looks.</div></div>
-      <div class="tier"><div class="th">Signature</div><div class="td">The standard loop, on rhythm. For Full Blonde Coverage.</div></div>
-      <div class="tier"><div class="th">Transformation</div><div class="td">The closest loop, with full home-care protection. For High Impact, Global and dark-to-light.</div></div>
+      <div class="tier"><div class="th">Low Maintenance</div><div class="td">Lived-in blonde and balayage, built to grow out softly. A toner or gloss every few weeks, the longest gaps between full visits. For Veil, Halo and balayage looks.</div></div>
+      <div class="tier"><div class="th">Mid Maintenance</div><div class="td">Classic foiled blonde, where roots show and tone matters. A tighter rhythm of root toners and half-head refreshes keeps it seamless. For Full Blonde Coverage.</div></div>
+      <div class="tier"><div class="th">High Maintenance</div><div class="td">Platinum and high-impact blonde, with no tolerance for warmth or roots. The closest rhythm, with full home-care protection. For High Impact, Global and dark-to-light.</div></div>
     </div>
+
+    <div class="rhythm-compare">
+      <div class="rcmp rcmp--off">
+        <span class="rcmp-k">Off the loop</span>
+        <h4>The slow drift back to square one</h4>
+        <ul>
+          <li><span class="d"></span>Warmth creeps back, brassy by week eight</li>
+          <li><span class="d"></span>The next visit is a rescue, not a top-up</li>
+          <li><span class="d"></span>A full correction costs more than a year of upkeep</li>
+          <li><span class="d"></span>You never quite feel salon-fresh</li>
+        </ul>
+      </div>
+      <div class="rcmp rcmp--on">
+        <span class="rcmp-k">On the loop</span>
+        <h4>Blonde that simply stays</h4>
+        <ul>
+          <li><span class="d"></span>Tone topped up before the warmth ever shows</li>
+          <li><span class="d"></span>Every visit is quick and predictable</li>
+          <li><span class="d"></span>A smaller, steady spend, never a big reset</li>
+          <li><span class="d"></span>Always salon-fresh, never a rescue</li>
+        </ul>
+      </div>
+    </div>
+    <p class="loop-out">Your blonde stays exactly where you left it.</p>
 
     <div class="sec-head center" style="margin:56px auto 20px;">
       <h2 style="font-size:clamp(26px,3.4vw,36px);">What keeps it between visits</h2>
     </div>
     <table class="ktable">
-      <tr><td class="k">Glossing</td><td>Re-lays the cool tone before the warmth comes through. Every 4 to 6 weeks.</td></tr>
+      <tr><td class="k">Glossing</td><td>Re-lays your tone before unwanted warmth comes through. Every 4 to 6 weeks.</td></tr>
       <tr><td class="k">Treatments</td><td>Prescribed to your hair across the loop: Detox, Strength, Colour Longevity, Hydration &amp; Frizz and Scalp Health. Your stylist prescribes, you do not choose blind.</td></tr>
       <tr><td class="k">Blow-dry</td><td>Keeps your blonde polished and protected between washes, finished to last in the heat.</td></tr>
     </table>
+    <div class="loop-cta">
+      <p class="loop-cta__line">This is the plan, not a single appointment. One conversation sets your rhythm, and we keep your blonde ahead of the fade from there.</p>
+      <a class="pill pill--accent" href="https://wa.me/971500000000?text=Hi%20Tara%20Rose%2C%20I%20would%20like%20to%20start%20my%20Blonde%20Hair%20Plan." target="_blank" rel="noopener">Start your Blonde Plan</a>
+    </div>
   </div>
 </section>
+
+<div class="wrap"><div class="feature-band" style="background:radial-gradient(130% 120% at 30% 15%,#d6e6e3 0%,#a9c2bd 40%,#5f726d 78%,#26302e 100%)" role="img" aria-label="On rhythm"><div class="fb-txt"><span class="fb-k">On rhythm</span><span class="fb-t">Blonde that stays exactly where you left it.</span></div></div></div>
 
 <!-- CONFIDENCE PROMISE -->
 <section class="promise-band">
@@ -581,12 +634,14 @@ section[style*="var(--cream)"]{ background:#EDF3F1 !important; }
     <div class="treat-grid">
       <div class="tcard-x"><span class="eyebrow">Prescribed at consultation</span><h4>Detox</h4><p>Clears the fine film the water leaves behind, so your tone and care can sink in again.</p></div>
       <div class="tcard-x"><span class="eyebrow">Prescribed at consultation</span><h4>Strength</h4><p>Rebuilds the structure inside the hair that lightening loosens, so blonde can last.</p></div>
-      <div class="tcard-x"><span class="eyebrow">Prescribed at consultation</span><h4>Colour Longevity</h4><p>The cool finish wears off first and the warm shows through. This keeps it cool for longer.</p></div>
+      <div class="tcard-x"><span class="eyebrow">Prescribed at consultation</span><h4>Colour Longevity</h4><p>The toner wears off first and unwanted warmth shows through. This keeps your tone true for longer.</p></div>
       <div class="tcard-x"><span class="eyebrow">Prescribed at consultation</span><h4>Hydration &amp; Frizz</h4><p>Blonde reads dry fast here. Moisture and a seal settle the frizz and bring back softness.</p></div>
       <div class="tcard-x"><span class="eyebrow">Prescribed at consultation</span><h4>Scalp Health</h4><p>Your scalp is skin. A calm, cared-for surface lets the blonde growing from it be its best.</p></div>
     </div>
   </div>
 </section>
+
+<div class="wrap"><div class="feature-band" style="background:radial-gradient(120% 160% at 22% 8%,#e8d6b4 0%,#b79a6e 40%,#5c4a34 78%,#231a12 100%)" role="img" aria-label="Home care"><div class="fb-txt"><span class="fb-k">Home care</span><span class="fb-t">The insurance on your blonde, matched to your hair.</span></div></div></div>
 
 <!-- HOME CARE MINI LADDER -->
 <section style="background:var(--stone-soft);">
@@ -628,7 +683,7 @@ section[style*="var(--cream)"]{ background:#EDF3F1 !important; }
     <div class="sec-head center">
       <span class="eyebrow">Blonde · The Education</span>
       <h2>Why your blonde goes warm.</h2>
-      <p class="sub">Your blonde looked exactly right the day you left, then a few weeks on the cool tone slipped and the warmth crept back, and you were not sure why.</p>
+      <p class="sub">Your blonde looked exactly right the day you left, then a few weeks on, your tone slipped and the warmth crept back, and you were not sure why.</p>
     </div>
     <div class="rhythm-list">
       <div class="rhy"><div><h3>What you might have been told</h3><p>Toner will fix it. Wash less. Buy purple shampoo.</p></div></div>
@@ -642,13 +697,15 @@ section[style*="var(--cream)"]{ background:#EDF3F1 !important; }
       <ul class="scienlist">
         <li><b>Lighten</b> = lift out your natural colour and uncover the warmth underneath.</li>
         <li><b>The canvas</b> = that warmth, gold, orange, red. The darker you start, the warmer it is.</li>
-        <li><b>Toner</b> = a cool layer that cancels the warmth. It wears off first.</li>
+        <li><b>Toner</b> = a layer that holds your tone and cancels unwanted warmth. It wears off first.</li>
         <li><b>Warmth returning</b> = the toner has faded and the warmth underneath is showing again, not a fault.</li>
         <li><b>Dryness</b> = lightened hair is more porous, so it loses moisture faster.</li>
       </ul>
     </div>
   </div>
 </section>
+
+<div class="wrap"><div class="feature-band" style="background:radial-gradient(130% 120% at 30% 15%,#f2ddb2 0%,#d8ae66 42%,#8f6a38 80%,#2e2113 100%)" role="img" aria-label="The truth"><div class="fb-txt"><span class="fb-k">The truth</span><span class="fb-t">Blonde, planned and protected.</span></div></div></div>
 
 <!-- ===== MYTHS & TRUTHS (distinct) ===== -->
 <section style="background:var(--cream);">
