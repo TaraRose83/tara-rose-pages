@@ -6,6 +6,12 @@ Every page in `trs-production/` is a **single self-contained HTML file** (fonts 
 
 ---
 
+## ⭐ LIVE public link (share with anyone)
+**https://tararose83.github.io/tara-rose-pages/** — hosted on GitHub Pages, repo `TaraRose83/tara-rose-pages` (public). Anyone with the link opens it, no login. All 8 pages live under it (e.g. `/recruitment/index.html`, `/blonde/blonde-menu-led.html`).
+- **To update:** edit the pages here, copy them into the repo, `git commit` + `git push` — Pages redeploys in ~1 min.
+- **To take it down:** delete the repo, or Settings → Pages → disable, or make the repo private.
+- **Note:** this is a public *preview* host. When the real site launches on `tararosesalon.com` (Framer), retire this or set it to noindex. Canonical tags already point to the real domain, so search engines won't rank the github.io copy.
+
 ## The shareable index
 `index.html` (root of `trs-production/`) is a **page library** — one on-brand page linking all 8.
 - Preview link (yours): https://claude.ai/code/artifact/3f39b123-9bbe-4c0e-bfb4-6cb72a07d433
