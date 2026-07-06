@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dark Mode · Three directions · Tara Rose</title>
+<title>Dark Mode · Four directions · Tara Rose</title>
 <meta name="description" content="Three dark aesthetics for Tara Rose: Editorial Ink, Warm Obsidian and Modern Monochrome. Token overrides on the shared system; pick one to roll out site-wide.">
 <meta name="robots" content="noindex,nofollow">
 <style id="trs">
@@ -288,7 +288,7 @@ em.accent{ font-style:italic; color:var(--accent-text); }
 .dvhex code{ font-family:'JetBrains Mono',ui-monospace,monospace; font-size:13px; color:var(--ink); }
 .dv{ border-radius:var(--r-lg); overflow:hidden; border:1px solid rgba(255,255,255,.08); background:var(--paper); box-shadow:0 30px 70px -30px rgba(0,0,0,.5); }
 .dv-media{ height:120px; background:radial-gradient(140% 130% at 26% 10%, color-mix(in srgb, var(--accent) 26%, var(--paper)) 0%, var(--paper) 72%); position:relative; }
-.dv-media::after{ content:"TARA ROSE"; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-family:var(--fd); font-style:italic; font-size:22px; letter-spacing:12px; color:color-mix(in srgb, var(--ink) 13%, transparent); }
+.dv-media::after{ content:"TARA ROSE"; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-family:var(--fd); font-style:italic; font-size:22px; letter-spacing:12px; color:rgba(255,255,255,.92); }
 .dv-body{ padding:32px 34px 36px; }
 .dv-eyebrow{ font-family:var(--fb); font-size:10px; font-weight:600; letter-spacing:.24em; text-transform:uppercase; color:var(--accent-text); }
 .dv h3{ font-family:var(--fd); font-weight:500; font-size:25px; line-height:1.1; color:var(--ink); margin-top:12px; text-wrap:balance; }
@@ -308,6 +308,7 @@ em.accent{ font-style:italic; color:var(--accent-text); }
 .dv--ink{ --paper:#0B0E14; --cream:#10141C; --stone-soft:#141922; --stone:#1B212C; --ink-deep:#060810; --ink:#ECE3D2; --ink-soft:#A99F8C; --accent:#99F6E4; --accent-deep:#7DE6D2; --accent-text:#7FE9D4; }
 .dv--obsidian{ --paper:#17110F; --cream:#1E1613; --stone-soft:#241A17; --stone:#2C201C; --ink-deep:#100B0A; --ink:#E4D6C6; --ink-soft:#A38F7E; --accent:#7FD9C9; --accent-deep:#6FC9BA; --accent-text:#86D9C9; }
 .dv--mono{ --paper:#0E0E0F; --cream:#151517; --stone-soft:#191A1C; --stone:#212226; --ink-deep:#000000; --ink:#F5F5F6; --ink-soft:#A2A3A7; --accent:#A8FBEC; --accent-deep:#8CF2DF; --accent-text:#93F1DE; }
+.dv--slate{ --paper:#2C2F36; --cream:#343841; --stone-soft:#3B3F49; --stone:#454A55; --ink-deep:#1F2127; --ink:#ECEDEF; --ink-soft:#A7AAB2; --accent:#99F6E4; --accent-deep:#7DE6D2; --accent-text:#8CEBD8; }
 
 </style>
 </head>
@@ -322,7 +323,7 @@ em.accent{ font-style:italic; color:var(--accent-text); }
 <section class="dhero">
   <div class="wrap">
     <span class="eyebrow">Dark Mode</span>
-    <h1 class="h-1">Three directions, <em>one to choose</em>.</h1>
+    <h1 class="h-1">Four directions, <em>one to choose</em>.</h1>
     <p class="lede">Each is a full dark skin layered on the same token system, so the copy, fonts and turquoise CTA never change. Pick one by eye, and it rolls out across every page through the tokens.</p>
   </div>
 </section>
@@ -393,6 +394,27 @@ em.accent{ font-style:italic; color:var(--accent-text); }
       </div>
     </div>
 
+    <!-- Slate Grey -->
+    <div class="dvrow rev">
+      <div class="dvmeta">
+        <span class="dvtag">Variant 04</span>
+        <h2>Slate Grey</h2>
+        <p>A lighter graphite grey, not a true black. Softer and more contemporary, it breaks up the deep darks and holds up well in a bright room.</p>
+        <ul class="dvhex"><li><span>Paper</span><code>#2C2F36</code></li><li><span>Text</span><code>#ECEDEF</code></li><li><span>Accent</span><code>#99F6E4</code></li></ul>
+      </div>
+      <div class="dv dv--slate">
+        <div class="dv-media"></div>
+        <div class="dv-body">
+          <span class="dv-eyebrow">Cut · The Full Loop</span>
+          <h3>Good hair isn't one visit. It's the Full Loop.</h3>
+          <p class="dv-lede">A cut, built for your shape and kept sharp on rhythm.</p>
+          <div class="dv-row"><span class="dv-pill">Book a Cut Consultation &rsaquo;</span><span class="dv-ghost">See the menu</span></div>
+          <div class="dv-card"><span class="dv-k">On the loop</span><p>Reshaped before the frame ever loses its line. Always freshly cut, never grown out.</p></div>
+          <div class="dv-sw"><i style="background:#2C2F36"></i><i style="background:#3B3F49"></i><i style="background:#454A55"></i><i style="background:#ECEDEF"></i><i style="background:#99F6E4"></i></div>
+        </div>
+      </div>
+    </div>
+
     <div class="dvnote">
       <h4>How this rolls out</h4>
       <p>Each direction is a small <code>[data-theme="dark"]</code> token override (six to twelve variables) on top of the shared tokens, plus a theme toggle that remembers the choice and follows the operating system by default. Pick one and it applies to every page, no markup change. Turquoise stays the only CTA accent throughout.</p>
@@ -405,7 +427,7 @@ em.accent{ font-style:italic; color:var(--accent-text); }
   <div class="wrap">
     <div class="row">
       <div><span class="brand__wm">TARA ROSE</span><p>Dark mode directions, layered on the TRS Standard v1 token system.</p><span class="sig">We see you.</span></div>
-      <div><h4>Directions</h4><p>Editorial Ink</p><p>Warm Obsidian</p><p>Modern Monochrome</p></div>
+      <div><h4>Directions</h4><p>Editorial Ink</p><p>Warm Obsidian</p><p>Modern Monochrome</p><p>Slate Grey</p></div>
       <div><h4>Note</h4><p>Token overrides only. Fonts, copy and turquoise CTA unchanged.</p></div>
     </div>
     <div class="subrow"><span>&copy; 2026 Tara Rose Salon Group.</span><span>Dark mode showcase</span></div>
