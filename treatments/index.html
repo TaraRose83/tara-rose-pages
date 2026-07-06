@@ -287,6 +287,9 @@ section[style*="var(--cream)"]{ background:#F1EEF7 !important; }
 .fl-sep{ color:var(--accent-text); font-size:8px; }
 .fl-loop{ color:var(--accent-text); font-family:var(--fb); font-size:15px; margin-left:5px; }
 .loop-belief{ font-family:var(--fd); font-weight:500; font-size:clamp(24px,3.4vw,34px); line-height:1.08; letter-spacing:-.01em; color:var(--ink); text-wrap:balance; }
+.feature-band{ position:relative; width:100%; aspect-ratio:16/5; border-radius:var(--r-md); overflow:hidden; margin:0 0 8px; }
+.feature-band::after{ content:""; position:absolute; inset:0; background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='680' height='210'><text x='340' y='118' fill='rgba(255,255,255,0.10)' font-family='Georgia,serif' font-style='italic' font-size='30' letter-spacing='15' text-anchor='middle'>TARA ROSE</text></svg>") center/46% no-repeat, url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><filter id='fnfb'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='150' height='150' filter='url(%23fnfb)' opacity='0.14'/></svg>") top left/150px 150px repeat, linear-gradient(to top,rgba(18,16,20,.42),transparent 62%); }
+@media(max-width:640px){ .feature-band{ aspect-ratio:3/2; } }
 </style>
 </head>
 <body>
@@ -417,6 +420,8 @@ section[style*="var(--cream)"]{ background:#F1EEF7 !important; }
     </div>
   </div>
 </section>
+
+<div class="wrap"><div class="feature-band" style="background:radial-gradient(130% 120% at 30% 15%,#d9cff0 0%,#a99bd8 40%,#5a4f7a 78%,#221c33 100%)" role="img" aria-label="Tara Rose"></div></div>
 
 <!-- ============================ THE CANONICAL 8 TREATMENTS ============================ -->
 <section style="background:var(--cream);">
@@ -555,6 +560,8 @@ section[style*="var(--cream)"]{ background:#F1EEF7 !important; }
     </div>
   </div>
 </section>
+
+<div class="wrap"><div class="feature-band" style="background:radial-gradient(120% 160% at 22% 8%,#cfc6ea 0%,#9b8fca 40%,#524873 78%,#1f1930 100%)" role="img" aria-label="Tara Rose"></div></div>
 
 <!-- ============================ FAQ ============================ -->
 <section class="dark faq">
