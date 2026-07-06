@@ -356,6 +356,35 @@ body{ background:#F6F1EA; }
 .tcard-x{ background:#F2EADF; box-shadow:0 2px 6px rgba(74,58,42,.07), 0 14px 30px -22px rgba(74,58,42,.24); }
 section[style*="var(--cream)"]{ background:#EFE6D9 !important; }
 .menu-line{ box-shadow:0 22px 54px -28px rgba(74,58,42,.55); }
+/* Two-families menu with image placeholders */
+.menu-intro{ max-width:720px; margin:6px auto 0; text-align:center; }
+.menu-intro .fam-line{ font-family:var(--fb); font-size:15px; font-weight:300; line-height:1.6; color:var(--ink); margin-top:12px; }
+.menu-intro .fam-line b{ font-weight:600; color:var(--accent-text); }
+.menu-fam{ margin-top:52px; }
+.menu-fam__head{ font-family:var(--fd); font-weight:500; font-size:25px; color:var(--ink); padding-bottom:14px; border-bottom:1px solid var(--hair); margin-bottom:28px; }
+.menu-fam__grid{ display:grid; grid-template-columns:.82fr 1.18fr; gap:40px; align-items:start; }
+@media(max-width:820px){ .menu-fam__grid{ grid-template-columns:1fr; gap:26px; } }
+.fam-media{ position:relative; border-radius:var(--r-md); overflow:hidden; aspect-ratio:4/5; min-height:260px;
+  background:radial-gradient(140% 120% at 26% 6%,#e2c6a6 0%,#a9835c 34%,#5c4632 70%,#241a12 100%); }
+.fam-media--b{ background:radial-gradient(140% 120% at 72% 8%,#dcc0a0 0%,#a37c56 36%,#5a4530 72%,#231a11 100%); }
+.fam-media::before{ content:attr(data-label); position:absolute; inset:0; display:flex; align-items:flex-end; padding:18px 20px; color:rgba(255,255,255,.85); font-family:var(--fb); font-size:10px; font-weight:600; letter-spacing:.22em; text-transform:uppercase; z-index:3; }
+.fam-media::after{ content:""; position:absolute; inset:0; z-index:2; pointer-events:none;
+  background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='680' height='210'><text x='340' y='118' fill='rgba(255,255,255,0.09)' font-family='Georgia,serif' font-style='italic' font-size='30' letter-spacing='15' text-anchor='middle'>TARA ROSE</text></svg>") center 42%/62% no-repeat,
+    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><filter id='fnm'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='150' height='150' filter='url(%23fnm)' opacity='0.16'/></svg>") top left/150px 150px repeat,
+    linear-gradient(to top,rgba(24,16,10,.5),transparent 48%); }
+.mcols{ display:grid; grid-template-columns:1fr 1fr; gap:30px; }
+@media(max-width:560px){ .mcols{ grid-template-columns:1fr; gap:26px; } }
+.mcol__label{ font-family:var(--fb); font-size:10.5px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--accent-text); }
+.mcol__price{ font-family:var(--fb); font-size:12.5px; font-weight:600; color:var(--ink-soft); margin:4px 0 18px; }
+.mitem{ margin-bottom:17px; }
+.mitem .mi-tag{ display:inline-block; font-family:var(--fb); font-size:9px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-text); margin-bottom:3px; }
+.mitem .mi-name{ font-family:var(--fd); font-weight:500; font-size:17px; color:var(--ink); line-height:1.15; }
+.mitem .mi-desc{ font-family:var(--fb); font-size:12.5px; font-weight:300; line-height:1.5; color:var(--ink-soft); margin-top:4px; }
+.mitem .poa{ display:inline-block; font-family:var(--fb); font-size:11.5px; font-weight:600; color:var(--accent-text); letter-spacing:.02em; margin-top:2px; }
+.menu-block{ margin-top:50px; }
+.menu-block__head{ font-family:var(--fd); font-weight:500; font-size:22px; color:var(--ink); padding-bottom:12px; border-bottom:1px solid var(--hair); margin-bottom:24px; }
+.menu-grid2{ display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+@media(max-width:560px){ .menu-grid2{ grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
@@ -453,16 +482,59 @@ section[style*="var(--cream)"]{ background:#EFE6D9 !important; }
       <span class="eyebrow">The Brunette Menu</span>
       <h2>From a glossy refresh to a full correction.</h2>
     </div>
-    <p class="menu-lead">You choose the look. We choose the method, gloss, highlights, lowlights or balayage, in your consultation.</p>
-    <p class="menu-orient">Least to most.</p>
-    <div class="menu-list">
-      <div class="mrow"><div class="mtop"><span class="mname">Classic Brunette Gloss</span><span class="mdots"></span><span class="mprice">AED __</span></div><p class="mdesc">A single all-over colour for depth, shine and grey coverage. Made for refreshing dullness with a healthy, polished finish.</p></div>
-      <div class="mrow"><div class="mtop"><span class="mname">Brunette with Dimension</span><span class="mdots"></span><span class="mprice">AED __</span></div><p class="mdesc"><span class="mtag">Our most-loved</span> · Soft highlights, lowlights and contouring for natural movement, richness and tone variation.</p></div>
-      <div class="mrow"><div class="mtop"><span class="mname">The Expensive Brunette</span><span class="mdots"></span><span class="mprice">AED __</span></div><p class="mdesc"><span class="mtag">Our most refined</span> · Multi-tonal, high-gloss brunette crafted with strategic placement for an elevated, understated look. Inspired by global celebrity trends.</p></div>
-      <div class="mrow"><div class="mtop"><span class="mname">Brunette Correction</span><span class="mdots"></span><span class="mprice">AED __</span></div><p class="mdesc">Big colour corrections and complete changes, taken safely and in stages.</p></div>
+    <div class="menu-intro">
+      <p class="fam-line">Every service sits in one of two families.</p>
+      <p class="fam-line"><b>Refresh</b> is light-touch maintenance that keeps your tone rich between full appointments.</p>
+      <p class="fam-line"><b>Transformation</b> is the bigger work: more dimension, more depth, a fuller change. Every transformation begins with a consultation.</p>
     </div>
-    <p class="menu-micro">Not sure which is you? Book a consultation and we will choose it together.</p>
-    <p class="menu-foot">Prices based on medium length, average thickness hair, including toner.<br>Toner not included with Classic Brunette Gloss. Full quotation given at consultation.</p>
+
+    <!-- Brunette Colour -->
+    <div class="menu-fam">
+      <h3 class="menu-fam__head">Brunette Colour</h3>
+      <div class="menu-fam__grid">
+        <div class="fam-media" data-label="Brunette Colour" role="img" aria-label="Brunette colour result"></div>
+        <div class="mcols">
+          <div class="mcol">
+            <div class="mcol__label">Refresh Services</div>
+            <div class="mcol__price">Prices from AED __</div>
+            <div class="mitem"><div class="mi-name">Root Touch</div><p class="mi-desc">Essential root maintenance between visits: a colour top-up that keeps your base fresh and your regrowth seamlessly blended.</p></div>
+            <div class="mitem"><div class="mi-name">All-Over Gloss</div><p class="mi-desc">A single all-over colour for depth, shine, and grey coverage. Made for refreshing dullness with a healthy, polished finish.</p></div>
+            <div class="mitem"><div class="mi-name">Face Frame</div><p class="mi-desc">Delicate placement around the hairline to brighten and contour your face. Ideal for soft enhancement without a full service.</p></div>
+            <div class="mitem"><div class="mi-name">Balayage Refresh</div><p class="mi-desc">A subtle refresh through your parting and hairline to maintain softness between full balayage services.</p></div>
+          </div>
+          <div class="mcol">
+            <div class="mcol__label">Transformation Services</div>
+            <div class="mcol__price">Prices from AED __</div>
+            <div class="mitem"><span class="mi-tag">Our most-loved</span><div class="mi-name">Brunette with Dimension</div><p class="mi-desc">Add soft highlights, lowlights and contouring to create natural movement, richness, and tone variation.</p></div>
+            <div class="mitem"><span class="mi-tag">Our most refined</span><div class="mi-name">The Expensive Brunette</div><p class="mi-desc">Multi-tonal, high-gloss brunette crafted with strategic placement for an elevated, understated look. Inspired by global celebrity trends.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Colour Correction -->
+    <div class="menu-block">
+      <h3 class="menu-block__head">Brunette Transformations: Colour Correction</h3>
+      <div class="menu-grid2">
+        <div class="mitem"><div class="mi-name">Colour Correction</div><span class="poa">Price on application</span><p class="mi-desc">Bespoke depth, correction and dimension work, quoted individually after a full consultation.</p></div>
+        <div class="mitem"><div class="mi-name">Balayage Transformation</div><span class="poa">Price on application</span><p class="mi-desc">For dramatic changes, colour corrections, or a complete lightening journey. Includes full balayage and root-to-tip blending.</p></div>
+      </div>
+    </div>
+
+    <!-- Colour Add-Ons -->
+    <div class="menu-block">
+      <h3 class="menu-block__head">Colour Add-Ons</h3>
+      <p class="menu-lead" style="margin-bottom:22px">Tailor any colour service with a finishing enhancement.</p>
+      <div class="menu-grid2">
+        <div class="mitem"><div class="mi-name">Added Root Colour</div><span class="poa">Prices from AED __</span><p class="mi-desc">A root colour worked in alongside your foils to refresh regrowth and add depth at the base.</p></div>
+        <div class="mitem"><div class="mi-name">All-Over Colour</div><span class="poa">Prices from AED __</span><p class="mi-desc">A full base colour applied with your foils for complete coverage or a tonal shift, roots to ends.</p></div>
+        <div class="mitem"><div class="mi-name">Ammonia-Free Colour</div><span class="poa">Prices from AED __</span><p class="mi-desc">A gentler colour formula: a kinder option if you have a sensitive scalp, or simply prefer to go ammonia-free.</p></div>
+        <div class="mitem"><div class="mi-name">Ammonia-Free Bleach</div><span class="poa">Prices from AED __</span><p class="mi-desc">A gentler lightening option that lifts while staying kinder to your hair and scalp.</p></div>
+      </div>
+    </div>
+
+    <p class="menu-micro" style="margin-top:36px">Brunette should never feel flat.</p>
+    <p class="menu-foot">Prices based on medium-length, average-thickness hair, including toner. Toner is not included with the All-Over Gloss. Going from dark to light will vary. Full quotation given at consultation.</p>
   </div>
 </section>
 
