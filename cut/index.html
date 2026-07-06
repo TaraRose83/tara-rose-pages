@@ -327,6 +327,50 @@ section[style*="var(--cream)"]{ background:#ECECEE !important; }
 .lr-lab .s{ font-size:11.5px; font-weight:300; color:var(--ink-soft); margin-top:4px; line-height:1.42; }
 @media (prefers-reduced-motion:no-preference){ .lr-amb{ animation:lrSpin 70s linear infinite; } @keyframes lrSpin{ to{ transform:rotate(360deg); } } }
 @media (max-width:600px){ .loopring{ width:100%; } .lr-lab{ width:116px; } .lr-lab .s{ display:none; } .lr-lab .a{ font-size:16px; } .lr-center{ width:54%; } }
+/* Showcase + feature bands + loop conversion (Cut) */
+.shades{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin:38px 0 6px; }
+@media(max-width:620px){ .shades{ grid-template-columns:repeat(2,1fr); } }
+.shade{ position:relative; aspect-ratio:3/4; border-radius:var(--r-sm); overflow:hidden; }
+.shade::after{ content:""; position:absolute; inset:0; background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><filter id='fnsh'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='150' height='150' filter='url(%23fnsh)' opacity='0.15'/></svg>") top left/120px 120px repeat, linear-gradient(to top,rgba(20,20,22,.5),transparent 55%); }
+.shade .sl{ position:absolute; left:0; right:0; bottom:0; z-index:2; padding:14px 14px; color:#fff; font-family:var(--fb); font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; }
+.shades-cap{ text-align:center; font-family:var(--fb); font-size:12.5px; font-weight:300; color:var(--ink-soft); margin-top:16px; }
+.feature-band{ position:relative; width:100%; aspect-ratio:16/5; border-radius:var(--r-md); overflow:hidden; margin:0 0 8px; }
+.feature-band::after{ content:""; position:absolute; inset:0; background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='680' height='210'><text x='340' y='118' fill='rgba(255,255,255,0.10)' font-family='Georgia,serif' font-style='italic' font-size='30' letter-spacing='15' text-anchor='middle'>TARA ROSE</text></svg>") center/46% no-repeat, url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><filter id='fnsh'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='150' height='150' filter='url(%23fnsh)' opacity='0.15'/></svg>") top left/150px 150px repeat, linear-gradient(to top,rgba(18,18,20,.42),transparent 62%); }
+@media(max-width:640px){ .feature-band{ aspect-ratio:3/2; } }
+.loop-why{ max-width:720px; margin:2px auto 0; text-align:center; font-family:var(--fb); font-size:15px; font-weight:300; line-height:1.62; color:var(--ink); }
+.loop-why b{ font-weight:600; color:var(--accent-text); }
+.visits{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; max-width:940px; margin:44px auto 0; }
+@media(max-width:720px){ .visits{ grid-template-columns:1fr; } }
+.visit-card{ background:#fff; border:1px solid var(--hair); border-radius:var(--r-md); padding:26px 26px; box-shadow:0 1px 2px rgba(45,46,55,.05),0 14px 30px -24px rgba(45,46,55,.2); }
+.visit-card .vn{ width:34px; height:34px; border-radius:50%; background:var(--ink-deep); color:var(--accent); display:grid; place-items:center; font-family:var(--fd); font-size:16px; margin-bottom:14px; }
+.visit-card .vk{ font-family:var(--fb); font-size:10px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--accent-text); display:block; }
+.visit-card h4{ font-family:var(--fd); font-weight:500; font-size:22px; color:var(--ink); line-height:1.1; margin:7px 0 0; }
+.visit-card p{ font-family:var(--fb); font-size:13.5px; font-weight:300; line-height:1.55; color:var(--ink-soft); margin-top:10px; }
+.loopspeed{ text-align:center; font-family:var(--fb); font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft); margin-top:40px; }
+.tiers{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; max-width:940px; margin:22px auto 0; }
+@media(max-width:720px){ .tiers{ grid-template-columns:1fr; } }
+.tier{ background:#fff; border:1px solid var(--hair); border-radius:var(--r-md); padding:24px 24px; box-shadow:0 1px 2px rgba(45,46,55,.05),0 12px 28px -22px rgba(45,46,55,.18); }
+.tier .th{ font-family:var(--fd); font-weight:500; font-size:20px; color:var(--ink); margin-bottom:8px; }
+.tier .td{ font-family:var(--fb); font-size:13px; font-weight:300; line-height:1.5; color:var(--ink-soft); }
+.rhythm-compare{ display:grid; grid-template-columns:1fr 1fr; gap:20px; max-width:860px; margin:52px auto 0; }
+@media(max-width:640px){ .rhythm-compare{ grid-template-columns:1fr; } }
+.rcmp{ border-radius:var(--r-md); padding:28px 28px; border:1px solid var(--hair); }
+.rcmp--on{ background:var(--ink-deep); color:#fff; border-color:transparent; box-shadow:0 18px 40px -24px rgba(45,46,55,.4); }
+.rcmp .rcmp-k{ font-family:var(--fb); font-size:10.5px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; margin-bottom:12px; display:block; }
+.rcmp--off .rcmp-k{ color:var(--ink-soft); }
+.rcmp--on .rcmp-k{ color:var(--accent); }
+.rcmp h4{ font-family:var(--fd); font-weight:500; font-size:21px; line-height:1.16; margin-bottom:16px; }
+.rcmp--on h4{ color:#fff; }
+.rcmp ul{ list-style:none; margin:0; padding:0; display:grid; gap:10px; }
+.rcmp li{ display:flex; gap:11px; align-items:flex-start; font-family:var(--fb); font-size:13.5px; font-weight:300; line-height:1.5; }
+.rcmp--off li{ color:var(--ink-soft); }
+.rcmp--on li{ color:rgba(255,255,255,.84); }
+.rcmp li .d{ flex:0 0 6px; width:6px; height:6px; border-radius:50%; margin-top:7px; }
+.rcmp--off li .d{ background:var(--ink-soft); opacity:.45; }
+.rcmp--on li .d{ background:var(--accent); }
+.loop-out{ text-align:center; max-width:640px; margin:34px auto 0; font-family:var(--fd); font-style:italic; font-size:clamp(20px,2.6vw,26px); color:var(--ink); line-height:1.3; }
+.loop-cta{ text-align:center; margin-top:54px; }
+.loop-cta__line{ max-width:560px; margin:0 auto 22px; font-family:var(--fb); font-size:15px; font-weight:300; line-height:1.6; color:var(--ink); }
 </style>
 </head>
 <body>
@@ -453,6 +497,24 @@ section[style*="var(--cream)"]{ background:#ECECEE !important; }
     <p class="menu-micro">It is no wonder a blow-dry drops by lunchtime. The heat and humidity here work against it the moment you step outside, so we set and protect it.</p>
     <p class="menu-analogy">Like setting spray over make-up. The look is only half the job. Setting and protecting it is what makes it last.</p>
     <p class="menu-foot">Price and time vary by length and thickness. Full quotation given at consultation.</p>
+  </div>
+</section>
+
+<!-- ============================ CUT SHAPES SHOWCASE ============================ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">The shape</span>
+      <h2>Every shape, built for you.</h2>
+      <p class="sub">A cut is a silhouette, read from your face and texture. These are the shapes we build most, each finished the way you will wear it.</p>
+    </div>
+    <div class="shades">
+      <div class="shade" style="background:radial-gradient(130% 120% at 30% 15%,#cbcdd3 0%,#9a9da6 40%,#54565f 78%,#212228 100%)"><span class="sl">The Bob</span></div>
+      <div class="shade" style="background:radial-gradient(130% 120% at 30% 15%,#d2ccc4 0%,#a39a8f 42%,#5c5349 80%,#241f19 100%)"><span class="sl">Long Layers</span></div>
+      <div class="shade" style="background:radial-gradient(130% 120% at 30% 15%,#c4c9cd 0%,#8f979d 42%,#4c545a 80%,#1c2125 100%)"><span class="sl">The Fringe</span></div>
+      <div class="shade" style="background:radial-gradient(130% 120% at 30% 15%,#d0c8bd 0%,#9c9082 42%,#564d40 80%,#211c15 100%)"><span class="sl">Full Restyle</span></div>
+    </div>
+    <p class="shades-cap">A bob, long layers, a fringe or a full restyle. We read your face and texture, then build the shape.</p>
   </div>
 </section>
 
@@ -625,6 +687,8 @@ section[style*="var(--cream)"]{ background:#ECECEE !important; }
   </div>
 </section>
 
+<div class="wrap"><div class="feature-band" style="background:radial-gradient(120% 160% at 22% 8%,#cfd0d5 0%,#9a9ba2 40%,#4f5158 78%,#1e2025 100%)" role="img" aria-label="Tara Rose cut"></div></div>
+
 <!-- ============================ HOME CARE LADDER (mini) ============================ -->
 <section class="ladder" style="background:var(--cream);">
   <div class="wrap">
@@ -750,6 +814,8 @@ section[style*="var(--cream)"]{ background:#ECECEE !important; }
   </div>
 </section>
 
+<div class="wrap"><div class="feature-band" style="background:radial-gradient(130% 120% at 30% 15%,#cbcdd3 0%,#9a9da6 40%,#54565f 78%,#212228 100%)" role="img" aria-label="Tara Rose cut"></div></div>
+
 <!-- ============================ FAQ ============================ -->
 <section class="dark faq">
   <div class="wrap">
@@ -785,12 +851,14 @@ section[style*="var(--cream)"]{ background:#ECECEE !important; }
 </section>
 
 <!-- ===== SIGNATURE: The Loop ring ===== -->
-<section>
+<section style="background:var(--cream);">
   <div class="wrap">
     <div class="sec-head center">
-      <span class="eyebrow">The Cut Loop</span>
-      <h2>How the cut is kept, on rhythm.</h2>
+      <span class="eyebrow">Cut · The Reshape Loop</span>
+      <h2>A cut doesn't go out of style. It grows out of shape.</h2>
+      <p class="sub">A great cut was never one appointment held forever. The frame loosens first, the shape softens, and no one ever showed you the rhythm that keeps it sharp. That was never yours to work out alone.</p>
     </div>
+    <p class="loop-why">Left too long, a cut grows out awkwardly, and the fix becomes a full restyle: more time, more cost. <b>On the loop, it never gets that far.</b> A reshape on rhythm keeps the frame sharp and the shape exactly as it was built.</p>
     <div class="loopring" id="loopRing">
       <svg viewBox="0 0 400 400" aria-hidden="true">
         <circle class="lr-amb" cx="200" cy="200" r="176"/>
@@ -804,11 +872,46 @@ section[style*="var(--cream)"]{ background:#ECECEE !important; }
         <p class="lr-title">Your cut,<br>held on rhythm.</p>
         <span class="lr-mark">&#8635; the loop holds it</span>
       </div>
-      <div class="lr-arc" style="left:78%;top:32%">blow-dry · finish</div>
-      <div class="lr-arc" style="left:22%;top:32%">home · routine</div>
-      <div class="lr-lab n1" style="left:50%;top:-6px"><span class="v">Visit 1 · Week 0</span><span class="a">Create</span><span class="s">Shape, frame and finish, built.</span></div>
-      <div class="lr-lab n2" style="left:79.5%;top:79%"><span class="v">Between visits</span><span class="a">Protect</span><span class="s">Blow-dry and a home method hold the finish.</span></div>
-      <div class="lr-lab n3" style="left:20.5%;top:79%"><span class="v">Visit 2 · Week 6&ndash;8</span><span class="a">Keep on Track</span><span class="s">A quick reshape before it loses the frame.</span></div>
+      <div class="lr-arc" style="left:78%;top:32%">blow-dry &middot; finish</div>
+      <div class="lr-arc" style="left:22%;top:32%">home &middot; routine</div>
+    </div>
+    <div class="visits">
+      <div class="visit-card"><div class="vn">1</div><span class="vk">Visit One &middot; Week 0</span><h4>Create</h4><p>We build the shape, frame and finish for your face and texture. You leave cut and styled, set to last.</p></div>
+      <div class="visit-card"><div class="vn">2</div><span class="vk">Between visits</span><h4>Protect</h4><p>The blow-dry and a home method you can repeat hold the finish, so the shape reads right long after you leave.</p></div>
+      <div class="visit-card"><div class="vn">3</div><span class="vk">Visit Two &middot; Week 6 to 8</span><h4>Reshape</h4><p>A quick reshape before the frame ever loses its line. Caught on rhythm, it is a reshape, never a restyle.</p></div>
+    </div>
+    <p class="loopspeed">How often you reshape is set by your cut, from low maintenance to high. Low maintenance does not mean no maintenance.</p>
+    <div class="tiers">
+      <div class="tier"><div class="th">Low Maintenance</div><div class="td">Longer, layered shapes built to grow out softly. A reshape every eight weeks or so keeps the ends clean.</div></div>
+      <div class="tier"><div class="th">Mid Maintenance</div><div class="td">Structured shapes with a defined frame. A reshape every six to eight weeks keeps the silhouette reading right.</div></div>
+      <div class="tier"><div class="th">High Maintenance</div><div class="td">Precise shapes, fringes and short cuts, where every week shows. The tightest rhythm, every four to six weeks.</div></div>
+    </div>
+    <div class="rhythm-compare">
+      <div class="rcmp rcmp--off">
+        <span class="rcmp-k">Off the loop</span>
+        <h4>The slow grow-out of shape</h4>
+        <ul>
+          <li><span class="d"></span>The frame loosens, the shape grows heavy by week eight</li>
+          <li><span class="d"></span>The next visit is a restyle, not a reshape</li>
+          <li><span class="d"></span>A full restyle costs more than staying on rhythm</li>
+          <li><span class="d"></span>You never quite feel freshly cut</li>
+        </ul>
+      </div>
+      <div class="rcmp rcmp--on">
+        <span class="rcmp-k">On the loop</span>
+        <h4>A cut that always reads sharp</h4>
+        <ul>
+          <li><span class="d"></span>Reshaped before the frame ever loses its line</li>
+          <li><span class="d"></span>Every visit is quick and predictable</li>
+          <li><span class="d"></span>A smaller, steady spend, never a big reset</li>
+          <li><span class="d"></span>Always freshly cut, never grown out</li>
+        </ul>
+      </div>
+    </div>
+    <p class="loop-out">Your cut stays exactly the shape it was built to be.</p>
+    <div class="loop-cta">
+      <p class="loop-cta__line">This is the plan, not a single appointment. One conversation sets your rhythm, and we keep your cut sharp from there.</p>
+      <a class="pill pill--accent" href="https://wa.me/971500000000?text=Hi%20Tara%20Rose%2C%20I%20would%20like%20to%20start%20my%20Cut%20Plan." target="_blank" rel="noopener">Start your Cut Plan</a>
     </div>
   </div>
 </section>
