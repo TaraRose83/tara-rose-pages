@@ -1,0 +1,75 @@
+/* =====================================================================
+   TRS Standard v1 — Framer variable source
+   Set these ONCE as Framer Variables (Colour / Number / Text), then bind
+   every component to them. This is the single source of truth for the
+   design system in Framer. Values match the live production pages exactly.
+   Last synced 7 July 2026.
+   ===================================================================== */
+
+:root{
+  /* ---- Grounds (light theme) ---- */
+  --paper:#FAF8F4;        /* page background */
+  --cream:#F1ECE3;        /* alt section background */
+  --stone-soft:#EFEBE3;   /* soft cards / bands */
+  --stone:#E7E2D8;        /* card / divider ground */
+  --sand:#E7DFD2;         /* warm ground (home care) */
+
+  /* ---- Ink (text) ---- */
+  --ink:#2D2E37;          /* body + headings */
+  --ink-deep:#1C1B18;     /* dark panels only (belief, FAQ, hero-C) */
+  --ink-soft:#74747B;     /* secondary text, eyebrows */
+  --hair:rgba(45,46,55,.11); /* hairline rules */
+
+  /* ---- Accent (turquoise — the ONLY CTA colour) ---- */
+  --accent:#99F6E4;       /* CTA fill, ticks */
+  --accent-deep:#7DE6D2;  /* CTA hover / focus ring */
+  --accent-text:#3aa892;  /* accent text on light (AA contrast) */
+  --accent-soft:#EEF3C7;
+
+  /* ---- Pillar accents (decorative, one per page max) ---- */
+  --lime:#EEF3C7; --lavender:#C4B5FD; --coral:#FF9B9B; --err:#C9685F;
+
+  /* ---- Loop-ring colour (ONE per service family; see below) ---- */
+  --lr:#7DE6D2;           /* overridden per page */
+
+  /* ---- Radius ---- */
+  --r-lg:22px; --r-md:16px; --r-sm:14px; --r-pill:100px;
+
+  /* ---- Motion ---- */
+  --ease:cubic-bezier(.22,.61,.36,1); --dur-fast:.15s; --dur:.3s; --dur-slow:.7s;
+
+  /* ---- Type ---- */
+  --fd:'Playfair Display',Georgia,serif;              /* display */
+  --fb:'Inter',system-ui,-apple-system,sans-serif;    /* body + eyebrow + util */
+
+  /* ---- Layout ---- */
+  --maxw:1180px; --pad-x:26px; --sec-y:96px;
+}
+
+/* ---- Per-page loop-ring colour (Framer: set --lr per page, keep the SAME ring) ----
+   Blonde   #7DE6D2 (turquoise)   Brunette #B8946F (bronze)
+   Haircut  #6B6D78 (slate)       Treatments #9D8CD0 (lavender)
+   Home Care #BF9D68 (sand)
+   The ring diagram + copy are identical everywhere — only --lr changes. */
+
+/* ---- Type scale (px; use Framer text styles, fluid via clamp on web) ----
+   Display (Playfair 400/500): 108 · 74 · 52 · 44 · 33 · 28 · 23
+   Body    (Inter 300/400/500/600): 18 · 16 · 15.5 · 14.5 · 13.5
+   Eyebrow (Inter 500, UPPER, letter-spacing .4em): 11
+*/
+
+/* =====================================================================
+   DARK MODE — a token OVERRIDE, not a re-theme.
+   Add a Framer "dark" variant that swaps ONLY these ~11 variables.
+   The turquoise CTA stays the sole accent. Four approved directions
+   exist (see dark-mode/); Editorial Ink shown here as the default.
+   ===================================================================== */
+:root[data-theme="dark"]{           /* Editorial Ink */
+  --paper:#0B0E14; --cream:#10141C; --stone-soft:#141922; --stone:#1B212C;
+  --ink-deep:#060810; --ink:#ECE3D2; --ink-soft:#A99F8C;
+  --accent:#99F6E4; --accent-deep:#7DE6D2; --accent-text:#7FE9D4;
+}
+/* Other directions (swap the same vars):
+   Warm Obsidian  paper#17110F ink#E4D6C6 accent#7FD9C9
+   Modern Mono    paper#0E0E0F ink#F5F5F6 accent#A8FBEC
+   Slate Grey     paper#2C2F36 ink#ECEDEF accent#99F6E4  (the lighter one) */
