@@ -26,8 +26,14 @@
   --accent-text:#3aa892;  /* accent text on light (AA contrast) */
   --accent-soft:#EEF3C7;
 
-  /* ---- Pillar accents (decorative, one per page max) ---- */
-  --lime:#EEF3C7; --lavender:#C4B5FD; --coral:#FF9B9B; --err:#C9685F;
+  /* ---- Turquoise scale (Wellness — the CTA accent) ---- */
+  --turq-soft:#DDFBF4; /* --accent, --accent-deep above */ --turq-dark:#256A5B;
+
+  /* ---- Pillar accents (decorative — ONE pillar per piece, never mixed) ---- */
+  /* Lime · Empowerment */    --lime-soft:#F6F9E4; --lime:#EEF3C7; --lime-deep:#D6E08A; --lime-text:#7C8A2E;
+  /* Lavender · Business */   --lav-soft:#EDE7FE;  --lavender:#C4B5FD; --lav-deep:#A78BFA; --lav-text:#6D4FD0;
+  /* Coral · Culture */       --coral-soft:#FFE1E1; --coral:#FF9B9B; --coral-deep:#FF7A7A; --coral-text:#C25757;
+  --err:#C9685F;
 
   /* ---- Loop-ring colour (ONE per service family; see below) ---- */
   --lr:#7DE6D2;           /* overridden per page */
