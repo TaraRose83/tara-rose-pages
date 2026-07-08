@@ -71,11 +71,11 @@
    exist (see dark-mode/); Editorial Ink shown here as the default.
    ===================================================================== */
 :root[data-theme="dark"]{           /* Editorial Ink */
-  --paper:#0B0E14; --cream:#10141C; --stone-soft:#141922; --stone:#1B212C;
-  --ink-deep:#060810; --ink:#ECE3D2; --ink-soft:#A99F8C;
+  --paper:#12110F; --cream:#1A1815; --stone-soft:#211F1C; --stone:#2B2924;
+  --ink-deep:#0D0C0B; --ink:#ECE3D2; --ink-soft:#A99F8C;
   --accent:#99F6E4; --accent-deep:#7DE6D2; --accent-text:#7FE9D4;
 }
 /* Other directions (swap the same vars):
    Warm Obsidian  paper#17110F ink#E4D6C6 accent#7FD9C9
-   Modern Mono    paper#0E0E0F ink#F5F5F6 accent#A8FBEC
-   Slate Grey     paper#2C2F36 ink#ECEDEF accent#99F6E4  (the lighter one) */
+   Modern Mono    paper#0E0D0C ink#F5F4F1 accent#A8FBEC
+   Slate Grey     paper#302D29 ink#ECEAE4 accent#99F6E4  (the lighter one) */
