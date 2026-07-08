@@ -6,7 +6,9 @@ The full brand palette, type, and component rules. Pairs with the **Figma Design
 
 ## Colour
 
-### Grounds (warm neutrals)
+> **LOCKED RULE:** a section/page **background is ALWAYS a base colour** — a warm neutral, an editorial dark, or a grey. **Pastels + turquoise are ACCENT-only, never a ground.** Directions differ by *which base family* they use, not by tinting the ground.
+
+### BASE · Warm neutrals (backgrounds)
 | Token | Hex | Role |
 |---|---|---|
 | Paper | `#FAF8F4` | Page background |
@@ -15,13 +17,19 @@ The full brand palette, type, and component rules. Pairs with the **Figma Design
 | Stone | `#E7E2D8` | Cards · media |
 | Sand | `#E7DFD2` | Warm ground (Home Care) |
 
-### Ink
+### BASE · Editorial dark (warm charcoal — NEVER blue)
 | Token | Hex | Role |
 |---|---|---|
 | Ink | `#2D2E37` | Body + headings (charcoal) |
-| Ink Deep | `#1C1B18` | Dark panels only |
+| Ink Deep | `#1C1B18` | Dark panels / dark hero |
+| Dark grounds | `#12110F` · `#1A1815` · `#211F1C` · `#2B2924` | Dark-mode grounds (warm) |
 | Ink Soft | `#74747B` | Secondary text, eyebrows |
 | Hair | `#E6E3DD` | Hairline rules (ink 11%) |
+
+Backgrounds are warm (R≥G≥B). A blue-tinted dark (e.g. the retired `#0B0E14`) is **banned**.
+
+### BASE · Greys (warm-neutral — a main background family)
+`#ECEAE6` · `#D9D6D1` · `#B7B3AD` · `#8C8883` · `#6A6763` · `#4A4744` · `#302E2B` · `#201F1D`
 
 ### Turquoise · Wellness — **the only CTA colour**
 | Token | Hex | Role |
@@ -32,7 +40,7 @@ The full brand palette, type, and component rules. Pairs with the **Figma Design
 | Text | `#3AA892` | Accent text on light (AA) |
 | Dark | `#256A5B` | Deep shade |
 
-### Pillar accents — decorative, **one pillar per piece, never mixed**
+### ACCENTS ONLY — pastels, **never a background**, one pillar per piece
 **Lime · Empowerment** — Soft `#F6F9E4` · Base `#EEF3C7` · Deep `#D6E08A` · Text `#7C8A2E`
 **Lavender · Business** — Soft `#EDE7FE` · Base `#C4B5FD` · Deep `#A78BFA` · Text `#6D4FD0`
 **Coral · Culture** — Soft `#FFE1E1` · Base `#FF9B9B` · Deep `#FF7A7A` · Text `#C25757`

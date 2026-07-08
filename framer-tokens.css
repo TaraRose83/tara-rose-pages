@@ -35,6 +35,12 @@
   /* Coral · Culture */       --coral-soft:#FFE1E1; --coral:#FF9B9B; --coral-deep:#FF7A7A; --coral-text:#C25757;
   --err:#C9685F;
 
+  /* ---- BASE · Greys (a main background family — warm-neutral, never blue) ---- */
+  --grey-100:#ECEAE6; --grey-200:#D9D6D1; --grey-300:#B7B3AD; --grey-400:#8C8883;
+  --grey-500:#6A6763; --grey-600:#4A4744; --grey-700:#302E2B; --grey-800:#201F1D;
+  /* RULE: a background is ALWAYS a base (neutral / editorial-dark / grey).
+     Turquoise + pastel pillars (lavender/coral/lime) are ACCENTS — never a ground. */
+
   /* ---- Loop-ring colour (ONE per service family; see below) ---- */
   --lr:#7DE6D2;           /* overridden per page */
 
