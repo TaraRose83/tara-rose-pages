@@ -68,3 +68,15 @@ CTAs are `--accent` (turquoise) everywhere. Per-page **skins** re-tone grounds/c
 
 ## What to build later (not now)
 A **brand-config → auto-stamp generator** (one JSON of the values above → all pages emitted) is the real white-label engine. Worth building once a **second brand actually exists**. Premature before that — this sheet + find-and-replace is faster for 1–2 brands.
+
+---
+
+## Tokenised hardcoded values (added 8 Jul 2026 — source pages fully de-hardcoded)
+The UAE source pages now carry **swap placeholders** instead of real values (live GitHub Pages deploy was NOT changed — it keeps real values for this week's go-live). Swap these when populating any instance:
+- `__LOCATION_1_NAME__` … `__LOCATION_4_NAME__` — salon names (were Saadiyat · Khalifa City A · Al Quoz · Motor City)
+- `__LOCATION_1_ADDRESS__` … `__LOCATION_4_ADDRESS__` — full street addresses
+- `__MAPS_Q_1__` … `__MAPS_Q_4__` — Google-Maps search query strings
+- `__PHONE_3__`, `__PHONE_4__` — branch phone numbers
+- `__TESTIMONIAL_1_NAME__`, `__TESTIMONIAL_2_NAME__` — cleared testimonial names
+- `__COUNTDOWN_DATE__` — founding countdown close date
+Already-existing placeholders (unchanged): `971500000000` (WhatsApp), `AED __` (prices), `__FORM_ENDPOINT__`, `[Entity/Licence/Address · placeholder]`. Bahrain (`trs-bahrain/`) was already placeholder-tokenised (Bahrain Location 1–4 · +973 __ · Address to be confirmed).
