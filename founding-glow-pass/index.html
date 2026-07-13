@@ -601,18 +601,18 @@ em.accent{ font-style:italic; color:var(--accent-text); }
       <form onsubmit="return false;">
         <div class="field">
           <label for="fname">First name <span class="req">*</span></label>
-          <input id="fname" type="text" placeholder="Your first name" required>
+          <input id="fname" name="firstName" type="text" placeholder="Your first name" required>
         </div>
         <div class="field">
           <label for="wa">WhatsApp number <span class="req">*</span></label>
           <div class="phone-wrap">
-            <select aria-label="Country code"><option>+973</option><option>+971</option><option>+966</option><option>+44</option></select>
-            <input id="wa" type="tel" placeholder="3300 0000" required>
+            <select id="cc" name="cc" aria-label="Country code"><option>+973</option><option>+971</option><option>+966</option><option>+44</option></select>
+            <input id="wa" name="whatsapp" type="tel" placeholder="3300 0000" required>
           </div>
         </div>
         <div class="field">
           <label for="email">Email <span class="req">*</span></label>
-          <input id="email" type="email" placeholder="you@example.com" required>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required>
         </div>
 
         <div class="field">
@@ -627,11 +627,11 @@ em.accent{ font-style:italic; color:var(--accent-text); }
 
         <div class="pdpl">
           <div class="pdpl__group">
-            <input type="checkbox" class="pdpl__checkbox" id="c-marketing" required>
+            <input type="checkbox" class="pdpl__checkbox" id="c-marketing" name="consent_marketing" required>
             <label class="pdpl__label" for="c-marketing">I agree Tara Rose may contact me about my founding place and membership. <span>(required)</span></label>
           </div>
           <div class="pdpl__group">
-            <input type="checkbox" class="pdpl__checkbox" id="c-whatsapp">
+            <input type="checkbox" class="pdpl__checkbox" id="c-whatsapp" name="consent_whatsapp">
             <label class="pdpl__label" for="c-whatsapp">I am happy to be contacted on WhatsApp. <span>(optional)</span></label>
           </div>
           <p class="pdpl__note"><strong>Tara Rose Bahrain</strong> is the data controller. We keep your details for 24 months to manage your founding place, then remove them. Your data may be processed on GHL, hosted in the US, disclosed here. You can access, correct or delete your data any time at privacy@tararosesalon.com. See our <a href="/tara-rose-pages/legal/privacy">Privacy Policy</a>.</p>
@@ -724,6 +724,7 @@ em.accent{ font-style:italic; color:var(--accent-text); }
     for(var i=0;i<req.length;i++){ var el=req[i]; if((el.type==='checkbox'&&!el.checked)||(el.type!=='checkbox'&&!String(el.value).trim())){ el.focus(); return; } }
     var data={source:(document.title||'').split('·')[0].trim()};
     f.querySelectorAll('[name]').forEach(function(el){ if(el.type==='checkbox'){data[el.name]=el.checked;} else if(el.type==='radio'){ if(el.checked) data[el.name]=el.value; } else if(el.value){ data[el.name]=el.value; } });
+    if(data.cc && data.whatsapp){ data.whatsapp = data.cc + " " + data.whatsapp; delete data.cc; }
     if(FORM_ENDPOINT.indexOf("__FORM_ENDPOINT__")===-1){ try{ fetch(FORM_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)}); }catch(err){} }
     var t=document.createElement('div'); t.className='form-thanks';
     t.innerHTML='<h3>Thank you. We have you.</h3><p>Our team will reply within one working day.</p>';
