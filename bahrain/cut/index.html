@@ -380,7 +380,120 @@ section[style*="var(--cream)"]{ background:#ECECEE !important; }
 .fl-sep{ color:var(--accent-text); font-size:8px; }
 .fl-loop{ color:var(--accent-text); font-family:var(--fb); font-size:15px; margin-left:5px; }
 .loop-belief{ font-family:var(--fd); font-weight:500; font-size:clamp(24px,3.4vw,34px); line-height:1.08; letter-spacing:-.01em; color:var(--ink); text-wrap:balance; }
-[id]{scroll-margin-top:84px}::selection{background:var(--accent);color:var(--ink)}::-moz-selection{background:var(--accent);color:var(--ink)}</style>
+[id]{scroll-margin-top:84px}::selection{background:var(--accent);color:var(--ink)}::-moz-selection{background:var(--accent);color:var(--ink)}
+/* ── TRS NORMALISE v1 (build-injected from _content/normalise.css) ── */
+/* ═══════════ TRS NORMALISE v1 ═══════════════════════════════════════
+   Appended last inside each page's <style>, so it wins on source order
+   at equal specificity. Touches nothing skin-specific: no grounds, no
+   --lr, no .lr-arc, no media art. Those stay per-page.
+   ════════════════════════════════════════════════════════════════════ */
+
+/* 1 · Token backfill. A no-op on the 67 pages that already carry tokens;
+       gives the 11 hand-built pages the same vocabulary. */
+:root{
+  --maxw:1180px; --maxw-prose:760px; --pad-x:26px; --sec-y:96px;
+  --r-lg:22px; --r-md:16px; --r-sm:14px; --r-pill:100px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --dur-fast:.15s; --dur:.3s; --dur-slow:.7s;
+  --stone-soft:#EFEBE3;
+  --accent-dark:#256A5B;
+
+  --fs-h3:clamp(26px,3.6vw,40px);
+  --fs-h4:clamp(28px,4.4vw,48px);
+  --fs-h5:clamp(22px,3vw,30px);
+  --fs-h6:clamp(20px,2.6vw,26px);
+
+  /* Elevation. --sh-rgb is the one knob a skin may re-declare, which is how
+     brunette keeps warm shadows and blonde keeps cool ones. */
+  --sh-rgb:45,46,55;
+  --sh-cta-rgb:61,140,127;
+  --sh-btn:        0 1px 2px         rgba(var(--sh-rgb),.10);
+  --sh-btn-hover:  0 11px 24px -10px rgba(var(--sh-rgb),.42);
+  --sh-cta:        0 1px 2px         rgba(var(--sh-cta-rgb),.20);
+  --sh-cta-hover:  0 12px 26px -10px rgba(var(--sh-cta-rgb),.50);
+  --sh-card:       0 1px 2px rgba(var(--sh-rgb),.05), 0 12px 28px -20px rgba(var(--sh-rgb),.16);
+  --sh-card-hover: 0 2px 4px rgba(var(--sh-rgb),.05), 0 22px 44px -22px rgba(var(--sh-rgb),.24);
+  --sh-media:      0 1px 2px rgba(var(--sh-rgb),.04), 0 18px 44px -28px rgba(var(--sh-rgb),.14);
+  --sh-hero:       0 2px 6px rgba(var(--sh-rgb),.10), 0 24px 48px -24px rgba(var(--sh-rgb),.45);
+  --sh-nav:        0 8px 30px -18px rgba(var(--sh-rgb),.28);
+}
+@media (max-width:900px){ :root{ --sec-y:64px } }
+@media (max-width:600px){ :root{ --sec-y:48px; --pad-x:20px } }
+
+/* 2 · One button system: primary (ink) · CTA (turquoise) · secondary (ghost) */
+.btn,.pill{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  font-family:var(--fb); font-size:13px; font-weight:500; letter-spacing:.04em;
+  padding:14px 26px; border-radius:var(--r-pill);
+  border:1.5px solid transparent;   /* keeps solid and ghost the same height side by side */
+  cursor:pointer; text-decoration:none;
+  background:var(--ink); color:var(--paper); box-shadow:var(--sh-btn);
+  transition:transform var(--dur) var(--ease), background var(--dur) var(--ease),
+             border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.btn:hover,.pill:hover{ transform:translateY(-2px); background:#3B3C47; box-shadow:var(--sh-btn-hover); }
+.btn:active,.pill:active{ transform:translateY(0); }
+
+.btn--accent,.pill--accent{ background:var(--accent); color:var(--ink); box-shadow:var(--sh-cta); }
+.btn--accent:hover,.pill--accent:hover{ background:var(--accent-deep); box-shadow:var(--sh-cta-hover); }
+
+/* The ghost button was inheriting .btn:hover's charcoal fill (0,2,0 beats 0,1,0)
+   while keeping charcoal text, so the label disappeared on hover at ~1.1:1. */
+.btn--ghost,.pill--ghost{ background:transparent; color:var(--ink); border-color:var(--hair); box-shadow:none; }
+.btn--ghost:hover,.pill--ghost:hover{
+  background:var(--stone-soft); color:var(--ink);
+  border-color:var(--ink-soft); box-shadow:none; transform:translateY(-2px);
+}
+.btn--ghost.on-dark,.pill--ghost.on-dark{ color:#FFF; border-color:rgba(255,255,255,.24); }
+.btn--ghost.on-dark:hover,.pill--ghost.on-dark:hover{ background:rgba(255,255,255,.08); color:#FFF; border-color:#FFF; }
+.btn .arr,.pill .arr{ transition:transform var(--dur) var(--ease); }
+.btn:hover .arr,.pill:hover .arr{ transform:translateX(4px); }
+
+/* 3 · Spacing. max-width is deliberately not forced, so the legal pages keep
+       their 760px prose measure. */
+.wrap{ margin-inline:auto; padding-inline:var(--pad-x); }
+section{ padding-block:var(--sec-y); }
+
+/* 4 · Type */
+.h-1{ font-family:var(--fd); font-weight:500; font-size:clamp(42px,6.4vw,74px);
+      line-height:1.02; letter-spacing:-.012em; text-wrap:balance; }
+.h-2,.sec-head h2{ font-family:var(--fd); font-weight:500; font-size:clamp(31px,4.4vw,52px);
+      line-height:1.05; letter-spacing:-.012em; text-wrap:balance; }
+.belief h2{ font-size:var(--fs-h4); }
+.eyebrow{ font-family:var(--fb); font-size:11px; font-weight:500;
+          letter-spacing:.4em; text-transform:uppercase; }
+body{ font-weight:400; line-height:1.62; }
+
+/* 5 · Shadows. Collapses 19 one-off values onto the ladder. */
+.bcard,.tier,.tcard,.tcard-x,.loc,.pkg,.lcard,.gcard,.acard,
+.visit-card,.stage,.rhythm,.path,.col,.item,.card{ box-shadow:var(--sh-card); }
+.bcard:hover,.tier:hover,.tcard-x:hover,.pkg:hover,
+.gcard:hover,.path:hover,.route:hover{ box-shadow:var(--sh-card-hover); }
+.media,.feature-band,.look-band,.rcard-l{ box-shadow:var(--sh-media); }
+.bcard--hero,.path--hero,.rstart,.rcmp--on,.menu-line{ box-shadow:var(--sh-hero); }
+.trs-nav.scrolled{ box-shadow:var(--sh-nav); }
+
+/* 6 · Focus. The old ring was turquoise on paper at 1.39:1, which fails WCAG 2.4.11.
+       Dark outline carries light grounds; the turquoise halo carries dark ones. */
+:focus-visible{
+  outline:2px solid var(--accent-dark); outline-offset:2px;
+  box-shadow:0 0 0 4px rgba(153,246,228,.45); border-radius:3px;
+}
+
+/* 7 · Guards. `clip` never creates a scroll container, so the sticky nav survives. */
+body{ overflow-x:hidden; overflow-x:clip; }
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{ animation-duration:.01ms !important; animation-iteration-count:1 !important;
+                        transition-duration:.01ms !important; scroll-behavior:auto !important; }
+}
+
+/* 8 · The Full Loop. One component, one knob. */
+.loopring{ margin:8px auto 10px; }
+.lr-amb,.lr-main,.lr-n circle{ stroke:var(--lr,var(--accent-deep)); }
+.lr-n text{ fill:var(--lr,var(--accent-deep)); }
+.lr-mark{ color:var(--lr,var(--accent-deep)); }
+
+</style>
 <meta name="geo.region" content="BH">
 <meta name="geo.placename" content="Manama">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.tararosesalon.com/#organization","name":"Tara Rose Salon","url":"https://www.tararosesalon.com","logo":{"@type":"ImageObject","url":"https://www.tararosesalon.com/logo.svg"},"sameAs":["https://instagram.com/tararosesalon"]},{"@type":"WebSite","@id":"https://www.tararosesalon.com/#website","url":"https://www.tararosesalon.com","name":"Tara Rose Salon","publisher":{"@id":"https://www.tararosesalon.com/#organization"},"inLanguage":"en-GB"}]}</script>
@@ -410,7 +523,7 @@ section[style*="var(--cream)"]{ background:#ECECEE !important; }
     </a>
     <div class="nav__zone-r">
       <a class="nav-link" href="/tara-rose-pages/bahrain/contact">Contact</a>
-      <a class="pill pill--accent nav__cta" href="https://wa.me/97300000000?text=Hi%20Tara%20Rose%2C%20I%20would%20like%20to%20book%20a%20Cut%20Consultation." target="_blank" rel="noopener">Book a Cut Consultation</a>
+      <a class="pill pill--accent nav__cta" href="https://wa.me/97335323411?text=Hi%20Tara%20Rose%2C%20I%20would%20like%20to%20book%20a%20Cut%20Consultation." target="_blank" rel="noopener">Book a Cut Consultation</a>
     </div>
   </div>
 </nav>
@@ -430,8 +543,8 @@ section[style*="var(--cream)"]{ background:#ECECEE !important; }
       <a href="/tara-rose-pages/bahrain/contact">Contact</a>
     </nav>
     <div class="nav__mobile-foot">
-      <a class="wa" href="https://wa.me/97300000000?text=Hi%20Tara%20Rose%2C%20I%20would%20like%20to%20book%20a%20Cut%20Consultation." target="_blank" rel="noopener">WhatsApp the Team</a>
-      <a class="pill pill--accent" href="https://wa.me/97300000000?text=Hi%20Tara%20Rose%2C%20I%20would%20like%20to%20book%20a%20Cut%20Consultation." target="_blank" rel="noopener">Book a Cut Consultation</a>
+      <a class="wa" href="https://wa.me/97335323411?text=Hi%20Tara%20Rose%2C%20I%20would%20like%20to%20book%20a%20Cut%20Consultation." target="_blank" rel="noopener">WhatsApp the Team</a>
+      <a class="pill pill--accent" href="https://wa.me/97335323411?text=Hi%20Tara%20Rose%2C%20I%20would%20like%20to%20book%20a%20Cut%20Consultation." target="_blank" rel="noopener">Book a Cut Consultation</a>
     </div>
   </div>
 </div>
@@ -445,8 +558,8 @@ section[style*="var(--cream)"]{ background:#ECECEE !important; }
     <h1 class="h-1">A cut is <em class="serif-em accent">built</em>, not just done.</h1>
     <p class="lede p-lg">Shape, frame and finish. The three questions we answer at the mirror before the scissors move.</p>
     <div class="cta-row">
-      <a class="pill pill--accent" href="https://wa.me/97300000000?text=Hi%20Tara%20Rose%2C%20I%20would%20like%20to%20book%20a%20Cut%20Consultation." target="_blank" rel="noopener">Book a Cut Consultation</a>
-      <a class="textlink" href="https://wa.me/97300000000?text=Hi%20Tara%20Rose%2C%20I%20would%20like%20to%20book%20a%20Cut%20Consultation." target="_blank" rel="noopener">WhatsApp the Team</a>
+      <a class="pill pill--accent" href="https://wa.me/97335323411?text=Hi%20Tara%20Rose%2C%20I%20would%20like%20to%20book%20a%20Cut%20Consultation." target="_blank" rel="noopener">Book a Cut Consultation</a>
+      <a class="textlink" href="https://wa.me/97335323411?text=Hi%20Tara%20Rose%2C%20I%20would%20like%20to%20book%20a%20Cut%20Consultation." target="_blank" rel="noopener">WhatsApp the Team</a>
     </div>
   </div>
 </section>
@@ -544,7 +657,7 @@ section[style*="var(--cream)"]{ background:#ECECEE !important; }
 <section>
   <div class="wrap">
     <div class="sec-head center">
-      <span class="eyebrow">The 5-Block Rhythm · Cut</span>
+      <span class="eyebrow">Cut · The Education</span>
       <h2>Why a cut is built, not just done.</h2>
       <p class="sub">Your cut looked right the day you left the chair, then a few weeks on it lost its shape or the frame stopped sitting, and you were not sure whether it was the cut or you.</p>
     </div>
@@ -885,6 +998,9 @@ section[style*="var(--cream)"]{ background:#ECECEE !important; }
         <g class="lr-n"><circle cx="317.8" cy="268" r="21"/><text x="317.8" y="268">2</text></g>
         <g class="lr-n"><circle cx="82.2" cy="268" r="21"/><text x="82.2" y="268">3</text></g>
       </svg>
+      <div class="lr-lab n1" style="left:50%;top:-6px"><span class="v">Visit 1</span><span class="a">Create</span><span class="s">We build a shape for your face and the way your hair falls.</span></div>
+      <div class="lr-lab n2" style="left:79.5%;top:79%"><span class="v">Between visits</span><span class="a">Protect</span><span class="s">Home care and finishing hold the shape between visits.</span></div>
+      <div class="lr-lab n3" style="left:20.5%;top:79%"><span class="v">On rhythm</span><span class="a">Keep on Track</span><span class="s">A visit on rhythm, before it grows out of its outline.</span></div>
       <div class="lr-center">
         <span class="eyebrow">The Full Loop</span>
         <p class="lr-title">Your hair,<br>held on rhythm.</p>
@@ -923,7 +1039,7 @@ section[style*="var(--cream)"]{ background:#ECECEE !important; }
     <p class="loop-out">Your cut stays exactly the shape it was built to be.</p>
     <div class="loop-cta">
       <p class="loop-cta__line">This is the plan, not a single appointment. One conversation sets your rhythm, and we keep your cut sharp from there.</p>
-      <a class="pill pill--accent" href="https://wa.me/97300000000?text=Hi%20Tara%20Rose%2C%20I%20would%20like%20to%20start%20my%20Cut%20Plan." target="_blank" rel="noopener">Start your Cut Plan</a>
+      <a class="pill pill--accent" href="https://wa.me/97335323411?text=Hi%20Tara%20Rose%2C%20I%20would%20like%20to%20start%20my%20Cut%20Plan." target="_blank" rel="noopener">Start your Cut Plan</a>
     </div>
   </div>
 </section>
@@ -944,14 +1060,14 @@ section[style*="var(--cream)"]{ background:#ECECEE !important; }
       <h2 class="h-1">Ready for a cut that <em class="accent">actually holds?</em></h2>
       <p class="sub">We answer the three questions at the mirror, build the cut, and set the rhythm to keep it. Your cut starts with one conversation.</p>
       <div class="cta-row">
-        <a class="pill pill--accent" href="https://wa.me/97300000000?text=Hi%20Tara%20Rose%2C%20I%20would%20like%20to%20book%20a%20Cut%20Consultation." target="_blank" rel="noopener">Book a Cut Consultation</a>
-        <a class="btn btn--ghost on-dark" href="https://wa.me/97300000000?text=Hi%20Tara%20Rose%2C%20I%20would%20like%20to%20book%20a%20Cut%20Consultation." target="_blank" rel="noopener">WhatsApp the Team</a>
+        <a class="pill pill--accent" href="https://wa.me/97335323411?text=Hi%20Tara%20Rose%2C%20I%20would%20like%20to%20book%20a%20Cut%20Consultation." target="_blank" rel="noopener">Book a Cut Consultation</a>
+        <a class="btn btn--ghost on-dark" href="https://wa.me/97335323411?text=Hi%20Tara%20Rose%2C%20I%20would%20like%20to%20book%20a%20Cut%20Consultation." target="_blank" rel="noopener">WhatsApp the Team</a>
       </div>
       <div class="free-door" style="margin-top:26px;display:flex;flex-direction:column;gap:9px;max-width:600px;margin-left:auto;margin-right:auto">
-        <p class="sub" style="margin:0 0 4px;font-size:13.5px"><strong>The Confidence Promise.</strong> If something does not feel right within seven days of any colour or treatment service, we invite you back to refine it, no blame, just care. Refine, never refund.</p>
+        <p class="sub" style="margin:0 0 4px;font-size:13.5px"><strong>The Confidence Promise.</strong> If something does not feel right within seven days of any colour or treatment service, we invite you back to refine it. No blame, just care. Refine, never refund.</p>
         <p class="sub" style="margin:0;font-size:13.5px">Not ready to book? <a href="/tara-rose-pages/bahrain/confidence-mapping" style="color:var(--accent);text-decoration:underline">Start Your Confidence Mapping</a>, free, before the chair, with nothing to commit to.</p>
         <p class="sub" style="margin:0;font-size:13.5px">Buying for someone else? <a href="/tara-rose-pages/bahrain/confidence-mapping" style="color:var(--accent);text-decoration:underline">Gift a Cut</a>, and she begins with the same free conversation.</p>
-        <p class="sub" style="margin:0;font-size:13.5px">Just reading for now? Come back when it suits you and start with the free map.</p>
+        
       </div>
     </div>
   </div>
@@ -984,7 +1100,7 @@ section[style*="var(--cream)"]{ background:#ECECEE !important; }
       </div>
     </div>
     <div class="foot__legal">
-      <p>Tara Rose Salon Group. [Entity name · placeholder]. [Licence number · placeholder]. [Registered address · placeholder]. By submitting any form on this site you agree to our <a href="/tara-rose-pages/bahrain/legal/privacy">Privacy Policy</a>. Contact: info@tararosesalon.com</p>
+      <p>Tara Rose Salon Group. Bahrain. By submitting any form on this site you agree to our <a href="/tara-rose-pages/bahrain/legal/privacy">Privacy Policy</a>. Contact: info@tararosesalon.com</p>
     </div>
     <div class="subrow">
       <span>© 2026 Tara Rose Salons. All rights reserved.</span>

@@ -319,6 +319,119 @@ section{ padding:var(--sec-y) 0; }
 .rev blockquote{font-family:var(--fd);font-weight:500;font-style:italic;font-size:clamp(20px,2.6vw,26px);line-height:1.42;color:var(--ink-deep);margin:0 0 14px}
 .rev figcaption{font-family:var(--fb);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
 @media(max-width:640px){.lblk p,.lblk li{font-size:17px}.lopen{font-size:18px}.imgband{aspect-ratio:4/3}}
+
+/* ── TRS NORMALISE v1 (build-injected from _content/normalise.css) ── */
+/* ═══════════ TRS NORMALISE v1 ═══════════════════════════════════════
+   Appended last inside each page's <style>, so it wins on source order
+   at equal specificity. Touches nothing skin-specific: no grounds, no
+   --lr, no .lr-arc, no media art. Those stay per-page.
+   ════════════════════════════════════════════════════════════════════ */
+
+/* 1 · Token backfill. A no-op on the 67 pages that already carry tokens;
+       gives the 11 hand-built pages the same vocabulary. */
+:root{
+  --maxw:1180px; --maxw-prose:760px; --pad-x:26px; --sec-y:96px;
+  --r-lg:22px; --r-md:16px; --r-sm:14px; --r-pill:100px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --dur-fast:.15s; --dur:.3s; --dur-slow:.7s;
+  --stone-soft:#EFEBE3;
+  --accent-dark:#256A5B;
+
+  --fs-h3:clamp(26px,3.6vw,40px);
+  --fs-h4:clamp(28px,4.4vw,48px);
+  --fs-h5:clamp(22px,3vw,30px);
+  --fs-h6:clamp(20px,2.6vw,26px);
+
+  /* Elevation. --sh-rgb is the one knob a skin may re-declare, which is how
+     brunette keeps warm shadows and blonde keeps cool ones. */
+  --sh-rgb:45,46,55;
+  --sh-cta-rgb:61,140,127;
+  --sh-btn:        0 1px 2px         rgba(var(--sh-rgb),.10);
+  --sh-btn-hover:  0 11px 24px -10px rgba(var(--sh-rgb),.42);
+  --sh-cta:        0 1px 2px         rgba(var(--sh-cta-rgb),.20);
+  --sh-cta-hover:  0 12px 26px -10px rgba(var(--sh-cta-rgb),.50);
+  --sh-card:       0 1px 2px rgba(var(--sh-rgb),.05), 0 12px 28px -20px rgba(var(--sh-rgb),.16);
+  --sh-card-hover: 0 2px 4px rgba(var(--sh-rgb),.05), 0 22px 44px -22px rgba(var(--sh-rgb),.24);
+  --sh-media:      0 1px 2px rgba(var(--sh-rgb),.04), 0 18px 44px -28px rgba(var(--sh-rgb),.14);
+  --sh-hero:       0 2px 6px rgba(var(--sh-rgb),.10), 0 24px 48px -24px rgba(var(--sh-rgb),.45);
+  --sh-nav:        0 8px 30px -18px rgba(var(--sh-rgb),.28);
+}
+@media (max-width:900px){ :root{ --sec-y:64px } }
+@media (max-width:600px){ :root{ --sec-y:48px; --pad-x:20px } }
+
+/* 2 · One button system: primary (ink) · CTA (turquoise) · secondary (ghost) */
+.btn,.pill{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  font-family:var(--fb); font-size:13px; font-weight:500; letter-spacing:.04em;
+  padding:14px 26px; border-radius:var(--r-pill);
+  border:1.5px solid transparent;   /* keeps solid and ghost the same height side by side */
+  cursor:pointer; text-decoration:none;
+  background:var(--ink); color:var(--paper); box-shadow:var(--sh-btn);
+  transition:transform var(--dur) var(--ease), background var(--dur) var(--ease),
+             border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.btn:hover,.pill:hover{ transform:translateY(-2px); background:#3B3C47; box-shadow:var(--sh-btn-hover); }
+.btn:active,.pill:active{ transform:translateY(0); }
+
+.btn--accent,.pill--accent{ background:var(--accent); color:var(--ink); box-shadow:var(--sh-cta); }
+.btn--accent:hover,.pill--accent:hover{ background:var(--accent-deep); box-shadow:var(--sh-cta-hover); }
+
+/* The ghost button was inheriting .btn:hover's charcoal fill (0,2,0 beats 0,1,0)
+   while keeping charcoal text, so the label disappeared on hover at ~1.1:1. */
+.btn--ghost,.pill--ghost{ background:transparent; color:var(--ink); border-color:var(--hair); box-shadow:none; }
+.btn--ghost:hover,.pill--ghost:hover{
+  background:var(--stone-soft); color:var(--ink);
+  border-color:var(--ink-soft); box-shadow:none; transform:translateY(-2px);
+}
+.btn--ghost.on-dark,.pill--ghost.on-dark{ color:#FFF; border-color:rgba(255,255,255,.24); }
+.btn--ghost.on-dark:hover,.pill--ghost.on-dark:hover{ background:rgba(255,255,255,.08); color:#FFF; border-color:#FFF; }
+.btn .arr,.pill .arr{ transition:transform var(--dur) var(--ease); }
+.btn:hover .arr,.pill:hover .arr{ transform:translateX(4px); }
+
+/* 3 · Spacing. max-width is deliberately not forced, so the legal pages keep
+       their 760px prose measure. */
+.wrap{ margin-inline:auto; padding-inline:var(--pad-x); }
+section{ padding-block:var(--sec-y); }
+
+/* 4 · Type */
+.h-1{ font-family:var(--fd); font-weight:500; font-size:clamp(42px,6.4vw,74px);
+      line-height:1.02; letter-spacing:-.012em; text-wrap:balance; }
+.h-2,.sec-head h2{ font-family:var(--fd); font-weight:500; font-size:clamp(31px,4.4vw,52px);
+      line-height:1.05; letter-spacing:-.012em; text-wrap:balance; }
+.belief h2{ font-size:var(--fs-h4); }
+.eyebrow{ font-family:var(--fb); font-size:11px; font-weight:500;
+          letter-spacing:.4em; text-transform:uppercase; }
+body{ font-weight:400; line-height:1.62; }
+
+/* 5 · Shadows. Collapses 19 one-off values onto the ladder. */
+.bcard,.tier,.tcard,.tcard-x,.loc,.pkg,.lcard,.gcard,.acard,
+.visit-card,.stage,.rhythm,.path,.col,.item,.card{ box-shadow:var(--sh-card); }
+.bcard:hover,.tier:hover,.tcard-x:hover,.pkg:hover,
+.gcard:hover,.path:hover,.route:hover{ box-shadow:var(--sh-card-hover); }
+.media,.feature-band,.look-band,.rcard-l{ box-shadow:var(--sh-media); }
+.bcard--hero,.path--hero,.rstart,.rcmp--on,.menu-line{ box-shadow:var(--sh-hero); }
+.trs-nav.scrolled{ box-shadow:var(--sh-nav); }
+
+/* 6 · Focus. The old ring was turquoise on paper at 1.39:1, which fails WCAG 2.4.11.
+       Dark outline carries light grounds; the turquoise halo carries dark ones. */
+:focus-visible{
+  outline:2px solid var(--accent-dark); outline-offset:2px;
+  box-shadow:0 0 0 4px rgba(153,246,228,.45); border-radius:3px;
+}
+
+/* 7 · Guards. `clip` never creates a scroll container, so the sticky nav survives. */
+body{ overflow-x:hidden; overflow-x:clip; }
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{ animation-duration:.01ms !important; animation-iteration-count:1 !important;
+                        transition-duration:.01ms !important; scroll-behavior:auto !important; }
+}
+
+/* 8 · The Full Loop. One component, one knob. */
+.loopring{ margin:8px auto 10px; }
+.lr-amb,.lr-main,.lr-n circle{ stroke:var(--lr,var(--accent-deep)); }
+.lr-n text{ fill:var(--lr,var(--accent-deep)); }
+.lr-mark{ color:var(--lr,var(--accent-deep)); }
+
 </style>
 </head>
 <body>
@@ -506,7 +619,7 @@ section{ padding:var(--sec-y) 0; }
       </div>
     </div>
     <div class="foot__legal">
-      <p>Tara Rose Salon Group. [Entity name · placeholder]. [Licence number · placeholder]. [Registered address · placeholder]. By submitting any form on this site you agree to our <a href="/legal/privacy">Privacy Policy</a>. Contact: info@tararosesalon.com</p>
+      <p>Tara Rose Salon Group. Dubai and Abu Dhabi, United Arab Emirates. By submitting any form on this site you agree to our <a href="/legal/privacy">Privacy Policy</a>. Contact: info@tararosesalon.com</p>
     </div>
     <div class="subrow">
       <span>© 2026 Tara Rose Salons. All rights reserved.</span>
