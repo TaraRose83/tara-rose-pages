@@ -467,86 +467,43 @@ section{ padding:var(--sec-y) 0; }
   --fb:         var(--ff-body);
 }
 
-/* ═══ DARK. A colour-layer swap, never a redesign. ═══════════════════════════
-   Type scale, weights, tracking, radii, spacing, breakpoints, touch targets and
-   every component rule are byte-identical to light. The accent is NEVER retuned.
-   Body copy is never pure white — it lives at 85%, which is what keeps it warm.
-   ══════════════════════════════════════════════════════════════════════════ */
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme=light]){
-    --canvas: #1C1B18;
-    --canvas-deepest: #121110;
-    --surface: #262420;
-    --surface-soft: #322F2A;
-    --ink: #FAF8F4;
-    --ink-deep: #FFFFFF;
-    --on-dark: #FAF8F4;
-    --taupe: #8F867A;
-    --taupe-soft: #A79E92;
-    --hairline: rgba(250,248,244,.10);
-    --primary: #FAF8F4;
-    --on-primary: #1C1B18;
-    --accent: #99F6E4;
-    --accent-deep: #7DE6D2;
-    --accent-text: #7DE6D2;
-    --accent-dark: #99F6E4;
-    --disabled: rgba(250,248,244,.06);
-    --ghost-top: rgba(250,248,244,.09);
-    --ghost-bottom: rgba(250,248,244,.05);
-    --scrim: rgba(28,27,24,.5);
-    --sh-rim-light: inset 0 1px 0 rgba(250,248,244,.07), inset 0 -1px 0 rgba(0,0,0,.30);
-    --sh-subtle-sm: 0 1px 2px rgba(0,0,0,.30);
-    --sh-subtle-md: 0 2px 6px -2px rgba(0,0,0,.36);
-    --sh-subtle-lg: 0 6px 16px -6px rgba(0,0,0,.42);
-    --sh-subtle-xl: 0 12px 32px -12px rgba(0,0,0,.48);
-    --sh-regular-sm: 0 1px 2px rgba(0,0,0,.36), 0 1px 1px rgba(0,0,0,.28);
-    --sh-regular-md: 0 2px 4px rgba(0,0,0,.32), 0 6px 14px -6px rgba(0,0,0,.44);
-    --sh-regular-lg: 0 2px 4px rgba(0,0,0,.32), 0 14px 30px -12px rgba(0,0,0,.50);
-    --sh-regular-xl: 0 4px 8px rgba(0,0,0,.32), 0 26px 54px -20px rgba(0,0,0,.56);
-    --sh-strong-sm: 0 1px 2px rgba(0,0,0,.44), 0 2px 4px rgba(0,0,0,.36);
-    --sh-strong-md: 0 2px 4px rgba(0,0,0,.44), 0 10px 20px -8px rgba(0,0,0,.56);
-    --sh-strong-lg: 0 3px 6px rgba(0,0,0,.44), 0 20px 40px -14px rgba(0,0,0,.62);
-    --sh-strong-xl: 0 4px 10px rgba(0,0,0,.48), 0 34px 66px -22px rgba(0,0,0,.68);
-  }
-}
+/* Dark tokens. OPT-IN ONLY — <html data-theme="dark">.
+   Deliberately NOT wired to prefers-color-scheme: the brand is Paper and Ink, and a
+   visitor on a dark phone must still see the light, warm, editorial ground. */
 :root[data-theme=dark]{
-    --canvas: #1C1B18;
-    --canvas-deepest: #121110;
-    --surface: #262420;
-    --surface-soft: #322F2A;
-    --ink: #FAF8F4;
-    --ink-deep: #FFFFFF;
-    --on-dark: #FAF8F4;
-    --taupe: #8F867A;
-    --taupe-soft: #A79E92;
-    --hairline: rgba(250,248,244,.10);
-    --primary: #FAF8F4;
-    --on-primary: #1C1B18;
-    --accent: #99F6E4;
-    --accent-deep: #7DE6D2;
-    --accent-text: #7DE6D2;
-    --accent-dark: #99F6E4;
-    --disabled: rgba(250,248,244,.06);
-    --ghost-top: rgba(250,248,244,.09);
-    --ghost-bottom: rgba(250,248,244,.05);
-    --scrim: rgba(28,27,24,.5);
-    --sh-rim-light: inset 0 1px 0 rgba(250,248,244,.07), inset 0 -1px 0 rgba(0,0,0,.30);
-    --sh-subtle-sm: 0 1px 2px rgba(0,0,0,.30);
-    --sh-subtle-md: 0 2px 6px -2px rgba(0,0,0,.36);
-    --sh-subtle-lg: 0 6px 16px -6px rgba(0,0,0,.42);
-    --sh-subtle-xl: 0 12px 32px -12px rgba(0,0,0,.48);
-    --sh-regular-sm: 0 1px 2px rgba(0,0,0,.36), 0 1px 1px rgba(0,0,0,.28);
-    --sh-regular-md: 0 2px 4px rgba(0,0,0,.32), 0 6px 14px -6px rgba(0,0,0,.44);
-    --sh-regular-lg: 0 2px 4px rgba(0,0,0,.32), 0 14px 30px -12px rgba(0,0,0,.50);
-    --sh-regular-xl: 0 4px 8px rgba(0,0,0,.32), 0 26px 54px -20px rgba(0,0,0,.56);
-    --sh-strong-sm: 0 1px 2px rgba(0,0,0,.44), 0 2px 4px rgba(0,0,0,.36);
-    --sh-strong-md: 0 2px 4px rgba(0,0,0,.44), 0 10px 20px -8px rgba(0,0,0,.56);
-    --sh-strong-lg: 0 3px 6px rgba(0,0,0,.44), 0 20px 40px -14px rgba(0,0,0,.62);
-    --sh-strong-xl: 0 4px 10px rgba(0,0,0,.48), 0 34px 66px -22px rgba(0,0,0,.68);
-}
-:root[data-theme=dark] img:not([class*=logo]),
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme=light]) img:not([class*=logo]){ filter:brightness(.95) }
+  --canvas: #1C1B18;
+  --canvas-deepest: #121110;
+  --surface: #262420;
+  --surface-soft: #322F2A;
+  --ink: #FAF8F4;
+  --ink-deep: #FFFFFF;
+  --on-dark: #FAF8F4;
+  --taupe: #8F867A;
+  --taupe-soft: #A79E92;
+  --hairline: rgba(250,248,244,.10);
+  --primary: #FAF8F4;
+  --on-primary: #1C1B18;
+  --accent: #99F6E4;
+  --accent-deep: #7DE6D2;
+  --accent-text: #7DE6D2;
+  --accent-dark: #99F6E4;
+  --disabled: rgba(250,248,244,.06);
+  --ghost-top: rgba(250,248,244,.09);
+  --ghost-bottom: rgba(250,248,244,.05);
+  --scrim: rgba(28,27,24,.5);
+  --sh-rim-light: inset 0 1px 0 rgba(250,248,244,.07), inset 0 -1px 0 rgba(0,0,0,.30);
+  --sh-subtle-sm: 0 1px 2px rgba(0,0,0,.30);
+  --sh-subtle-md: 0 2px 6px -2px rgba(0,0,0,.36);
+  --sh-subtle-lg: 0 6px 16px -6px rgba(0,0,0,.42);
+  --sh-subtle-xl: 0 12px 32px -12px rgba(0,0,0,.48);
+  --sh-regular-sm: 0 1px 2px rgba(0,0,0,.36), 0 1px 1px rgba(0,0,0,.28);
+  --sh-regular-md: 0 2px 4px rgba(0,0,0,.32), 0 6px 14px -6px rgba(0,0,0,.44);
+  --sh-regular-lg: 0 2px 4px rgba(0,0,0,.32), 0 14px 30px -12px rgba(0,0,0,.50);
+  --sh-regular-xl: 0 4px 8px rgba(0,0,0,.32), 0 26px 54px -20px rgba(0,0,0,.56);
+  --sh-strong-sm: 0 1px 2px rgba(0,0,0,.44), 0 2px 4px rgba(0,0,0,.36);
+  --sh-strong-md: 0 2px 4px rgba(0,0,0,.44), 0 10px 20px -8px rgba(0,0,0,.56);
+  --sh-strong-lg: 0 3px 6px rgba(0,0,0,.44), 0 20px 40px -14px rgba(0,0,0,.62);
+  --sh-strong-xl: 0 4px 10px rgba(0,0,0,.48), 0 34px 66px -22px rgba(0,0,0,.68);
 }
 
 /* ═══════════ TRS NORMALISE v1 ═══════════════════════════════════════
