@@ -291,6 +291,16 @@ em.accent{ font-style:italic; color:var(--accent-text); }
 .foot .soc-grp:first-of-type{margin-top:0}
 .foot .row{flex-wrap:wrap}
 
+/* The gift-voucher loop: five to give, a facial earned back. Four groups, not three. */
+.grid-inc{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:820px){.grid-inc{grid-template-columns:1fr}}
+.inc--gift{outline:1px solid var(--accent);outline-offset:-1px}
+/* floos, on the Circles that can actually use it */
+.floos{display:inline-flex;align-items:center;gap:7px;margin-top:12px;padding:7px 12px;border-radius:100px;
+       background:rgba(153,246,228,.14);border:1px solid rgba(153,246,228,.34);
+       font-size:11.5px;font-weight:500;letter-spacing:.02em;color:#7DE6D2}
+.floos::before{content:"";width:6px;height:6px;border-radius:50%;background:#7DE6D2}
+
 /* ── TRS NORMALISE v1 (build-injected from _content/normalise.css) ── */
 /* ═══════════ TRS NORMALISE v1 ═══════════════════════════════════════
    Appended last inside each page's <style>, so it wins on source order
@@ -588,10 +598,11 @@ body{ overflow-x:hidden; overflow-x:clip; }
       <span class="eyebrow">And every founding place includes</span>
       <h2>A place, and a standing, held for you.</h2>
     </div>
-    <div class="grid-3">
+    <div class="grid-3 grid-inc">
       <div class="inc"><span class="plabel">01</span><h3>Your credit, ready to work</h3><ul><li><span class="tk"></span>Prepaid credit towards your plan from day one, ready before your first visit</li><li><span class="tk"></span>A founding bonus on top, our thank-you for being early</li><li><span class="tk"></span>Your founder&rsquo;s rate of 10 per cent, held once your credit is spent, for as long as you visit at least once every ten weeks</li><li><span class="tk"></span>A place at the founding preview evening, before we open</li></ul></div>
       <div class="inc"><span class="plabel">02</span><h3>Home Care insurance</h3><ul><li><span class="tk"></span>Matched to your hair, not guessed</li><li><span class="tk"></span>The routine that holds the result</li><li><span class="tk"></span>Protecting what you already paid for</li><li><span class="tk"></span>Reviewed as your hair changes</li></ul></div>
-      <div class="inc"><span class="plabel">03</span><h3>Founding status, which cannot be bought later</h3><ul><li><span class="tk"></span>Named as one of the first forty-five, with your own founding number</li><li><span class="tk"></span>First access to every founding gathering as the collective grows</li><li><span class="tk"></span>Five gift vouchers to share with the women you love</li><li><span class="tk"></span>A facial or massage for every five friends who join</li></ul></div>
+      <div class="inc"><span class="plabel">03</span><h3>Founding status, which cannot be bought later</h3><ul><li><span class="tk"></span>Named as one of the first forty-five, with your own founding number</li><li><span class="tk"></span>First access to every founding gathering as the collective grows</li><li><span class="tk"></span>The first chairs we open, and a team who know your name</li><li><span class="tk"></span>A standing that does not come back once the doors are open</li></ul></div>
+      <div class="inc inc--gift"><span class="plabel">04</span><h3>Five gift vouchers, to give away</h3><ul><li><span class="tk"></span>Five vouchers worth 10 BHD each, 50 BHD in total, yours to hand to the women you love</li><li><span class="tk"></span>Each one is valid against a service of 35 BHD or more, for three months from the day you join</li><li><span class="tk"></span>For every five friends who come in on your vouchers, you earn a facial or a massage</li><li><span class="tk"></span>Not money off, and never cash. An hour for you, earned by the women you brought with you</li></ul></div>
     </div>
     <div class="cta-row" style="justify-content:center;margin-top:34px;">
       <a class="pill pill--accent" href="#reserve">Reserve Your Founding Place <span class="arr">&rarr;</span></a>
@@ -624,6 +635,7 @@ body{ overflow-x:hidden; overflow-x:clip; }
           <span style="font-size:13px;color:var(--accent)">Plus a 125 BHD founding bonus, our thank-you for being early</span>
         </div>
         <ul><li><span class="tk"></span>Your founding number, and a founder&rsquo;s rate of 15 per cent once your credit is spent, held on the same ten-week rhythm</li><li><span class="tk"></span>An earlier place in the launch diary</li><li><span class="tk"></span>Your plan kept on rhythm</li></ul>
+        <span class="floos">Spread 250 BHD with floos</span>
       </div>
       <div class="acard" data-circle="platinum" role="button" tabindex="0" aria-label="Choose the Platinum Circle and go to reserve">
         <span class="alabel">Platinum Circle &middot; The rarest standing</span><h3>5 places only</h3>
@@ -633,6 +645,7 @@ body{ overflow-x:hidden; overflow-x:clip; }
           <span style="font-size:13px;color:var(--accent)">Plus a 250 BHD founding bonus, our thank-you for being early</span>
         </div>
         <ul><li><span class="tk"></span>The rarest founding standing, five places and no more</li><li><span class="tk"></span>The deepest founder&rsquo;s rate we hold, 20 per cent, once your credit is spent, on the same ten-week rhythm</li><li><span class="tk"></span>The first chairs we open, known by name, every time</li></ul>
+        <span class="floos">Spread 500 BHD with floos</span>
       </div>
     </div>
   </div>
@@ -771,7 +784,7 @@ body{ overflow-x:hidden; overflow-x:clip; }
         </div>
         <p class="consent">You pay your Circle in full to reserve your place. It is not a deposit and it is not spent, it becomes your credit and founding bonus, ready for your plan. Full terms in the welcome pack, sent by secure link.</p>
         <p class="consent">Payment is one secure tap, by card, through a protected link. Your card is never stored.</p>
-        <p class="consent">Prefer to spread it? floos is available on the larger Circles, Gold and Platinum, so the bigger commitments can be spread over time. Same care, more flexibility.</p>
+        <p class="consent">Gold and Platinum can be spread over time with floos, so the larger Circles are within reach without changing anything you receive. The founding value stays exactly the same.</p>
       </form>
     </div>
   </div>
