@@ -301,6 +301,31 @@ em.accent{ font-style:italic; color:var(--accent-text); }
        font-size:11.5px;font-weight:500;letter-spacing:.02em;color:#7DE6D2}
 .floos::before{content:"";width:6px;height:6px;border-radius:50%;background:#7DE6D2}
 
+.hero-c .hero-note{margin:20px 0 0;font-size:13px;line-height:1.55;color:rgba(255,255,255,.6);max-width:56ch}
+
+/* The founding stack. Every component named and priced, then the placement shown
+   against it. No percentages of generosity, no money-off framing. */
+.vgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:38px 0 0;align-items:start}
+@media(max-width:940px){.vgrid{grid-template-columns:1fr;max-width:460px;margin-inline:auto}}
+.vstack{background:var(--paper);border:1px solid var(--hair);border-radius:var(--r-md);padding:26px 22px;display:flex;flex-direction:column;height:100%}
+.vstack--hero{outline:2px solid var(--accent);outline-offset:-2px;box-shadow:var(--sh-hero)}
+.vs-name{font-family:var(--fd);font-weight:500;font-size:23px}
+.vs-note{margin-top:3px;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-text)}
+.vs-list{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:0}
+.vs-list li{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:9px 0;border-bottom:1px solid var(--hair);font-size:13.5px;line-height:1.45;color:var(--ink-soft)}
+.vs-list li b{flex-shrink:0;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+.vs-list li b.add{color:var(--accent-text)}
+.vs-sum{border-bottom:1px solid var(--ink)!important;padding-top:11px!important}
+.vs-sum span{font-weight:500;color:var(--ink)}
+.vs-sum b{font-family:var(--fd);font-size:19px}
+.vs-floos{border-bottom:none!important;color:var(--accent-text)!important;font-weight:500}
+.vs-foot{margin-top:auto;padding-top:20px}
+.vs-total{margin:0;font-family:var(--fd);font-weight:500;font-size:27px;color:var(--accent-text)}
+.vs-pay{margin:4px 0 0;font-size:13.5px;color:var(--ink-soft)}
+.vs-pay b{color:var(--ink);font-weight:600}
+.vs-cta{margin-top:18px;width:100%}
+.vs-legal{margin:26px auto 0;max-width:74ch;text-align:center;font-size:12.5px;line-height:1.6;color:var(--ink-soft)}
+
 /* ── TRS NORMALISE v1 (build-injected from _content/normalise.css) ── */
 /* ═══════════ TRS NORMALISE v1 ═══════════════════════════════════════
    Appended last inside each page's <style>, so it wins on source order
@@ -439,14 +464,15 @@ body{ overflow-x:hidden; overflow-x:clip; }
 <section class="hero-c">
   <div class="wrap">
     <div class="inner">
-      <span class="pill-tag"><span class="dot"></span>Eleven years in the UAE &middot; Now Bahrain</span>
-      <h1 class="h-1">Eleven years. Four salons. <em>A new address, not a new brand.</em></h1>
-      <p class="lede">We open in Jababiyah on 1 August, and forty-five women will help us begin. You would be trusting us before there is a chair in Bahrain to sit in, so everything that stands behind that ask is on this page, and you can go and check all of it.</p>
+      <span class="pill-tag"><span class="dot"></span>Tara Rose Bahrain &middot; Opening 1 August</span>
+      <h1 class="h-1">Forty-five women will <em>open this salon with us.</em></h1>
+      <p class="lede">For eleven years we have looked after women across four salons in Dubai and Abu Dhabi. On 1 August we open in Bahrain, and the first forty-five women to join us come in as founding members. You place credit before we open, we add a founding bonus on top, and you keep a founder&rsquo;s rate for as long as you stay with us. When the forty-five are taken, founding closes for good.</p>
       <div class="scarcity"><span class="dot"></span><span id="pledged">Forty-five founding places, ever &middot; 25 Rose &middot; 15 Gold &middot; 5 Platinum</span></div>
       <div class="cta-row">
         <a class="pill pill--accent" href="#reserve">Reserve Your Founding Place <span class="arr">&rarr;</span></a>
         <a class="textlink" href="/tara-rose-pages/bahrain/confidence-mapping">Start Your Confidence Mapping</a>
       </div>
+      <p class="hero-note">No salon in Bahrain has our reviews yet. Everything standing behind this page is below, and all of it is checkable.</p>
     </div>
   </div>
 </section>
@@ -553,7 +579,7 @@ body{ overflow-x:hidden; overflow-x:clip; }
     </div>
     <div class="grid-3">
       <div class="inc"><h3>The Confidence Promise</h3><p style="margin:8px 0 0;font-size:14.5px;line-height:1.62;color:var(--ink-soft);">If something does not feel right within seven days of any colour or treatment service, we invite you back to refine it. No blame, just care. Refine, never refund.</p></div>
-      <div class="inc"><h3>Your payment</h3><p style="margin:8px 0 0;font-size:14.5px;line-height:1.62;color:var(--ink-soft);">You pay your Circle in full to reserve, and it becomes your credit and bonus, never lost. The full withdrawal terms arrive in your welcome pack by secure link. Nothing is locked before you have read them.</p></div>
+      <div class="inc"><h3>Your payment</h3><p style="margin:8px 0 0;font-size:14.5px;line-height:1.62;color:var(--ink-soft);">You pay your Circle in full to reserve, and it becomes your credit and bonus, never lost. Your full terms, including your right to withdraw, are in our Terms and Conditions. You can read them before you pay, not after.</p></div>
       <div class="inc"><h3>Your founding terms</h3><p style="margin:8px 0 0;font-size:14.5px;line-height:1.62;color:var(--ink-soft);">Your rate and your standing are held, even as the collective grows. We tell you before anything changes.</p></div>
     </div>
   </div>
@@ -564,92 +590,79 @@ body{ overflow-x:hidden; overflow-x:clip; }
   <div class="wrap">
     <div class="sec-head center">
       <span class="eyebrow">The founding value, made visible</span>
-      <h2>Every place carries more than you put in.</h2>
+      <h2>Everything a founding place puts on the table.</h2>
+      <p class="p-lg" style="max-width:58ch;margin:14px auto 0;color:var(--ink-soft)">Nothing here is money off. You place credit before we open, we add a founding bonus on top of it, and the rest is what being one of the first forty-five actually gives you.</p>
     </div>
-    <div class="grid-3" style="margin-bottom:16px">
-      <div class="inc" style="text-align:center">
-        <span class="alabel" style="color:#3aa892">Rose Circle</span>
-        <p style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin:16px 0 2px">You set aside</p>
-        <p style="font-family:var(--fd);font-weight:500;font-size:32px;margin:0">100 BHD</p>
-        <p style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin:16px 0 2px">You can spend</p>
-        <p style="font-family:var(--fd);font-weight:500;font-size:34px;margin:0;color:#3aa892">150 BHD</p>
-        <p style="font-size:13px;line-height:1.5;color:var(--ink-soft);margin:12px 0 0">100 BHD placed, 150 BHD to spend. The 50 is the founding bonus, our thank-you for being early.</p>
+    <div class="vgrid">
+      <div class="vstack">
+        <span class="vs-name">Rose Circle</span>
+        <span class="vs-note">The place most women begin.</span>
+        <ul class="vs-list">
+          <li><span>Credit to spend on your plan</span><b>100 BHD</b></li>
+          <li><span>Founding bonus, added on top</span><b class="add">+ 50 BHD</b></li>
+          <li class="vs-sum"><span>Yours to spend, from the day we open</span><b>150 BHD</b></li>
+          <li><span>Five gift vouchers, to give away</span><b>50 BHD</b></li>
+          <li><span>A facial or a massage, when five friends join</span><b>Earned</b></li>
+          <li><span>Your founder&rsquo;s rate, held on rhythm</span><b>10%</b></li>
+          <li><span>Home care matched to your hair, not guessed</span><b>Prescribed</b></li>
+          <li><span>A place at the founding preview evening</span><b>By invitation</b></li>
+          <li><span>Your founding number, one of forty-five</span><b>Never again</b></li>
+          
+        </ul>
+        <div class="vs-foot">
+          <p class="vs-total">200 BHD on the table</p>
+          <p class="vs-pay">You place <b>100 BHD</b></p>
+        </div>
+        <a class="pill pill--accent vs-cta" href="#reserve" data-pick="rose">Take the Rose place</a>
       </div>
-      <div class="inc" style="text-align:center;outline:2px solid var(--accent);outline-offset:-2px">
-        <span class="alabel" style="color:#3aa892">Gold Circle &middot; Most chosen</span>
-        <p style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin:16px 0 2px">You set aside</p>
-        <p style="font-family:var(--fd);font-weight:500;font-size:32px;margin:0">250 BHD</p>
-        <p style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin:16px 0 2px">You can spend</p>
-        <p style="font-family:var(--fd);font-weight:500;font-size:34px;margin:0;color:#3aa892">375 BHD</p>
-        <p style="font-size:13px;line-height:1.5;color:var(--ink-soft);margin:12px 0 0">250 BHD placed, 375 BHD to spend. The 125 is the founding bonus, and the founder&rsquo;s rate you keep afterwards is 15 per cent, not 10.</p>
+      <div class="vstack vstack--hero">
+        <span class="vs-name">Gold Circle</span>
+        <span class="vs-note">Most chosen.</span>
+        <ul class="vs-list">
+          <li><span>Credit to spend on your plan</span><b>250 BHD</b></li>
+          <li><span>Founding bonus, added on top</span><b class="add">+ 125 BHD</b></li>
+          <li class="vs-sum"><span>Yours to spend, from the day we open</span><b>375 BHD</b></li>
+          <li><span>Five gift vouchers, to give away</span><b>50 BHD</b></li>
+          <li><span>A facial or a massage, when five friends join</span><b>Earned</b></li>
+          <li><span>Your founder&rsquo;s rate, held on rhythm</span><b>15%</b></li>
+          <li><span>Home care matched to your hair, not guessed</span><b>Prescribed</b></li>
+          <li><span>A place at the founding preview evening</span><b>By invitation</b></li>
+          <li><span>Your founding number, one of forty-five</span><b>Never again</b></li>
+          <li class="vs-floos">Spread 250 BHD over time with floos</li>
+        </ul>
+        <div class="vs-foot">
+          <p class="vs-total">425 BHD on the table</p>
+          <p class="vs-pay">You place <b>250 BHD</b></p>
+        </div>
+        <a class="pill pill--accent vs-cta" href="#reserve" data-pick="gold">Take the Gold place</a>
       </div>
-      <div class="inc" style="text-align:center">
-        <span class="alabel" style="color:#3aa892">Platinum Circle &middot; The rarest standing</span>
-        <p style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin:16px 0 2px">You set aside</p>
-        <p style="font-family:var(--fd);font-weight:500;font-size:32px;margin:0">500 BHD</p>
-        <p style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin:16px 0 2px">You can spend</p>
-        <p style="font-family:var(--fd);font-weight:500;font-size:34px;margin:0;color:#3aa892">750 BHD</p>
-        <p style="font-size:13px;line-height:1.5;color:var(--ink-soft);margin:12px 0 0">500 BHD placed, 750 BHD to spend. The 250 is the founding bonus, and the rate you keep afterwards is 20 per cent, the deepest we hold.</p>
+      <div class="vstack">
+        <span class="vs-name">Platinum Circle</span>
+        <span class="vs-note">Only five, ever.</span>
+        <ul class="vs-list">
+          <li><span>Credit to spend on your plan</span><b>500 BHD</b></li>
+          <li><span>Founding bonus, added on top</span><b class="add">+ 250 BHD</b></li>
+          <li class="vs-sum"><span>Yours to spend, from the day we open</span><b>750 BHD</b></li>
+          <li><span>Five gift vouchers, to give away</span><b>50 BHD</b></li>
+          <li><span>A facial or a massage, when five friends join</span><b>Earned</b></li>
+          <li><span>Your founder&rsquo;s rate, held on rhythm</span><b>20%</b></li>
+          <li><span>Home care matched to your hair, not guessed</span><b>Prescribed</b></li>
+          <li><span>A place at the founding preview evening</span><b>By invitation</b></li>
+          <li><span>Your founding number, one of forty-five</span><b>Never again</b></li>
+          <li class="vs-floos">Spread 500 BHD over time with floos</li>
+        </ul>
+        <div class="vs-foot">
+          <p class="vs-total">800 BHD on the table</p>
+          <p class="vs-pay">You place <b>500 BHD</b></p>
+        </div>
+        <a class="pill pill--accent vs-cta" href="#reserve" data-pick="platinum">Take the Platinum place</a>
       </div>
     </div>
-    <p style="text-align:center;max-width:62ch;margin:10px auto 46px;font-size:15px;line-height:1.62;color:var(--ink-soft)">Every founding place carries a fifty per cent founding bonus, so there is always more to spend than you placed. What separates the Circles is the founder&rsquo;s rate you keep afterwards, and how rare the standing is. The credit is real money towards your plan. The standing is the part no price buys later.</p>
+    <p class="vs-legal">The credit and the bonus are yours to spend on your plan. The gift vouchers are yours to give away, each valid against a service of 35 BHD or more for three months. The founder&rsquo;s rate begins once your founding credit is fully spent, and is held for as long as you visit at least once every ten weeks.</p>
 
-    <div class="sec-head center">
-      <span class="eyebrow">And every founding place includes</span>
-      <h2>A place, and a standing, held for you.</h2>
-    </div>
-    <div class="grid-3 grid-inc">
-      <div class="inc"><span class="plabel">01</span><h3>Your credit, ready to work</h3><ul><li><span class="tk"></span>Prepaid credit towards your plan from day one, ready before your first visit</li><li><span class="tk"></span>A founding bonus on top, our thank-you for being early</li><li><span class="tk"></span>Your founder&rsquo;s rate of 10 per cent, held once your credit is spent, for as long as you visit at least once every ten weeks</li><li><span class="tk"></span>A place at the founding preview evening, before we open</li></ul></div>
-      <div class="inc"><span class="plabel">02</span><h3>Home Care insurance</h3><ul><li><span class="tk"></span>Matched to your hair, not guessed</li><li><span class="tk"></span>The routine that holds the result</li><li><span class="tk"></span>Protecting what you already paid for</li><li><span class="tk"></span>Reviewed as your hair changes</li></ul></div>
-      <div class="inc"><span class="plabel">03</span><h3>Founding status, which cannot be bought later</h3><ul><li><span class="tk"></span>Named as one of the first forty-five, with your own founding number</li><li><span class="tk"></span>First access to every founding gathering as the collective grows</li><li><span class="tk"></span>The first chairs we open, and a team who know your name</li><li><span class="tk"></span>A standing that does not come back once the doors are open</li></ul></div>
-      <div class="inc inc--gift"><span class="plabel">04</span><h3>Five gift vouchers, to give away</h3><ul><li><span class="tk"></span>Five vouchers worth 10 BHD each, 50 BHD in total, yours to hand to the women you love</li><li><span class="tk"></span>Each one is valid against a service of 35 BHD or more, for three months from the day you join</li><li><span class="tk"></span>For every five friends who come in on your vouchers, you earn a facial or a massage</li><li><span class="tk"></span>Not money off, and never cash. An hour for you, earned by the women you brought with you</li></ul></div>
-    </div>
-    <div class="cta-row" style="justify-content:center;margin-top:34px;">
-      <a class="pill pill--accent" href="#reserve">Reserve Your Founding Place <span class="arr">&rarr;</span></a>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- SAFETY CHIPS -->
-<section class="dark">
-  <div class="wrap">
-    <div class="sec-head center">
-      <span class="eyebrow">Choose your Circle</span>
-      <h2>Which founding Circle is yours?</h2>
-    </div>
-    <div class="grid-3">
-      <div class="acard" data-circle="rose" role="button" tabindex="0" aria-label="Choose the Rose Circle and go to reserve">
-        <span class="alabel">Rose Circle</span><h3>25 places</h3>
-        <div style="margin:14px 0 4px;padding:14px 0;border-top:1px solid rgba(255,255,255,.14);border-bottom:1px solid rgba(255,255,255,.14);display:flex;flex-direction:column;gap:5px">
-          <b style="font-family:var(--fd);font-weight:500;font-size:22px;color:#fff">You pay 100 BHD</b>
-          <span style="font-size:13.5px;color:rgba(255,255,255,.82)">You receive 150 BHD in credit towards your plan</span>
-          <span style="font-size:13px;color:var(--accent)">Plus a 50 BHD founding bonus, our thank-you for being early</span>
-        </div>
-        <ul><li><span class="tk"></span>Your own founding number, named as one of the first forty-five</li><li><span class="tk"></span>A place at the founding preview evening, before we open</li><li><span class="tk"></span>Your founder&rsquo;s rate of 10 per cent, held once your credit is spent, for as long as you visit at least once every ten weeks</li></ul>
-      </div>
-      <div class="acard" data-circle="gold" role="button" tabindex="0" aria-label="Choose the Gold Circle and go to reserve" style="outline:2px solid var(--accent);outline-offset:-2px">
-        <span class="alabel">Gold Circle &middot; Most chosen</span><h3>15 places</h3>
-        <div style="margin:14px 0 4px;padding:14px 0;border-top:1px solid rgba(255,255,255,.14);border-bottom:1px solid rgba(255,255,255,.14);display:flex;flex-direction:column;gap:5px">
-          <b style="font-family:var(--fd);font-weight:500;font-size:22px;color:#fff">You pay 250 BHD</b>
-          <span style="font-size:13.5px;color:rgba(255,255,255,.82)">You receive 375 BHD in credit towards your plan</span>
-          <span style="font-size:13px;color:var(--accent)">Plus a 125 BHD founding bonus, our thank-you for being early</span>
-        </div>
-        <ul><li><span class="tk"></span>Your founding number, and a founder&rsquo;s rate of 15 per cent once your credit is spent, held on the same ten-week rhythm</li><li><span class="tk"></span>An earlier place in the launch diary</li><li><span class="tk"></span>Your plan kept on rhythm</li></ul>
-        <span class="floos">Spread 250 BHD with floos</span>
-      </div>
-      <div class="acard" data-circle="platinum" role="button" tabindex="0" aria-label="Choose the Platinum Circle and go to reserve">
-        <span class="alabel">Platinum Circle &middot; The rarest standing</span><h3>5 places only</h3>
-        <div style="margin:14px 0 4px;padding:14px 0;border-top:1px solid rgba(255,255,255,.14);border-bottom:1px solid rgba(255,255,255,.14);display:flex;flex-direction:column;gap:5px">
-          <b style="font-family:var(--fd);font-weight:500;font-size:22px;color:#fff">You pay 500 BHD</b>
-          <span style="font-size:13.5px;color:rgba(255,255,255,.82)">You receive 750 BHD in credit towards your plan</span>
-          <span style="font-size:13px;color:var(--accent)">Plus a 250 BHD founding bonus, our thank-you for being early</span>
-        </div>
-        <ul><li><span class="tk"></span>The rarest founding standing, five places and no more</li><li><span class="tk"></span>The deepest founder&rsquo;s rate we hold, 20 per cent, once your credit is spent, on the same ten-week rhythm</li><li><span class="tk"></span>The first chairs we open, known by name, every time</li></ul>
-        <span class="floos">Spread 500 BHD with floos</span>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <!-- SAFETY CHIPS -->
 <section>
@@ -782,7 +795,7 @@ body{ overflow-x:hidden; overflow-x:clip; }
         <div class="submit-row">
           <button class="pill pill--accent" type="submit">Continue to secure payment <span class="arr">&rarr;</span></button>
         </div>
-        <p class="consent">You pay your Circle in full to reserve your place. It is not a deposit and it is not spent, it becomes your credit and founding bonus, ready for your plan. Full terms in the welcome pack, sent by secure link.</p>
+        <p class="consent">You pay your Circle in full to reserve your place. It is not a deposit and it is not spent, it becomes your credit and founding bonus, ready for your plan. Full terms, including your right to withdraw, are in our <a href="/tara-rose-pages/bahrain/legal/terms">Terms and Conditions</a>, readable before you pay.</p>
         <p class="consent">Payment is one secure tap, by card, through a protected link. Your card is never stored.</p>
         <p class="consent">Gold and Platinum can be spread over time with floos, so the larger Circles are within reach without changing anything you receive. The founding value stays exactly the same.</p>
       </form>
@@ -814,7 +827,7 @@ body{ overflow-x:hidden; overflow-x:clip; }
 
     </div>
     <div class="foot__legal">
-      <p>Tara Rose Salon Group. District 2, Unit 7, Road 7901, Jababiyah, Bahrain. By submitting any form on this site you agree to our <a href="/tara-rose-pages/bahrain/legal/privacy">Privacy Policy</a>. Contact: info@tararosesalon.com</p>
+      <p>Tara Rose Salon Group. District 2, Bahrain. By submitting any form on this site you agree to our <a href="/tara-rose-pages/bahrain/legal/privacy">Privacy Policy</a>. Contact: info@tararosesalon.com</p>
     </div>
     <div class="subrow">
       <span>© 2026 Tara Rose Bahrain. Owned and run by Daisy Charlotte Cropper.</span>
@@ -848,8 +861,8 @@ body{ overflow-x:hidden; overflow-x:clip; }
     };
     tick(); setInterval(tick,1000);
   }
-  document.querySelectorAll('.acard[data-circle]').forEach(function(c){
-    var go=function(){ var sel=document.getElementById('circle'); if(sel) sel.value=c.getAttribute('data-circle'); var res=document.getElementById('reserve'); if(res) res.scrollIntoView(); };
+  document.querySelectorAll('.acard[data-circle], .vs-cta[data-pick]').forEach(function(c){
+    var go=function(){ var sel=document.getElementById('circle'); if(sel) sel.value=(c.getAttribute('data-circle')||c.getAttribute('data-pick')); var res=document.getElementById('reserve'); if(res) res.scrollIntoView(); };
     c.addEventListener('click',go);
     c.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); go(); } });
   });
