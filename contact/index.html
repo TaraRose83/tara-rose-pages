@@ -1896,6 +1896,38 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
   font-size: 16px !important;
 }
 
+/* ── THE NAV READS BRAND-FIRST, NOT CTA-FIRST ────────────────────────────────
+   The markup puts the Reserve pill before the wordmark, so in the 1fr/auto/1fr grid
+   the turquoise button was landing in the far-LEFT cell — ahead of Tara's own name.
+   A page that opens by asking is a page that has not introduced itself yet. The brand
+   leads, the CTA closes. Fixed with `order` so no page's markup has to change. */
+.navrow .nav-link{ order:1; justify-self:start }
+.navrow .brand   { order:2 }
+.navrow .nav__cta{ order:3; justify-self:end }
+
+/* ── THE HERO MUST FIT THE FOLD ON A LAPTOP ──────────────────────────────────
+   The display type scaled on WIDTH only (10vw), so a wide-but-short laptop screen
+   got a 104px headline — and the hero ran 1115px tall inside a 900px window. The
+   body copy was sliced mid-sentence and the Reserve button sat BELOW the fold: the
+   first thing she saw had no way to act on it. A 13" screen was 309px over.
+
+   The fix scales the headline against the SHORT axis too, and tightens the hero's
+   vertical rhythm on short screens. Phone and iPad already fit; they are untouched. */
+@media (min-width:1024px){
+  .hero-c .h-display, .hero-a .h-display{
+    font-size: clamp(56px, min(6.4vw, 11.2vh), 96px);
+  }
+}
+@media (min-width:1024px) and (max-height:920px){
+  .hero-c{ padding-block: 72px 64px }
+  .hero-c .h-display, .hero-a .h-display{
+    font-size: clamp(48px, min(5.4vw, 9.6vh), 74px);
+  }
+  .hero-c .lede{ margin-top:20px; font-size:16.5px; line-height:1.58 }
+  .hero-c .hero-note{ margin-top:14px }
+  .hero-c .cta-row{ margin-top:24px }
+}
+
 </style>
 <meta name="geo.region" content="AE">
 <meta name="geo.placename" content="Dubai, Abu Dhabi">
