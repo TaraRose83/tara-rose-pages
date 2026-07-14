@@ -465,6 +465,80 @@ body{ overflow-x:hidden; overflow-x:clip; }
          font-size:10.5px; letter-spacing:.18em; text-transform:uppercase }
 }
 
+/* ═══════════ THE BUTTON, MADE EXPENSIVE ════════════════════════════════
+   The CTA was a flat swatch of bright mint with a soft glow behind it. Flat
+   fills and coloured glows are what read cheap. Expensive buttons behave like
+   MATERIAL: a fill with a little depth in it, a real edge, a shadow that sits
+   the object on the page rather than making it float, and type that is small,
+   confident and widely spaced. The pill shape stays — that is TRS.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.btn--accent, .pill--accent, .vs-cta{
+  /* Depth in the fill. A whisper of a gradient reads as a surface catching
+     light, not as a colour swatch. */
+  background:linear-gradient(178deg, #A8F8E8 0%, #99F6E4 46%, #86EFDA 100%);
+  color:#12312B;                                  /* deep teal-ink, not flat charcoal */
+  border:1px solid rgba(24,90,78,.28);            /* a real edge, the thing flat buttons lack */
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.55),          /* top highlight — the material tell */
+    inset 0 -1px 0 rgba(24,90,78,.10),            /* a hair of weight at the bottom */
+    0 1px 1px rgba(24,90,78,.10),
+    0 6px 14px -8px rgba(24,90,78,.30);           /* sits ON the page, does not float above it */
+
+  font-size:11.5px; font-weight:600;
+  letter-spacing:.16em; text-transform:uppercase;
+  padding:17px 34px;
+  transition:transform .32s var(--ease), box-shadow .32s var(--ease),
+             background .32s var(--ease), border-color .32s var(--ease);
+}
+.btn--accent:hover, .pill--accent:hover, .vs-cta:hover{
+  background:linear-gradient(178deg, #B4FAEC 0%, #A3F8E9 46%, #90F2DF 100%);
+  border-color:rgba(24,90,78,.40);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.65),
+    inset 0 -1px 0 rgba(24,90,78,.12),
+    0 1px 1px rgba(24,90,78,.10),
+    0 12px 24px -10px rgba(24,90,78,.36);
+  transform:translateY(-1px);                     /* 1px, not 2. Restraint is the point. */
+}
+.btn--accent:active, .pill--accent:active, .vs-cta:active{
+  transform:translateY(0);
+  box-shadow:inset 0 2px 4px rgba(24,90,78,.20), 0 1px 1px rgba(24,90,78,.10);
+}
+.btn--accent .arr, .pill--accent .arr{ opacity:.6; transition:transform .32s var(--ease), opacity .32s var(--ease) }
+.btn--accent:hover .arr, .pill--accent:hover .arr{ opacity:1; transform:translateX(3px) }
+
+/* The dark-ink button gets the same treatment, inverted. */
+.btn, .pill{
+  border:1px solid rgba(255,255,255,.06);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.10),
+    0 1px 1px rgba(var(--sh-rgb),.14),
+    0 6px 14px -8px rgba(var(--sh-rgb),.34);
+  letter-spacing:.16em; font-size:11.5px; padding:17px 34px;
+}
+
+/* The secondary. Expensive secondaries are a hairline and nothing else — no
+   fill, no shadow. The restraint is what makes the primary look valuable. */
+.btn--ghost, .pill--ghost{
+  background:none; border:1px solid rgba(45,46,55,.28); box-shadow:none;
+  color:var(--ink); letter-spacing:.16em;
+}
+.btn--ghost:hover, .pill--ghost:hover{
+  background:none; border-color:var(--ink); box-shadow:none; transform:translateY(-1px);
+}
+.btn--ghost.on-dark, .pill--ghost.on-dark{ border-color:rgba(255,255,255,.30); color:#fff }
+.btn--ghost.on-dark:hover, .pill--ghost.on-dark:hover{ border-color:#fff; background:rgba(255,255,255,.06) }
+
+/* The nav pill stays small and quiet. A nav button that shouts is a cheap tell. */
+.trs-nav .nav__cta{
+  padding:11px 20px; font-size:10.5px; letter-spacing:.14em;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5), 0 1px 2px rgba(24,90,78,.14);
+}
+@media (max-width:640px){
+  .cta-row .pill, .cta-row .btn{ padding:18px 26px; font-size:11.5px; letter-spacing:.14em }
+}
+
 </style>
 <meta name="geo.region" content="BH">
 <meta name="geo.placename" content="Manama">
