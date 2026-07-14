@@ -870,31 +870,6 @@ body{ overflow-x:hidden; overflow-x:clip; }
 </script>
 
 <script>
-(function(){
-  var nav=document.querySelector('.trs-nav');
-  if(nav){ var os=function(){ nav.classList.toggle('scrolled', window.scrollY>14); }; window.addEventListener('scroll',os,{passive:true}); os(); }
-  var cd=document.querySelector('.countdown');
-  if(cd){
-    var dl=new Date(cd.getAttribute('data-deadline')).getTime();
-    var pad=function(n){ return (n<10?'0':'')+n; };
-    var tick=function(){
-      var diff=dl-Date.now();
-      if(diff<=0){ cd.innerHTML='<span class="cd-closed">The founding rate has closed.</span>'; return; }
-      var d=Math.floor(diff/86400000), h=Math.floor(diff%86400000/3600000), m=Math.floor(diff%3600000/60000), s=Math.floor(diff%60000/1000);
-      var set=function(k,v){ var el=cd.querySelector('[data-cd="'+k+'"]'); if(el) el.textContent=(k==='d'?d:pad(v)); };
-      set('d',d); set('h',h); set('m',m); set('s',s);
-    };
-    tick(); setInterval(tick,1000);
-  }
-  document.querySelectorAll('.acard[data-circle], .vs-cta[data-pick]').forEach(function(c){
-    var go=function(){ var sel=document.getElementById('circle'); if(sel) sel.value=(c.getAttribute('data-circle')||c.getAttribute('data-pick')); var res=document.getElementById('reserve'); if(res) res.scrollIntoView(); };
-    c.addEventListener('click',go);
-    c.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); go(); } });
-  });
-})();
-</script>
-
-<script>
 /* TEMPLATE: swap __FORM_ENDPOINT__ for your CRM/GHL inbound webhook URL. Inert until set. */
 (function(){
   var FORM_ENDPOINT="__FORM_ENDPOINT__";
