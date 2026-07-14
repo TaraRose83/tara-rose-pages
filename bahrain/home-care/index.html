@@ -801,6 +801,72 @@ body{ overflow-x:hidden; overflow-x:clip; }
   .cta-row .pill, .cta-row .btn{ padding:18px 26px; font-size:11.5px; letter-spacing:.14em }
 }
 
+/* ═══════════ TYPOGRAPHY, ELEVATED ══════════════════════════════════════
+   Three things were wrong. The attribution line was rendering in Playfair
+   ITALIC CAPS with wide tracking, which is close to unreadable and looks like
+   a wedding invitation. Names are not display type. And the type had no real
+   rhythm — everything sat at one grey weight.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Attributions are QUIET. Inter, small, letterspaced, never the serif and
+   never italic. The name should whisper under the words it belongs to. */
+.attr, .owner .attr, .founder .attr, .belief .attr, span.attr, .vs-legal{
+  font-family:var(--fb)!important;
+  font-style:normal!important;
+  font-weight:500;
+  font-size:11px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--taupe);
+}
+.dark .attr, .belief .attr{ color:rgba(255,255,255,.55) }
+
+/* A real type rhythm. The headline is the serif; the lede is a size up from
+   body and a shade darker; body is quiet. Contrast is what reads considered. */
+.lede, .sec-head .p-lg{
+  font-size:clamp(16px,1.7vw,18.5px); line-height:1.6;
+  color:var(--ink-soft); font-weight:300;
+}
+.founder .fbody p:first-child, .owner .obody:first-of-type{
+  font-size:clamp(17px,1.8vw,19px); line-height:1.55; color:var(--ink);
+}
+/* Optical refinements that separate a designed page from a typed one. */
+h1, h2, h3, .h-1, .h-2, .h-display{
+  font-feature-settings:"kern" 1, "liga" 1; text-rendering:optimizeLegibility;
+}
+.vs-list li b, .vs-total, .cred .cnum{ font-variant-numeric:tabular-nums lining-nums }
+p{ hanging-punctuation:first last }
+
+/* ── The trust chips were a staggered stack of pale pills. A row of rules,
+      not a pile of blobs. ─────────────────────────────────────────────────── */
+.safety .wrap{ display:flex; flex-wrap:wrap; justify-content:center; gap:0 }
+.safety .chip, .safety > .wrap > span, .safety li{
+  background:none!important; border:none!important; border-radius:0!important;
+  padding:0 22px!important; margin:6px 0!important;
+  border-left:1px solid var(--hair)!important;
+  font-size:10.5px; font-weight:600; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--taupe);
+}
+.safety .chip:first-child, .safety > .wrap > span:first-child{ border-left:none!important }
+
+/* ── THE BUTTON, with real weight. The mint was too pale and it sat flat. ─── */
+.btn--accent, .pill--accent, .vs-cta, .trs-nav .nav__cta{
+  background:linear-gradient(178deg, #8FF0DC 0%, #7CE8D2 52%, #62DCC4 100%);
+  color:#0E2A25;
+  border:1px solid rgba(14,42,37,.22);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.42),
+    0 1px 2px rgba(14,42,37,.14),
+    0 10px 22px -10px rgba(14,42,37,.38);
+}
+.btn--accent:hover, .pill--accent:hover, .vs-cta:hover, .trs-nav .nav__cta:hover{
+  background:linear-gradient(178deg, #9CF4E4 0%, #89ECDA 52%, #70E2CC 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.5),
+    0 1px 2px rgba(14,42,37,.14),
+    0 16px 30px -12px rgba(14,42,37,.44);
+}
+
 </style>
 <meta name="geo.region" content="BH">
 <meta name="geo.placename" content="Manama">

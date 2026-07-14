@@ -843,6 +843,72 @@ body{ overflow-x:hidden; overflow-x:clip; }
   .cta-row .pill, .cta-row .btn{ padding:18px 26px; font-size:11.5px; letter-spacing:.14em }
 }
 
+/* ═══════════ TYPOGRAPHY, ELEVATED ══════════════════════════════════════
+   Three things were wrong. The attribution line was rendering in Playfair
+   ITALIC CAPS with wide tracking, which is close to unreadable and looks like
+   a wedding invitation. Names are not display type. And the type had no real
+   rhythm — everything sat at one grey weight.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Attributions are QUIET. Inter, small, letterspaced, never the serif and
+   never italic. The name should whisper under the words it belongs to. */
+.attr, .owner .attr, .founder .attr, .belief .attr, span.attr, .vs-legal{
+  font-family:var(--fb)!important;
+  font-style:normal!important;
+  font-weight:500;
+  font-size:11px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--taupe);
+}
+.dark .attr, .belief .attr{ color:rgba(255,255,255,.55) }
+
+/* A real type rhythm. The headline is the serif; the lede is a size up from
+   body and a shade darker; body is quiet. Contrast is what reads considered. */
+.lede, .sec-head .p-lg{
+  font-size:clamp(16px,1.7vw,18.5px); line-height:1.6;
+  color:var(--ink-soft); font-weight:300;
+}
+.founder .fbody p:first-child, .owner .obody:first-of-type{
+  font-size:clamp(17px,1.8vw,19px); line-height:1.55; color:var(--ink);
+}
+/* Optical refinements that separate a designed page from a typed one. */
+h1, h2, h3, .h-1, .h-2, .h-display{
+  font-feature-settings:"kern" 1, "liga" 1; text-rendering:optimizeLegibility;
+}
+.vs-list li b, .vs-total, .cred .cnum{ font-variant-numeric:tabular-nums lining-nums }
+p{ hanging-punctuation:first last }
+
+/* ── The trust chips were a staggered stack of pale pills. A row of rules,
+      not a pile of blobs. ─────────────────────────────────────────────────── */
+.safety .wrap{ display:flex; flex-wrap:wrap; justify-content:center; gap:0 }
+.safety .chip, .safety > .wrap > span, .safety li{
+  background:none!important; border:none!important; border-radius:0!important;
+  padding:0 22px!important; margin:6px 0!important;
+  border-left:1px solid var(--hair)!important;
+  font-size:10.5px; font-weight:600; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--taupe);
+}
+.safety .chip:first-child, .safety > .wrap > span:first-child{ border-left:none!important }
+
+/* ── THE BUTTON, with real weight. The mint was too pale and it sat flat. ─── */
+.btn--accent, .pill--accent, .vs-cta, .trs-nav .nav__cta{
+  background:linear-gradient(178deg, #8FF0DC 0%, #7CE8D2 52%, #62DCC4 100%);
+  color:#0E2A25;
+  border:1px solid rgba(14,42,37,.22);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.42),
+    0 1px 2px rgba(14,42,37,.14),
+    0 10px 22px -10px rgba(14,42,37,.38);
+}
+.btn--accent:hover, .pill--accent:hover, .vs-cta:hover, .trs-nav .nav__cta:hover{
+  background:linear-gradient(178deg, #9CF4E4 0%, #89ECDA 52%, #70E2CC 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.5),
+    0 1px 2px rgba(14,42,37,.14),
+    0 16px 30px -12px rgba(14,42,37,.44);
+}
+
 </style>
 <meta name="geo.region" content="BH">
 <meta name="geo.placename" content="Manama">
@@ -948,11 +1014,9 @@ body{ overflow-x:hidden; overflow-x:clip; }
         <span class="badge-pill">Tara Rose Kidd · My Why</span>
         <h2>Why I started this, and why the founding rate is not money off.</h2>
         <div class="fbody">
-          <p class="p">Eleven years ago I started Tara Rose. Not because the world needed another salon, but because I believed the team and the client should always be at the front of it. Everything we have built since comes back to that.</p>
-          <p class="p">I am a busy working mum, so I know exactly what an hour like this is worth. It is never really about the hair. It is the one part of the week that belongs to you. Which is why, year on year, we keep asking ourselves the same question. How do we make that hour mean more.</p>
-          <p class="p">So the founding rate is not money off. It is a thank-you held in place, for the women who trust us before there is a single review in Bahrain to point to.</p>
-          <p class="p">Tara Rose is not new. For eleven years, across Dubai and Abu Dhabi, we have looked after women exactly this way. Bahrain is a new address, not a new brand. You are backing eleven years of proven work, arriving where you are.</p>
-          <p class="p">There are forty-five founding places, and there will never be more. The first forty-five build this with us, so their rate and their standing stay with them, even as the collective grows. The credit is yours to spend on your plan. The founding bonus is my thank-you. The status is the part you could not buy later at any price. That is an honour.</p>
+          <p class="p">Eleven years ago I started Tara Rose, because I believed the team and the client should always be at the front of it. Everything we have built since comes back to that.</p>
+          <p class="p">I am a busy working mum, so I know what an hour like this is worth. It is never really about the hair. It is the one part of the week that belongs to you.</p>
+          <p class="p">So the founding rate is not money off. It is a thank-you, held in place, for the women who trust us before there is a single review in Bahrain to point to. There are forty-five places and there will never be more. The status is the part you could not buy later at any price.</p>
         </div>
         <span class="attr">&middot; Tara Rose Kidd, Founder</span>
       </div>
