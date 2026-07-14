@@ -2517,16 +2517,22 @@ button.pill--accent:disabled, button.btn--accent:disabled{
 </div>
 <script>
 (function(){
-  var bar=document.getElementById('stickyCta'), hero=document.querySelector('.hero-c'),
-      form=document.getElementById('reserve');
-  if(!bar||!hero) return;
-  var show=function(){
-    var pastHero = hero.getBoundingClientRect().bottom < 0;
-    var atForm   = form && form.getBoundingClientRect().top < window.innerHeight;
-    bar.classList.toggle('is-on', pastHero && !atForm);
-    bar.setAttribute('aria-hidden', String(!(pastHero && !atForm)));
+  var bar  = document.getElementById('stickyCta'),
+      hero = document.querySelector('.hero-c'),
+      form = document.getElementById('reserve');
+  if(!bar || !hero) return;
+  var pastHero = false, atForm = false;
+  var sync = function(){
+    var on = pastHero && !atForm;
+    bar.classList.toggle('is-on', on);
+    bar.setAttribute('aria-hidden', String(!on));
   };
-  window.addEventListener('scroll', show, {passive:true}); show();
+  /* An observer is honest about what is actually on screen; scroll maths guesses. */
+  new IntersectionObserver(function(e){ pastHero = !e[0].isIntersecting; sync(); },
+    {rootMargin:'-10px 0px 0px 0px'}).observe(hero);
+  if(form) new IntersectionObserver(function(e){ atForm = e[0].isIntersecting; sync(); },
+    {threshold:0}).observe(form);
+  sync();
 })();
 </script>
 </body>
