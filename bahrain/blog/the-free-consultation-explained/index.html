@@ -1964,9 +1964,19 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
      what starved it — give it the room the bar actually has. Content stays at 1180. */
   .trs-nav .wrap.navrow{ max-width:min(1420px, 100% - 48px) }
   .navrow > *{ min-width:0 }
-  /* The nav needed ~1420px of content in a 1232px bar on a 13" laptop. It never
-     fitted at ANY desktop width — the links were printing straight over the wordmark.
-     Tightened to fit, with the nav CTA shortened at source. */
+  /* THE SITE NAV GOES BRAND-LEFT ON DESKTOP.
+     The centred wordmark cannot coexist with six long links and a CTA: the left grid
+     column offers 496px and the link run needs 670px, so the links were printing
+     straight over "TARA ROSE / BAHRAIN" at every desktop width. Tightening bought back
+     60px of the 234px needed — the geometry simply does not close.
+
+     So the full-menu nav reads brand → links → CTA, which is the standard for a nav
+     this size and loses nothing. The FUNNEL nav is only three items and still fits
+     perfectly centred, so it keeps the centred wordmark signature. */
+  .navrow:has(> .nav__zone-l){ grid-template-columns:auto 1fr auto }
+  .navrow:has(> .nav__zone-l) > .brand      { order:1; justify-self:start }
+  .navrow:has(> .nav__zone-l) > .nav__zone-l{ order:2; justify-self:end }
+  .navrow:has(> .nav__zone-l) > .nav__zone-r{ order:3; justify-self:end }
   .nav__links{ gap:15px }
   .nav__links a{ font-size:11.8px; letter-spacing:.09em; white-space:nowrap }
   .nav__zone-r{ gap:14px }
