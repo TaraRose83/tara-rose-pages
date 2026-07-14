@@ -1624,6 +1624,19 @@ button:disabled, .pill--inactive, .btn--inactive{
 .pill--md, .btn--md{ padding:16px 32px; font-size:12.5px; min-height:52px }
 .pill--lg, .btn--lg{ padding:19px 40px; font-size:13.5px; min-height:60px; letter-spacing:.18em }
 
+/* The disabled fill was still reading turquoise: the accent's background-color was
+   set at higher specificity than :disabled. A dead button must LOOK dead. */
+.reserve .pill--accent:disabled, .wrap .cta-row .pill--accent:disabled,
+.hero-c .pill--accent:disabled, .dark .pill--accent:disabled,
+.vgrid .vs-cta:disabled, .trs-nav .nav__cta:disabled,
+button.pill:disabled, button.btn:disabled{
+  background-color:#E4E1DA !important;
+  background-image:none !important;
+  color:var(--taupe-soft) !important;
+  border-color:rgba(45,46,55,.10) !important;
+  box-shadow:none !important;
+}
+
 </style>
 <meta name="geo.region" content="AE">
 <meta name="geo.placename" content="Dubai, Abu Dhabi">
