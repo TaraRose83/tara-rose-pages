@@ -1769,6 +1769,37 @@ input, select, textarea{ font-size:16px }
   background-image:linear-gradient(135deg, var(--color-canvas-soft) 0%, var(--color-canvas) 50%, var(--color-canvas-soft) 100%);
 }
 
+/* ═══════════ THE 5-BLOCK RHYTHM AS REAL HEADINGS ═══════════════════════
+   The education lessons wrapped their five block headings in <span class="eyebrow">,
+   which tells a crawler "this is decoration". The blogs used <h2> for the same
+   blocks. So 24 pages of genuinely quotable, mechanism-level answers had exactly
+   two H2s and were structurally invisible to AI.
+   They are now real H2s. This styles them to look exactly as they did — an
+   eyebrow to the eye, a heading to a machine.
+   ═══════════════════════════════════════════════════════════════════════ */
+h2.bh{
+  font-family:var(--ff-body);
+  font-size:11.5px; font-weight:600;
+  letter-spacing:.2em; text-transform:uppercase;
+  line-height:1.3;
+  color:var(--color-accent-text);
+  margin:0 0 10px;
+}
+h2.bh[style*="--accent"], h2.bh[style*="accent"]{ color:var(--color-accent-text) }
+.dark h2.bh, .belief h2.bh{ color:var(--color-accent) }
+h2.bh::after{ content:none }   /* the phone hairline rule is for real titles, not these */
+
+/* The AI answer box. An extractor takes the first substantive paragraph after the
+   H1 — which on these pages was the empathy hook, not the answer. */
+.answer{
+  margin:22px 0 30px; padding:20px 22px;
+  background:var(--color-canvas-soft);
+  border-left:2px solid var(--color-accent);
+  border-radius:0 var(--r-sm) var(--r-sm) 0;
+  font-size:16px; line-height:1.6; color:var(--color-foreground);
+}
+.answer strong{ font-weight:600 }
+
 </style>
 </head>
 <body>
@@ -1851,22 +1882,22 @@ input, select, textarea{ font-size:16px }
   <div class="wrap">
     <div class="lread">
     <div class="lblk">
-      <span class="eyebrow">What you might have been told</span>
+      <h2 class="bh">What you might have been told</h2>
       <div class="tick"></div>
         <p>That blonde just fades. That you should have used more purple shampoo. That going warm is simply what blonde does, and there is nothing to be done.</p>
     </div>
     <div class="lblk">
-      <span class="eyebrow">Here’s what’s actually happening</span>
+      <h2 class="bh">Here’s what’s actually happening</h2>
       <div class="tick"></div>
         <p>When your hair is lightened, it uncovers the warmth that was underneath your natural colour, the gold and orange. That warmth is the canvas, and the darker you started, the warmer it is. The toner is the layer that holds your tone and cancels that warmth, and it is the part that wears off first. So when the warmth comes back, your colour did not fail. The toner faded and the canvas is showing through again. Hard water and heat here move it along faster.</p>
     </div>
     <div class="lblk">
-      <span class="eyebrow">It’s no wonder you didn’t know</span>
+      <h2 class="bh">It’s no wonder you didn’t know</h2>
       <div class="tick"></div>
         <p>Most women are sold the appointment, not the plan that holds it. Nobody explained that the toner wears off first, or that the water here works on your colour the moment you leave. It is no wonder you did not know. That was never yours to work out alone.</p>
     </div>
     <div class="lblk">
-      <span class="eyebrow">What this means for you</span>
+      <h2 class="bh">What this means for you</h2>
       <div class="tick"></div>
         <p>Warmth is not a rescue job, it is a rhythm. A short gloss every four to six weeks re-lays the tone before the warmth ever shows, so you stay salon-fresh instead of drifting back to square one. Purple shampoo helps the tone, but it is one part of the care, never the whole plan. The blonde is built in the chair; the plan is what keeps it there.</p>
     </div>
@@ -1877,7 +1908,7 @@ input, select, textarea{ font-size:16px }
 <!-- THE TARA ROSE TRUTH -->
 <section class="dark belief">
   <div class="wrap">
-    <span class="eyebrow" style="color:var(--accent)">The Tara Rose Truth</span>
+    <h2 class="bh" style="color:var(--accent)">The Tara Rose Truth</h2>
     <h2>Your colour is a result. Protecting it is a plan.</h2>
   </div>
 </section>

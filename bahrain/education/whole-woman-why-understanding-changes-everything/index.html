@@ -1769,6 +1769,37 @@ input, select, textarea{ font-size:16px }
   background-image:linear-gradient(135deg, var(--color-canvas-soft) 0%, var(--color-canvas) 50%, var(--color-canvas-soft) 100%);
 }
 
+/* ═══════════ THE 5-BLOCK RHYTHM AS REAL HEADINGS ═══════════════════════
+   The education lessons wrapped their five block headings in <span class="eyebrow">,
+   which tells a crawler "this is decoration". The blogs used <h2> for the same
+   blocks. So 24 pages of genuinely quotable, mechanism-level answers had exactly
+   two H2s and were structurally invisible to AI.
+   They are now real H2s. This styles them to look exactly as they did — an
+   eyebrow to the eye, a heading to a machine.
+   ═══════════════════════════════════════════════════════════════════════ */
+h2.bh{
+  font-family:var(--ff-body);
+  font-size:11.5px; font-weight:600;
+  letter-spacing:.2em; text-transform:uppercase;
+  line-height:1.3;
+  color:var(--color-accent-text);
+  margin:0 0 10px;
+}
+h2.bh[style*="--accent"], h2.bh[style*="accent"]{ color:var(--color-accent-text) }
+.dark h2.bh, .belief h2.bh{ color:var(--color-accent) }
+h2.bh::after{ content:none }   /* the phone hairline rule is for real titles, not these */
+
+/* The AI answer box. An extractor takes the first substantive paragraph after the
+   H1 — which on these pages was the empathy hook, not the answer. */
+.answer{
+  margin:22px 0 30px; padding:20px 22px;
+  background:var(--color-canvas-soft);
+  border-left:2px solid var(--color-accent);
+  border-radius:0 var(--r-sm) var(--r-sm) 0;
+  font-size:16px; line-height:1.6; color:var(--color-foreground);
+}
+.answer strong{ font-weight:600 }
+
 </style>
 </head>
 <body>
@@ -1851,22 +1882,22 @@ input, select, textarea{ font-size:16px }
   <div class="wrap">
     <div class="lread">
     <div class="lblk">
-      <span class="eyebrow">What you might have been told</span>
+      <h2 class="bh">What you might have been told</h2>
       <div class="tick"></div>
         <p>Different things, by different people, none of them the whole truth. That your hair is just difficult. That this is simply how it behaves. You were left to piece it together yourself, which is another way of saying you were left to guess.</p>
     </div>
     <div class="lblk">
-      <span class="eyebrow">Here’s what’s actually happening</span>
+      <h2 class="bh">Here’s what’s actually happening</h2>
       <div class="tick"></div>
         <p>The guessing was never a sign that you were not clever enough. It was a sign that nobody ever sat you down and told you the real reason. And here is the part that changes everything: the more you understand your hair, the better it behaves. Not because your hair listens, but because you stop working against it. A woman who knows why her colour fades protects it. A woman who knows why her hair feels heavy clears it instead of scrubbing at it. Understanding is not the extra on top of the plan. It is the quietest and cheapest part of the plan.</p>
     </div>
     <div class="lblk">
-      <span class="eyebrow">It’s no wonder you didn’t know</span>
+      <h2 class="bh">It’s no wonder you didn’t know</h2>
       <div class="tick"></div>
         <p>Most women are sold the appointment, never the understanding that holds it. Nobody explained the why, only ever the what. It is no wonder you were guessing, the knowing was kept behind the chair and never handed to you. That was never yours to work out alone, and it was never a gap in you.</p>
     </div>
     <div class="lblk">
-      <span class="eyebrow">What this means for you</span>
+      <h2 class="bh">What this means for you</h2>
       <div class="tick"></div>
         <p>It means you can stop guessing for good. We tell you why, not just what, so you leave knowing your own hair the way we do. That knowledge is yours to keep, and it is the quiet difference between a good hair day and hair that holds long after you have left us. Once you understand it, you protect it, without thinking, for years. That is the whole reason we teach, and it costs you nothing.</p>
     </div>
@@ -1877,7 +1908,7 @@ input, select, textarea{ font-size:16px }
 <!-- THE TARA ROSE TRUTH -->
 <section class="dark belief">
   <div class="wrap">
-    <span class="eyebrow" style="color:var(--accent)">The Tara Rose Truth</span>
+    <h2 class="bh" style="color:var(--accent)">The Tara Rose Truth</h2>
     <h2>The more you understand your hair, the better it behaves.</h2>
   </div>
 </section>

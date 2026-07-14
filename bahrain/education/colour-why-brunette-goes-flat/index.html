@@ -1769,6 +1769,37 @@ input, select, textarea{ font-size:16px }
   background-image:linear-gradient(135deg, var(--color-canvas-soft) 0%, var(--color-canvas) 50%, var(--color-canvas-soft) 100%);
 }
 
+/* ═══════════ THE 5-BLOCK RHYTHM AS REAL HEADINGS ═══════════════════════
+   The education lessons wrapped their five block headings in <span class="eyebrow">,
+   which tells a crawler "this is decoration". The blogs used <h2> for the same
+   blocks. So 24 pages of genuinely quotable, mechanism-level answers had exactly
+   two H2s and were structurally invisible to AI.
+   They are now real H2s. This styles them to look exactly as they did — an
+   eyebrow to the eye, a heading to a machine.
+   ═══════════════════════════════════════════════════════════════════════ */
+h2.bh{
+  font-family:var(--ff-body);
+  font-size:11.5px; font-weight:600;
+  letter-spacing:.2em; text-transform:uppercase;
+  line-height:1.3;
+  color:var(--color-accent-text);
+  margin:0 0 10px;
+}
+h2.bh[style*="--accent"], h2.bh[style*="accent"]{ color:var(--color-accent-text) }
+.dark h2.bh, .belief h2.bh{ color:var(--color-accent) }
+h2.bh::after{ content:none }   /* the phone hairline rule is for real titles, not these */
+
+/* The AI answer box. An extractor takes the first substantive paragraph after the
+   H1 — which on these pages was the empathy hook, not the answer. */
+.answer{
+  margin:22px 0 30px; padding:20px 22px;
+  background:var(--color-canvas-soft);
+  border-left:2px solid var(--color-accent);
+  border-radius:0 var(--r-sm) var(--r-sm) 0;
+  font-size:16px; line-height:1.6; color:var(--color-foreground);
+}
+.answer strong{ font-weight:600 }
+
 </style>
 </head>
 <body>
@@ -1851,22 +1882,22 @@ input, select, textarea{ font-size:16px }
   <div class="wrap">
     <div class="lread">
     <div class="lblk">
-      <span class="eyebrow">What you might have been told</span>
+      <h2 class="bh">What you might have been told</h2>
       <div class="tick"></div>
         <p>That brown is the easy, low-effort option. That flat just means it needs a good wash. That if you want it richer, you should go darker.</p>
     </div>
     <div class="lblk">
-      <span class="eyebrow">Here’s what’s actually happening</span>
+      <h2 class="bh">Here’s what’s actually happening</h2>
       <div class="tick"></div>
         <p>Shine is part of colour. When your hair is coated with a fine film, it cannot reflect the depth underneath, so the brunette reads flat even when the tone is fine. The hair is not dirty, it is coated, the way build-up dulls the skin. It is the same forces that move blonde: hard water leaves minerals that sit over your hair and block the shine, heat and the air conditioning dry it and shift the tone, and as the cool tone fades the warmth underneath, the canvas, starts to show, so a balanced brunette drifts warm and muddy. Going darker only makes it flatter.</p>
     </div>
     <div class="lblk">
-      <span class="eyebrow">It’s no wonder you didn’t know</span>
+      <h2 class="bh">It’s no wonder you didn’t know</h2>
       <div class="tick"></div>
         <p>Most women are told to go darker when the shine and dimension are what dropped away. Nobody showed you that shine is part of colour, or that the water and heat here dull it within weeks. It is no wonder you did not know. That was never yours to work out alone.</p>
     </div>
     <div class="lblk">
-      <span class="eyebrow">What this means for you</span>
+      <h2 class="bh">What this means for you</h2>
       <div class="tick"></div>
         <p>Rich brunette is a rhythm, not a re-colour. A gloss every six to eight weeks re-lays the tone and brings the shine back, a Detox clears the film so your hair can reflect the depth again, and matched home care and a water filter hold it between visits. Expensive brunette does not mean darker. It means tone, reflection, depth and shine, kept on a plan.</p>
     </div>
@@ -1877,7 +1908,7 @@ input, select, textarea{ font-size:16px }
 <!-- THE TARA ROSE TRUTH -->
 <section class="dark belief">
   <div class="wrap">
-    <span class="eyebrow" style="color:var(--accent)">The Tara Rose Truth</span>
+    <h2 class="bh" style="color:var(--accent)">The Tara Rose Truth</h2>
     <h2>Expensive brunette is tone, reflection, depth and shine working together.</h2>
   </div>
 </section>
