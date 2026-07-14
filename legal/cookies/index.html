@@ -740,6 +740,138 @@ p{ hanging-punctuation:first last }
   .vgrid, .grid-3{ gap:14px }
 }
 
+/* ═══════════ PHOTOGRAPHY ════════════════════════════════════════════════
+   The first real photographs on the site. Framed the way the design language
+   asks for: near-rectangular, a lit rim, and a caption that reads as editorial
+   rather than as alt text. Never a rounded blob.
+   ═══════════════════════════════════════════════════════════════════════ */
+.ph-frame{ margin:0; position:relative }
+.ph-frame .ph{
+  display:block; width:100%; height:100%; object-fit:cover;
+  border-radius:var(--r-md);
+  box-shadow: var(--rim-light), var(--sh-reg-xl);
+  aspect-ratio:4/3;
+}
+.ph-frame--tall .ph{ aspect-ratio:4/5 }
+.ph-frame--wide .ph{ aspect-ratio:16/9; border-radius:var(--r-lg) }
+.ph-frame figcaption{
+  margin-top:12px; font-family:var(--fb); font-size:11px; font-weight:500;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--taupe);
+}
+.photoband{ padding-block:0 }
+.photoband .ph-frame--wide .ph{ aspect-ratio:21/9 }
+@media(max-width:640px){
+  .ph-frame .ph{ aspect-ratio:4/5 }
+  .photoband .ph-frame--wide .ph{ aspect-ratio:4/3 }
+  .ph-frame figcaption{ text-align:center; font-size:10px }
+}
+
+/* ═══════════ THE NEUTRAL BUTTONS ═══════════════════════════════════════
+   The ghost/secondary was a bare hairline with nothing in it — next to a
+   material primary it read as unfinished rather than as restrained. Give it a
+   surface of its own: a soft warm fill, a lit rim, a real edge. It should look
+   like the quieter of two good options, not like a link in a box.
+   ═══════════════════════════════════════════════════════════════════════ */
+.btn--ghost, .pill--ghost, .btn:not(.btn--accent):not(.btn--ghost), .pill:not(.pill--accent):not(.pill--ghost){
+  background-image:linear-gradient(178deg, #FFFFFF 0%, #F5F2EC 100%);
+  background-color:#F7F4EE;
+  color:var(--ink);
+  border:1px solid rgba(45,46,55,.16);
+  box-shadow: var(--rim-light), var(--sh-subtle-md);
+}
+.btn--ghost:hover, .pill--ghost:hover,
+.btn:not(.btn--accent):not(.btn--ghost):hover, .pill:not(.pill--accent):not(.pill--ghost):hover{
+  background-image:linear-gradient(178deg, #FFFFFF 0%, #EFEBE3 100%);
+  border-color:rgba(45,46,55,.32);
+  box-shadow: var(--rim-light), var(--sh-reg-md);
+  transform:translateY(-1px);
+}
+/* On the dark grounds it inverts: a smoked-glass surface, not a bare outline. */
+.btn--ghost.on-dark, .pill--ghost.on-dark, .dark .btn--ghost, .dark .pill--ghost,
+.closing .btn--ghost, .closing .pill--ghost{
+  background-image:none;
+  background-color:rgba(255,255,255,.07);
+  color:#fff; border:1px solid rgba(255,255,255,.22);
+  box-shadow: var(--rim-dark);
+  backdrop-filter:blur(6px);
+}
+.btn--ghost.on-dark:hover, .pill--ghost.on-dark:hover, .dark .pill--ghost:hover,
+.closing .pill--ghost:hover{
+  background-color:rgba(255,255,255,.13);
+  border-color:rgba(255,255,255,.42);
+}
+
+/* ═══════════ SYMBOLS ═══════════════════════════════════════════════════
+   The ticks, dots, arrows and bullets were inconsistent — some filled circles,
+   some dashes, some at different sizes. One symbol language.
+   ═══════════════════════════════════════════════════════════════════════ */
+.tk, .tick, .brand__tick{
+  width:14px; height:14px; border-radius:50%; flex-shrink:0;
+  background:linear-gradient(178deg, #8FF0DC, #62DCC4);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.5), 0 1px 2px rgba(14,42,37,.18);
+  position:relative;
+}
+.tk::after, .tick::after{
+  content:""; position:absolute; left:4.6px; top:2.6px;
+  width:3px; height:6px; border:solid #0E2A25; border-width:0 1.6px 1.6px 0;
+  transform:rotate(45deg);
+}
+.dot{
+  width:6px; height:6px; border-radius:50%;
+  background:linear-gradient(178deg, #8FF0DC, #62DCC4);
+  box-shadow:0 0 0 3px rgba(153,246,228,.18);
+}
+.arr{ display:inline-block; transition:transform .32s var(--ease) }
+.go::after, .stepgo::after, .learn::after{ content:"" }
+.receives li::before, .vs-list li::marker{ color:var(--accent-text) }
+
+/* ═══════════ PHONE: THE TITLES, CENTRED AND HIGH-END ════════════════════
+   Titles centre on a phone, with the eyebrow above and a fine rule beneath —
+   the way a title page in a book is set. The BODY stays left-aligned, because
+   centred long-form is where readability dies. Centre the titles, not the text.
+   ═══════════════════════════════════════════════════════════════════════ */
+@media (max-width:640px){
+
+  .sec-head, .sec-head.center{ text-align:center }
+  .hero-c .inner, .hero-a .wrap{ text-align:center }
+
+  h1, h2, .h-1, .h-2, .h-display, .sec-head h2, .founder h2, .owner h3, .belief h2{
+    text-align:center;
+    text-wrap:balance;
+    margin-inline:auto;
+    max-width:16ch;                       /* forces a considered break, not a ragged one */
+  }
+  .h-display{ max-width:13ch }
+  .belief h2{ max-width:15ch }
+
+  /* The eyebrow sits above the title, centred, on its own line, with air. */
+  .eyebrow, .pill-tag, .badge-pill{
+    display:block; text-align:center; border-top:none; padding-top:0;
+    margin:0 auto 16px; letter-spacing:.24em; font-size:10px;
+  }
+  /* A hairline under the title. This is the single most "printed" gesture there
+     is, and it costs nothing. */
+  .sec-head h2::after, .hero-c h1::after, .hero-a h1::after,
+  .founder h2::after, .owner h3::after{
+    content:""; display:block; width:44px; height:1px; margin:20px auto 0;
+    background:linear-gradient(90deg, transparent, var(--accent-text), transparent);
+  }
+  .hero-c h1::after, .belief h2::after{
+    background:linear-gradient(90deg, transparent, var(--accent), transparent);
+  }
+
+  /* The lede sits centred under the rule, then the long-form goes left. */
+  .hero-c .lede, .hero-a .lede, .sec-head .p-lg{
+    text-align:center; margin-inline:auto; max-width:38ch;
+  }
+  .founder .fbody, .owner, .belief .belief-body{ text-align:left }
+  .founder .fbody p, .owner .obody, .belief .belief-body p{ text-align:left }
+
+  /* The scarcity rule row centres with the rest. */
+  .hero-c .scarcity, .scarcity{ text-align:center }
+  .attr{ text-align:center }
+}
+
 </style>
 <meta name="geo.region" content="AE">
 <meta name="geo.placename" content="Dubai, Abu Dhabi">
