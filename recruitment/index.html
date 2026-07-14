@@ -1854,6 +1854,59 @@ button.pill--accent:disabled, button.btn--accent:disabled{
   .hero-a .cta-row .pill--accent, .hero-a .cta-row .btn--accent{ height:58px; font-size:12.5px; letter-spacing:.14em }
 }
 
+/* ═══════════ CONFIDENCE MAPPING — THE FREE DOOR ════════════════════════
+   It is the softest entry in the whole funnel and it was reading like an
+   afterthought: a huge dead gap under the hero, a nav pill wrapping to three
+   lines, and the trust chips floating with nothing holding them.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* The nav CTA was wrapping "START YOUR MAP" onto three lines. */
+.trs-nav .nav__cta{ white-space:nowrap; padding:0 18px }
+
+/* The hero had ~150px of dead air between the micro-line and the chips. Close it,
+   and let the headline and the button own the space instead. */
+.hero-a{ padding:96px 0 72px }
+.hero-a .lede{ margin-top:20px }
+.hero-a .cta-row{ margin-top:34px }
+.hero-a .cta-free, .hero-a .micro{ margin-top:14px }
+
+/* The trust strip: a rule-bounded row, not four floating ticks. */
+.safety{ padding-block:0 }
+.safety .wrap{
+  display:flex; flex-wrap:wrap; justify-content:center; align-items:center;
+  gap:0; padding-block:20px;
+  border-top:1px solid var(--color-border);
+}
+.safety .chip, .safety > .wrap > span{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:0 26px!important; margin:6px 0!important;
+  border-left:1px solid var(--color-border)!important;
+  font-size:10.5px; font-weight:600; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--color-foreground-muted);
+}
+.safety .chip:first-child, .safety > .wrap > span:first-child{ border-left:none!important }
+@media(max-width:640px){
+  .safety .chip, .safety > .wrap > span{ padding:0 14px!important; font-size:9.5px; letter-spacing:.12em }
+}
+
+/* The quiz itself. It is the product on this page, so it should look like an object
+   on the table, not like a form embedded in a paragraph. */
+.quiz .qcard, .quiz .stage, .quiz form{
+  background:var(--color-canvas);
+  border:1px solid var(--color-border);
+  border-radius:var(--r-lg);
+  box-shadow:var(--sh-rim-light), var(--sh-regular-lg);
+  padding:36px 32px;
+}
+@media(max-width:640px){ .quiz .qcard, .quiz .stage, .quiz form{ padding:26px 20px } }
+
+/* The progress bar reads as progress, not as decoration. */
+.quiz .bar, .quiz .track{ height:3px; background:var(--color-border); border-radius:100px; overflow:hidden }
+.quiz .fill{ height:100%; background:linear-gradient(90deg, var(--accent-mid), var(--accent-lift));
+             border-radius:100px; transition:width .5s var(--ease) }
+.quiz .pct{ font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
+            color:var(--color-accent-text) }
+
 </style>
 <meta name="geo.region" content="AE">
 <meta name="geo.placename" content="Dubai, Abu Dhabi">
