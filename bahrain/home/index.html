@@ -321,6 +321,39 @@ section{ padding:var(--sec-y) 0; }
 .foot .soc-grp:first-of-type{margin-top:0}
 .foot .row{flex-wrap:wrap}
 
+.promise__tag{display:block;margin-top:14px;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-text)}
+
+/* The credibility spine and the expertise block. Both were specified and never built. */
+.credspine{background:var(--cream);border-block:1px solid var(--hair)}
+.cred{background:var(--paper);border:1px solid var(--hair);border-radius:var(--r-md);padding:26px 22px}
+.cred .cnum{display:block;font-family:var(--fd);font-weight:500;font-size:42px;line-height:1;color:var(--accent-text)}
+.cred h3{margin:12px 0 8px;font-family:var(--fd);font-weight:500;font-size:19px}
+.cred p{margin:0;font-size:14.5px;line-height:1.6;color:var(--ink-soft)}
+.teach{display:flex;flex-direction:column;gap:10px;padding:28px 24px;background:var(--cream);border:1px solid var(--hair);border-radius:var(--r-md);text-decoration:none;transition:border-color var(--dur) var(--ease),transform var(--dur) var(--ease)}
+.teach:hover{border-color:var(--accent);transform:translateY(-2px)}
+.teach h3{margin:0;font-family:var(--fd);font-weight:500;font-size:21px;line-height:1.28;color:var(--ink)}
+.teach p{margin:0;font-size:14.5px;line-height:1.6;color:var(--ink-soft)}
+.teach .go{margin-top:auto;padding-top:8px;font-size:12.5px;font-weight:600;letter-spacing:.06em;color:var(--accent-text)}
+.anchorline{margin:34px auto 0;max-width:44ch;text-align:center;font-family:var(--fd);font-style:italic;font-size:clamp(20px,2.6vw,26px);line-height:1.35;color:var(--ink)}
+
+.flowstep{display:flex;flex-direction:column;gap:8px;padding:26px 22px;background:var(--paper);border:1px solid var(--hair);border-radius:var(--r-md)}
+.flowstep .fnum{font-family:var(--fd);font-weight:500;font-size:15px;width:30px;height:30px;display:grid;place-items:center;border-radius:50%;background:var(--accent);color:var(--ink)}
+.flowstep h3{margin:6px 0 0;font-family:var(--fd);font-weight:500;font-size:19px}
+.flowstep p{margin:0;font-size:14px;line-height:1.6;color:var(--ink-soft)}
+.flowstep .go{margin-top:auto;padding-top:6px;font-size:12.5px;font-weight:600;color:var(--accent-text);text-decoration:none}
+@media(min-width:900px){.flowgrid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+/* The launch headline. The normalise pass caps .h-1 at 74px, which flattens a launch
+   hero to section-head size, so the Bahrain home opts into the display scale. */
+.hero-a .h-display{font-family:var(--fd);font-weight:500;font-size:clamp(44px,6.8vw,92px);line-height:1.0;letter-spacing:-.026em;margin:20px 0 0;text-wrap:balance}
+.hero-a .h-display em{font-style:italic;font-weight:400;color:var(--accent-text)}
+
+.flow-strip--4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:900px){.flow-strip--4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.flow-strip--4{grid-template-columns:1fr}}
+.flow-strip--4 .step{display:flex;flex-direction:column;gap:7px}
+.flow-strip--4 .step .stepgo{margin-top:auto;padding-top:6px;font-size:12.5px;font-weight:600;color:var(--accent-text);text-decoration:none}
+
 /* ── TRS NORMALISE v1 (build-injected from _content/normalise.css) ── */
 /* ═══════════ TRS NORMALISE v1 ═══════════════════════════════════════
    Appended last inside each page's <style>, so it wins on source order
@@ -499,7 +532,7 @@ body{ overflow-x:hidden; overflow-x:clip; }
   <div class="wrap">
         <span class="eyebrow">Tara Rose is coming to Bahrain</span>
     <div class="tick"></div>
-    <h1 class="h-1">Be one of the first. Be one of the <em class="serif-em accent">founders</em>.</h1>
+    <h1 class="h-display">Be one of the first.<br><em class="serif-em accent">Be one of the founders.</em></h1>
     <p class="lede p-lg">We are opening our doors in Bahrain, and forty-five women will help us begin. Founding places come with founding credit, founding status, and a stylist who reads your hair from the very first visit.</p>
     <div class="cta-row">
       <a class="pill pill--accent" href="/tara-rose-pages/bahrain/founding-glow-pass">Reserve Your Founding Place</a>
@@ -533,6 +566,21 @@ body{ overflow-x:hidden; overflow-x:clip; }
 </div>
 
 <!-- ============================ BELIEF PULL-QUOTE ============================ -->
+<section class="credspine">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Before you decide</span>
+      <h2 class="h-2">Eleven years. Four salons. <em class="serif-em accent">A new address, not a new brand.</em></h2>
+      <p class="p-lg" style="max-width:60ch;margin:14px auto 0;color:var(--ink-soft)">There is not a chair in Bahrain to sit in yet, so nothing here is asking you to take our word for it. Everything behind the name is already open, and already reviewed.</p>
+    </div>
+    <div class="grid-3" style="margin-top:36px">
+      <div class="cred"><span class="cnum">11</span><h3>Years, not a launch</h3><p>Looking after women across the UAE since 2015. The same method, the same standards, arriving where you are.</p></div>
+      <div class="cred"><span class="cnum">4</span><h3>Salons you can walk into</h3><p>Motor City and Al Quoz in Dubai. Khalifa City A and Mamsha al Saadiyat in Abu Dhabi. Eleven years of reviews sit with them.</p></div>
+      <div class="cred"><span class="cnum">1</span><h3>Owner, here</h3><p>Daisy Charlotte Cropper ran inside Tara Rose for ten years. She owns and runs Bahrain herself, and she is in the room from the first day.</p></div>
+    </div>
+  </div>
+</section>
+
 <section class="dark belief">
   <div class="wrap">
     <span class="q">&ldquo;</span>
@@ -602,18 +650,47 @@ body{ overflow-x:hidden; overflow-x:clip; }
   <div class="wrap">
     <div class="sec-head center">
       <span class="eyebrow">How we work</span>
-      <h2>The Tara Rose Flow.</h2>
-      <p class="sub">Every client goes through the same five steps, no matter what brought them in.</p>
+      <h2>We don&rsquo;t guess. <em class="serif-em accent">We diagnose.</em></h2>
+      <p class="sub">There is no chair in Bahrain yet, so here is exactly how the result gets made, before you ever sit in one.</p>
     </div>
-    <div class="flow-strip">
-      <div class="step"><span class="n">1</span><b>Diagnose</b><p>We read what your hair is doing now.</p></div>
-      <div class="step"><span class="n">2</span><b>Plan</b><p>Your 8-Step Hair Plan, matched to your hair.</p></div>
-      <div class="step"><span class="n">3</span><b>Deliver</b><p>The service, built to your plan.</p></div>
-      <div class="step"><span class="n">4</span><b>Protect</b><p>Home care that holds it between visits.</p></div>
-      <div class="step"><span class="n">5</span><b>Return</b><p>On rhythm, before it needs rescuing.</p></div>
+    <div class="flow-strip flow-strip--4">
+      <div class="step"><span class="n">1</span><b>Confidence Mapping</b><p>Free, and before the chair. A few questions and a conversation, so you leave knowing exactly what your hair needs.</p><a class="stepgo" href="/tara-rose-pages/bahrain/confidence-mapping">Start yours &rarr;</a></div>
+      <div class="step"><span class="n">2</span><b>The 8-Step Hair Plan</b><p>In the chair, this is our consultation. We read your hair, agree the plan, and explain every choice we make.</p></div>
+      <div class="step"><span class="n">3</span><b>The Full Loop</b><p>Colour, Haircut, Treatments, Home Care and Maintenance, held on one rhythm. Good hair is not one visit. It is the Full Loop.</p></div>
+      <div class="step"><span class="n">4</span><b>On rhythm</b><p>We see you back before it slips, so the result holds rather than fades. That is the whole difference.</p></div>
     </div>
+    <p class="anchorline">We don&rsquo;t just create great hair. We keep it that way.</p>
   </div>
 </section>
+
+<section class="expertise">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">The expertise</span>
+      <h2 class="h-2">Same architecture, <em class="serif-em accent">different prescription.</em></h2>
+      <p class="p-lg" style="max-width:58ch;margin:14px auto 0;color:var(--ink-soft)">One method, read differently for every head of hair. Here is how we think about yours.</p>
+    </div>
+    <div class="grid-3" style="margin-top:38px">
+      <a class="teach" href="/tara-rose-pages/bahrain/treatments">
+        <h3>Treatments are skincare for your hair.</h3>
+        <p>Not an add-on at the basin. The answer to something specific your hair is doing right now.</p>
+        <span class="go">The treatment menu &rarr;</span>
+      </a>
+      <a class="teach" href="/tara-rose-pages/bahrain/home-care">
+        <h3>Home care is the insurance on your hair.</h3>
+        <p>Not retail. It protects the result you have already paid for, every wash, between visits.</p>
+        <span class="go">The three levels of cover &rarr;</span>
+      </a>
+      <a class="teach" href="/tara-rose-pages/bahrain/colour">
+        <h3>Colour is read, not copied.</h3>
+        <p>We know why blonde goes warm here and why brunette goes flat, and we plan for it before it happens.</p>
+        <span class="go">Blonde and brunette &rarr;</span>
+      </a>
+    </div>
+    <p class="anchorline">Your stylist prescribes. You never choose blind.</p>
+  </div>
+</section>
+
 
 <!-- ============================ FEATURED PACKAGES ============================ -->
 <section>
@@ -623,7 +700,7 @@ body{ overflow-x:hidden; overflow-x:clip; }
       <h2>Three ways to protect the result.</h2>
       <p class="sub">Home care is not retail. It is the insurance on your hair, matched to you, never a generic shelf.</p>
     </div>
-    <div class="grid-3">
+    <div class="grid-4 flowgrid">
       <div class="pkg">
         <span class="plabel">The minimum</span>
         <h3>Protect</h3>
@@ -653,7 +730,7 @@ body{ overflow-x:hidden; overflow-x:clip; }
 <section style="background:var(--stone-soft);">
   <div class="wrap">
     <div class="sec-head center">
-      <span class="eyebrow">What clients are saying</span>
+      <span class="eyebrow">What women say</span>
       <h2>Real diagnosis. Real results.</h2>
     </div>
     <div class="grid-3">
@@ -740,7 +817,7 @@ body{ overflow-x:hidden; overflow-x:clip; }
       <div class="ans">Yes. Every plan starts with the 8-Step Hair Plan, so we read what your hair is doing before we recommend anything. If you are not sure where to start, begin with Confidence Mapping.</div>
     </details>
     <details>
-      <summary>How much does a plan cost?<span class="chev"></span></summary>
+      <summary>What is the investment in a plan?<span class="chev"></span></summary>
       <div class="ans">It depends on your hair and the plan we build together. We give you a full quotation at consultation, so you always know before you commit.</div>
     </details>
     <details>
@@ -760,6 +837,7 @@ body{ overflow-x:hidden; overflow-x:clip; }
     <div class="inner">
       <span class="eyebrow">The Confidence Promise</span>
       <blockquote>If something does not feel right within seven days of any colour or treatment service, we invite you back to refine it. No blame, just care.</blockquote>
+      <span class="promise__tag">Refine, never refund.</span>
     </div>
   </div>
 </section>
@@ -826,7 +904,7 @@ body{ overflow-x:hidden; overflow-x:clip; }
 {"@context":"https://schema.org","@type":"HairSalon","name":"Tara Rose Salon","url":"https://www.tararosesalon.com","logo":"https://www.tararosesalon.com/logo.svg","sameAs":["https://instagram.com/tararosesalon","https://facebook.com/tararosesalon","https://linkedin.com/company/tararose"],"address":{"@type":"PostalAddress","streetAddress":"District 2, Bahrain","addressLocality":"Bahrain","addressCountry":"BH"},"openingHours":"Mo-Su 09:00-20:00"}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do I need a consultation?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every plan starts with the 8-Step Hair Plan, so we read what your hair is doing before we recommend anything. If you are not sure where to start, begin with Confidence Mapping."}},{"@type":"Question","name":"How much does a plan cost?","acceptedAnswer":{"@type":"Answer","text":"It depends on your hair and the plan we build together. We give you a full quotation at consultation, so you always know before you commit."}},{"@type":"Question","name":"How long does an appointment take?","acceptedAnswer":{"@type":"Answer","text":"It varies by service, length and thickness. We confirm the timing when we plan your visit, so nothing is a surprise on the day."}},{"@type":"Question","name":"Can I book online?","acceptedAnswer":{"@type":"Answer","text":"You can start your Hair Plan or message the team on WhatsApp, and we will find the right time and stylist with you."}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do I need a consultation?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every plan starts with the 8-Step Hair Plan, so we read what your hair is doing before we recommend anything. If you are not sure where to start, begin with Confidence Mapping."}},{"@type":"Question","name":"What is the investment in a plan?","acceptedAnswer":{"@type":"Answer","text":"It depends on your hair and the plan we build together. We give you a full quotation at consultation, so you always know before you commit."}},{"@type":"Question","name":"How long does an appointment take?","acceptedAnswer":{"@type":"Answer","text":"It varies by service, length and thickness. We confirm the timing when we plan your visit, so nothing is a surprise on the day."}},{"@type":"Question","name":"Can I book online?","acceptedAnswer":{"@type":"Answer","text":"You can start your Hair Plan or message the team on WhatsApp, and we will find the right time and stylist with you."}}]}
 </script>
 
 <script>
