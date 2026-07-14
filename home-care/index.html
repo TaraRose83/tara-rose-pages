@@ -1974,6 +1974,41 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
   .nav__burger{ display:none !important }
 }
 
+/* ── THE WORDMARK IS ONE MARK, AND IT LIVES HERE ─────────────────────────────
+   Two logos were live. Sixty-one pages carried the real one — a turquoise bar tick
+   above letterspaced Playfair TARA ROSE with the market beneath. Eleven carried a
+   different mark: an italic title-case "Tara Rose" with a round dot. Among them were
+   Daisy's story and the page a woman sees the moment after she pays.
+
+   The markup is now identical everywhere and the styling lives in the system, so a
+   page cannot quietly invent its own logo again. */
+.trs-nav{
+  position:sticky; top:0; z-index:60;
+  background:color-mix(in srgb, var(--canvas) 88%, transparent);
+  backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--hairline);
+  transition:box-shadow .4s var(--ease), background .4s var(--ease);
+}
+.trs-nav .brand{
+  display:inline-flex; flex-direction:column; align-items:center;
+  text-decoration:none; font-style:normal; line-height:1;
+}
+.trs-nav .brand__tick{
+  width:34px; height:2px; border-radius:0;
+  background:var(--accent-dark, var(--accent)); margin:0 0 8px;
+}
+.trs-nav .brand__wm{
+  font-family:var(--ff-display); font-weight:500; font-style:normal;
+  font-size:19px; letter-spacing:.3em; color:var(--ink);
+  white-space:nowrap;
+}
+.trs-nav .brand small{
+  display:block; margin-top:5px;
+  font-family:var(--ff-body); font-style:normal; font-weight:500;
+  font-size:9.5px; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--taupe); white-space:nowrap;
+}
+
 </style>
 <meta name="geo.region" content="AE">
 <meta name="geo.placename" content="Dubai, Abu Dhabi">
