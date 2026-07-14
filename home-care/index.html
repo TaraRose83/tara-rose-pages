@@ -1150,6 +1150,16 @@ p{ hanging-punctuation:first last }
   .attr{ text-align:center }
 }
 
+/* `.hero-c .pill-tag` (0,2,0) from the earlier phone block was still forcing the
+   eyebrow left. The centred setting has to match its specificity. */
+@media (max-width:640px){
+  .hero-c .pill-tag, .hero-a .pill-tag, .hero-c .eyebrow, .hero-a .eyebrow,
+  .sec-head .eyebrow, .founder .badge-pill, .owner .badge-pill{
+    text-align:center; display:block; margin-inline:auto;
+  }
+  .hero-c .scarcity{ text-align:center }
+}
+
 </style>
 <meta name="geo.region" content="AE">
 <meta name="geo.placename" content="Dubai, Abu Dhabi">
