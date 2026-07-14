@@ -475,6 +475,35 @@ em.accent{ font-style:italic; color:var(--accent-text); }
 .daisy-more:hover .arr{ transform:translateX(4px) }
 @media(max-width:640px){ .daisy-more{ padding:16px 18px!important } .daisy-more strong{ font-size:16px } }
 
+/* The belief panel gets the picture the sentence is about: a woman in the chair,
+   from behind, her profile turning toward someone who is looking at her. It is the
+   same photograph as the hero, cropped to the OTHER woman — so it reads as a
+   different image entirely, and it is literally "we see the woman".
+   Scrimmed hard: the photograph sets the room, the words do the work. */
+.belief--photo{ position:relative; isolation:isolate; overflow:hidden }
+.belief--photo::after{
+  content:""; position:absolute; inset:0; z-index:-2;
+  background-image:var(--belief-img);
+  background-size:cover; background-position:32% 30%;
+  filter:grayscale(.4) contrast(1.05) brightness(.62);
+  transform:scale(1.04);
+}
+.belief--photo::before{
+  content:""; position:absolute; inset:0; z-index:-1;
+  background:
+    linear-gradient(180deg, rgba(24,22,19,.90) 0%, rgba(24,22,19,.80) 40%, rgba(24,22,19,.92) 100%),
+    radial-gradient(80% 70% at 18% 82%, rgba(125,230,210,.16), transparent 62%);
+}
+.belief--photo > *{ position:relative; z-index:1 }
+@media(max-width:640px){
+  .belief--photo::after{ background-position:38% 26% }
+  .belief--photo::before{
+    background:
+      linear-gradient(180deg, rgba(24,22,19,.84) 0%, rgba(24,22,19,.90) 42%, rgba(24,22,19,.96) 100%),
+      radial-gradient(80% 50% at 50% 100%, rgba(125,230,210,.14), transparent 60%);
+  }
+}
+
 /* ── TRS DESIGN SYSTEM (build-injected: tokens.json + normalise.css) ── */
 /* GENERATED from _content/tokens.json by gen-tokens.py — do not hand-edit.
    Swap tokens.json to re-skin the system, or to make it a different salon. */
@@ -2107,7 +2136,7 @@ button.pill--accent:disabled, button.btn--accent:disabled{
 </section>
 
 <!-- SAFETY CHIPS -->
-<section class="dark belief">
+<section class="dark belief belief--photo" style="--belief-img:url(/tara-rose-pages/bahrain/assets/woman-in-the-chair.jpg)">
   <div class="wrap">
     <span class="q">&ldquo;</span>
     <h2>We see the woman. Not just the hair.</h2>
