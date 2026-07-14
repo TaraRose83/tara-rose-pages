@@ -896,6 +896,49 @@ p{ hanging-punctuation:first last }
   .hero-c .scarcity{ text-align:center }
 }
 
+/* ═══════════ THE HERO PHOTOGRAPH ═══════════════════════════════════════
+   The photograph sits BEHIND the invitation, not beside it. It is scrimmed hard
+   enough that the type is never fighting it — the image sets the room, the words
+   do the work. The atmospheric wash still sits on top, so the hero keeps its
+   depth rather than becoming a flat photo with text dumped on it.
+   ═══════════════════════════════════════════════════════════════════════ */
+.hero-c--photo, .hero-a--photo{ position:relative; isolation:isolate; overflow:hidden }
+
+.hero-c--photo::after, .hero-a--photo::after{
+  content:""; position:absolute; inset:0; z-index:-2;
+  background-image:var(--hero-img);
+  background-size:cover;
+  background-position:72% center;     /* holds the faces as it crops on a phone */
+  transform:scale(1.02);
+  filter:grayscale(.22) contrast(1.02);
+}
+/* The scrim. Heavier where the type sits, lighter where the faces are, so the
+   image is still legible as a photograph rather than a texture. */
+.hero-c--photo::before, .hero-a--photo::before{
+  content:""; position:absolute; inset:0; z-index:-1;
+  background:
+    linear-gradient(100deg, rgba(28,26,22,.94) 0%, rgba(28,26,22,.86) 42%, rgba(28,26,22,.55) 72%, rgba(28,26,22,.40) 100%),
+    radial-gradient(90% 80% at 8% 92%, rgba(125,230,210,.16), transparent 62%);
+}
+.hero-c--photo > *, .hero-a--photo > *{ position:relative; z-index:1 }
+
+/* The light-ground home hero has to invert: its type is ink, so the scrim goes
+   pale rather than dark. */
+.hero-a--photo{ color:#fff }
+.hero-a--photo .h-display, .hero-a--photo h1{ color:#fff }
+.hero-a--photo .lede, .hero-a--photo .sub{ color:rgba(255,255,255,.82) }
+.hero-a--photo .eyebrow, .hero-a--photo .pill-tag{ color:var(--accent) }
+.hero-a--photo .textlink{ color:#fff; text-decoration-color:rgba(255,255,255,.4) }
+
+@media (max-width:640px){
+  .hero-c--photo::after, .hero-a--photo::after{ background-position:78% center }
+  .hero-c--photo::before, .hero-a--photo::before{
+    background:
+      linear-gradient(180deg, rgba(28,26,22,.80) 0%, rgba(28,26,22,.90) 45%, rgba(28,26,22,.96) 100%),
+      radial-gradient(80% 60% at 50% 100%, rgba(125,230,210,.14), transparent 60%);
+  }
+}
+
 </style>
 <meta name="geo.region" content="BH">
 <meta name="geo.placename" content="Manama">
