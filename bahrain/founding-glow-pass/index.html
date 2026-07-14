@@ -403,6 +403,20 @@ em.accent{ font-style:italic; color:var(--accent-text); }
 .pv-gift h4{margin:10px 0 8px;font-family:var(--ff-display);font-weight:500;font-size:19px;color:#fff}
 .pv-gift p{margin:0;font-size:14px;line-height:1.6;color:rgba(255,255,255,.74)}
 
+/* Daisy's portrait sits ABOVE her words, not beside them. A face you have just looked
+   at is a better introduction to a story than a column of text with a photo next to it. */
+.owner--stacked .wrap{max-width:820px}
+.owner--stacked .ph-frame{margin:0 auto 34px;max-width:520px}
+.owner--stacked .ph-frame--tall .ph{aspect-ratio:5/4;object-position:50% 20%}
+.owner--stacked .ph-frame figcaption{text-align:center}
+.owner--stacked .txt{text-align:left}
+.owner--stacked .badge-pill{display:block;text-align:center;margin-bottom:10px}
+.owner--stacked h3{text-align:center;margin-bottom:26px}
+@media(max-width:640px){
+  .owner--stacked .ph-frame{margin-bottom:26px}
+  .owner--stacked .ph-frame--tall .ph{aspect-ratio:4/5}
+}
+
 /* ── TRS DESIGN SYSTEM (build-injected: tokens.json + normalise.css) ── */
 /* GENERATED from _content/tokens.json by gen-tokens.py — do not hand-edit.
    Swap tokens.json to re-skin the system, or to make it a different salon. */
@@ -1899,24 +1913,11 @@ h2.bh::after{ content:none }   /* the phone hairline rule is for real titles, no
 </section>
 
 <!-- SAFETY CHIPS -->
-<section class="dark belief">
-  <div class="wrap">
-    <span class="q">&ldquo;</span>
-    <h2>We see the woman. Not just the hair.</h2>
-    <div class="belief-body">
-      <p>As women, we put ourselves last. Beauty becomes the thing we skip while we carry everyone and everything else. It is the first thing to go, and it is never really about the hair.</p>
-      <p>Beauty is a form of self-care, and self-care is not the indulgence you were taught it was. We see the person in the chair, moving through every phase of her life, not just booking another colour.</p>
-      <p>If your hair has not held, that was never yours to work out alone.</p>
-    </div>
-        <span class="attr">&middot; Tara Rose Kidd, Founder</span>
-  </div>
-</section>
-
 <!-- SAFETY CHIPS -->
-<section class="owner">
+<section class="owner owner--stacked">
   <div class="wrap">
-    <div class="split">
-      <div class="txt">
+    <figure class="ph-frame ph-frame--tall"><img class="ph" src="/tara-rose-pages/bahrain/assets/daisy-portrait.jpg" alt="Daisy Charlotte Cropper, owner of Tara Rose Bahrain" loading="lazy" decoding="async"><figcaption>Daisy Charlotte Cropper &middot; Owner, Tara Rose Bahrain</figcaption></figure>
+    <div class="txt">
         <span class="badge-pill">Daisy Charlotte Cropper · Her Why</span>
         <h3>Daisy, and why she brought us here.</h3>
         <p class="obody">I am Daisy Charlotte Cropper. I worked inside Tara Rose for ten years, and for three of them I was a Manager of the Year finalist.</p>
@@ -1928,10 +1929,22 @@ h2.bh::after{ content:none }   /* the phone hairline rule is for real titles, no
       </div>
       <figure class="ph-frame ph-frame--tall"><img class="ph" src="/tara-rose-pages/bahrain/assets/daisy-portrait.jpg" alt="Daisy Charlotte Cropper, owner of Tara Rose Bahrain" loading="lazy" decoding="async"><figcaption>Daisy Charlotte Cropper &middot; Owner, Tara Rose Bahrain</figcaption></figure>
     </div>
+  
   </div>
 </section>
 
 <!-- SAFETY CHIPS -->
+<section class="dark belief">
+  <div class="wrap">
+    <span class="q">&ldquo;</span>
+    <h2>We see the woman. Not just the hair.</h2>
+    <div class="belief-body">
+      <p>As women, we put ourselves last. Beauty becomes the thing we skip while we carry everyone and everything else.</p>
+      <p>Beauty is a form of self-care, and self-care is not the indulgence you were taught it was. We see the person in the chair, moving through every phase of her life, not just booking another colour.</p>
+    </div>
+  </div>
+</section>
+
 <section class="founder">
   <div class="wrap">
     <div class="split">
