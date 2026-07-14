@@ -396,6 +396,13 @@ em.accent{ font-style:italic; color:var(--accent-text); }
   line-height:1.4;color:var(--color-foreground-muted)}
 .promise-scope{margin:12px 0 0;font-size:13px;line-height:1.6;color:var(--color-foreground-muted)}
 
+.pv-gifts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:34px 0 0}
+.pv-gift{padding:24px 22px;border-radius:var(--r-md);background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.12);box-shadow:var(--sh-rim-dark)}
+.pv-g-num{font-family:var(--ff-display);font-size:13px;letter-spacing:.1em;color:var(--color-accent)}
+.pv-gift h4{margin:10px 0 8px;font-family:var(--ff-display);font-weight:500;font-size:19px;color:#fff}
+.pv-gift p{margin:0;font-size:14px;line-height:1.6;color:rgba(255,255,255,.74)}
+
 /* ── TRS DESIGN SYSTEM (build-injected: tokens.json + normalise.css) ── */
 /* GENERATED from _content/tokens.json by gen-tokens.py — do not hand-edit.
    Swap tokens.json to re-skin the system, or to make it a different salon. */
@@ -2032,8 +2039,14 @@ h2.bh::after{ content:none }   /* the phone hairline rule is for real titles, no
     <div class="sec-head center">
       <span class="eyebrow">Before we open to anyone</span>
       <h2 class="h-2">You will see the room <em class="serif-em accent">before you spend a single fil in it.</em></h2>
-      <p class="p-lg" style="max-width:60ch;margin:16px auto 0">Every founding member is invited to the Founding Preview Evening. Women only, before the doors open to Bahrain. You will see the space, meet Daisy and the team, and have a signature ritual at the basin. Your founding number is given to you in person, by name, that evening.</p>
+      <p class="p-lg" style="max-width:62ch;margin:16px auto 0">Every founding member is invited to the Founding Preview Evening, at <strong>the end of September</strong>. Women only, before the doors open to Bahrain. You will see the space, meet Daisy and the team, and your founding number is given to you in person, by name, that evening.</p>
     </div>
+        <div class="pv-gifts">
+      <div class="pv-gift"><span class="pv-g-num">01</span><h4>Treatments, on us</h4><p>Not a sample and not a taster. Real treatments, given on the night, prescribed to the hair you walk in with.</p></div>
+      <div class="pv-gift"><span class="pv-g-num">02</span><h4>Gifts from our wellness partners</h4><p>Beauty and wellness are one discipline here, so the room is not only ours. Our partners bring something for every founder.</p></div>
+      <div class="pv-gift"><span class="pv-g-num">03</span><h4>Your number, in your hand</h4><p>One of forty-five, given to you by name, in person, before a single other woman in Bahrain has been through the door.</p></div>
+    </div>
+
     <p class="pv-anchor">This is not a perk we thought of afterwards. It is the point. You are not buying a salon you have never seen. You are shown it first, and hosted, before anything begins.</p>
 
     <div class="pv-split">
