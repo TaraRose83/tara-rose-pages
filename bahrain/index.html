@@ -897,5 +897,71 @@ p{ hanging-punctuation:first last }
   }
 }
 
+/* ═══════════ HERO PHOTOGRAPH — the composition fix ═════════════════════
+   The first attempt failed for a real reason: the photo is a bright white salon,
+   so a soft scrim left white type sitting on white walls, and the headline ran
+   straight across both faces. A photo hero only works if the type has a side and
+   the faces have a side. So: the words hold the left, the women hold the right,
+   and the scrim is heavy where the type is and clears where the faces are.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.hero-c--photo, .hero-a--photo{ padding:120px 0 110px }
+.hero-c--photo .inner, .hero-a--photo .wrap > *{ max-width:none }
+.hero-c--photo .inner{ max-width:600px }              /* the words keep the left half */
+.hero-c--photo .lede, .hero-a--photo .lede{ max-width:46ch }
+
+.hero-c--photo::after, .hero-a--photo::after{
+  background-position:78% center;                     /* the faces sit right of the type */
+  filter:grayscale(.30) contrast(1.06) brightness(.82);
+}
+/* A real scrim. Near-opaque under the words, clearing to a veil over the faces,
+   with the ground colour coming back at the bottom so the section still closes. */
+.hero-c--photo::before, .hero-a--photo::before{
+  background:
+    linear-gradient(96deg,
+      rgba(24,22,19,.97) 0%,
+      rgba(24,22,19,.95) 34%,
+      rgba(24,22,19,.78) 52%,
+      rgba(24,22,19,.42) 70%,
+      rgba(24,22,19,.30) 100%),
+    linear-gradient(180deg, rgba(24,22,19,.55) 0%, transparent 28%, transparent 72%, rgba(24,22,19,.72) 100%),
+    radial-gradient(70% 70% at 4% 96%, rgba(125,230,210,.14), transparent 62%);
+}
+
+/* Widescreen: give the photograph more room, it can carry it. */
+@media (min-width:1400px){
+  .hero-c--photo .inner{ max-width:640px }
+  .hero-c--photo::after, .hero-a--photo::after{ background-position:74% center }
+}
+
+/* Tablet: the faces crop out of frame at this width, so hold them tighter and
+   lift the scrim, or it just reads as a dark box. */
+@media (min-width:641px) and (max-width:1023px){
+  .hero-c--photo .inner{ max-width:100% }
+  .hero-c--photo::after, .hero-a--photo::after{ background-position:70% center }
+  .hero-c--photo::before, .hero-a--photo::before{
+    background:
+      linear-gradient(180deg, rgba(24,22,19,.72) 0%, rgba(24,22,19,.88) 48%, rgba(24,22,19,.96) 100%),
+      radial-gradient(70% 60% at 50% 100%, rgba(125,230,210,.12), transparent 62%);
+  }
+}
+
+/* Phone: the photo becomes a band at the top with the words beneath it, rather
+   than a background the type has to survive. */
+@media (max-width:640px){
+  .hero-c--photo, .hero-a--photo{ padding:66px 0 56px }
+  .hero-c--photo::after, .hero-a--photo::after{
+    background-position:64% 22%;
+    background-size:cover;
+    filter:grayscale(.30) contrast(1.05) brightness(.7);
+  }
+  .hero-c--photo::before, .hero-a--photo::before{
+    background:
+      linear-gradient(180deg, rgba(24,22,19,.55) 0%, rgba(24,22,19,.82) 34%, rgba(24,22,19,.95) 58%, rgba(24,22,19,.98) 100%),
+      radial-gradient(80% 50% at 50% 100%, rgba(125,230,210,.12), transparent 62%);
+  }
+  .hero-c--photo .inner{ max-width:100% }
+}
+
 </style>
 </head><body><p>Taking you to <a href="/tara-rose-pages/bahrain/tara-rose-pages/bahrain/home/">Tara Rose Bahrain</a>.</p></body></html>
