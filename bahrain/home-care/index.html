@@ -867,6 +867,52 @@ p{ hanging-punctuation:first last }
     0 16px 30px -12px rgba(14,42,37,.44);
 }
 
+/* ═══════════ LONG-FORM: DEFINITION BETWEEN PARAGRAPHS ═══════════════════
+   Tara's letter, Daisy's story and the belief all read as one grey slab. The
+   paragraphs were touching, all one weight, all one colour, at a measure too
+   wide to track. Definition comes from three things: air between the blocks,
+   a lead paragraph that carries more weight than the ones after it, and a
+   measure short enough that the eye finds the next line without hunting.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.founder .fbody, .owner, .belief .belief-body{ max-width:64ch }
+
+.founder .fbody p, .owner .obody, .belief .belief-body p{
+  margin:0 0 22px;
+  font-size:16.5px; line-height:1.68;
+  max-width:62ch;                       /* a real measure. Long lines lose the eye. */
+}
+.founder .fbody p:last-child, .owner .obody:last-of-type{ margin-bottom:0 }
+
+/* The lead paragraph carries the weight. Everything after it steps back — that
+   step IS the definition. */
+.founder .fbody p:first-child,
+.owner .obody:first-of-type,
+.belief .belief-body p:first-child{
+  font-size:19px; line-height:1.55; font-weight:400;
+  color:var(--ink);
+  padding-bottom:22px; margin-bottom:22px;
+  border-bottom:1px solid var(--hair);   /* one rule, under the lead. Not between every line. */
+}
+.belief .belief-body p:first-child{ color:#fff; border-bottom-color:rgba(255,255,255,.16) }
+.dark .obody:first-of-type, .dark .fbody p:first-child{ color:#fff }
+
+/* The closing line of a story is a beat, not another paragraph. */
+.belief .belief-body p:last-child{
+  font-family:var(--fd); font-style:italic; font-size:21px; line-height:1.45;
+  color:var(--accent); margin-top:4px;
+}
+
+@media (max-width:640px){
+  .founder .fbody p, .owner .obody, .belief .belief-body p{
+    font-size:15.5px; line-height:1.62; margin-bottom:20px; max-width:none;
+  }
+  .founder .fbody p:first-child, .owner .obody:first-of-type, .belief .belief-body p:first-child{
+    font-size:17.5px; line-height:1.5; padding-bottom:18px; margin-bottom:18px;
+  }
+  .belief .belief-body p:last-child{ font-size:18.5px }
+}
+
 </style>
 <meta name="geo.region" content="BH">
 <meta name="geo.placename" content="Manama">
