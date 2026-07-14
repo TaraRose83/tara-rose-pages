@@ -1043,6 +1043,86 @@ p{ hanging-punctuation:first last }
     0 18px 34px -12px rgba(14,42,37,.48);
 }
 
+/* ═══════════ THE SHADOW + ELEVATION SYSTEM ═════════════════════════════
+   Taken from the UI-kit's own system rather than invented:
+     · a shadow MATRIX — subtle / regular / strong  ×  sm / md / lg / xl
+     · the INNER GLOW — a 1px lit rim on the top edge of a surface. This is
+       the single technique that separates a card that looks printed-on from
+       a card that looks like an object. The kit demonstrates it side by side:
+       without it the edge is dead, with it the surface catches light.
+     · the kit's real breakpoints: 600 and 1280 are the SWITCH points, with a
+       genuine tablet band at 768-1024 that I had been ignoring entirely.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root{
+  /* Warm-tinted, because a pure-black shadow on a warm paper reads muddy. */
+  --sh-h:28,26,22;
+
+  --sh-subtle-sm: 0 1px 2px rgba(var(--sh-h),.04);
+  --sh-subtle-md: 0 2px 6px -2px rgba(var(--sh-h),.06);
+  --sh-subtle-lg: 0 6px 16px -6px rgba(var(--sh-h),.08);
+  --sh-subtle-xl: 0 12px 32px -12px rgba(var(--sh-h),.10);
+
+  --sh-reg-sm: 0 1px 2px rgba(var(--sh-h),.06), 0 1px 1px rgba(var(--sh-h),.04);
+  --sh-reg-md: 0 2px 4px rgba(var(--sh-h),.05), 0 6px 14px -6px rgba(var(--sh-h),.10);
+  --sh-reg-lg: 0 2px 4px rgba(var(--sh-h),.05), 0 14px 30px -12px rgba(var(--sh-h),.14);
+  --sh-reg-xl: 0 4px 8px rgba(var(--sh-h),.05), 0 26px 54px -20px rgba(var(--sh-h),.18);
+
+  --sh-strong-sm: 0 1px 2px rgba(var(--sh-h),.10), 0 2px 4px rgba(var(--sh-h),.08);
+  --sh-strong-md: 0 2px 4px rgba(var(--sh-h),.10), 0 10px 20px -8px rgba(var(--sh-h),.18);
+  --sh-strong-lg: 0 3px 6px rgba(var(--sh-h),.10), 0 20px 40px -14px rgba(var(--sh-h),.24);
+  --sh-strong-xl: 0 4px 10px rgba(var(--sh-h),.12), 0 34px 66px -22px rgba(var(--sh-h),.30);
+
+  /* THE INNER GLOW. A lit top rim and a whisper of weight at the base. */
+  --rim-light: inset 0 1px 0 rgba(255,255,255,.72), inset 0 -1px 0 rgba(var(--sh-h),.05);
+  --rim-dark:  inset 0 1px 0 rgba(255,255,255,.10), inset 0 -1px 0 rgba(0,0,0,.22);
+}
+
+/* Cards on the light canvas: a lit rim + a subtle shadow. The rim is what makes
+   them read as objects rather than as fills. */
+.vstack, .inc, .cred, .teach, .circle, .bcard, .tier, .tcard, .tcard-x,
+.loc, .pkg, .lcard, .gcard, .acard, .card, .visit-card, .stage, .rhythm,
+.path, .col, .item, .receives{
+  box-shadow: var(--rim-light), var(--sh-subtle-md);
+}
+.vstack:hover, .cred:hover, .teach:hover, .circle:hover, .bcard:hover,
+.tier:hover, .tcard-x:hover, .pkg:hover, .gcard:hover, .path:hover, .route:hover{
+  box-shadow: var(--rim-light), var(--sh-reg-lg);
+}
+/* The featured card earns real elevation. That elevation IS the recommendation. */
+.vstack--hero, .bcard--hero, .path--hero, .circle--mid{
+  box-shadow: var(--rim-light), var(--sh-strong-lg);
+}
+
+/* Surfaces on the dark grounds get the dark rim, so their top edge catches the
+   same light rather than dissolving into the panel. */
+.dark .acard, .dark .inc, .dark .card, .dark .stage, .belief .inc,
+.dark .tcard, .dark .route{
+  box-shadow: var(--rim-dark), 0 18px 40px -20px rgba(0,0,0,.5);
+}
+
+/* The nav lifts off the page as you scroll, not before. */
+.trs-nav.scrolled{ box-shadow: var(--sh-reg-md) }
+
+/* Media panels sit heavier — they are the only thing on the page allowed to. */
+.media, .feature-band, .look-band{ box-shadow: var(--sh-reg-xl) }
+
+/* ── The kit's real breakpoints. 600 and 1280 are the switch points, and there
+      is a genuine tablet band at 768-1024 that the build had no answer for. ─── */
+@media (min-width:601px) and (max-width:1023px){
+  :root{ --sec-y:72px; --pad-x:32px }
+  .vgrid, .grid-3, .circles{ grid-template-columns:repeat(2,minmax(0,1fr)) }
+  .vgrid{ display:grid; overflow:visible }        /* no carousel on a tablet */
+  .grid-4, .flow-strip--4{ grid-template-columns:repeat(2,minmax(0,1fr)) }
+  .vstack--hero{ grid-column:span 2 }             /* the recommendation gets the full row */
+  .split{ grid-template-columns:1fr; gap:32px }
+  .h-display{ font-size:clamp(48px,7.4vw,72px) }
+}
+@media (min-width:1024px) and (max-width:1279px){
+  :root{ --pad-x:32px }
+  .vgrid, .grid-3{ gap:14px }
+}
+
 </style>
 <meta name="geo.region" content="AE">
 <meta name="geo.placename" content="Dubai, Abu Dhabi">
