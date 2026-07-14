@@ -354,6 +354,48 @@ em.accent{ font-style:italic; color:var(--accent-text); }
 .flooss-mark:has(.floos__logo){font-size:0}
 .vs-flooss{align-items:center!important}
 
+/* The Preview Evening and the Founder's Say. Her own research rates the preview
+   evening as a BELIEF lever — "she experiences it before committing" — and a
+   founder's say as "the single strongest loyalty driver found". Both were a table
+   row and a blank. For a woman prepaying into a room she has never seen, this
+   section IS the answer to the objection. */
+.preview{background:var(--ink-deep);color:#fff;position:relative;isolation:isolate}
+.preview::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(110% 80% at 84% 8%, rgba(201,169,140,.20), transparent 58%),
+             radial-gradient(95% 85% at 8% 92%, rgba(125,230,210,.18), transparent 60%)}
+.preview .h-2{color:#fff}
+.preview .p-lg{color:rgba(255,255,255,.80)}
+.preview .eyebrow{color:var(--color-accent)}
+.pv-anchor{margin:26px auto 0;max-width:62ch;text-align:center;
+  font-family:var(--ff-display);font-style:italic;font-size:clamp(19px,2.2vw,23px);
+  line-height:1.5;color:var(--color-accent)}
+.pv-split{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin:40px 0 0}
+.pv-card{padding:30px 26px;border-radius:var(--r-md);
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);
+  box-shadow:var(--sh-rim-dark);backdrop-filter:blur(4px)}
+.pv-card--unity{background:rgba(153,246,228,.07);border-color:rgba(153,246,228,.24)}
+.pv-card h3{margin:12px 0 12px;font-family:var(--ff-display);font-weight:500;
+  font-size:clamp(21px,2.4vw,26px);line-height:1.28;color:#fff}
+.pv-card p{margin:0 0 10px;font-size:15px;line-height:1.65;color:rgba(255,255,255,.76)}
+.pv-note{margin:0!important;padding-top:12px;border-top:1px solid rgba(255,255,255,.12);
+  font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--color-accent)!important}
+
+/* The positioning line, and the only hard numbers that exist anywhere. The founder
+   section was emotional and carried zero verifiable proof — and "the salon is new,
+   the operator is not" is the exact trust gap of a pre-opening prepay. */
+.stack-anchor{margin:16px auto 0;max-width:56ch;text-align:center;
+  font-family:var(--ff-display);font-style:italic;font-size:clamp(19px,2.2vw,24px);
+  line-height:1.45;color:var(--color-foreground)}
+.statrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:14px;
+  margin:26px 0 22px;padding:22px 0;border-block:1px solid var(--color-border)}
+.stat{display:flex;flex-direction:column;gap:4px}
+.stat .num{font-family:var(--ff-display);font-weight:400;font-size:clamp(32px,3.4vw,42px);
+  line-height:1;color:var(--color-accent-text);font-variant-numeric:lining-nums}
+.stat .label{font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  line-height:1.4;color:var(--color-foreground-muted)}
+.promise-scope{margin:12px 0 0;font-size:13px;line-height:1.6;color:var(--color-foreground-muted)}
+
 /* ── TRS DESIGN SYSTEM (build-injected: tokens.json + normalise.css) ── */
 /* GENERATED from _content/tokens.json by gen-tokens.py — do not hand-edit.
    Swap tokens.json to re-skin the system, or to make it a different salon. */
@@ -1907,7 +1949,13 @@ h2.bh::after{ content:none }   /* the phone hairline rule is for real titles, no
       <p>Beauty is a form of self-care, and self-care is not the indulgence you were taught it was. We see the person in the chair, moving through every phase of her life, not just booking another colour.</p>
       <p>If your hair has not held, that was never yours to work out alone.</p>
     </div>
-    <span class="attr">&middot; Tara Rose Kidd, Founder</span>
+          <div class="statrow">
+          <div class="stat"><span class="num">200</span><span class="label">Pounds, and a chair I did not own</span></div>
+          <div class="stat"><span class="num">4</span><span class="label">Salons</span></div>
+          <div class="stat"><span class="num">100+</span><span class="label">In the team</span></div>
+          <div class="stat"><span class="num">11</span><span class="label">Years</span></div>
+        </div>
+        <span class="attr">&middot; Tara Rose Kidd, Founder</span>
   </div>
 </section>
 
@@ -1939,7 +1987,7 @@ h2.bh::after{ content:none }   /* the phone hairline rule is for real titles, no
         <span class="badge-pill">Tara Rose Kidd · My Why</span>
         <h2>Why I started this, and why the founding rate is not money off.</h2>
         <div class="fbody">
-          <p class="p">Eleven years ago I started Tara Rose, because I believed the team and the client should always be at the front of it. Everything we have built since comes back to that.</p>
+          <p class="p">I started Tara Rose with two hundred pounds and a chair I did not own, because I believed the team and the client should always be at the front of it. Four salons later, that is still the whole point.</p>
           <p class="p">I am a busy working mum, so I know what an hour like this is worth. It is never really about the hair. It is the one part of the week that belongs to you.</p>
           <p class="p">So the founding rate is not money off. It is a thank-you, held in place, for the women who trust us before there is a single review in Bahrain to point to. There are forty-five places and there will never be more. The status is the part you could not buy later at any price.</p>
         </div>
@@ -1970,7 +2018,8 @@ h2.bh::after{ content:none }   /* the phone hairline rule is for real titles, no
       </div>
     </div>
     <div class="grid-3">
-      <div class="inc"><h3>The Confidence Promise</h3><p style="margin:8px 0 0;font-size:14.5px;line-height:1.62;color:var(--ink-soft);">If something does not feel right within seven days of any colour or treatment service, we invite you back to refine it. No blame, just care. Refine, never refund.</p></div>
+      <div class="inc"><h3>The Confidence Promise</h3><p style="margin:8px 0 0;font-size:14.5px;line-height:1.62;color:var(--ink-soft);">If something does not feel right within seven days of any colour or treatment service, we invite you back to refine it. No blame, just care.</p>
+        <p class="promise-scope">We never promise blind. We look first, because your hair is its own canvas and deserves a plan made for it. The Promise covers the work we did. It does not cover home care choices, a service you had somewhere else afterwards, or the natural fading your aftercare plan already told you to expect. Refine, never refund.</p></div>
       <div class="inc"><h3>Your payment</h3><p style="margin:8px 0 0;font-size:14.5px;line-height:1.62;color:var(--ink-soft);">You pay your Circle in full to reserve, and it becomes your credit and bonus, never lost. Your full terms, including your right to withdraw, are in our Terms and Conditions. You can read them before you pay, not after.</p></div>
       <div class="inc"><h3>Your founding terms</h3><p style="margin:8px 0 0;font-size:14.5px;line-height:1.62;color:var(--ink-soft);">Your rate and your standing are held, even as the collective grows. We tell you before anything changes.</p></div>
     </div>
@@ -1978,11 +2027,38 @@ h2.bh::after{ content:none }   /* the phone hairline rule is for real titles, no
 </section>
 
 <!-- SAFETY CHIPS -->
+<section class="preview">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Before we open to anyone</span>
+      <h2 class="h-2">You will see the room <em class="serif-em accent">before you spend a single fil in it.</em></h2>
+      <p class="p-lg" style="max-width:60ch;margin:16px auto 0">Every founding member is invited to the Founding Preview Evening. Women only, before the doors open to Bahrain. You will see the space, meet Daisy and the team, and have a signature ritual at the basin. Your founding number is given to you in person, by name, that evening.</p>
+    </div>
+    <p class="pv-anchor">This is not a perk we thought of afterwards. It is the point. You are not buying a salon you have never seen. You are shown it first, and hosted, before anything begins.</p>
+
+    <div class="pv-split">
+      <div class="pv-card">
+        <span class="eyebrow">You help open it. You do not just join it.</span>
+        <h3>The first forty-five have a say in the room they walk into.</h3>
+        <p>Before we open, we will ask you. The signature ritual we build for Bahrain. The details that make a room feel like it was made for the woman in it. Not a survey nobody reads. Two real decisions, put to the forty-five, and answered.</p>
+        <p class="pv-note">Platinum has the first say. There will only ever be five.</p>
+      </div>
+      <div class="pv-card pv-card--unity">
+        <span class="eyebrow">The first women of Tara Rose Bahrain</span>
+        <h3>Founding members are not customers. They are the women who were here first.</h3>
+        <p>You will know each other. You will have opened the same room. And if you would rather not walk in alone, reserve alongside a friend and we will seat you together at the beginning.</p>
+        <p class="pv-note">Forty-five women. Then never again.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section style="background:var(--cream);">
   <div class="wrap">
     <div class="sec-head center">
       <span class="eyebrow">The founding value, made visible</span>
       <h2>Everything a founding place puts on the table.</h2>
+      <p class="stack-anchor">The founding rate is not a discount. It honours you being early. Once the founding group is full, it does not come back.</p>
       <p class="p-lg" style="max-width:58ch;margin:14px auto 0;color:var(--ink-soft)">Nothing here is money off. You place credit before we open, we add a founding bonus on top of it, and the rest is what being one of the first forty-five actually gives you.</p>
     </div>
     <div class="vgrid">
@@ -2053,7 +2129,7 @@ h2.bh::after{ content:none }   /* the phone hairline rule is for real titles, no
         <a class="pill pill--accent vs-cta" href="#reserve" data-pick="platinum">Take the Platinum place</a>
       </div>
     </div>
-    <p class="vs-legal">The credit and the bonus are yours to spend on your plan. The gift vouchers are yours to give away, each valid against a service of 35 BHD or more for three months. The founder&rsquo;s rate begins once your founding credit is fully spent, and is held for as long as you visit at least once every ten weeks.</p>
+    <p class="vs-legal">All figures are in Bahraini Dinars and are inclusive of applicable value added tax. The credit and the bonus are yours to spend on your plan. The gift vouchers are yours to give away, each valid against a service of 35 BHD or more for three months. The founder&rsquo;s rate begins once your founding credit is fully spent, and is held for as long as you visit at least once every ten weeks.</p>
 
     </section>
 

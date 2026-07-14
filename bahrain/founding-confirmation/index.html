@@ -44,6 +44,34 @@ h2{font-family:var(--fd);font-weight:500;font-size:26px;margin:44px 0 20px;lette
 footer{border-top:1px solid var(--hair);padding:34px 0;font-size:13px;color:var(--ink-soft);text-align:center}.sig{font-family:var(--fd);font-style:italic;color:var(--ink)}
 :focus-visible{outline:2px solid var(--accent-text);outline-offset:3px;border-radius:6px}
 [id]{scroll-margin-top:84px}::selection{background:var(--accent);color:var(--ink)}::-moz-selection{background:var(--accent);color:var(--ink)}.skip{position:absolute;top:-100px;left:16px;z-index:999;background:#2D2E37;color:#fff;padding:12px 20px;border-radius:99px;font-size:13px;text-decoration:none}.skip:focus{top:12px}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* The confirmation step-up. The page was a dead end: two headings and one link, at
+   the exact moment of maximum trust. Her own funnel doc calls this "the single
+   biggest missed AOV lever". */
+.stepup{background:var(--color-canvas-soft);border-block:1px solid var(--color-border)}
+.su-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:38px 0 0}
+.su-card{display:flex;flex-direction:column;gap:9px;padding:28px 24px;text-decoration:none;
+  background:var(--color-canvas);border:1px solid var(--color-border);border-radius:var(--r-md);
+  box-shadow:var(--sh-rim-light),var(--sh-subtle-md);
+  transition:border-color .2s var(--ease),box-shadow .2s var(--ease),transform .2s var(--ease)}
+.su-card:hover{border-color:var(--color-accent);transform:translateY(-1px);box-shadow:var(--sh-rim-light),var(--sh-regular-lg)}
+.su-card--hero{background:var(--ink-deep);border-color:var(--ink-deep);box-shadow:var(--sh-rim-dark),var(--sh-strong-lg)}
+.su-card--hero h3{color:#fff}.su-card--hero p{color:rgba(255,255,255,.72)}
+.su-num{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;
+  background:var(--color-accent);color:var(--on-accent);font-family:var(--ff-display);font-size:15px}
+.su-card h3{margin:6px 0 0;font-family:var(--ff-display);font-weight:500;font-size:21px;color:var(--color-foreground)}
+.su-card p{margin:0;font-size:14.5px;line-height:1.6;color:var(--color-foreground-muted)}
+.su-go{margin-top:auto;padding-top:8px;font-size:12.5px;font-weight:600;letter-spacing:.06em;color:var(--color-accent-text)}
+.su-card--hero .su-go{color:var(--color-accent)}
+.su-rx{margin:30px auto 0;max-width:64ch;text-align:center;font-size:15px;line-height:1.62;color:var(--color-foreground-muted)}
+.share-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:32px 0 0}
+.sh-card{display:flex;flex-direction:column;gap:10px;align-items:flex-start;padding:28px 24px;
+  background:var(--color-canvas);border:1px solid var(--color-border);border-radius:var(--r-md);
+  box-shadow:var(--sh-rim-light),var(--sh-subtle-md)}
+.sh-card h3{margin:0;font-family:var(--ff-display);font-weight:500;font-size:21px}
+.sh-card p{margin:0;font-size:14.5px;line-height:1.6;color:var(--color-foreground-muted)}
+.sh-card .pill,.sh-card .btn{margin-top:auto}
+.share-micro{margin:26px auto 0;text-align:center;font-size:12.5px;letter-spacing:.06em;color:var(--color-foreground-muted)}
+
 /* ── TRS DESIGN SYSTEM (build-injected: tokens.json + normalise.css) ── */
 /* GENERATED from _content/tokens.json by gen-tokens.py — do not hand-edit.
    Swap tokens.json to re-skin the system, or to make it a different salon. */
@@ -1569,6 +1597,56 @@ h2.bh::after{ content:none }   /* the phone hairline rule is for real titles, no
 </div>
 
 </main>
+
+<section class="stepup">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Start with your plan already mapped</span>
+      <h2 class="h-2">Most founders begin <em class="serif-em accent">before the doors open.</em></h2>
+      <p class="p-lg" style="max-width:58ch;margin:14px auto 0">Your founding credit is ready and waiting. The women who get the most from it start the same way, with their plan mapped before their first visit, so day one is diagnosis and results, not guesswork.</p>
+    </div>
+
+    <div class="su-grid">
+      <a class="su-card su-card--hero" href="/tara-rose-pages/bahrain/confidence-mapping">
+        <span class="su-num">1</span>
+        <h3>Book your 8-Step Hair Plan</h3>
+        <p>Prescribed, not guessed. This is where your credit becomes your plan.</p>
+        <span class="su-go">Book for opening week &rarr;</span>
+      </a>
+      <a class="su-card" href="/tara-rose-pages/bahrain/confidence-mapping">
+        <span class="su-num">2</span>
+        <h3>Start your Confidence Mapping</h3>
+        <p>Free, and you can do it now, so you arrive already understood.</p>
+        <span class="su-go">Start the map &rarr;</span>
+      </a>
+    </div>
+
+    <p class="su-rx">When we map your hair we will prescribe the Full Loop it needs, your colour rhythm, the treatments, and the home care that holds it. Your founding credit is built to carry it.</p>
+  </div>
+</section>
+
+<section class="share">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Bring someone with you</span>
+      <h2 class="h-2">Founding is <em class="serif-em accent">better shared.</em></h2>
+    </div>
+    <div class="grid-2 share-grid">
+      <div class="sh-card">
+        <h3>Gift a founding place</h3>
+        <p>The place she would never claim for herself, given before anyone else can have it.</p>
+        <a class="pill pill--accent" href="/tara-rose-pages/bahrain/founding-glow-pass#reserve">Gift a place</a>
+      </div>
+      <div class="sh-card">
+        <h3>Bring a founder friend</h3>
+        <p>Reserve together, and we will seat you together at the beginning.</p>
+        <a class="btn btn--ghost" href="https://wa.me/97335323411?text=I%20have%20a%20founding%20place%20at%20Tara%20Rose%20Bahrain%20and%20I%20would%20like%20to%20bring%20a%20friend.">Tell a friend</a>
+      </div>
+    </div>
+    <p class="share-micro">Only forty-five places, ever. When they are gone, they are gone.</p>
+  </div>
+</section>
+
 <footer><div class="wrap">
   <p>Tara Rose Bahrain. Owned and run by Daisy Charlotte Cropper. <span class="sig">We see you.</span></p>
 </div></footer>
