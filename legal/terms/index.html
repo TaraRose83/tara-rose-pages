@@ -1659,6 +1659,25 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
   .hero-c .cta-row{ margin-top:20px }
 }
 
+/* ── THE SITE NAV MUST FIT ITS OWN WRAP ──────────────────────────────────────
+   The Bahrain nav carries six links (two of them long — "Confidence Mapping",
+   "The Founding 45") plus a 253px CTA: 1236px of content inside a wrap that is
+   capped at 1180px. It never fitted. At 1440 the centring margin absorbs the
+   overspill so you cannot see it; at 1280 — a 13" MacBook — the margin runs out
+   and the nav pushes the whole page sideways by 32px.
+
+   Grid children default to min-width:auto, so the 1fr columns refuse to shrink
+   below their content. min-width:0 lets the grid do its job, and the tightened
+   nav metrics buy back the ~56px the row was short. Below 1025px the burger takes
+   over and none of this applies. */
+@media (min-width:1025px){
+  .navrow > *{ min-width:0 }
+  .nav__links{ gap:17px }
+  .nav__links a{ font-size:12.5px; white-space:nowrap }
+  .nav__zone-r{ gap:16px }
+  .nav__zone-r .pill{ font-size:10px; padding:0 15px; white-space:nowrap }
+}
+
 </style>
 <meta name="geo.region" content="AE">
 <meta name="geo.placename" content="Dubai, Abu Dhabi">
