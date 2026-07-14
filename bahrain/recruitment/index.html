@@ -363,6 +363,11 @@ a.snet:hover{ border-color:var(--accent-deep); background:#fff; }
 .form-thanks h3{ font-family:var(--fd); font-weight:500; font-size:clamp(26px,3.4vw,34px); color:var(--ink); }
 .form-thanks p{ font-family:var(--fb); font-size:15px; font-weight:300; color:var(--ink-soft); margin-top:10px; }
 [id]{scroll-margin-top:84px}::selection{background:var(--accent);color:var(--ink)}::-moz-selection{background:var(--accent);color:var(--ink)}
+/* Footer Connect column. Unfilled handles are stripped at build, never shipped dead. */
+.foot .soc-grp{margin:14px 0 4px;font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-text,#3aa892)}
+.foot .soc-grp:first-of-type{margin-top:0}
+.foot .row{flex-wrap:wrap}
+
 /* ── TRS NORMALISE v1 (build-injected from _content/normalise.css) ── */
 /* ═══════════ TRS NORMALISE v1 ═══════════════════════════════════════
    Appended last inside each page's <style>, so it wins on source order
@@ -730,7 +735,7 @@ body{ overflow-x:hidden; overflow-x:clip; }
       <h2>Talk to us.</h2>
       <p class="p" style="margin-top:14px;color:var(--ink-soft);max-width:54ch;margin-left:auto;margin-right:auto">No long application. Send a few details and we send back a quick overview of the path that fits you, then a real reply within one working day.</p>
     </div>
-    <form action="#" method="post" novalidate>
+    <form action= method="post" novalidate>
       <div class="field">
         <label for="fname">First name <span class="req">*</span></label>
         <input id="fname" name="fname" type="text" autocomplete="given-name" placeholder="Your first name" required>
@@ -821,14 +826,15 @@ body{ overflow-x:hidden; overflow-x:clip; }
       </div>
       <div>
         <h4>Salons</h4>
-        <p>Address to be confirmed, Bahrain</p>
-        <p>Address to be confirmed, Bahrain</p>
+        <p>District 2, Unit 7, Road 7901, Jababiyah, Bahrain</p>
+        <p>District 2, Unit 7, Road 7901, Jababiyah, Bahrain</p>
         <p>Al Qouz, Bahrain</p>
         <p>Bahrain Location 4, Bahrain</p>
       </div>
+
     </div>
     <div class="foot__legal">
-      Tara Rose Salon Group. Bahrain. Recruitment enquiries are handled by our recruitment team and used only to talk to you about working with us. By submitting this form you agree to our <a href="/tara-rose-pages/bahrain/legal/privacy">Privacy Policy</a> and <a href="/tara-rose-pages/bahrain/legal/terms">Terms</a>.
+      Tara Rose Salon Group. District 2, Unit 7, Road 7901, Jababiyah, Bahrain. Recruitment enquiries are handled by our recruitment team and used only to talk to you about working with us. By submitting this form you agree to our <a href="/tara-rose-pages/bahrain/legal/privacy">Privacy Policy</a> and <a href="/tara-rose-pages/bahrain/legal/terms">Terms</a>.
     </div>
     <div class="subrow">
       <span>&copy; 2026 Tara Rose Salon Group.</span>

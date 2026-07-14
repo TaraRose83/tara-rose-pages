@@ -386,6 +386,11 @@ em.accent{ font-style:italic; color:var(--accent-text); }
 .wf-note{ display:none; }
 
 [id]{scroll-margin-top:84px}::selection{background:var(--accent);color:var(--ink)}::-moz-selection{background:var(--accent);color:var(--ink)}
+/* Footer Connect column. Unfilled handles are stripped at build, never shipped dead. */
+.foot .soc-grp{margin:14px 0 4px;font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-text,#3aa892)}
+.foot .soc-grp:first-of-type{margin-top:0}
+.foot .row{flex-wrap:wrap}
+
 /* ── TRS NORMALISE v1 (build-injected from _content/normalise.css) ── */
 /* ═══════════ TRS NORMALISE v1 ═══════════════════════════════════════
    Appended last inside each page's <style>, so it wins on source order
@@ -745,9 +750,10 @@ body{ overflow-x:hidden; overflow-x:clip; }
     <div class="row">
       <div><span class="brand__wm">TARA ROSE</span><p>Bahrain salons across Bahrain. Colour and care, diagnosed, planned, protected and maintained.</p><span class="sig">We see you.</span></div>
       <div><h4>Explore</h4><p><a href="/tara-rose-pages/bahrain/colour">Colour</a></p><p><a href="/tara-rose-pages/bahrain/cut">Haircut &amp; Finish</a></p><p><a href="/tara-rose-pages/bahrain/treatments">Treatments</a></p><p><a href="/tara-rose-pages/bahrain/home-care">Home Care</a></p><p><a href="/tara-rose-pages/bahrain/contact">Contact</a></p></div>
-      <div><h4>Salons</h4><p>Address to be confirmed, Bahrain</p><p>Address to be confirmed, Bahrain</p><p>Bahrain Location 3, Bahrain</p><p>Bahrain Location 4, Bahrain</p></div>
+      <div><h4>Salons</h4><p>District 2, Unit 7, Road 7901, Jababiyah, Bahrain</p><p>District 2, Unit 7, Road 7901, Jababiyah, Bahrain</p><p>Bahrain Location 3, Bahrain</p><p>Bahrain Location 4, Bahrain</p></div>
+
     </div>
-    <div class="foot__legal">Tara Rose Salon Group. Bahrain. By submitting any form on this site you agree to our <a href="/tara-rose-pages/bahrain/legal/privacy">Privacy Policy</a> and <a href="/tara-rose-pages/bahrain/legal/terms">Terms</a>.</div>
+    <div class="foot__legal">Tara Rose Salon Group. District 2, Unit 7, Road 7901, Jababiyah, Bahrain. By submitting any form on this site you agree to our <a href="/tara-rose-pages/bahrain/legal/privacy">Privacy Policy</a> and <a href="/tara-rose-pages/bahrain/legal/terms">Terms</a>.</div>
     <div class="subrow"><span>&copy; 2026 Tara Rose Salon Group.</span><span><a href="/tara-rose-pages/bahrain/legal/privacy">Privacy</a> · <a href="/tara-rose-pages/bahrain/legal/terms">Terms</a> · <a href="/tara-rose-pages/bahrain/legal/cookies">Cookies</a></span></div>
   </div>
 </footer>
@@ -833,7 +839,7 @@ body{ overflow-x:hidden; overflow-x:clip; }
 })();
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"HairSalon","name":"Tara Rose Bahrain","url":"https://www.tararosesalon.com","logo":"https://www.tararosesalon.com/logo.svg","sameAs":["https://instagram.com/tararosesalon","https://facebook.com/tararosesalon","https://linkedin.com/company/tararose"],"address":{"@type":"PostalAddress","streetAddress":"Address to be confirmed","addressLocality":"Bahrain","addressCountry":"BH"},"openingHours":"Mo-Su 09:00-20:00"}
+{"@context":"https://schema.org","@type":"HairSalon","name":"Tara Rose Bahrain","url":"https://www.tararosesalon.com","logo":"https://www.tararosesalon.com/logo.svg","sameAs":["https://instagram.com/tararosesalon","https://facebook.com/tararosesalon","https://linkedin.com/company/tararose"],"address":{"@type":"PostalAddress","streetAddress":"District 2, Unit 7, Road 7901, Jababiyah, Bahrain","addressLocality":"Bahrain","addressCountry":"BH"},"openingHours":"Mo-Su 09:00-20:00"}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Service","serviceType":"Confidence Mapping","provider":{"@type":"HairSalon","@id":"https://www.tararosesalon.com/#hairsalon","parentOrganization":{"@id":"https://www.tararosesalon.com/#organization"},"name":"Tara Rose Bahrain","url":"https://www.tararosesalon.com"},"areaServed":{"@type":"Place","name":"Bahrain"},"description":"Confidence Mapping is a free, three-stage discovery before the chair that maps what your hair needs and gives you a starting plan, with no cost and no obligation to book."}

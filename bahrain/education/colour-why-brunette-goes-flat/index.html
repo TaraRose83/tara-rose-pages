@@ -312,6 +312,11 @@ section{ padding:var(--sec-y) 0; }
 .rev figcaption{font-family:var(--fb);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
 @media(max-width:640px){.lblk p,.lblk li{font-size:17px}.lopen{font-size:18px}.imgband{aspect-ratio:4/3}}
 
+/* Footer Connect column. Unfilled handles are stripped at build, never shipped dead. */
+.foot .soc-grp{margin:14px 0 4px;font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-text,#3aa892)}
+.foot .soc-grp:first-of-type{margin-top:0}
+.foot .row{flex-wrap:wrap}
+
 /* ── TRS NORMALISE v1 (build-injected from _content/normalise.css) ── */
 /* ═══════════ TRS NORMALISE v1 ═══════════════════════════════════════
    Appended last inside each page's <style>, so it wins on source order
@@ -597,9 +602,10 @@ body{ overflow-x:hidden; overflow-x:clip; }
         <h4>Locations</h4>
         <p>Tara Rose Salon, District 2, Unit 7, Road 7901, Jababiyah, Bahrain<br>+973 3532 3411</p>
       </div>
+
     </div>
     <div class="foot__legal">
-      <p>Tara Rose Salon Group. Bahrain. By submitting any form on this site you agree to our <a href="/tara-rose-pages/bahrain/legal/privacy">Privacy Policy</a>. Contact: info@tararosesalon.com</p>
+      <p>Tara Rose Salon Group. District 2, Unit 7, Road 7901, Jababiyah, Bahrain. By submitting any form on this site you agree to our <a href="/tara-rose-pages/bahrain/legal/privacy">Privacy Policy</a>. Contact: info@tararosesalon.com</p>
     </div>
     <div class="subrow">
       <span>© 2026 Tara Rose Salons. All rights reserved.</span>

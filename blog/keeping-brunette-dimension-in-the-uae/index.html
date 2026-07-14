@@ -320,6 +320,11 @@ section{ padding:var(--sec-y) 0; }
 .rev figcaption{font-family:var(--fb);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
 @media(max-width:640px){.lblk p,.lblk li{font-size:17px}.lopen{font-size:18px}.imgband{aspect-ratio:4/3}}
 
+/* Footer Connect column. Unfilled handles are stripped at build, never shipped dead. */
+.foot .soc-grp{margin:14px 0 4px;font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-text,#3aa892)}
+.foot .soc-grp:first-of-type{margin-top:0}
+.foot .row{flex-wrap:wrap}
+
 /* ── TRS NORMALISE v1 (build-injected from _content/normalise.css) ── */
 /* ═══════════ TRS NORMALISE v1 ═══════════════════════════════════════
    Appended last inside each page's <style>, so it wins on source order
@@ -620,6 +625,12 @@ body{ overflow-x:hidden; overflow-x:clip; }
         <p>Al Quoz</p>
         <p>Motor City</p>
       </div>
+      <div>
+        <h4>Connect</h4>
+        <p class="soc-grp">Tara Rose Salon</p>
+        <p><a class="soc" href="https://instagram.com/tararosesalon" target="_blank" rel="noopener">Instagram</a></p>
+      </div>
+
     </div>
     <div class="foot__legal">
       <p>Tara Rose Salon Group. Dubai and Abu Dhabi, United Arab Emirates. By submitting any form on this site you agree to our <a href="/legal/privacy">Privacy Policy</a>. Contact: info@tararosesalon.com</p>
