@@ -572,6 +572,21 @@ body{ overflow-x:hidden; overflow-x:clip; }
   background:var(--accent); color:var(--ink);
 }
 
+/* ── Specificity fixes ────────────────────────────────────────────────────
+   Per-page rules like `.hero-c .h-display` (0,2,0) out-specify a bare class
+   (0,1,0), so the display weight and the button proportions were not landing. */
+.hero-a .h-display, .hero-c .h-display, .hero-b .h-display,
+.hero-a .h-1, .hero-c .h-1{ font-weight:400 }
+
+/* The CTA. Bigger, quieter type, more optical room. The nav pill keeps its own
+   compact size — a nav button should not shout. */
+.wrap .cta-row .pill, .wrap .cta-row .btn,
+.vs-cta, .reserve .pill--accent{
+  font-size:12.5px; font-weight:600; letter-spacing:.09em;
+  text-transform:uppercase; padding:16px 32px;
+}
+.trs-nav .nav__cta{ padding:11px 20px; font-size:11.5px; text-transform:uppercase; letter-spacing:.08em }
+
 </style>
 <meta name="geo.region" content="AE">
 <meta name="geo.placename" content="Dubai, Abu Dhabi">
