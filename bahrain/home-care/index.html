@@ -1957,7 +1957,7 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
      So the full-menu nav reads brand → links → CTA, which is the standard for a nav
      this size and loses nothing. The FUNNEL nav is only three items and still fits
      perfectly centred, so it keeps the centred wordmark signature. */
-  .navrow:has(> .nav__zone-l){ grid-template-columns:auto 1fr auto }
+  .navrow:has(> .nav__zone-l){ grid-template-columns:auto 1fr auto; column-gap:32px }
   .navrow:has(> .nav__zone-l) > .brand      { order:1; justify-self:start }
   .navrow:has(> .nav__zone-l) > .nav__zone-l{ order:2; justify-self:end }
   .navrow:has(> .nav__zone-l) > .nav__zone-r{ order:3; justify-self:end }
