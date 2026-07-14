@@ -2541,17 +2541,17 @@ button.pill--accent:disabled, button.btn--accent:disabled{
       hero = document.querySelector('.hero-c'),
       form = document.getElementById('reserve');
   if(!bar || !hero) return;
-  var pastHero = false, atForm = false;
+  /* Two reserve buttons on screen at once is noise, so the bar gets out of the way
+     the moment the real form arrives. Measured on every scroll, not inferred. */
   var sync = function(){
-    var on = pastHero && !atForm;
+    var pastHero = hero.getBoundingClientRect().bottom <= 0;
+    var formVisible = form ? form.getBoundingClientRect().top <= window.innerHeight - 40 : false;
+    var on = pastHero && !formVisible;
     bar.classList.toggle('is-on', on);
     bar.setAttribute('aria-hidden', String(!on));
   };
-  /* An observer is honest about what is actually on screen; scroll maths guesses. */
-  new IntersectionObserver(function(e){ pastHero = !e[0].isIntersecting; sync(); },
-    {rootMargin:'-10px 0px 0px 0px'}).observe(hero);
-  if(form) new IntersectionObserver(function(e){ atForm = e[0].isIntersecting; sync(); },
-    {threshold:0}).observe(form);
+  window.addEventListener('scroll', sync, {passive:true});
+  window.addEventListener('resize', sync, {passive:true});
   sync();
 })();
 </script>
