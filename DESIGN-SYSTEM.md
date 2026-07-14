@@ -60,7 +60,13 @@ Backgrounds are warm (R≥G≥B). A blue-tinted dark (e.g. the retired `#0B0E14`
 - Ease `cubic-bezier(.22,.61,.36,1)`; hover lift −2px; durations .15 / .3 / .7s.
 
 ## Core components
-Pill button (Turquoise Base fill, Ink Deep text) · Ghost button (Hair outline, Ink text) · Tag (Turquoise Soft bg, Turquoise Text) · Card (Paper on Cream, radius 18, soft shadow) · the shared **Full Loop** ring (only `--lr` changes per family).
+**Buttons — corrected 14 Jul 2026.** `.pill` / `.btn` is **Ink** by default (Paper text). Turquoise is the **CTA modifier**, `.pill--accent` / `.btn--accent` (Ink text on Turquoise Base). Secondary is `.pill--ghost` / `.btn--ghost` (Hair outline, Ink text, Stone-soft on hover). *The earlier wording here said the pill itself was turquoise, which is what the five hand-built pages followed — that is why colour/, daisy/, partners/ and founding-confirmation/ had inverted CTAs. Do not build a new page from the old rule.*
+
+Tag (Turquoise Soft bg, Turquoise Text) · Card (Paper on Cream, radius 18, soft shadow) · the shared **Full Loop** ring (only `--lr` changes per family).
+
+**Focus rings use Turquoise Dark `#256A5B`** (6.05:1 on Paper), never Turquoise Base or Accent-text — both fail WCAG 2.4.11 on a light ground.
+
+**The button, spacing, type, shadow and focus rules are now enforced from one file: `_content/normalise.css`, injected into every page at build.** Do not re-declare them per page. The only per-page knob is `--sh-rgb` (shadow warmth) and `--lr` (Loop colour).
 
 ## Dark mode
 A token override, not a re-theme — swap ~11 variables (see `framer-tokens.css`), turquoise stays the sole accent. Four directions in the Figma `dark-mode/` reference (Editorial Ink · Warm Obsidian · Modern Monochrome · Slate Grey).

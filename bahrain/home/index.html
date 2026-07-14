@@ -297,6 +297,25 @@ section{ padding:var(--sec-y) 0; }
 .pkg,.tcard,.loc,.rcard-l{ box-shadow:0 1px 2px rgba(45,46,55,.04), 0 18px 44px -28px rgba(45,46,55,.14); }
 .trust{ background:rgba(153,246,228,.05); }
 [id]{scroll-margin-top:84px}::selection{background:var(--accent);color:var(--ink)}::-moz-selection{background:var(--accent);color:var(--ink)}
+/* The Founding 45 — the one featured offer on the Bahrain launch homepage */
+.founding-feature{background:var(--cream);border-block:1px solid var(--hair)}
+.founding-feature .lede{margin:14px 0 0}
+.circles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:38px 0 0}
+.circle{background:var(--paper);border:1px solid var(--hair);border-radius:var(--r-md);padding:26px 22px;display:flex;flex-direction:column;gap:10px}
+.circle--mid{outline:2px solid var(--accent);outline-offset:-2px}
+.circle .cname{font-family:var(--fd);font-size:21px;font-weight:500}
+.circle p{margin:0;font-size:14.5px;line-height:1.6;color:var(--ink-soft)}
+.circle .cnote{margin-top:auto;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-text)}
+.receives{margin:38px 0 0;padding:28px 26px;background:var(--paper);border:1px solid var(--hair);border-radius:var(--r-md)}
+.receives h3{margin:0 0 16px;font-family:var(--fd);font-weight:500;font-size:24px}
+.receives ul{margin:0;padding:0;list-style:none;display:grid;gap:14px}
+.receives li{font-size:15px;line-height:1.62;padding-left:20px;position:relative;color:var(--ink-soft)}
+.receives li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.receives li strong{color:var(--ink);font-weight:600}
+.founding-feature .scarcity{margin:34px 0 4px;font-size:17px;line-height:1.5}
+.founding-feature .paynote{margin:0 0 26px;font-size:14px;color:var(--ink-soft)}
+@media(max-width:860px){.circles{grid-template-columns:1fr}}
+
 /* ── TRS NORMALISE v1 (build-injected from _content/normalise.css) ── */
 /* ═══════════ TRS NORMALISE v1 ═══════════════════════════════════════
    Appended last inside each page's <style>, so it wins on source order
@@ -432,6 +451,7 @@ body{ overflow-x:hidden; overflow-x:clip; }
         <a href="/tara-rose-pages/bahrain/treatments">Treatments</a>
         <a href="/tara-rose-pages/bahrain/home-care">Home Care</a>
         <a href="/tara-rose-pages/bahrain/confidence-mapping">Confidence Mapping</a>
+        <a href="/tara-rose-pages/bahrain/founding-glow-pass">The Founding 45</a>
       </div>
     </div>
     <a class="brand" href="/tara-rose-pages/bahrain/" aria-label="Tara Rose, home">
@@ -441,7 +461,7 @@ body{ overflow-x:hidden; overflow-x:clip; }
     </a>
     <div class="nav__zone-r">
       <a class="nav-link" href="/tara-rose-pages/bahrain/contact">Contact</a>
-      <a class="pill pill--accent nav__cta" href="https://wa.me/97335323411?text=Hi%20Tara%20Rose%2C%20I%20would%20like%20to%20start%20my%20Hair%20Plan." target="_blank" rel="noopener">Start Your Hair Plan</a>
+      <a class="pill pill--accent nav__cta" href="/tara-rose-pages/bahrain/founding-glow-pass">Reserve Your Founding Place</a>
     </div>
   </div>
 </nav>
@@ -472,14 +492,16 @@ body{ overflow-x:hidden; overflow-x:clip; }
 <!-- ============================ HERO-A ============================ -->
 <section class="hero-a">
   <div class="wrap">
-    <span class="eyebrow">Tara Rose · Wellness-Led</span>
+        <span class="eyebrow">Tara Rose is coming to Bahrain</span>
     <div class="tick"></div>
-    <h1 class="h-1">Where wellness meets <em class="serif-em accent">exceptional</em> hair and beauty.</h1>
-    <p class="lede p-lg">Whether your blonde fades, your brunette looks flat, or your colour never seems to last, we start by understanding what your hair is experiencing, then build a plan around it.</p>
+    <h1 class="h-1">Be one of the first. Be one of the <em class="serif-em accent">founders</em>.</h1>
+    <p class="lede p-lg">We are opening our doors in Bahrain, and forty-five women will help us begin. Founding places come with founding credit, founding status, and a stylist who reads your hair from the very first visit.</p>
     <div class="cta-row">
-      <a class="pill pill--accent" href="https://wa.me/97335323411?text=Hi%20Tara%20Rose%2C%20I%20would%20like%20to%20start%20my%20Hair%20Plan." target="_blank" rel="noopener">Start Your Hair Plan</a>
-      <a class="textlink" href="https://wa.me/97335323411?text=Hi%20Tara%20Rose%2C%20I%20would%20like%20to%20start%20my%20Hair%20Plan." target="_blank" rel="noopener">WhatsApp the Team</a>
+      <a class="pill pill--accent" href="/tara-rose-pages/bahrain/founding-glow-pass">Reserve Your Founding Place</a>
+      <a class="textlink" href="/tara-rose-pages/bahrain/confidence-mapping">Start Your Confidence Mapping</a>
     </div>
+    <p class="micro" style="margin:18px 0 0;font-size:13px;color:var(--ink-soft);letter-spacing:.02em">Forty-five founding places, ever. When they are taken, founding closes.</p>
+
   </div>
 </section>
 
@@ -664,6 +686,44 @@ body{ overflow-x:hidden; overflow-x:clip; }
 </section>
 
 <!-- ============================ FAQ ============================ -->
+<section class="founding-feature">
+  <div class="wrap">
+    <span class="eyebrow">The Founding 45</span>
+    <h2 class="h-2">Forty-five women will help us begin. <em class="serif-em accent">One of them could be you.</em></h2>
+    <p class="lede p-lg" style="max-width:62ch">A founding place is not a discount, it is a beginning. You put credit on the table before we open, we add a founding bonus on top, and you join as one of our founding members, with your own founding number and a place at our founding preview evening before the doors open to anyone.</p>
+    <div class="circles">
+      <div class="circle">
+        <span class="cname">Rose Circle</span>
+        <p>Founding credit plus a founding bonus, your founding number, and your founder&rsquo;s rate held once your credit is spent.</p>
+        <span class="cnote">The place most women begin.</span>
+      </div>
+      <div class="circle circle--mid">
+        <span class="cname">Gold Circle</span>
+        <p>More founding credit, a larger bonus, a deeper founder&rsquo;s rate, and an earlier place in the launch diary.</p>
+        <span class="cnote">Most chosen.</span>
+      </div>
+      <div class="circle">
+        <span class="cname">Platinum Circle</span>
+        <p>The deepest founding credit, the largest bonus, the deepest founder&rsquo;s rate, and the first chairs we open.</p>
+        <span class="cnote">Only a handful, ever.</span>
+      </div>
+    </div>
+    <div class="receives">
+      <h3>What a founder receives, beyond the credit</h3>
+      <ul>
+        <li><strong>Founding status.</strong> Your own founding number, named as one of the first, and a place at the founding preview evening before we open.</li>
+        <li><strong>Founding credit plus a bonus on top.</strong> More on the table than you put down, shown as what it is worth, never as money off.</li>
+        <li><strong>A founder&rsquo;s rate.</strong> Held once your founding credit is spent, for as long as you keep your rhythm with us. Yours as a founder, not a rate anyone can ask for.</li>
+      </ul>
+    </div>
+    <p class="scarcity"><strong>Forty-five founding places, across three circles. When they are taken, founding is closed for good.</strong></p>
+    <p class="paynote">Spread it over time with floos if you would rather. The founding value stays the same.</p>
+    <div class="cta-row">
+      <a class="pill pill--accent" href="/tara-rose-pages/bahrain/founding-glow-pass">Reserve Your Founding Place</a>
+    </div>
+  </div>
+</section>
+
 <section class="dark faq">
   <div class="wrap">
     <div class="sec-head center">
@@ -711,12 +771,12 @@ body{ overflow-x:hidden; overflow-x:clip; }
 <section class="closing" id="start">
   <div class="wrap">
     <div class="inner">
-      <span class="badge-line"><span class="dot"></span>Tara Rose · Bahrain</span>
-      <h2 class="h-1">Ready to <em class="accent">stop guessing</em> with your hair?</h2>
-      <p class="sub">Your Hair Plan starts with one conversation.</p>
+      <span class="badge-line"><span class="dot"></span>
+      <h2 class="h-1">The doors are not open yet. <em class="accent">Founding is.</em></h2>
+      <p class="sub">Reserve your place while the forty-five are still here. Or start with the map. It is free, and it is yours before you ever sit in the chair.</p>
       <div class="cta-row">
-        <a class="pill pill--accent" href="https://wa.me/97335323411?text=Hi%20Tara%20Rose%2C%20I%20would%20like%20to%20start%20my%20Hair%20Plan." target="_blank" rel="noopener">Start Your Hair Plan</a>
-        <a class="btn btn--ghost on-dark" href="https://wa.me/97335323411?text=Hi%20Tara%20Rose%2C%20I%20would%20like%20to%20start%20my%20Hair%20Plan." target="_blank" rel="noopener">WhatsApp the Team</a>
+        <a class="pill pill--accent" href="/tara-rose-pages/bahrain/founding-glow-pass">Reserve Your Founding Place</a>
+        <a class="btn btn--ghost on-dark" href="/tara-rose-pages/bahrain/confidence-mapping">Start Your Confidence Mapping</a>
       </div>
     </div>
   </div>
@@ -730,7 +790,7 @@ body{ overflow-x:hidden; overflow-x:clip; }
       <div>
         <span class="brand__wm">TARA ROSE</span>
         <p>Wellness-led hair and beauty across Bahrain. Diagnosed, planned, protected and maintained.</p>
-        <span class="sig">We see you.</span>
+        <span class="sig">We see you. From the very beginning.</span>
       </div>
       <div>
         <h4>Explore</h4>
