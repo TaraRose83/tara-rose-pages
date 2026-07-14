@@ -452,7 +452,7 @@ section[style*="var(--cream)"]{ background:#EFE6D9 !important; }
 
 /* ── TRS DESIGN SYSTEM (build-injected: tokens.json + normalise.css) ── */
 /* GENERATED from _content/tokens.json by gen-tokens.py — do not hand-edit.
-   Swap tokens.json to re-skin the entire system. */
+   Swap tokens.json to re-skin the system, or to make it a different salon. */
 :root{
   --primary: #2D2E37;
   --on-primary: #FAF8F4;
@@ -484,6 +484,21 @@ section[style*="var(--cream)"]{ background:#EFE6D9 !important; }
   --disabled: #E4E1DA;
   --ghost-top: #FFFFFF;
   --ghost-bottom: #F5F2EC;
+  --scrim: rgba(28,27,24,.5);
+  --sh-rim-light: inset 0 1px 0 rgba(255,255,255,.72), inset 0 -1px 0 rgba(28,26,22,.05);
+  --sh-rim-dark: inset 0 1px 0 rgba(255,255,255,.10), inset 0 -1px 0 rgba(0,0,0,.22);
+  --sh-subtle-sm: 0 1px 2px rgba(28,26,22,.04);
+  --sh-subtle-md: 0 2px 6px -2px rgba(28,26,22,.06);
+  --sh-subtle-lg: 0 6px 16px -6px rgba(28,26,22,.08);
+  --sh-subtle-xl: 0 12px 32px -12px rgba(28,26,22,.10);
+  --sh-regular-sm: 0 1px 2px rgba(28,26,22,.06), 0 1px 1px rgba(28,26,22,.04);
+  --sh-regular-md: 0 2px 4px rgba(28,26,22,.05), 0 6px 14px -6px rgba(28,26,22,.10);
+  --sh-regular-lg: 0 2px 4px rgba(28,26,22,.05), 0 14px 30px -12px rgba(28,26,22,.14);
+  --sh-regular-xl: 0 4px 8px rgba(28,26,22,.05), 0 26px 54px -20px rgba(28,26,22,.18);
+  --sh-strong-sm: 0 1px 2px rgba(28,26,22,.10), 0 2px 4px rgba(28,26,22,.08);
+  --sh-strong-md: 0 2px 4px rgba(28,26,22,.10), 0 10px 20px -8px rgba(28,26,22,.18);
+  --sh-strong-lg: 0 3px 6px rgba(28,26,22,.10), 0 20px 40px -14px rgba(28,26,22,.24);
+  --sh-strong-xl: 0 4px 10px rgba(28,26,22,.12), 0 34px 66px -22px rgba(28,26,22,.30);
   --r-xs: 6px;
   --r-sm: 10px;
   --r-md: 12px;
@@ -501,20 +516,6 @@ section[style*="var(--cream)"]{ background:#EFE6D9 !important; }
   --sp-section: 96px;
   --sp-section-md: 72px;
   --sp-section-sm: 52px;
-  --sh-rim-light: inset 0 1px 0 rgba(255,255,255,.72), inset 0 -1px 0 rgba(28,26,22,.05);
-  --sh-rim-dark: inset 0 1px 0 rgba(255,255,255,.10), inset 0 -1px 0 rgba(0,0,0,.22);
-  --sh-subtle-sm: 0 1px 2px rgba(28,26,22,.04);
-  --sh-subtle-md: 0 2px 6px -2px rgba(28,26,22,.06);
-  --sh-subtle-lg: 0 6px 16px -6px rgba(28,26,22,.08);
-  --sh-subtle-xl: 0 12px 32px -12px rgba(28,26,22,.10);
-  --sh-regular-sm: 0 1px 2px rgba(28,26,22,.06), 0 1px 1px rgba(28,26,22,.04);
-  --sh-regular-md: 0 2px 4px rgba(28,26,22,.05), 0 6px 14px -6px rgba(28,26,22,.10);
-  --sh-regular-lg: 0 2px 4px rgba(28,26,22,.05), 0 14px 30px -12px rgba(28,26,22,.14);
-  --sh-regular-xl: 0 4px 8px rgba(28,26,22,.05), 0 26px 54px -20px rgba(28,26,22,.18);
-  --sh-strong-sm: 0 1px 2px rgba(28,26,22,.10), 0 2px 4px rgba(28,26,22,.08);
-  --sh-strong-md: 0 2px 4px rgba(28,26,22,.10), 0 10px 20px -8px rgba(28,26,22,.18);
-  --sh-strong-lg: 0 3px 6px rgba(28,26,22,.10), 0 20px 40px -14px rgba(28,26,22,.24);
-  --sh-strong-xl: 0 4px 10px rgba(28,26,22,.12), 0 34px 66px -22px rgba(28,26,22,.30);
   --fs-display: clamp(46px,7.6vw,104px);
   --fs-heading-xl: clamp(42px,6.4vw,74px);
   --fs-heading-lg: clamp(31px,4.4vw,52px);
@@ -531,13 +532,114 @@ section[style*="var(--cream)"]{ background:#EFE6D9 !important; }
   --ff-body: Inter, system-ui, sans-serif;
   --ff-eyebrow: Inter, system-ui, sans-serif;
   --ff-caption: Inter, system-ui, sans-serif;
-  --paper: var(--canvas);
-  --cream: var(--surface);
+
+  /* ── SEMANTIC BRIDGE. Zero literals. Components read only these. ── */
+  --color-canvas:            var(--canvas);
+  --color-canvas-soft:       var(--surface);
+  --color-surface:           var(--surface);
+  --color-surface-elevated:  var(--surface-soft);
+  --color-foreground:        var(--ink);
+  --color-foreground-muted:  var(--taupe);
+  --color-foreground-soft:   var(--taupe-soft);
+  --color-on-primary:        var(--on-primary);
+  --color-border:            var(--hairline);
+  --color-accent:            var(--accent);
+  --color-accent-text:       var(--accent-text);
+  --color-accent-strong:     var(--accent-dark);
+  --color-on-accent:         var(--on-accent);
+  --color-disabled:          var(--disabled);
+  --color-scrim:             var(--scrim);
+
+  /* Legacy aliases — the hand-written CSS still speaks these. */
+  --paper:      var(--canvas);
+  --cream:      var(--surface);
   --stone-soft: var(--surface-soft);
-  --ink-soft: var(--taupe);
-  --hair: var(--hairline);
-  --fd: var(--ff-display);
-  --fb: var(--ff-body);
+  --ink-soft:   var(--taupe);
+  --hair:       var(--hairline);
+  --fd:         var(--ff-display);
+  --fb:         var(--ff-body);
+}
+
+/* ═══ DARK. A colour-layer swap, never a redesign. ═══════════════════════════
+   Type scale, weights, tracking, radii, spacing, breakpoints, touch targets and
+   every component rule are byte-identical to light. The accent is NEVER retuned.
+   Body copy is never pure white — it lives at 85%, which is what keeps it warm.
+   ══════════════════════════════════════════════════════════════════════════ */
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme=light]){
+    --canvas: #1C1B18;
+    --canvas-deepest: #121110;
+    --surface: #262420;
+    --surface-soft: #322F2A;
+    --ink: #FAF8F4;
+    --ink-deep: #FFFFFF;
+    --on-dark: #FAF8F4;
+    --taupe: #8F867A;
+    --taupe-soft: #A79E92;
+    --hairline: rgba(250,248,244,.10);
+    --primary: #FAF8F4;
+    --on-primary: #1C1B18;
+    --accent: #99F6E4;
+    --accent-deep: #7DE6D2;
+    --accent-text: #7DE6D2;
+    --accent-dark: #99F6E4;
+    --disabled: rgba(250,248,244,.06);
+    --ghost-top: rgba(250,248,244,.09);
+    --ghost-bottom: rgba(250,248,244,.05);
+    --scrim: rgba(28,27,24,.5);
+    --sh-rim-light: inset 0 1px 0 rgba(250,248,244,.07), inset 0 -1px 0 rgba(0,0,0,.30);
+    --sh-subtle-sm: 0 1px 2px rgba(0,0,0,.30);
+    --sh-subtle-md: 0 2px 6px -2px rgba(0,0,0,.36);
+    --sh-subtle-lg: 0 6px 16px -6px rgba(0,0,0,.42);
+    --sh-subtle-xl: 0 12px 32px -12px rgba(0,0,0,.48);
+    --sh-regular-sm: 0 1px 2px rgba(0,0,0,.36), 0 1px 1px rgba(0,0,0,.28);
+    --sh-regular-md: 0 2px 4px rgba(0,0,0,.32), 0 6px 14px -6px rgba(0,0,0,.44);
+    --sh-regular-lg: 0 2px 4px rgba(0,0,0,.32), 0 14px 30px -12px rgba(0,0,0,.50);
+    --sh-regular-xl: 0 4px 8px rgba(0,0,0,.32), 0 26px 54px -20px rgba(0,0,0,.56);
+    --sh-strong-sm: 0 1px 2px rgba(0,0,0,.44), 0 2px 4px rgba(0,0,0,.36);
+    --sh-strong-md: 0 2px 4px rgba(0,0,0,.44), 0 10px 20px -8px rgba(0,0,0,.56);
+    --sh-strong-lg: 0 3px 6px rgba(0,0,0,.44), 0 20px 40px -14px rgba(0,0,0,.62);
+    --sh-strong-xl: 0 4px 10px rgba(0,0,0,.48), 0 34px 66px -22px rgba(0,0,0,.68);
+  }
+}
+:root[data-theme=dark]{
+    --canvas: #1C1B18;
+    --canvas-deepest: #121110;
+    --surface: #262420;
+    --surface-soft: #322F2A;
+    --ink: #FAF8F4;
+    --ink-deep: #FFFFFF;
+    --on-dark: #FAF8F4;
+    --taupe: #8F867A;
+    --taupe-soft: #A79E92;
+    --hairline: rgba(250,248,244,.10);
+    --primary: #FAF8F4;
+    --on-primary: #1C1B18;
+    --accent: #99F6E4;
+    --accent-deep: #7DE6D2;
+    --accent-text: #7DE6D2;
+    --accent-dark: #99F6E4;
+    --disabled: rgba(250,248,244,.06);
+    --ghost-top: rgba(250,248,244,.09);
+    --ghost-bottom: rgba(250,248,244,.05);
+    --scrim: rgba(28,27,24,.5);
+    --sh-rim-light: inset 0 1px 0 rgba(250,248,244,.07), inset 0 -1px 0 rgba(0,0,0,.30);
+    --sh-subtle-sm: 0 1px 2px rgba(0,0,0,.30);
+    --sh-subtle-md: 0 2px 6px -2px rgba(0,0,0,.36);
+    --sh-subtle-lg: 0 6px 16px -6px rgba(0,0,0,.42);
+    --sh-subtle-xl: 0 12px 32px -12px rgba(0,0,0,.48);
+    --sh-regular-sm: 0 1px 2px rgba(0,0,0,.36), 0 1px 1px rgba(0,0,0,.28);
+    --sh-regular-md: 0 2px 4px rgba(0,0,0,.32), 0 6px 14px -6px rgba(0,0,0,.44);
+    --sh-regular-lg: 0 2px 4px rgba(0,0,0,.32), 0 14px 30px -12px rgba(0,0,0,.50);
+    --sh-regular-xl: 0 4px 8px rgba(0,0,0,.32), 0 26px 54px -20px rgba(0,0,0,.56);
+    --sh-strong-sm: 0 1px 2px rgba(0,0,0,.44), 0 2px 4px rgba(0,0,0,.36);
+    --sh-strong-md: 0 2px 4px rgba(0,0,0,.44), 0 10px 20px -8px rgba(0,0,0,.56);
+    --sh-strong-lg: 0 3px 6px rgba(0,0,0,.44), 0 20px 40px -14px rgba(0,0,0,.62);
+    --sh-strong-xl: 0 4px 10px rgba(0,0,0,.48), 0 34px 66px -22px rgba(0,0,0,.68);
+}
+:root[data-theme=dark] img:not([class*=logo]),
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme=light]) img:not([class*=logo]){ filter:brightness(.95) }
 }
 
 /* ═══════════ TRS NORMALISE v1 ═══════════════════════════════════════
@@ -1724,6 +1826,77 @@ button.pill:disabled, button.btn:disabled{
   color:var(--taupe-soft) !important;
   border-color:rgba(45,46,55,.10) !important;
   box-shadow:none !important;
+}
+
+/* ═══════════ MINED FROM THE KITS — the engineering fixes ═══════════════
+   These are not taste. They are bugs the kits already solved.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* 1 · iOS AUTO-ZOOM. Any input under 16px makes Safari zoom the whole page on
+       focus, which throws the layout and feels broken. Mine were 15.5px. */
+input, select, textarea{ font-size:16px }
+
+/* 2 · THE BUTTON LAW. Height is the single source of truth for the vertical box;
+       horizontal padding controls width only. Vertical padding + an inherited
+       line-height > 1 is what pushes descenders past a fixed height. */
+.pill, .btn, .vs-cta, button.pill, button.btn{
+  line-height:1;
+  padding-block:0;
+  height:52px;
+  display:inline-flex; align-items:center; justify-content:center;
+}
+.pill--sm, .btn--sm, .trs-nav .nav__cta{ height:44px; padding:0 20px }
+.pill--lg, .btn--lg{ height:60px; padding:0 40px }
+.pill, .btn{ padding-inline:32px }
+@media(max-width:640px){ .cta-row .pill, .cta-row .btn{ height:54px; padding-inline:24px } }
+
+/* 3 · THE GRID BLOWOUT. One line. A grid child with long content will otherwise
+       refuse to shrink and force the whole page sideways. */
+.vgrid > *, .grid-3 > *, .grid-4 > *, .circles > *, .split > *,
+.flow-strip > *, .cta-row > *{ min-width:0 }
+
+/* 4 · THE FOCUS HALO. A spacer ring the colour of the canvas, then the accent.
+       No alpha, so it survives on top of a photograph — which the old alpha ring
+       did not. And focus IS action, so it is allowed to be turquoise. */
+:focus-visible{
+  outline:none;
+  box-shadow:0 0 0 2px var(--color-canvas), 0 0 0 4px var(--color-accent-strong);
+  border-radius:4px;
+}
+.dark :focus-visible, .hero-c :focus-visible, .closing :focus-visible, .belief :focus-visible{
+  box-shadow:0 0 0 2px var(--ink-deep), 0 0 0 4px var(--color-accent);
+}
+
+/* 5 · THE WARM SCRIM. A black scrim on a warm-neutral page goes grey-green and
+       kills the paper. */
+.scrim, .modal__scrim, .drawer__scrim{ background:var(--color-scrim) }
+
+/* 6 · THE POLARITY FLIP. The plan you want chosen is always the INVERSE of the
+       page — an ink card on paper, a paper card on ink. It needs no colour to be
+       the one thing that does not belong. This is stronger than an outline. */
+.vstack--hero{
+  background:var(--ink-deep);
+  border-color:var(--ink-deep);
+  box-shadow:var(--sh-rim-dark), var(--sh-strong-lg);
+}
+.vstack--hero .vs-name, .vstack--hero .vs-total{ color:#fff }
+.vstack--hero .vs-list li{ color:rgba(255,255,255,.72); border-bottom-color:rgba(255,255,255,.12) }
+.vstack--hero .vs-list li b{ color:#fff }
+.vstack--hero .vs-sum{ border-bottom-color:rgba(255,255,255,.28)!important }
+.vstack--hero .vs-note{ color:var(--accent) }
+.vstack--hero .vs-pay{ color:rgba(255,255,255,.7) }
+.vstack--hero .vs-pay b{ color:#fff }
+.vstack--hero .vs-flooss{ color:var(--accent)!important }
+.vstack--hero .flooss-mark{ color:#fff }
+
+/* 7 · Zero-media-query card grids. auto-fit + minmax does what three breakpoints
+       were doing by hand. */
+.grid-auto{ display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:16px }
+
+/* 8 · The lit-surface placeholder. A three-stop same-family gradient — introduces
+       no new colour, but a flat tile reads as light falling across paper. */
+.media, .ph-frame .ph:not([src]){
+  background-image:linear-gradient(135deg, var(--color-canvas-soft) 0%, var(--color-canvas) 50%, var(--color-canvas-soft) 100%);
 }
 
 </style>
