@@ -715,6 +715,63 @@ body{ overflow-x:hidden; overflow-x:clip; }
   .vstack, .inc, .cred, .teach, .circle{ border-radius:10px }
 }
 
+/* ═══════════ PHONE: ONE SECTION, ONE SCREEN ════════════════════════════
+   Measured on a 390x844 phone, the value stack ran 3.5 screens tall, Tara's
+   letter 1.8, the proof 1.7. That is not a page, it is a scroll. A section
+   should land as one idea you can take in, then move on.
+   ═══════════════════════════════════════════════════════════════════════ */
+@media (max-width:640px){
+
+  /* THE VALUE STACK, 3.5 screens -> 1. Three cards stacked vertically is a wall.
+     Side by side on a swipe is how a phone actually wants to compare things —
+     and comparing is the entire job of this section. */
+  .vgrid{
+    display:grid; grid-auto-flow:column; grid-auto-columns:82%;
+    grid-template-columns:none; gap:12px;
+    overflow-x:auto; overscroll-behavior-x:contain;
+    scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;
+    margin-inline:calc(var(--pad-x) * -1);
+    padding:4px var(--pad-x) 16px;
+    scrollbar-width:none;
+  }
+  .vgrid::-webkit-scrollbar{ display:none }
+  .vstack{ scroll-snap-align:center; height:auto }
+  /* a hint that there is more to the right */
+  .vgrid::after{ content:""; flex:0 0 4px }
+
+  /* Long-form text. Centred paragraphs of 16px/1.62 are what made it read
+     endless. Editorial long-form is LEFT-aligned, a touch smaller, tighter. */
+  .founder .fbody, .owner, .belief .belief-body,
+  .founder .fbody p, .owner .obody, .belief .belief-body p{
+    text-align:left;
+  }
+  .founder .fbody p, .owner .obody, .belief .belief-body p,
+  .p, .p-lg, .lede, .sub, .body{
+    font-size:15px; line-height:1.55;
+  }
+  .founder .fbody p, .owner .obody{ margin-bottom:12px }
+  .belief .belief-body{ margin-inline:0; max-width:none }
+
+  /* Section rhythm. Tighter vertical, so a section is a chapter, not a journey. */
+  section{ padding-block:44px }
+  .sec-head{ margin-bottom:22px }
+  .sec-head .p-lg{ font-size:15px }
+
+  /* MORE DEFINITION. The mobile view was soft everywhere — soft type, soft
+     cards, soft rules. Definition comes from contrast: a heavier headline
+     against lighter body, a real hairline, and less rounding. */
+  .h-2, .sec-head h2{ font-size:clamp(26px,7vw,34px); line-height:1.1; letter-spacing:-.02em }
+  h3{ letter-spacing:-.01em }
+  .vstack, .inc, .cred, .teach, .circle{ border-radius:8px; border-color:rgba(45,46,55,.16) }
+  .vs-list li{ border-bottom-color:rgba(45,46,55,.12) }
+  .vs-sum{ border-bottom-width:1px!important }
+  .vs-total{ font-size:24px }
+
+  /* Attributions and eyebrows sit on a rule, not floating. */
+  .attr{ display:block; margin-top:16px; padding-top:12px; border-top:1px solid var(--hair);
+         font-size:10.5px; letter-spacing:.18em; text-transform:uppercase }
+}
+
 </style>
 <meta name="geo.region" content="BH">
 <meta name="geo.placename" content="Manama">
