@@ -1993,10 +1993,13 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
      what starved it — give it the room the bar actually has. Content stays at 1180. */
   .trs-nav .wrap.navrow{ max-width:min(1420px, 100% - 48px) }
   .navrow > *{ min-width:0 }
-  .nav__links{ gap:18px }
-  .nav__links a{ font-size:12.5px; white-space:nowrap }
-  .nav__zone-r{ gap:16px }
-  .nav__zone-r .pill{ font-size:10px; padding:0 15px; white-space:nowrap }
+  /* The nav needed ~1420px of content in a 1232px bar on a 13" laptop. It never
+     fitted at ANY desktop width — the links were printing straight over the wordmark.
+     Tightened to fit, with the nav CTA shortened at source. */
+  .nav__links{ gap:15px }
+  .nav__links a{ font-size:11.8px; letter-spacing:.09em; white-space:nowrap }
+  .nav__zone-r{ gap:14px }
+  .nav__zone-r .pill{ font-size:10px; padding:0 14px; white-space:nowrap }
   /* The burger was display:flex at EVERY width — it was sitting next to the full link
      list on desktop the whole time. It belongs to the mobile menu only. */
   .nav__burger{ display:none !important }
@@ -2035,7 +2038,7 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
     </a>
     <div class="nav__zone-r">
       <a class="nav-link" href="/tara-rose-pages/bahrain/contact">Contact</a>
-      <a class="pill pill--accent nav__cta" href="/tara-rose-pages/bahrain/founding-glow-pass">Reserve Your Founding Place</a>
+      <a class="pill pill--accent nav__cta" href="/tara-rose-pages/bahrain/founding-glow-pass">Reserve Your Place</a>
     </div>
   </div>
 </nav>
@@ -2071,7 +2074,7 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
     <h1 class="h-display">Be one of the first. <br><em class="serif-em accent">Be one of the founders.</em></h1>
     <p class="lede p-lg">We are opening our doors in Bahrain, and forty-five women will help us begin. Founding places come with founding credit, founding status, and a stylist who reads your hair from the very first visit.</p>
     <div class="cta-row">
-      <a class="pill pill--accent" href="/tara-rose-pages/bahrain/founding-glow-pass">Reserve Your Founding Place</a>
+      <a class="pill pill--accent" href="/tara-rose-pages/bahrain/founding-glow-pass">Reserve Your Place</a>
       <a class="textlink" href="/tara-rose-pages/bahrain/confidence-mapping">Start Your Confidence Mapping</a>
     </div>
     <p class="micro" style="margin:18px 0 0;font-size:13px;color:var(--ink-soft);letter-spacing:.02em">Forty-five founding places, ever. When they are taken, founding closes.</p>
@@ -2346,7 +2349,7 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
     <p class="scarcity"><strong>Forty-five founding places, across three circles. When they are taken, founding is closed for good.</strong></p>
     <p class="paynote">Spread it over time with flooss if you would rather. The founding value stays the same.</p>
     <div class="cta-row">
-      <a class="pill pill--accent" href="/tara-rose-pages/bahrain/founding-glow-pass">Reserve Your Founding Place</a>
+      <a class="pill pill--accent" href="/tara-rose-pages/bahrain/founding-glow-pass">Reserve Your Place</a>
     </div>
   </div>
 </section>
@@ -2403,7 +2406,7 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
       <h2 class="h-1">The doors are not open yet. <em class="accent">Founding is.</em></h2>
       <p class="sub">Reserve your place while the forty-five are still here. Or start with the map. It is free, and it is yours before you ever sit in the chair.</p>
       <div class="cta-row">
-        <a class="pill pill--accent" href="/tara-rose-pages/bahrain/founding-glow-pass">Reserve Your Founding Place</a>
+        <a class="pill pill--accent" href="/tara-rose-pages/bahrain/founding-glow-pass">Reserve Your Place</a>
         <a class="btn btn--ghost on-dark" href="/tara-rose-pages/bahrain/confidence-mapping">Start Your Confidence Mapping</a>
       </div>
     </div>
