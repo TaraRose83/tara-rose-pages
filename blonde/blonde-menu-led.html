@@ -414,7 +414,96 @@ section[style*="var(--cream)"]{ background:#EDF3F1 !important; }
 .foot .soc-grp:first-of-type{margin-top:0}
 .foot .row{flex-wrap:wrap}
 
-/* ── TRS NORMALISE v1 (build-injected from _content/normalise.css) ── */
+/* ── TRS DESIGN SYSTEM (build-injected: tokens.json + normalise.css) ── */
+/* GENERATED from _content/tokens.json by gen-tokens.py — do not hand-edit.
+   Swap tokens.json to re-skin the entire system. */
+:root{
+  --primary: #2D2E37;
+  --on-primary: #FAF8F4;
+  --accent: #99F6E4;
+  --accent-deep: #7DE6D2;
+  --accent-text: #3AA892;
+  --accent-dark: #256A5B;
+  --on-accent: #0E2A25;
+  --canvas: #FAF8F4;
+  --canvas-dark: #1C1B18;
+  --surface: #F1ECE3;
+  --surface-soft: #EFEBE3;
+  --sand: #E7DFD2;
+  --ink: #2D2E37;
+  --ink-deep: #1C1B18;
+  --on-dark: #FFFFFF;
+  --taupe: #7C756A;
+  --taupe-soft: #9A9287;
+  --hairline: rgba(45,46,55,.12);
+  --pillar-lime: #EEF3C7;
+  --pillar-lavender: #C4B5FD;
+  --pillar-coral: #FF9B9B;
+  --accent-lift: #8FF0DC;
+  --accent-mid: #7CE8D2;
+  --accent-drop: #62DCC4;
+  --accent-lift-h: #9CF4E4;
+  --accent-mid-h: #89ECDA;
+  --accent-drop-h: #70E2CC;
+  --disabled: #E4E1DA;
+  --ghost-top: #FFFFFF;
+  --ghost-bottom: #F5F2EC;
+  --r-xs: 6px;
+  --r-sm: 10px;
+  --r-md: 12px;
+  --r-lg: 16px;
+  --r-pill: 100px;
+  --r-full: 999px;
+  --sp-xxs: 2px;
+  --sp-xs: 6px;
+  --sp-sm: 8px;
+  --sp-md: 12px;
+  --sp-lg: 16px;
+  --sp-xl: 20px;
+  --sp-xxl: 24px;
+  --sp-xxxl: 36px;
+  --sp-section: 96px;
+  --sp-section-md: 72px;
+  --sp-section-sm: 52px;
+  --sh-rim-light: inset 0 1px 0 rgba(255,255,255,.72), inset 0 -1px 0 rgba(28,26,22,.05);
+  --sh-rim-dark: inset 0 1px 0 rgba(255,255,255,.10), inset 0 -1px 0 rgba(0,0,0,.22);
+  --sh-subtle-sm: 0 1px 2px rgba(28,26,22,.04);
+  --sh-subtle-md: 0 2px 6px -2px rgba(28,26,22,.06);
+  --sh-subtle-lg: 0 6px 16px -6px rgba(28,26,22,.08);
+  --sh-subtle-xl: 0 12px 32px -12px rgba(28,26,22,.10);
+  --sh-regular-sm: 0 1px 2px rgba(28,26,22,.06), 0 1px 1px rgba(28,26,22,.04);
+  --sh-regular-md: 0 2px 4px rgba(28,26,22,.05), 0 6px 14px -6px rgba(28,26,22,.10);
+  --sh-regular-lg: 0 2px 4px rgba(28,26,22,.05), 0 14px 30px -12px rgba(28,26,22,.14);
+  --sh-regular-xl: 0 4px 8px rgba(28,26,22,.05), 0 26px 54px -20px rgba(28,26,22,.18);
+  --sh-strong-sm: 0 1px 2px rgba(28,26,22,.10), 0 2px 4px rgba(28,26,22,.08);
+  --sh-strong-md: 0 2px 4px rgba(28,26,22,.10), 0 10px 20px -8px rgba(28,26,22,.18);
+  --sh-strong-lg: 0 3px 6px rgba(28,26,22,.10), 0 20px 40px -14px rgba(28,26,22,.24);
+  --sh-strong-xl: 0 4px 10px rgba(28,26,22,.12), 0 34px 66px -22px rgba(28,26,22,.30);
+  --fs-display: clamp(46px,7.6vw,104px);
+  --fs-heading-xl: clamp(42px,6.4vw,74px);
+  --fs-heading-lg: clamp(31px,4.4vw,52px);
+  --fs-heading-md: clamp(26px,3.6vw,40px);
+  --fs-heading-sm: clamp(20px,2.6vw,26px);
+  --fs-lede: clamp(16px,1.7vw,18.5px);
+  --fs-body: 16px;
+  --fs-body-sm: 14.5px;
+  --fs-link: 13px;
+  --fs-eyebrow: 11.5px;
+  --fs-caption: 11px;
+  --ff-display: "Playfair Display", Georgia, serif;
+  --ff-heading: "Playfair Display", Georgia, serif;
+  --ff-body: Inter, system-ui, sans-serif;
+  --ff-eyebrow: Inter, system-ui, sans-serif;
+  --ff-caption: Inter, system-ui, sans-serif;
+  --paper: var(--canvas);
+  --cream: var(--surface);
+  --stone-soft: var(--surface-soft);
+  --ink-soft: var(--taupe);
+  --hair: var(--hairline);
+  --fd: var(--ff-display);
+  --fb: var(--ff-body);
+}
+
 /* ═══════════ TRS NORMALISE v1 ═══════════════════════════════════════
    Appended last inside each page's <style>, so it wins on source order
    at equal specificity. Touches nothing skin-specific: no grounds, no
@@ -428,8 +517,8 @@ section[style*="var(--cream)"]{ background:#EDF3F1 !important; }
   --r-lg:22px; --r-md:16px; --r-sm:14px; --r-pill:100px;
   --ease:cubic-bezier(.22,.61,.36,1);
   --dur-fast:.15s; --dur:.3s; --dur-slow:.7s;
-  --stone-soft:#EFEBE3;
-  --accent-dark:#256A5B;
+  --stone-soft:var(--surface-soft);
+  --accent-dark:var(--accent-dark);
 
   --fs-h3:clamp(26px,3.6vw,40px);
   --fs-h4:clamp(28px,4.4vw,48px);
@@ -541,8 +630,8 @@ body{ overflow-x:hidden; overflow-x:clip; }
   /* Warm the support neutral. #74747B is a COOL grey and it makes everything it
      touches read a little cheap. Planhat: "Don't use cool greys; the neutral
      support palette is warm (taupe)." Same lightness, warm hue. */
-  --taupe:#7C756A;
-  --taupe-soft:#9A9287;
+  --taupe:var(--taupe);
+  --taupe-soft:var(--taupe-soft);
 
   /* Boxes. 22px is a soft, appy radius. Editorial brands sit near-rectangular,
      which is what reads expensive. The PILL stays — that is TRS, and it is the
@@ -956,8 +1045,8 @@ p{ hanging-punctuation:first last }
 
 /* ── THE BUTTON, with real weight. The mint was too pale and it sat flat. ─── */
 .btn--accent, .pill--accent, .vs-cta, .trs-nav .nav__cta{
-  background:linear-gradient(178deg, #8FF0DC 0%, #7CE8D2 52%, #62DCC4 100%);
-  color:#0E2A25;
+  background:linear-gradient(178deg, var(--accent-lift) 0%, var(--accent-mid) 52%, var(--accent-drop) 100%);
+  color:var(--on-accent);
   border:1px solid rgba(14,42,37,.22);
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.42),
@@ -965,7 +1054,7 @@ p{ hanging-punctuation:first last }
     0 10px 22px -10px rgba(14,42,37,.38);
 }
 .btn--accent:hover, .pill--accent:hover, .vs-cta:hover, .trs-nav .nav__cta:hover{
-  background:linear-gradient(178deg, #9CF4E4 0%, #89ECDA 52%, #70E2CC 100%);
+  background:linear-gradient(178deg, var(--accent-lift-h) 0%, var(--accent-mid-h) 52%, var(--accent-drop-h) 100%);
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.5),
     0 1px 2px rgba(14,42,37,.14),
@@ -1024,9 +1113,9 @@ p{ hanging-punctuation:first last }
 .hero-c .pill--accent, .dark .pill--accent, .closing .pill--accent,
 .hero-a .pill--accent, .reserve .pill--accent, .wrap .cta-row .pill--accent,
 .vgrid .vs-cta, .trs-nav .nav__cta{
-  background-image:linear-gradient(178deg, #8FF0DC 0%, #7CE8D2 52%, #62DCC4 100%);
-  background-color:#7CE8D2;
-  color:#0E2A25;
+  background-image:linear-gradient(178deg, var(--accent-lift) 0%, var(--accent-mid) 52%, var(--accent-drop) 100%);
+  background-color:var(--accent-mid);
+  color:var(--on-accent);
   border:1px solid rgba(14,42,37,.22);
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.42),
@@ -1036,7 +1125,7 @@ p{ hanging-punctuation:first last }
 .hero-c .pill--accent:hover, .dark .pill--accent:hover, .closing .pill--accent:hover,
 .hero-a .pill--accent:hover, .reserve .pill--accent:hover, .wrap .cta-row .pill--accent:hover,
 .vgrid .vs-cta:hover, .trs-nav .nav__cta:hover{
-  background-image:linear-gradient(178deg, #9CF4E4 0%, #89ECDA 52%, #70E2CC 100%);
+  background-image:linear-gradient(178deg, var(--accent-lift-h) 0%, var(--accent-mid-h) 52%, var(--accent-drop-h) 100%);
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.52),
     0 1px 2px rgba(14,42,37,.16),
@@ -1156,15 +1245,15 @@ p{ hanging-punctuation:first last }
    like the quieter of two good options, not like a link in a box.
    ═══════════════════════════════════════════════════════════════════════ */
 .btn--ghost, .pill--ghost, .btn:not(.btn--accent):not(.btn--ghost), .pill:not(.pill--accent):not(.pill--ghost){
-  background-image:linear-gradient(178deg, #FFFFFF 0%, #F5F2EC 100%);
-  background-color:#F7F4EE;
+  background-image:linear-gradient(178deg, #FFFFFF 0%, var(--ghost-bottom) 100%);
+  background-color:var(--ghost-bottom);
   color:var(--ink);
   border:1px solid rgba(45,46,55,.16);
   box-shadow: var(--rim-light), var(--sh-subtle-md);
 }
 .btn--ghost:hover, .pill--ghost:hover,
 .btn:not(.btn--accent):not(.btn--ghost):hover, .pill:not(.pill--accent):not(.pill--ghost):hover{
-  background-image:linear-gradient(178deg, #FFFFFF 0%, #EFEBE3 100%);
+  background-image:linear-gradient(178deg, #FFFFFF 0%, var(--surface-soft) 100%);
   border-color:rgba(45,46,55,.32);
   box-shadow: var(--rim-light), var(--sh-reg-md);
   transform:translateY(-1px);
@@ -1190,18 +1279,18 @@ p{ hanging-punctuation:first last }
    ═══════════════════════════════════════════════════════════════════════ */
 .tk, .tick, .brand__tick{
   width:14px; height:14px; border-radius:50%; flex-shrink:0;
-  background:linear-gradient(178deg, #8FF0DC, #62DCC4);
+  background:linear-gradient(178deg, var(--accent-lift), var(--accent-drop));
   box-shadow: inset 0 1px 0 rgba(255,255,255,.5), 0 1px 2px rgba(14,42,37,.18);
   position:relative;
 }
 .tk::after, .tick::after{
   content:""; position:absolute; left:4.6px; top:2.6px;
-  width:3px; height:6px; border:solid #0E2A25; border-width:0 1.6px 1.6px 0;
+  width:3px; height:6px; border:solid var(--on-accent); border-width:0 1.6px 1.6px 0;
   transform:rotate(45deg);
 }
 .dot{
   width:6px; height:6px; border-radius:50%;
-  background:linear-gradient(178deg, #8FF0DC, #62DCC4);
+  background:linear-gradient(178deg, var(--accent-lift), var(--accent-drop));
   box-shadow:0 0 0 3px rgba(153,246,228,.18);
 }
 .arr{ display:inline-block; transition:transform .32s var(--ease) }
@@ -1499,19 +1588,19 @@ input[type=radio]{ border-radius:50% }
 input[type=checkbox]:hover, input[type=radio]:hover{ border-color:var(--accent-text) }
 
 input[type=checkbox]:checked, input[type=radio]:checked{
-  background-image:linear-gradient(178deg, #8FF0DC, #62DCC4);
+  background-image:linear-gradient(178deg, var(--accent-lift), var(--accent-drop));
   border-color:rgba(14,42,37,.30);
   box-shadow:inset 0 1px 0 rgba(255,255,255,.5), 0 1px 2px rgba(14,42,37,.18);
 }
 input[type=checkbox]:checked::after{
   content:""; position:absolute; left:7.5px; top:3.5px;
   width:5px; height:10px;
-  border:solid #0E2A25; border-width:0 2px 2px 0;
+  border:solid var(--on-accent); border-width:0 2px 2px 0;
   transform:rotate(45deg);
 }
 input[type=radio]:checked::after{
   content:""; position:absolute; inset:5px;
-  border-radius:50%; background:#0E2A25;
+  border-radius:50%; background:var(--on-accent);
 }
 input[type=checkbox]:focus-visible, input[type=radio]:focus-visible{
   outline:2px solid var(--accent-dark); outline-offset:2px;
@@ -1560,7 +1649,7 @@ label:has(input:checked){
 .pill:disabled, .btn:disabled, .pill[aria-disabled=true], .btn[aria-disabled=true],
 button:disabled, .pill--inactive, .btn--inactive{
   background-image:none !important;
-  background-color:#E4E1DA !important;
+  background-color:var(--disabled) !important;
   color:var(--taupe-soft) !important;
   border-color:rgba(45,46,55,.10) !important;
   box-shadow:none !important;
@@ -1569,7 +1658,7 @@ button:disabled, .pill--inactive, .btn--inactive{
   pointer-events:auto;             /* still hoverable, so the tooltip can explain why */
 }
 .pill:disabled:hover, .btn:disabled:hover, button:disabled:hover{
-  background-color:#E4E1DA !important; transform:none !important; box-shadow:none !important;
+  background-color:var(--disabled) !important; transform:none !important; box-shadow:none !important;
 }
 
 /* Working state, for the moment the form is posting. */
@@ -1577,7 +1666,7 @@ button:disabled, .pill--inactive, .btn--inactive{
 .pill.is-busy::after, .btn.is-busy::after{
   content:""; position:absolute; inset:0; margin:auto;
   width:18px; height:18px; border-radius:50%;
-  border:2px solid rgba(14,42,37,.25); border-top-color:#0E2A25;
+  border:2px solid rgba(14,42,37,.25); border-top-color:var(--on-accent);
   animation:trs-spin .7s linear infinite;
 }
 @keyframes trs-spin{ to{ transform:rotate(360deg) } }
@@ -1594,7 +1683,7 @@ button:disabled, .pill--inactive, .btn--inactive{
 .hero-c .pill--accent:disabled, .dark .pill--accent:disabled,
 .vgrid .vs-cta:disabled, .trs-nav .nav__cta:disabled,
 button.pill:disabled, button.btn:disabled{
-  background-color:#E4E1DA !important;
+  background-color:var(--disabled) !important;
   background-image:none !important;
   color:var(--taupe-soft) !important;
   border-color:rgba(45,46,55,.10) !important;
