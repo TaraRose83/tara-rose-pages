@@ -242,8 +242,10 @@ body{ overflow-x:hidden; overflow-x:clip; }
   .cta-row .pill, .cta-row .btn{ width:100%; min-height:52px; font-size:14px }
   .textlink{ text-align:center; padding:6px 0 }
 
-  /* Real tap targets everywhere else. */
-  a, button, select, input, .pill, .btn{ min-height:44px }
+  /* Real tap targets — but only for actual controls. A min-height on an inline
+     link inside a paragraph would turn it into a 44px block and wreck the text. */
+  button, select, input, .pill, .btn, .nav__links a, .soc, .go, .stepgo{ min-height:44px }
+  .nav__links a, .foot a{ display:inline-flex; align-items:center }
   .vs-list li{ padding:11px 0 }
   .cred .cnum{ font-size:clamp(44px,13vw,58px) }
 
