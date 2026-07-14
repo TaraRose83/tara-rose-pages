@@ -1094,6 +1094,71 @@ body{ overflow-x:clip }
 html{ overflow-x:clip }
 img, svg, video, table, pre{ max-width:100% }
 
+/* ═══════════ CHECKBOXES + RADIOS ═══════════════════════════════════════
+   The Confidence Mapping quiz — the free door, and the softest entry in the
+   whole funnel — was running on bare 13px native browser controls. On a phone
+   they are close to untappable, and they look like a form from 2004.
+   The whole row becomes the target, not the 13px box.
+   ═══════════════════════════════════════════════════════════════════════ */
+input[type=checkbox], input[type=radio]{
+  appearance:none; -webkit-appearance:none;
+  flex:0 0 auto; width:22px; height:22px; min-height:22px; margin:0;
+  border:1.5px solid rgba(45,46,55,.30);
+  background:#fff;
+  box-shadow:inset 0 1px 2px rgba(28,26,22,.05);
+  cursor:pointer; position:relative;
+  transition:border-color .18s var(--ease), background .18s var(--ease), box-shadow .18s var(--ease);
+}
+input[type=checkbox]{ border-radius:6px }
+input[type=radio]{ border-radius:50% }
+
+input[type=checkbox]:hover, input[type=radio]:hover{ border-color:var(--accent-text) }
+
+input[type=checkbox]:checked, input[type=radio]:checked{
+  background-image:linear-gradient(178deg, #8FF0DC, #62DCC4);
+  border-color:rgba(14,42,37,.30);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5), 0 1px 2px rgba(14,42,37,.18);
+}
+input[type=checkbox]:checked::after{
+  content:""; position:absolute; left:7.5px; top:3.5px;
+  width:5px; height:10px;
+  border:solid #0E2A25; border-width:0 2px 2px 0;
+  transform:rotate(45deg);
+}
+input[type=radio]:checked::after{
+  content:""; position:absolute; inset:5px;
+  border-radius:50%; background:#0E2A25;
+}
+input[type=checkbox]:focus-visible, input[type=radio]:focus-visible{
+  outline:2px solid var(--accent-dark); outline-offset:2px;
+}
+
+/* The label is the tap target, not the box. This is the single biggest usability
+   win on a quiz — you tap the answer, not a 22px square beside it. */
+label:has(input[type=checkbox]), label:has(input[type=radio]),
+.opt, .qopt, .choice{
+  display:flex; align-items:flex-start; gap:12px;
+  min-height:52px; padding:13px 16px;
+  border:1px solid var(--hair); border-radius:var(--r-sm);
+  background:var(--paper);
+  box-shadow:var(--rim-light), var(--sh-subtle-sm);
+  cursor:pointer; font-size:15px; line-height:1.45;
+  transition:border-color .18s var(--ease), background .18s var(--ease), box-shadow .18s var(--ease);
+}
+label:has(input[type=checkbox]):hover, label:has(input[type=radio]):hover,
+.opt:hover, .qopt:hover{
+  border-color:var(--accent-text);
+  box-shadow:var(--rim-light), var(--sh-reg-sm);
+}
+label:has(input:checked){
+  border-color:var(--accent-text);
+  background:linear-gradient(178deg, #FFFFFF, #F2FCF9);
+  box-shadow:var(--rim-light), 0 0 0 1px rgba(58,168,146,.28), var(--sh-reg-sm);
+}
+/* The consent rows keep their plain layout — they are fine print, not answers. */
+.pdpl__group{ min-height:0; padding:0; border:none; background:none; box-shadow:none }
+.pdpl__group:hover{ border:none; box-shadow:none }
+
 </style>
 <meta name="geo.region" content="AE">
 <meta name="geo.placename" content="Dubai, Abu Dhabi">
