@@ -629,6 +629,55 @@ body{ overflow-x:hidden; overflow-x:clip; }
    file painted them ink at equal specificity, so this has to come after it.) */
 .credspine .cred .cnum{ color:var(--accent-text); font-weight:400 }
 
+/* ═══════════ PHONE, PROPERLY ════════════════════════════════════════════
+   The mobile layout was reading as generic: everything wrapped in a soft
+   rounded container, centred, evenly spaced. That pill-everywhere look is
+   the tell. On a phone the brand should read EDITORIAL — rules, not blobs.
+   ═══════════════════════════════════════════════════════════════════════ */
+@media (max-width:640px){
+
+  /* The nav CTA was a three-line turquoise blob eating the corner of the screen.
+     A nav button is a wayfinder, not the hero. Short label, one line, no wrap. */
+  .trs-nav .nav__cta{
+    min-height:0; padding:9px 15px; font-size:10.5px; letter-spacing:.1em;
+    white-space:nowrap; border-radius:var(--r-pill);
+  }
+  .trs-nav .nav__cta .arr{ display:none }
+  .navrow{ gap:10px }
+
+  /* Eyebrows lose the pill. A letterspaced cap with a hairline above it is what
+     a magazine does — it introduces without shouting, and it costs no chrome. */
+  .hero-c .pill-tag, .hero-a .pill-tag, .pill-tag, .badge-line, .badge-pill{
+    display:block; background:none; border:none; padding:0;
+    border-top:1px solid rgba(255,255,255,.22); padding-top:12px;
+    border-radius:0; font-size:10.5px; letter-spacing:.2em; line-height:1.5;
+    text-align:left; white-space:normal;
+  }
+  .hero-c .pill-tag .dot, .hero-a .pill-tag .dot, .badge-line .dot{ display:none }
+
+  /* The scarcity line was a two-line rounded blob. Make it a rule-bounded row —
+     the numbers ARE the design, they do not need a container. */
+  .hero-c .scarcity, .scarcity{
+    display:block; background:none; border:none; border-radius:0;
+    border-top:1px solid rgba(255,255,255,.16);
+    border-bottom:1px solid rgba(255,255,255,.16);
+    padding:13px 0; margin:26px 0 0; text-align:left;
+    font-size:11.5px; letter-spacing:.12em; text-transform:uppercase; line-height:1.6;
+  }
+  .hero-c .scarcity .dot, .scarcity .dot{ display:none }
+
+  /* The hero was top-heavy with dead space above a headline that then had to
+     shout. Give the type the room instead. */
+  .hero-c, .hero-a{ padding:78px 0 64px }
+  .hero-c .inner, .hero-a .wrap{ text-align:left }
+  .h-display{ letter-spacing:-.028em }
+  .hero-c .lede, .hero-a .lede{ font-size:15.5px; line-height:1.62; margin-top:20px }
+
+  /* Cards square up a little. 12px on a 350px-wide card still reads soft; 10px
+     with a real hairline reads considered. */
+  .vstack, .inc, .cred, .teach, .circle{ border-radius:10px }
+}
+
 </style>
 </head>
 <body>
