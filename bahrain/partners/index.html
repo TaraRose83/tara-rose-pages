@@ -1105,6 +1105,26 @@ input[type=checkbox]{ min-height:0; padding:0 }
 .vgrid{ max-width:100vw }
 body{ overflow-x:clip }
 
+/* ═══════════ PHOTOGRAPHY — FOCAL POINTS ════════════════════════════════
+   Every crop was centred, which is the one thing you must never do with a
+   portrait: a face sits in the UPPER third, so a centred crop takes the top
+   of the head off. Each image gets the focal point its subject actually needs.
+   ═══════════════════════════════════════════════════════════════════════ */
+.ph-frame .ph{ object-position:50% 22% }          /* faces live high in frame */
+.ph-frame--tall .ph{ object-position:50% 18% }    /* Daisy's portrait — head clear */
+.ph-frame--wide .ph{ object-position:60% 34% }    /* the consultation, both women in */
+
+/* On a phone the frames go taller, so the head needs even more room above it. */
+@media (max-width:640px){
+  .ph-frame .ph{ object-position:52% 16% }
+  .ph-frame--tall .ph{ object-position:50% 14% }
+  .photoband .ph-frame--wide .ph{ object-position:66% 30% }
+}
+
+/* The last short tap target: the nav pill at 41px. Three pixels, but it is the
+   most-tapped thing on the page. */
+.trs-nav .nav__cta{ min-height:44px; padding:13px 20px }
+
 </style>
 </head>
 <body>
