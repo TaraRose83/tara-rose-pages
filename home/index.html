@@ -1737,6 +1737,57 @@ h2.bh::after{ content:none }   /* the phone hairline rule is for real titles, no
 }
 .answer strong{ font-weight:600 }
 
+/* ═══════════ THE MIXED-PREFIX BUTTON BUG ═══════════════════════════════
+   Some CTAs carry `class="pill btn--accent"` — a pill base with a btn modifier.
+   The ghost rule matches `.pill:not(.pill--accent)`, so those buttons were being
+   painted CREAM instead of turquoise. On Confidence Mapping the nav CTA — the
+   whole point of the page — was rendering as a neutral button.
+   The accent must win on EITHER prefix.
+   ═══════════════════════════════════════════════════════════════════════ */
+.pill.btn--accent, .btn.pill--accent,
+.pill--accent, .btn--accent{
+  background-image:linear-gradient(178deg, var(--accent-lift) 0%, var(--accent-mid) 52%, var(--accent-drop) 100%)!important;
+  background-color:var(--accent-mid)!important;
+  color:var(--on-accent)!important;
+  border:1px solid rgba(14,42,37,.22)!important;
+  box-shadow:var(--sh-rim-light), 0 1px 2px rgba(14,42,37,.16), 0 12px 26px -10px rgba(14,42,37,.42)!important;
+}
+.pill.btn--accent:hover, .btn.pill--accent:hover, .pill--accent:hover, .btn--accent:hover{
+  background-image:linear-gradient(178deg, var(--accent-lift-h) 0%, var(--accent-mid-h) 52%, var(--accent-drop-h) 100%)!important;
+}
+/* …but a DISABLED accent button must still look dead. */
+.pill--accent:disabled, .btn--accent:disabled, .pill.btn--accent:disabled,
+button.pill--accent:disabled, button.btn--accent:disabled{
+  background-image:none!important; background-color:var(--disabled)!important;
+  color:var(--taupe-soft)!important; border-color:rgba(45,46,55,.10)!important;
+  box-shadow:none!important;
+}
+
+/* ═══════════ THE FREE DOOR — make the one action unmissable ════════════
+   Confidence Mapping is the softest, cheapest entry in the whole funnel and its
+   CTA was the quietest thing on the page. It earns a bigger button, a halo, and
+   a line that says what it costs (nothing).
+   ═══════════════════════════════════════════════════════════════════════ */
+.hero-a .cta-row .pill--accent, .hero-a .cta-row .btn--accent{
+  height:62px; padding:0 42px; font-size:13.5px; letter-spacing:.18em;
+}
+.hero-a .cta-row .pill--accent::after{
+  content:""; position:absolute; inset:-6px; border-radius:inherit; z-index:-1;
+  background:radial-gradient(closest-side, rgba(153,246,228,.42), transparent 78%);
+  opacity:0; transition:opacity .4s var(--ease);
+}
+.hero-a .cta-row .pill--accent{ position:relative; isolation:isolate }
+.hero-a .cta-row .pill--accent:hover::after{ opacity:1 }
+/* The free-door micro. She should never have to wonder what it costs. */
+.cta-free{
+  display:block; margin-top:12px;
+  font-size:11.5px; font-weight:600; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--color-accent-text);
+}
+@media(max-width:640px){
+  .hero-a .cta-row .pill--accent, .hero-a .cta-row .btn--accent{ height:58px; font-size:12.5px; letter-spacing:.14em }
+}
+
 </style>
 <meta name="geo.region" content="AE">
 <meta name="geo.placename" content="Dubai, Abu Dhabi">
