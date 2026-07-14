@@ -58,6 +58,16 @@ footer a{color:var(--ink-soft);text-decoration:none;margin-right:16px}footer a:h
   text-decoration:underline;text-underline-offset:3px}
 .mid-cta .cm-alt:hover{color:var(--color-accent-text)}
 
+/* The rhythm, in Daisy's own words. It is the method she went looking for and could
+   not find, so it belongs on her page, not only on the service pages. */
+.loop-band{background:var(--color-canvas-soft);border-block:1px solid var(--color-border)}
+.loop-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin:36px 0 0}
+.lp{padding:26px 22px;background:var(--color-canvas);border:1px solid var(--color-border);
+  border-radius:var(--r-md);box-shadow:var(--sh-rim-light),var(--sh-subtle-md)}
+.lp-n{font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--color-accent-text)}
+.lp h3{margin:8px 0 8px;font-family:var(--ff-display);font-weight:500;font-size:22px}
+.lp p{margin:0;font-size:14.5px;line-height:1.62;color:var(--color-foreground-muted)}
+
 /* ── TRS DESIGN SYSTEM (build-injected: tokens.json + normalise.css) ── */
 /* GENERATED from _content/tokens.json by gen-tokens.py — do not hand-edit.
    Swap tokens.json to re-skin the system, or to make it a different salon. */
@@ -1652,6 +1662,21 @@ button.pill--accent:disabled, button.btn--accent:disabled{
 </div>
 
 <figure class="ph-frame"><img class="ph" src="/tara-rose-pages/bahrain/assets/tara-and-daisy.jpg" alt="Tara Rose Kidd and Daisy Charlotte Cropper" loading="lazy" decoding="async"><figcaption>Tara and Daisy</figcaption></figure>
+
+<section class="loop-band">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">The Tara Rose way</span>
+      <h2 class="h-2">Visit 1 creates the result. <em class="serif-em accent">Visit 2 protects it. Visit 3 keeps it on track.</em></h2>
+      <p class="p-lg" style="max-width:56ch;margin:16px auto 0">Good hair was never one appointment held forever. It is a rhythm, and the rhythm is the whole method. It is what I could not find here, and it is what I brought with me.</p>
+    </div>
+    <div class="loop-3">
+      <div class="lp"><span class="lp-n">Visit 1</span><h3>Create</h3><p>We read your hair, agree the plan, and build the result you came for.</p></div>
+      <div class="lp"><span class="lp-n">Visit 2</span><h3>Protect</h3><p>Home care and treatments hold it between visits, so it does not quietly undo itself.</p></div>
+      <div class="lp"><span class="lp-n">Visit 3</span><h3>Keep on Track</h3><p>A visit on rhythm, before it ever drifts far enough to need rescuing.</p></div>
+    </div>
+  </div>
+</section>
 
 <section>
   <h2>Why trust us before there is a review in Bahrain</h2>
