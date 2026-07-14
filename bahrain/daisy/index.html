@@ -1594,6 +1594,27 @@ button.pill--accent:disabled, button.btn--accent:disabled{
 .quiz .pct{ font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
             color:var(--color-accent-text) }
 
+/* THE DARK PULL-QUOTE — one component, both pages.
+   The band is dark, the type is the image. A photograph behind it competes with
+   the sentence, which is the one thing that has to land. Tara ruled this on sight. */
+.pull{ position:relative; isolation:isolate }
+.pull .q{
+  display:block; font-family:var(--ff-display); font-style:italic;
+  font-size:64px; line-height:.6; color:var(--accent);
+  margin-bottom:18px;
+}
+.pull h2, .pull .h-2{
+  font-family:var(--ff-display); font-weight:400; font-style:italic;
+  font-size:clamp(26px,4.4vw,38px); line-height:1.28; color:#fff;
+  max-width:19ch; margin:0 auto; text-wrap:balance;
+}
+.pull .attr{
+  display:block; margin-top:26px;
+  font-family:var(--ff-body); font-size:11px; font-weight:500;
+  letter-spacing:.34em; text-transform:uppercase;
+  color:rgba(255,255,255,.52);
+}
+
 </style>
 <meta name="geo.region" content="BH">
 <meta name="geo.placename" content="Manama">
@@ -1654,11 +1675,13 @@ button.pill--accent:disabled, button.btn--accent:disabled{
 
 <figure class="ph-frame"><img class="ph" src="/tara-rose-pages/bahrain/assets/tara-and-daisy.jpg" alt="Tara Rose Kidd and Daisy Charlotte Cropper" loading="lazy" decoding="async"><figcaption>Tara and Daisy</figcaption></figure>
 
-<section class="dark belief">
+<section class="sec">
   <div class="wrap">
-    <span class="q">&ldquo;</span>
-    <h2>Visit 1 creates the result. Visit 2 protects it. Visit 3 keeps it on track.</h2>
-    <span class="attr">&middot; The Tara Rose way</span>
+    <div class="pull">
+      <span class="q">&ldquo;</span>
+      <h2 class="h-2">Visit 1 creates the result. <em class="serif-em accent">Visit 2 protects it. Visit 3 keeps it on track.</em></h2>
+      <span class="attr">&middot; The Tara Rose way</span>
+    </div>
   </div>
 </section>
 
