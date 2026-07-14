@@ -182,18 +182,36 @@ body{ overflow-x:hidden; overflow-x:clip; }
    Kept turquoise: the CTA, the italic payoff in a headline, the Loop ring,
    the featured-card outline, the focus ring.
    Now neutral: eyebrows, section labels, micro-labels, list markers. */
+   REVISED (Tara, 14 Jul): the first pass stripped turquoise off the label layer
+   and it went austere. The discipline is right for PROSE — body copy in a warm
+   taupe is what reads expensive. But the label layer is where the brand lives,
+   and it keeps its colour. So: turquoise on the structure, warm neutral on the
+   words, and the CTA still wins because it is the only FILLED turquoise thing. */
+
+/* The label layer KEEPS its turquoise. Eyebrows, section labels, tick markers,
+   micro-caps and the numerals are brand signature, not noise. */
 .eyebrow,
 .eyebrow-label,
-.cnote, .alabel, .plabel, .soc-grp, .vs-note,
-.badge-pill, .pill-tag{
-  color:var(--taupe);
+.cnote, .alabel, .vs-note, .soc-grp,
+.go, .stepgo, .learn, .teach .go{
+  color:var(--accent-text);
 }
+.cred .cnum{ color:var(--accent-text) }
+
+/* Prose goes warm neutral. This is the actual elevation — a cool grey body copy
+   is what was making it read cheap. */
 .p, .p-sm, .p-lg, .sub, .lede, .body,
 .cred p, .teach p, .flowstep p, .step p,
 .vs-list li, .receives li, .circle p{
   color:var(--taupe);
 }
 .vs-list li b, .receives li strong{ color:var(--ink) }
+
+/* Tick markers, rules and list bullets stay turquoise — they are the brand's
+   punctuation. */
+.tk, .tick, .brand__tick, .dot{ background:var(--accent) }
+.receives li::before{ background:var(--accent) }
+.sec-head .eyebrow::after{ background:var(--accent) }
 
 /* ── 2 · HAIRLINES OVER SHADOW ─────────────────────────────────────────────
    "Don't give cards heavy borders; rely on the surface fill against the canvas
@@ -240,8 +258,9 @@ body{ overflow-x:hidden; overflow-x:clip; }
 .dark::before, .belief::before, .promise::before, .closing::before{
   content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
   background:
-    radial-gradient(120% 90% at 88% 12%, rgba(201,169,140,.20), transparent 60%),
-    radial-gradient(90% 80% at 8% 92%, rgba(125,230,210,.09), transparent 62%);
+    radial-gradient(115% 85% at 86% 10%, rgba(201,169,140,.18), transparent 58%),
+    radial-gradient(100% 90% at 6% 88%, rgba(125,230,210,.20), transparent 60%),
+    radial-gradient(70% 60% at 50% 108%, rgba(153,246,228,.10), transparent 65%);
 }
 .dark > *, .belief > *, .promise > *, .closing > *{ position:relative }
 
