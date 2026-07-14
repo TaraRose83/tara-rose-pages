@@ -1311,6 +1311,13 @@ p{ hanging-punctuation:first last }
   .hero-c--photo .inner{ max-width:100% }
 }
 
+/* The hero photograph is the consultation shot: the client at the left of frame,
+   Daisy at the right, listening. So the type has to hold the LEFT and the crop
+   has to keep Daisy in the right third. */
+.hero-c--photo::after{ background-position:88% center }
+@media (min-width:1400px){ .hero-c--photo::after{ background-position:84% center } }
+@media (max-width:640px){ .hero-c--photo::after{ background-position:72% 18% } }
+
 </style>
 <meta name="geo.region" content="BH">
 <meta name="geo.placename" content="Manama">
@@ -1334,7 +1341,7 @@ p{ hanging-punctuation:first last }
 
 <main id="main">
 <!-- HERO-C -->
-<section class="hero-c hero-c--photo" style="--hero-img:url(/tara-rose-pages/bahrain/assets/tara-and-daisy.jpg)">
+<section class="hero-c hero-c--photo" style="--hero-img:url(/tara-rose-pages/bahrain/assets/daisy-consultation.jpg)">
   <div class="wrap">
     <div class="inner">
       <span class="pill-tag"><span class="dot"></span>Tara Rose &middot; Coming to Bahrain</span>

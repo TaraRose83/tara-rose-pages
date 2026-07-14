@@ -1374,6 +1374,13 @@ p{ hanging-punctuation:first last }
   .hero-c--photo .inner{ max-width:100% }
 }
 
+/* The hero photograph is the consultation shot: the client at the left of frame,
+   Daisy at the right, listening. So the type has to hold the LEFT and the crop
+   has to keep Daisy in the right third. */
+.hero-c--photo::after{ background-position:88% center }
+@media (min-width:1400px){ .hero-c--photo::after{ background-position:84% center } }
+@media (max-width:640px){ .hero-c--photo::after{ background-position:72% 18% } }
+
 </style>
 <meta name="geo.region" content="BH">
 <meta name="geo.placename" content="Manama">
