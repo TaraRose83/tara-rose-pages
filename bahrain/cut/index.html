@@ -1515,6 +1515,51 @@ label:has(input:checked){
 .pdpl__group{ min-height:0; padding:0; border:none; background:none; box-shadow:none }
 .pdpl__group:hover{ border:none; box-shadow:none }
 
+/* ═══════════ BUTTON: THE FULL STATE MODEL + SIZE SCALE ═════════════════
+   The UI kit specs every button in FOUR states — default, hover, active and
+   INACTIVE — and at a size scale. The build had default and hover only. The
+   missing one matters: with no disabled state, the reserve button looks alive
+   before consent is ticked, so she taps a dead button and nothing happens.
+   Machine-readable source of truth: _content/tokens.json.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── STATES ─────────────────────────────────────────────────────────────── */
+.pill:active, .btn:active, .vs-cta:active{
+  transform:translateY(0);
+  box-shadow:inset 0 2px 5px rgba(14,42,37,.22), 0 1px 1px rgba(14,42,37,.10);
+}
+
+.pill:disabled, .btn:disabled, .pill[aria-disabled=true], .btn[aria-disabled=true],
+button:disabled, .pill--inactive, .btn--inactive{
+  background-image:none !important;
+  background-color:#E4E1DA !important;
+  color:var(--taupe-soft) !important;
+  border-color:rgba(45,46,55,.10) !important;
+  box-shadow:none !important;
+  transform:none !important;
+  cursor:not-allowed;
+  pointer-events:auto;             /* still hoverable, so the tooltip can explain why */
+}
+.pill:disabled:hover, .btn:disabled:hover, button:disabled:hover{
+  background-color:#E4E1DA !important; transform:none !important; box-shadow:none !important;
+}
+
+/* Working state, for the moment the form is posting. */
+.pill.is-busy, .btn.is-busy{ color:transparent !important; pointer-events:none; position:relative }
+.pill.is-busy::after, .btn.is-busy::after{
+  content:""; position:absolute; inset:0; margin:auto;
+  width:18px; height:18px; border-radius:50%;
+  border:2px solid rgba(14,42,37,.25); border-top-color:#0E2A25;
+  animation:trs-spin .7s linear infinite;
+}
+@keyframes trs-spin{ to{ transform:rotate(360deg) } }
+@media (prefers-reduced-motion:reduce){ .pill.is-busy::after{ animation:none } }
+
+/* ── SIZE SCALE ─────────────────────────────────────────────────────────── */
+.pill--sm, .btn--sm{ padding:11px 20px; font-size:10.5px; min-height:44px; letter-spacing:.12em }
+.pill--md, .btn--md{ padding:16px 32px; font-size:12.5px; min-height:52px }
+.pill--lg, .btn--lg{ padding:19px 40px; font-size:13.5px; min-height:60px; letter-spacing:.18em }
+
 </style>
 <meta name="geo.region" content="BH">
 <meta name="geo.placename" content="Manama">
