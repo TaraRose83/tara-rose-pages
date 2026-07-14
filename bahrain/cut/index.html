@@ -1945,6 +1945,21 @@ button.pill--accent:disabled, button.btn--accent:disabled{
   color:rgba(255,255,255,.52);
 }
 
+/* ── THE 16px FLOOR. NON-NEGOTIABLE. ──────────────────────────────────────────
+   iOS Safari zooms the entire page when you focus a field whose font-size is under
+   16px. The page lurches, she loses her place, and on a phone it reads as "the site
+   is broken" — this is the "it moves around" Tara reported.
+
+   Ten forms were sitting at 15.5px (inputs) and 15px (the country select), including
+   the one that takes 500 BHD. Bare `input{}` in this file loses to a per-page
+   `.reserve input{}` on specificity, which is why the earlier fix never landed.
+
+   !important is correct here and nowhere else: this is a usability FLOOR, not a
+   style preference. No page skin may drop a field below the zoom threshold. */
+input, select, textarea, input[type="text"], input[type="email"], input[type="tel"]{
+  font-size: 16px !important;
+}
+
 </style>
 <meta name="geo.region" content="BH">
 <meta name="geo.placename" content="Manama">
