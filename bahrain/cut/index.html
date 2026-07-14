@@ -912,7 +912,8 @@ body{ overflow-x:hidden; overflow-x:clip; }
     display:grid; grid-auto-flow:column; grid-auto-columns:82%;
     grid-template-columns:none; gap:12px;
     overflow-x:auto; overscroll-behavior-x:contain;
-    scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;
+    scroll-snap-type:x proximity; -webkit-overflow-scrolling:touch;
+    touch-action:pan-x pan-y; overscroll-behavior-x:contain; overscroll-behavior-y:auto;
     margin-inline:calc(var(--pad-x) * -1);
     padding:4px var(--pad-x) 16px;
     scrollbar-width:none;
@@ -1770,20 +1771,14 @@ input, select, textarea{ font-size:16px }
 /* 6 · THE POLARITY FLIP. The plan you want chosen is always the INVERSE of the
        page — an ink card on paper, a paper card on ink. It needs no colour to be
        the one thing that does not belong. This is stronger than an outline. */
+/* The recommended card stays LIGHT. A solid ink fill was too heavy and fought the
+   page. It earns its place with an accent edge, a warm lift and real elevation. */
 .vstack--hero{
-  background:var(--ink-deep);
-  border-color:var(--ink-deep);
-  box-shadow:var(--sh-rim-dark), var(--sh-strong-lg);
+  background:linear-gradient(178deg, var(--canvas) 0%, #F4FBF9 100%);
+  border-color:var(--color-accent);
+  outline:2px solid var(--color-accent); outline-offset:-2px;
+  box-shadow:var(--sh-rim-light), var(--sh-strong-lg);
 }
-.vstack--hero .vs-name, .vstack--hero .vs-total{ color:#fff }
-.vstack--hero .vs-list li{ color:rgba(255,255,255,.72); border-bottom-color:rgba(255,255,255,.12) }
-.vstack--hero .vs-list li b{ color:#fff }
-.vstack--hero .vs-sum{ border-bottom-color:rgba(255,255,255,.28)!important }
-.vstack--hero .vs-note{ color:var(--accent) }
-.vstack--hero .vs-pay{ color:rgba(255,255,255,.7) }
-.vstack--hero .vs-pay b{ color:#fff }
-.vstack--hero .vs-flooss{ color:var(--accent)!important }
-.vstack--hero .flooss-mark{ color:#fff }
 
 /* 7 · Zero-media-query card grids. auto-fit + minmax does what three breakpoints
        were doing by hand. */
