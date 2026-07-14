@@ -1957,11 +1957,17 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
    nav metrics buy back the ~56px the row was short. Below 1025px the burger takes
    over and none of this applies. */
 @media (min-width:1025px){
+  /* A nav bar is not a column of prose. Capping it at the 1180px reading measure is
+     what starved it — give it the room the bar actually has. Content stays at 1180. */
+  .trs-nav .wrap.navrow{ max-width:min(1420px, 100% - 48px) }
   .navrow > *{ min-width:0 }
-  .nav__links{ gap:17px }
+  .nav__links{ gap:18px }
   .nav__links a{ font-size:12.5px; white-space:nowrap }
   .nav__zone-r{ gap:16px }
   .nav__zone-r .pill{ font-size:10px; padding:0 15px; white-space:nowrap }
+  /* The burger was display:flex at EVERY width — it was sitting next to the full link
+     list on desktop the whole time. It belongs to the mobile menu only. */
+  .nav__burger{ display:none !important }
 }
 
 </style>
