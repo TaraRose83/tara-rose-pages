@@ -888,5 +888,18 @@ body{ overflow-x:hidden; overflow-x:clip; }
   });
 })();
 </script>
+<script>
+(function(){
+  var nav=document.querySelector('.trs-nav');
+  if(nav){ var os=function(){ nav.classList.toggle('scrolled', window.scrollY>14); }; window.addEventListener('scroll',os,{passive:true}); os(); }
+  /* Choosing a Circle from the stack carries it into the form, so she never picks twice. */
+  document.querySelectorAll('.vs-cta[data-pick], .acard[data-circle]').forEach(function(c){
+    var pick=c.getAttribute('data-pick')||c.getAttribute('data-circle');
+    var go=function(){ var sel=document.getElementById('circle'); if(sel) sel.value=pick; };
+    c.addEventListener('click',go);
+    c.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ go(); } });
+  });
+})();
+</script>
 </body>
 </html>
