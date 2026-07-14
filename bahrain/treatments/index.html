@@ -409,6 +409,157 @@ body{ overflow-x:hidden; overflow-x:clip; }
 .lr-n text{ fill:var(--lr,var(--accent-deep)); }
 .lr-mark{ color:var(--lr,var(--accent-deep)); }
 
+
+/* ═══════════ TRS ELEVATION v2 ═══════════════════════════════════════════
+   Refinement pass, informed by the Planhat design-language analysis. Planhat
+   is structurally the same brand as TRS: an expressive serif over quiet Inter,
+   a light canvas chaptered by near-black sections, editorial and photo-led.
+   Nothing here changes the palette, the fonts, or the pill CTA. Five moves:
+     1. one accent, one job          4. warmer neutrals
+     2. hairlines over shadow        5. a real phone layout
+     3. scale carries hierarchy
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root{
+  /* Warm the support neutral. #74747B is a COOL grey and it makes everything it
+     touches read a little cheap. Planhat: "Don't use cool greys; the neutral
+     support palette is warm (taupe)." Same lightness, warm hue. */
+  --taupe:#7C756A;
+  --taupe-soft:#9A9287;
+
+  /* Boxes. 22px is a soft, appy radius. Editorial brands sit near-rectangular,
+     which is what reads expensive. The PILL stays — that is TRS, and it is the
+     one shape allowed to be round. */
+  --r-lg:16px; --r-md:12px; --r-sm:10px;
+
+  /* Depth comes from the colour-block rhythm, not from stacked shadows. One real
+     shadow (the CTA), one whisper (cards), one lift (hover). */
+  --sh-card:       0 1px 2px rgba(var(--sh-rgb),.04);
+  --sh-card-hover: 0 1px 2px rgba(var(--sh-rgb),.05), 0 14px 32px -18px rgba(var(--sh-rgb),.20);
+  --sh-media:      0 1px 2px rgba(var(--sh-rgb),.05), 0 20px 44px -30px rgba(var(--sh-rgb),.18);
+  --sh-hero:       0 1px 2px rgba(var(--sh-rgb),.06), 0 24px 50px -28px rgba(var(--sh-rgb),.28);
+}
+
+/* ── 1 · ONE ACCENT, ONE JOB ───────────────────────────────────────────────
+   Turquoise was doing six jobs: eyebrows, ticks, small labels, links, outlines
+   AND the CTA. When everything is the accent, nothing is. Planhat has NO
+   chromatic UI accent at all — its one non-neutral colour lives only in the
+   atmosphere. TRS keeps turquoise, but it now means ACTION.
+   Kept turquoise: the CTA, the italic payoff in a headline, the Loop ring,
+   the featured-card outline, the focus ring.
+   Now neutral: eyebrows, section labels, micro-labels, list markers. */
+.eyebrow,
+.eyebrow-label,
+.cnote, .alabel, .plabel, .soc-grp, .vs-note,
+.badge-pill, .pill-tag{
+  color:var(--taupe);
+}
+.p, .p-sm, .p-lg, .sub, .lede, .body,
+.cred p, .teach p, .flowstep p, .step p,
+.vs-list li, .receives li, .circle p{
+  color:var(--taupe);
+}
+.vs-list li b, .receives li strong{ color:var(--ink) }
+
+/* ── 2 · HAIRLINES OVER SHADOW ─────────────────────────────────────────────
+   "Don't give cards heavy borders; rely on the surface fill against the canvas
+   for separation, with a hairline only where a rule is needed." Cards sit as
+   quiet fills with one hairline. The lift happens on hover, not at rest. */
+.bcard,.tier,.tcard,.tcard-x,.loc,.pkg,.lcard,.gcard,.acard,.card,
+.visit-card,.stage,.rhythm,.path,.col,.item,.inc,.cred,.teach,.circle,.vstack{
+  box-shadow:var(--sh-card);
+  border-color:var(--hair);
+}
+.bcard:hover,.tier:hover,.tcard-x:hover,.pkg:hover,
+.gcard:hover,.path:hover,.route:hover,.teach:hover,.circle:hover{
+  box-shadow:var(--sh-card-hover);
+}
+
+/* ── 3 · SCALE CARRIES HIERARCHY ───────────────────────────────────────────
+   "Hierarchy is driven by the serif/sans split and by dramatic size jumps, not
+   by colour or weight. The serif stays at a single Regular weight and lets
+   sheer scale do the work." Playfair at 500 is doing work that size should do.
+   Drop the display weights to 400 and let them get big and quiet. */
+.h-display{ font-weight:400; letter-spacing:-.03em; line-height:1.0 }
+.h-1{ font-weight:400; letter-spacing:-.022em; line-height:1.03 }
+.h-2, .sec-head h2{ font-weight:400; letter-spacing:-.016em }
+
+/* Eyebrows: uppercase, quiet, and they introduce rather than compete. */
+.eyebrow{ font-size:11.5px; font-weight:600; letter-spacing:.2em }
+
+/* Big numerals are a signature, not a caption. Let the number BE the graphic. */
+.cred .cnum{ font-size:clamp(52px,6vw,76px); font-weight:400; line-height:.9; color:var(--ink) }
+.vs-total{ font-weight:400; letter-spacing:-.015em }
+
+/* Body: 16 / 1.5, the editorial default. */
+.p, .body{ font-size:16px; line-height:1.55 }
+
+/* ── 4 · LIGHT THE DARK SECTIONS ───────────────────────────────────────────
+   This is Planhat's signature move: "smouldering near-black sections lit by a
+   warm gradient... it reads like dark silk catching firelight. Purely
+   atmospheric — background only, never on a button, card, or text."
+   TRS dark panels are flat ink-deep, which is the flattest thing on the site.
+   A warm wash from one corner and a whisper of turquoise from the other gives
+   them depth for free. The GROUND stays ink — this is a glow inside it, not a
+   new ground, so the colour doctrine holds. */
+.dark, .belief, .promise, .closing, section.dark{ position:relative; isolation:isolate }
+.dark::before, .belief::before, .promise::before, .closing::before{
+  content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
+  background:
+    radial-gradient(120% 90% at 88% 12%, rgba(201,169,140,.20), transparent 60%),
+    radial-gradient(90% 80% at 8% 92%, rgba(125,230,210,.09), transparent 62%);
+}
+.dark > *, .belief > *, .promise > *, .closing > *{ position:relative }
+
+/* ── 5 · PHONE vs DESKTOP ──────────────────────────────────────────────────
+   The type scale was tuned for desktop and merely shrunk on phones. Display
+   type needs to step down HARD, sections need to breathe less, grids stack,
+   and every tap target needs to be a real one. */
+@media (max-width:900px){
+  :root{ --sec-y:64px; --pad-x:22px }
+  .vgrid, .grid-3, .grid-4, .circles, .flow-strip--4{ grid-template-columns:1fr }
+  .split{ grid-template-columns:1fr; gap:28px }
+  .split .media{ order:-1; min-height:280px }        /* the picture leads on a phone */
+}
+@media (max-width:640px){
+  :root{ --sec-y:52px; --pad-x:20px }
+  .h-display{ font-size:clamp(34px,10vw,46px); line-height:1.04; letter-spacing:-.022em }
+  .h-display br{ display:none }
+  .h-1{ font-size:clamp(31px,8.6vw,42px); line-height:1.08 }
+  .h-2, .sec-head h2{ font-size:clamp(25px,6.6vw,32px); line-height:1.14 }
+  .lede, .p-lg{ font-size:16px; line-height:1.58 }
+  .eyebrow{ font-size:10.5px; letter-spacing:.16em }
+
+  /* Buttons go full-width and stack. A 48% pill next to another 48% pill is
+     unreadable and untappable. */
+  .cta-row{ flex-direction:column; align-items:stretch; gap:10px }
+  .cta-row .pill, .cta-row .btn{ width:100%; min-height:52px; font-size:14px }
+  .textlink{ text-align:center; padding:6px 0 }
+
+  /* Real tap targets everywhere else. */
+  a, button, select, input, .pill, .btn{ min-height:44px }
+  .vs-list li{ padding:11px 0 }
+  .cred .cnum{ font-size:clamp(44px,13vw,58px) }
+
+  /* Cards lose their outer margin so they use the full width of a small screen. */
+  .vstack, .inc, .cred, .teach{ padding:22px 18px }
+}
+
+/* ── BUTTONS, refined ──────────────────────────────────────────────────────
+   The pill stays (it is TRS), but Planhat's proportions are better: tighter
+   type, more optical padding, and the label does the work. */
+.btn, .pill{
+  font-size:12.5px; font-weight:600; letter-spacing:.09em; text-transform:uppercase;
+  padding:15px 30px;
+}
+.btn--accent, .pill--accent{ box-shadow:0 1px 2px rgba(var(--sh-cta-rgb),.18) }
+.btn--accent:hover, .pill--accent:hover{ box-shadow:0 10px 24px -12px rgba(var(--sh-cta-rgb),.55) }
+/* On a dark ground the primary action goes light-on-dark, which is the highest
+   contrast a CTA can have. Turquoise stays for the light grounds. */
+.dark .pill--accent, .closing .pill--accent, .hero-c .pill--accent{
+  background:var(--accent); color:var(--ink);
+}
+
 </style>
 <meta name="geo.region" content="BH">
 <meta name="geo.placename" content="Manama">
