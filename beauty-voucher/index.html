@@ -585,6 +585,14 @@ body{ overflow-x:hidden; overflow-x:clip; }
 }
 .trs-nav .nav__cta{ padding:11px 20px; font-size:11.5px; text-transform:uppercase; letter-spacing:.08em }
 
+/* The eyebrow is the label the eye hits first on every section, and per-page
+   rules were still painting it grey. It is a brand signature — it stays turquoise.
+   (Its cousins on dark grounds use the lighter turquoise so they stay legible.) */
+.wrap .eyebrow, .sec-head .eyebrow, span.eyebrow{ color:var(--accent-text) }
+.dark .eyebrow, .belief .eyebrow, .hero-c .eyebrow, .closing .eyebrow,
+.dark .vs-note, .dark .cnote{ color:var(--accent) }
+.hero-c .pill-tag, .dark .pill-tag{ color:var(--accent) }
+
 </style>
 <meta name="geo.region" content="AE">
 <meta name="geo.placename" content="Dubai, Abu Dhabi">
