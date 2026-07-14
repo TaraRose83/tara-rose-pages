@@ -1433,6 +1433,28 @@ body{ overflow-x:clip }
    most-tapped thing on the page. */
 .trs-nav .nav__cta{ min-height:44px; padding:13px 20px }
 
+/* The consent rows were flex items with no min-width, so on a narrow screen the
+   label could not shrink — it got squeezed to 75px and pushed off the right edge,
+   which made the whole Voucher page scroll sideways. A flex child will not shrink
+   below its content unless you tell it it may. */
+.pdpl, .pdpl__group, .field, .field-row, .form-row, .consent, .consent-row{
+  min-width:0;
+}
+.pdpl__group{
+  display:flex; align-items:flex-start; gap:10px;
+  flex-wrap:nowrap; width:100%;
+}
+.pdpl__group .pdpl__checkbox{ flex:0 0 20px }
+.pdpl__group .pdpl__label{
+  flex:1 1 auto; min-width:0;
+  overflow-wrap:anywhere; hyphens:auto;
+}
+.pdpl__label strong{ overflow-wrap:anywhere }
+
+/* Belt and braces: nothing on any page may make the document scroll sideways. */
+html{ overflow-x:clip }
+img, svg, video, table, pre{ max-width:100% }
+
 </style>
 <meta name="geo.region" content="BH">
 <meta name="geo.placename" content="Manama">
