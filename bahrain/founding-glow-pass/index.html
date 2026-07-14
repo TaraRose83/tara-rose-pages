@@ -417,6 +417,47 @@ em.accent{ font-style:italic; color:var(--accent-text); }
   .owner--stacked .ph-frame--tall .ph{aspect-ratio:4/5}
 }
 
+/* A repeated door. One action, offered again wherever she has just been given a
+   reason — never a competing action. */
+.mid-cta{
+  display:flex; flex-direction:column; align-items:center; gap:14px;
+  margin:38px auto 0; padding-top:30px;
+  border-top:1px solid var(--color-border);
+  text-align:center;
+}
+.mid-cta p{
+  margin:0; font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--color-accent-text);
+}
+.dark .mid-cta, .preview .mid-cta{ border-top-color:rgba(255,255,255,.14) }
+.dark .mid-cta p, .preview .mid-cta p{ color:var(--color-accent) }
+
+/* The sticky bar. Appears once she is past the hero, and gets out of the way the
+   moment the real form is on screen — two reserve buttons at once is noise. */
+.sticky-cta{
+  position:fixed; left:0; right:0; bottom:0; z-index:60;
+  transform:translateY(110%); opacity:0; pointer-events:none;
+  transition:transform .38s var(--ease), opacity .28s var(--ease);
+  background:rgba(28,27,24,.92); backdrop-filter:blur(10px);
+  border-top:1px solid rgba(255,255,255,.14);
+  box-shadow:0 -8px 28px -14px rgba(0,0,0,.5);
+}
+.sticky-cta.is-on{ transform:none; opacity:1; pointer-events:auto }
+.sticky-cta .wrap{
+  display:flex; align-items:center; justify-content:space-between; gap:18px;
+  padding-block:12px;
+}
+.sc-line{ font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.7) }
+.sc-line strong{ color:#fff; font-weight:600 }
+.sticky-cta .pill{ height:46px; padding:0 24px; font-size:11.5px; flex-shrink:0 }
+@media(max-width:640px){
+  .sticky-cta .wrap{ justify-content:center; padding-block:10px }
+  .sc-line{ display:none }
+  .sticky-cta .pill{ width:100%; height:52px }
+  body{ padding-bottom:0 }
+}
+@media(prefers-reduced-motion:reduce){ .sticky-cta{ transition:none } }
+
 /* ── TRS DESIGN SYSTEM (build-injected: tokens.json + normalise.css) ── */
 /* GENERATED from _content/tokens.json by gen-tokens.py — do not hand-edit.
    Swap tokens.json to re-skin the system, or to make it a different salon. */
@@ -2013,6 +2054,11 @@ button.pill--accent:disabled, button.btn--accent:disabled{
       <div class="inc"><h3>Four salons, and eleven years of reviews</h3><p style="margin:8px 0 0;font-size:14.5px;line-height:1.62;color:var(--ink-soft);">Motor City and Al Quoz in Dubai. Khalifa City A and Mamsha al Saadiyat in Abu Dhabi. Eleven years of reviews sit with those salons, and we would rather you read them before you trust us with anything.</p></div>
       <div class="inc"><h3>Daisy, running it herself</h3><p style="margin:8px 0 0;font-size:14.5px;line-height:1.62;color:var(--ink-soft);">Daisy Charlotte Cropper worked inside Tara Rose for ten years, a three-year Manager of the Year finalist. She owns and runs Bahrain herself, and she is here, in the room, from the first day.</p></div>
     </div>
+    <div class="mid-cta">
+      <p>Forty-five places. Twenty-five Rose, fifteen Gold, five Platinum.</p>
+      <a class="pill pill--accent" href="#reserve">Reserve Your Founding Place <span class="arr">&rarr;</span></a>
+    </div>
+
   </div>
 </section>
 
@@ -2033,7 +2079,12 @@ button.pill--accent:disabled, button.btn--accent:disabled{
       </div>
       </div>
   
-  </div>
+  
+    <div class="mid-cta">
+      <p>Daisy will know every one of the forty-five by name.</p>
+      <a class="pill pill--accent" href="#reserve">Reserve Your Founding Place <span class="arr">&rarr;</span></a>
+    </div>
+</div>
 </section>
 
 <!-- SAFETY CHIPS -->
@@ -2063,7 +2114,12 @@ button.pill--accent:disabled, button.btn--accent:disabled{
         <span class="attr">&middot; Tara Rose Kidd, Founder</span>
       </div>
     </div>
-  </div>
+  
+    <div class="mid-cta">
+      <p>The founding rate is not money off. It honours you being early.</p>
+      <a class="pill pill--accent" href="#reserve">Reserve Your Founding Place <span class="arr">&rarr;</span></a>
+    </div>
+</div>
 </section>
 
 <!-- SAFETY CHIPS -->
@@ -2120,7 +2176,12 @@ button.pill--accent:disabled, button.btn--accent:disabled{
         <p class="pv-note">Forty-five places. Then closed for good.</p>
       </div>
     </div>
-  </div>
+  
+    <div class="mid-cta">
+      <p>An evening at the end of September, for the forty-five.</p>
+      <a class="pill pill--accent" href="#reserve">Reserve Your Founding Place <span class="arr">&rarr;</span></a>
+    </div>
+</div>
 </section>
 
 <section style="background:var(--cream);">
@@ -2446,6 +2507,26 @@ button.pill--accent:disabled, button.btn--accent:disabled{
     f.addEventListener('change', sync);
     sync();
   });
+})();
+</script>
+<div class="sticky-cta" id="stickyCta" aria-hidden="true">
+  <div class="wrap">
+    <span class="sc-line"><strong>The Founding 45</strong> &middot; 25 Rose &middot; 15 Gold &middot; 5 Platinum</span>
+    <a class="pill pill--accent" href="#reserve">Reserve Your Place <span class="arr">&rarr;</span></a>
+  </div>
+</div>
+<script>
+(function(){
+  var bar=document.getElementById('stickyCta'), hero=document.querySelector('.hero-c'),
+      form=document.getElementById('reserve');
+  if(!bar||!hero) return;
+  var show=function(){
+    var pastHero = hero.getBoundingClientRect().bottom < 0;
+    var atForm   = form && form.getBoundingClientRect().top < window.innerHeight;
+    bar.classList.toggle('is-on', pastHero && !atForm);
+    bar.setAttribute('aria-hidden', String(!(pastHero && !atForm)));
+  };
+  window.addEventListener('scroll', show, {passive:true}); show();
 })();
 </script>
 </body>
