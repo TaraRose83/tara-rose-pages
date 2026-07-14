@@ -326,6 +326,31 @@ em.accent{ font-style:italic; color:var(--accent-text); }
 .vs-cta{margin-top:18px;width:100%}
 .vs-legal{margin:26px auto 0;max-width:74ch;text-align:center;font-size:12.5px;line-height:1.6;color:var(--ink-soft)}
 
+/* The launch headline. It is the one thing on the page that must land instantly,
+   so it gets the display scale rather than the section-head scale. */
+.hero-c .h-display{
+  font-family:var(--fd); font-weight:500;
+  font-size:clamp(46px,7.6vw,104px);
+  line-height:.98; letter-spacing:-.028em;
+  margin:22px 0 0; text-wrap:balance;
+}
+.hero-c .h-display em{
+  font-style:italic; font-weight:400;
+  color:var(--accent);
+  letter-spacing:-.03em;
+}
+.hero-c .lede{ margin-top:26px; font-size:clamp(15.5px,1.5vw,18px); line-height:1.62; max-width:60ch; color:rgba(255,255,255,.78) }
+.hero-c .pill-tag{ letter-spacing:.22em }
+.hero-c .scarcity{ margin-top:30px }
+@media(max-width:640px){ .hero-c .h-display br{ display:none } }
+
+/* floos. The real logo drops in at #; until the file exists the
+   wordmark carries it, and the build strips the empty <img>. */
+.floos-mark{display:inline-flex;align-items:center;gap:6px;font-weight:700;letter-spacing:-.01em;color:var(--accent-text)}
+.floos__logo{height:13px;width:auto;display:block}
+.floos-mark:has(.floos__logo){font-size:0}
+.vs-floos{align-items:center!important}
+
 /* ── TRS NORMALISE v1 (build-injected from _content/normalise.css) ── */
 /* ═══════════ TRS NORMALISE v1 ═══════════════════════════════════════
    Appended last inside each page's <style>, so it wins on source order
@@ -465,14 +490,13 @@ body{ overflow-x:hidden; overflow-x:clip; }
   <div class="wrap">
     <div class="inner">
       <span class="pill-tag"><span class="dot"></span>Tara Rose Bahrain &middot; Opening 1 August</span>
-      <h1 class="h-1">Forty-five women will <em>open this salon with us.</em></h1>
+      <h1 class="h-display">Forty-five women will<br><em>open this salon with us.</em></h1>
       <p class="lede">For eleven years we have looked after women across four salons in Dubai and Abu Dhabi. On 1 August we open in Bahrain, and the first forty-five women to join us come in as founding members. You place credit before we open, we add a founding bonus on top, and you keep a founder&rsquo;s rate for as long as you stay with us. When the forty-five are taken, founding closes for good.</p>
       <div class="scarcity"><span class="dot"></span><span id="pledged">Forty-five founding places, ever &middot; 25 Rose &middot; 15 Gold &middot; 5 Platinum</span></div>
       <div class="cta-row">
         <a class="pill pill--accent" href="#reserve">Reserve Your Founding Place <span class="arr">&rarr;</span></a>
         <a class="textlink" href="/tara-rose-pages/bahrain/confidence-mapping">Start Your Confidence Mapping</a>
       </div>
-      <p class="hero-note">No salon in Bahrain has our reviews yet. Everything standing behind this page is below, and all of it is checkable.</p>
     </div>
   </div>
 </section>
@@ -494,7 +518,6 @@ body{ overflow-x:hidden; overflow-x:clip; }
       <span class="eyebrow">Before you decide</span>
       <h2>Eleven years, and <em>all of it is checkable.</em></h2>
     </div>
-    <p style="max-width:62ch;margin:-6px auto 34px;text-align:center;font-size:16px;line-height:1.6;color:var(--ink-soft);">We are asking you to trust us before there is a chair in Bahrain to sit in. That is a real ask, so here is everything standing behind it, and exactly where to see it for yourself.</p>
     <div class="grid-3">
       <div class="inc"><h3>Eleven years, not a new brand</h3><p style="margin:8px 0 0;font-size:14.5px;line-height:1.62;color:var(--ink-soft);">Eleven years looking after women in the UAE. The same method, the same standards. Bahrain is a new address, not a new brand.</p></div>
       <div class="inc"><h3>Four salons, and eleven years of reviews</h3><p style="margin:8px 0 0;font-size:14.5px;line-height:1.62;color:var(--ink-soft);">Motor City and Al Quoz in Dubai. Khalifa City A and Mamsha al Saadiyat in Abu Dhabi. Eleven years of reviews sit with those salons, and we would rather you read them before you trust us with anything.</p></div>
@@ -628,7 +651,7 @@ body{ overflow-x:hidden; overflow-x:clip; }
           <li><span>Home care matched to your hair, not guessed</span><b>Prescribed</b></li>
           <li><span>A place at the founding preview evening</span><b>By invitation</b></li>
           <li><span>Your founding number, one of forty-five</span><b>Never again</b></li>
-          <li class="vs-floos">Spread 250 BHD over time with floos</li>
+          <li class="vs-floos"><span>Spread 250 BHD over time with</span><b class="floos-mark">floos</b></li>
         </ul>
         <div class="vs-foot">
           <p class="vs-total">425 BHD on the table</p>
@@ -649,7 +672,7 @@ body{ overflow-x:hidden; overflow-x:clip; }
           <li><span>Home care matched to your hair, not guessed</span><b>Prescribed</b></li>
           <li><span>A place at the founding preview evening</span><b>By invitation</b></li>
           <li><span>Your founding number, one of forty-five</span><b>Never again</b></li>
-          <li class="vs-floos">Spread 500 BHD over time with floos</li>
+          <li class="vs-floos"><span>Spread 500 BHD over time with</span><b class="floos-mark">floos</b></li>
         </ul>
         <div class="vs-foot">
           <p class="vs-total">800 BHD on the table</p>
@@ -820,9 +843,11 @@ body{ overflow-x:hidden; overflow-x:clip; }
         <p><a href="/tara-rose-pages/bahrain/legal/terms">Founding terms</a></p>
       </div>
       <div>
-        <h4>Contact</h4>
+        <h4>Find us</h4>
+        <p>Tara Rose Bahrain</p>
+        <p><a href="https://maps.app.goo.gl/dkaRsErWqSi8t4i17" target="_blank" rel="noopener">District 2, Bahrain &rarr;</a></p>
+        <p><a href="https://wa.me/97335323411">WhatsApp us</a></p>
         <p><a href="https://tararosesalon.com">tararosesalon.com</a></p>
-        <p>Bahrain</p>
       </div>
 
     </div>
