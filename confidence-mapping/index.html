@@ -2332,6 +2332,10 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
 .r-start strong{ font-family:var(--ff-display); font-style:italic; font-weight:500; font-size:19px;
   color:var(--ink) }
 
+.r-read{ text-align:center; margin:10px 0 0 }
+.r-read a{ font-family:var(--ff-body); font-weight:500; font-size:13.5px; color:var(--accent-text);
+  text-decoration:none; border-bottom:1px solid var(--accent) }
+
 </style>
 <meta name="geo.region" content="AE">
 <meta name="geo.placename" content="Dubai, Abu Dhabi">
@@ -2579,6 +2583,7 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
             <h2 class="turn-line" id="r-turn"></h2>
           </div>
           <p class="r-start" id="r-start"></p>
+          <p class="r-read" id="r-read" hidden></p>
           <div class="goal-band" id="r-goal"></div>
           <p class="map-disclaimer">A starting point, not a diagnosis. Your colour and condition are always confirmed in the chair, in person.</p>
 
@@ -2904,6 +2909,8 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
     document.getElementById('r-turn').textContent = m ? m.why : "Your hair has a plan waiting to be written, and that is exactly what your Confidence Map holds.";
     var START={blonde:'your Blonde plan',brunette:'your Brunette plan',cut:'your Haircut and Finish',gloss:'a gloss and refresh, no colour needed',restore:'a Restore plan first',length:'extensions, once the condition is ready',colour:'your colour plan','not-sure':'a full read in the chair'};
     document.getElementById('r-start').innerHTML='Where you would begin: <strong>'+(START[key]||'a full read in the chair')+'</strong>';
+    var _rd=document.getElementById('r-read');
+    if(_rd){ if(m&&m.edu){ _rd.innerHTML='<a href="/tara-rose-pages/education/'+m.edu+'">Read why this happens &rarr;</a>'; _rd.hidden=false; } else { _rd.hidden=true; } }
   }
   function note(html){ return '<p class="mm-note">'+html+'</p>'; }
   function noteLink(txt,slug){ return '<p class="mm-note">'+txt+' <a class="mm-note-read" href="/tara-rose-pages/education/'+slug+'">Read more &rarr;</a></p>'; }
