@@ -2364,6 +2364,10 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
   .jr-steps, .jr-visits{ grid-template-columns:1fr }
 }
 
+/* Confidence Mapping: accessible inline validation message (WCAG 3.3.1) */
+.qerr{ margin:8px 0 0; font-family:var(--ff-body); font-size:13.5px; font-weight:500; color:var(--err, #C9685F); }
+.qgroup[aria-invalid="true"] > .qlabel{ color:var(--err, #C9685F); }
+
 </style>
 <meta name="geo.region" content="BH">
 <meta name="geo.placename" content="Manama">
