@@ -2215,6 +2215,25 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
 .opts.scale{ display:flex; flex-wrap:wrap; gap:8px }
 .opts.scale .opt{ flex:1 1 auto }
 
+/* ── QUIZ REPORT: the Full Loop + 8-Step journey block ───────────────────────
+   Shown on every map so the plan is explicit, not a brief overview: read by the
+   8-Step Hair Plan, built and held through Create → Protect → Keep on Track. */
+.loop-block{ margin:30px 0 6px; padding:26px 26px 28px; background:var(--ink-deep); color:#F3F1EB;
+  border-radius:16px; position:relative; overflow:hidden }
+.loop-block::after{ content:""; position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(70% 80% at 85% 10%, rgba(125,230,210,.14), transparent 60%) }
+.loop-block .rk{ color:var(--accent-deep, var(--accent)); position:relative }
+.loop-block .loop-lead{ margin:12px 0 22px; font-size:16px; line-height:1.6; color:rgba(243,241,235,.82);
+  max-width:60ch; position:relative }
+.loop-block .loop-lead strong{ color:#fff; font-weight:600 }
+.loop-3{ display:grid; gap:14px; grid-template-columns:1fr; position:relative }
+@media(min-width:640px){ .loop-3{ grid-template-columns:repeat(3,1fr) } }
+.loop-3 .lp{ background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:18px 18px 20px }
+.loop-3 .lp-n{ font-family:var(--ff-body); font-weight:600; font-size:10.5px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--accent-deep, var(--accent)) }
+.loop-3 .lp h4{ font-family:var(--ff-display); font-weight:500; font-size:18px; color:#fff; margin:8px 0 6px; line-height:1.2 }
+.loop-3 .lp p{ font-size:14px; line-height:1.55; color:rgba(243,241,235,.72); margin:0 }
+
 </style>
 <meta name="geo.region" content="BH">
 <meta name="geo.placename" content="Manama">
@@ -2421,13 +2440,32 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
               <div class="opt"><input type="radio" id="o5" name="occasion" value="none"><label for="o5"><span class="tk"></span>Nothing specific, just for me</label></div>
             </div>
           </div>
+          <p class="qgroup-head" style="margin-top:6px">And you, not just your hair</p>
           <div class="qgroup">
-            <span class="qlabel">And you. How are your energy and sleep lately?</span>
+            <span class="qlabel">How are your stress and sleep lately?</span>
             <div class="opts">
-              <div class="opt"><input type="radio" id="e1" name="wellbeing" value="great"><label for="e1"><span class="tk"></span>Full and rested</label></div>
+              <div class="opt"><input type="radio" id="e1" name="wellbeing" value="great"><label for="e1"><span class="tk"></span>Calm and well rested</label></div>
               <div class="opt"><input type="radio" id="e2" name="wellbeing" value="variable"><label for="e2"><span class="tk"></span>Up and down</label></div>
-              <div class="opt"><input type="radio" id="e3" name="wellbeing" value="low"><label for="e3"><span class="tk"></span>Running low</label></div>
-              <div class="opt"><input type="radio" id="e4" name="wellbeing" value="exhausted"><label for="e4"><span class="tk"></span>Honestly, exhausted</label></div>
+              <div class="opt"><input type="radio" id="e3" name="wellbeing" value="low"><label for="e3"><span class="tk"></span>Stressed, and not sleeping enough</label></div>
+              <div class="opt"><input type="radio" id="e4" name="wellbeing" value="exhausted"><label for="e4"><span class="tk"></span>Honestly, running on empty</label></div>
+            </div>
+          </div>
+          <div class="qgroup">
+            <span class="qlabel">Do you take anything for your hair, skin or nails?</span>
+            <div class="opts">
+              <div class="opt"><input type="radio" id="su1" name="supplements" value="regular"><label for="su1"><span class="tk"></span>Yes, supplements regularly</label></div>
+              <div class="opt"><input type="radio" id="su2" name="supplements" value="sometimes"><label for="su2"><span class="tk"></span>Now and then</label></div>
+              <div class="opt"><input type="radio" id="su3" name="supplements" value="no"><label for="su3"><span class="tk"></span>No, nothing</label></div>
+              <div class="opt"><input type="radio" id="su4" name="supplements" value="unsure"><label for="su4"><span class="tk"></span>I would not know what to take</label></div>
+            </div>
+          </div>
+          <div class="qgroup">
+            <span class="qlabel">When did you last have blood work done?</span>
+            <div class="opts">
+              <div class="opt"><input type="radio" id="bw1" name="bloodwork" value="recent"><label for="bw1"><span class="tk"></span>In the last year</label></div>
+              <div class="opt"><input type="radio" id="bw2" name="bloodwork" value="over-year"><label for="bw2"><span class="tk"></span>Over a year ago</label></div>
+              <div class="opt"><input type="radio" id="bw3" name="bloodwork" value="long"><label for="bw3"><span class="tk"></span>Longer than that</label></div>
+              <div class="opt"><input type="radio" id="bw4" name="bloodwork" value="never"><label for="bw4"><span class="tk"></span>Never, or I cannot remember</label></div>
             </div>
           </div>
           <div class="qbtns"><button type="button" class="ghost-btn" data-back>&larr; Back</button><button type="submit" class="pill pill--accent">See my map <span class="arr">&rarr;</span></button></div>
@@ -2448,6 +2486,16 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
           </div>
           <div class="nextsteps" id="r-steps"></div>
           <div class="mini-map" id="r-map"></div>
+
+          <div class="loop-block">
+            <span class="rk">How your plan works, whatever your map shows</span>
+            <p class="loop-lead">It is read in the chair by the <strong>8-Step Hair Plan</strong>, then built and held through the <strong>Full Loop</strong>. Every plan moves through all three, we just start where your hair needs it most.</p>
+            <div class="loop-3">
+              <div class="lp"><span class="lp-n">1 &middot; Create</span><h4>We fix it in the chair</h4><p>The colour, the cut and the treatment your hair actually needs, matched to you.</p></div>
+              <div class="lp"><span class="lp-n">2 &middot; Protect</span><h4>Home care holds it</h4><p>The right home care between visits. Insurance on the work, never an extra.</p></div>
+              <div class="lp"><span class="lp-n">3 &middot; Keep on Track</span><h4>We keep it on rhythm</h4><p>Topped up before it drifts, so it lasts visit to visit and never starts over.</p></div>
+            </div>
+          </div>
 
           <div class="capture">
             <div class="chead">
@@ -2638,8 +2686,15 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
     // the whole-woman + life notes
     var notes='', cond=val('condition'), chg=val('change'), well=val('wellbeing'),
         hc=val('homecare'), det=val('detox'), hk=val('hennakeratin'), occ=val('occasion');
+    var sup=val('supplements'), bw=val('bloodwork'), shed=(chg==='shedding'||chg==='weaker');
     if(chg==='shedding'||chg==='weaker'||chg==='texture'||well==='low'||well==='exhausted'){
-      notes+=noteLink("What shows up on the hair almost always started on the inside. When energy, sleep or stress shift, hair is often the first place it shows, so we look after the whole picture, not just the strand.","whole-woman-why-we-look-after-more-than-the-hair");
+      notes+=noteLink("What shows up on the hair almost always started on the inside. When stress rises, sleep is short or things shift hormonally, hair is often the first place it shows, so we look after the whole picture, not just the strand.","whole-woman-why-we-look-after-more-than-the-hair");
+    }
+    if(shed && (well==='low'||well==='exhausted'||bw==='over-year'||bw==='long'||bw==='never')){
+      notes+=note("When hair sheds or thins and stress is high or sleep is short, the body is often asking for something first. Iron, thyroid and hormones are the usual ones, and a simple blood test with your GP is worth doing before we change anything on the outside. This is the inside piece, and it matters just as much.");
+    }
+    if(shed && (sup==='no'||sup==='unsure')){
+      notes+=note("The right supplements can support your hair from within, once a blood test shows what your body is actually short of. We will point you in the right direction, gently, never sell you a shelf of pills.");
     }
     if(hk==='henna'||hk==='both'){
       notes+=note("Because your hair has had henna, any colour is planned carefully with a strand test first. It is not a no, it just changes the order we work in.");
@@ -2690,7 +2745,7 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
     for(var k=0;k<req.length;k++){ var el=req[k]; if((el.type==='checkbox'&&!el.checked)||(el.type!=='checkbox'&&!String(el.value).trim())){ el.focus(); return; } }
     var data={ source:"confidence-mapping", experience:"mapping", stage:"journal", route:document.getElementById('r-title').getAttribute('data-route')||'not-sure' };
     data.pain=pains();
-    ['confidence','history_bad','change','base','status','hennakeratin','condition','routine','homecare','detox','occasion','wellbeing'].forEach(function(n){ data[n]=val(n); });
+    ['confidence','history_bad','change','base','status','hennakeratin','condition','routine','homecare','detox','occasion','wellbeing','supplements','bloodwork'].forEach(function(n){ data[n]=val(n); });
     data.firstName=document.getElementById('fname').value.trim();
     data.whatsapp=document.getElementById('cc').value+' '+document.getElementById('wa').value.trim();
     data.email=document.getElementById('email').value.trim();
