@@ -2471,6 +2471,10 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
 .lr-lab.n1{ transform:translateX(-50%) translateY(-48px); }
 @media(max-width:560px){ .loopring{ margin-top:58px; } .lr-lab.n1{ transform:translateX(-50%) translateY(-42px); } }
 
+/* Trust bar: a clean turquoise check instead of a stray dash (Tara 16 Jul) — matches the quiz strip */
+.trust .tick-i{ width:13px; height:13px; background:none !important; position:relative; display:inline-block; vertical-align:-2px; margin-right:4px; }
+.trust .tick-i::after{ content:""; position:absolute; left:3px; top:1px; width:4px; height:8px; border:solid var(--accent-deep); border-width:0 2px 2px 0; transform:rotate(45deg); }
+
 </style>
 <meta name="geo.region" content="AE">
 <meta name="geo.placename" content="Dubai, Abu Dhabi">
