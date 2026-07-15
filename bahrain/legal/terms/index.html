@@ -1736,6 +1736,28 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
   color:var(--taupe); white-space:nowrap;
 }
 
+/* ── DAISY'S BLOCK MUST CENTRE ON DESKTOP ────────────────────────────────────
+   `.owner{max-width:64ch}` is a rule for the TEXT body. But `.owner--stacked` is the
+   whole SECTION, so the cap squeezed the entire Daisy block to 646px AND — with no
+   auto margin on the section — pinned it hard against the left edge, leaving the right
+   two-thirds of the page empty. Free the section; its inner `.wrap` (820px, margin
+   auto) then centres it the way every other section centres. */
+.owner--stacked{ max-width:none }
+.owner--stacked > .wrap{ margin-inline:auto }
+
+/* ── THE FUNNEL NAV MUST NOT DRIFT ON A PHONE ────────────────────────────────
+   The funnel nav is a 3-column grid: secondary link · brand · Reserve pill. On a
+   phone the "Main Website" link is hidden, but its 1fr column still reserves space,
+   squeezing the 181px pill into a ~101px slot — so the pill ran 9px off the right
+   edge. That 9px is the "screen still moving on the phone". Collapse to two columns
+   (brand + pill) below 560px so the pill gets its natural width and nothing spills. */
+@media (max-width:560px){
+  .navrow:has(> .nav__cta):has(> .nav-link){ grid-template-columns:1fr auto; column-gap:12px }
+  .navrow:has(> .nav__cta):has(> .nav-link) > .nav-link{ display:none }
+  .navrow:has(> .nav__cta):has(> .nav-link) > .brand{ justify-self:start }
+  .navrow:has(> .nav__cta):has(> .nav-link) > .nav__cta{ justify-self:end; padding-inline:15px }
+}
+
 </style>
 <meta name="geo.region" content="BH">
 <meta name="geo.placename" content="Manama">
