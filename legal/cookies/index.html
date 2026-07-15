@@ -1950,6 +1950,26 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
 .next-steps li{ font-size:15.5px; line-height:1.55; color:var(--taupe) }
 .form-thanks .fine{ margin:16px 0 0; font-size:13.5px; line-height:1.55; color:var(--taupe-soft) }
 
+/* ── THE CONFIDENCE MAP: one aha, on the brand's dark belief band ─────────────
+   The map was card-soup giving the whole consultation away. Now it is one moment:
+   the belief-shift line (her problem named, blame released) on the dark band, one
+   quiet direction, then the invite. The plan/treatments/home-care move to the Journal. */
+.aha-band{ position:relative; isolation:isolate; overflow:hidden; text-align:center;
+  background:var(--ink-deep); color:#F3F1EB; border-radius:18px; padding:46px 38px 48px; margin:6px 0 0 }
+.aha-band::after{ content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
+  background:radial-gradient(78% 70% at 20% 82%, rgba(125,230,210,.16), transparent 62%),
+             radial-gradient(70% 60% at 88% 8%, rgba(125,230,210,.08), transparent 60%) }
+.aha-band .eyebrow{ color:var(--accent-deep, var(--accent)); display:block; margin:0 0 18px }
+.aha-band .aha-q{ display:block; font-family:var(--ff-display); font-style:italic; font-size:56px;
+  line-height:.5; color:var(--accent-deep, var(--accent)); margin:0 0 14px }
+.aha-band .aha{ font-family:var(--ff-display); font-weight:500; font-style:italic;
+  font-size:clamp(24px,4.2vw,34px); line-height:1.32; color:#fff; margin:0 auto; max-width:22ch;
+  text-wrap:balance }
+.r-start{ text-align:center; margin:24px 0 0; font-family:var(--ff-body); font-size:16px;
+  color:var(--taupe); letter-spacing:.01em }
+.r-start strong{ font-family:var(--ff-display); font-style:italic; font-weight:500; font-size:19px;
+  color:var(--ink) }
+
 </style>
 <meta name="geo.region" content="AE">
 <meta name="geo.placename" content="Dubai, Abu Dhabi">

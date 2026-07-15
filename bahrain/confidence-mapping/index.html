@@ -2312,6 +2312,26 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
 .next-steps li{ font-size:15.5px; line-height:1.55; color:var(--taupe) }
 .form-thanks .fine{ margin:16px 0 0; font-size:13.5px; line-height:1.55; color:var(--taupe-soft) }
 
+/* ── THE CONFIDENCE MAP: one aha, on the brand's dark belief band ─────────────
+   The map was card-soup giving the whole consultation away. Now it is one moment:
+   the belief-shift line (her problem named, blame released) on the dark band, one
+   quiet direction, then the invite. The plan/treatments/home-care move to the Journal. */
+.aha-band{ position:relative; isolation:isolate; overflow:hidden; text-align:center;
+  background:var(--ink-deep); color:#F3F1EB; border-radius:18px; padding:46px 38px 48px; margin:6px 0 0 }
+.aha-band::after{ content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
+  background:radial-gradient(78% 70% at 20% 82%, rgba(125,230,210,.16), transparent 62%),
+             radial-gradient(70% 60% at 88% 8%, rgba(125,230,210,.08), transparent 60%) }
+.aha-band .eyebrow{ color:var(--accent-deep, var(--accent)); display:block; margin:0 0 18px }
+.aha-band .aha-q{ display:block; font-family:var(--ff-display); font-style:italic; font-size:56px;
+  line-height:.5; color:var(--accent-deep, var(--accent)); margin:0 0 14px }
+.aha-band .aha{ font-family:var(--ff-display); font-weight:500; font-style:italic;
+  font-size:clamp(24px,4.2vw,34px); line-height:1.32; color:#fff; margin:0 auto; max-width:22ch;
+  text-wrap:balance }
+.r-start{ text-align:center; margin:24px 0 0; font-family:var(--ff-body); font-size:16px;
+  color:var(--taupe); letter-spacing:.01em }
+.r-start strong{ font-family:var(--ff-display); font-style:italic; font-weight:500; font-size:19px;
+  color:var(--ink) }
+
 </style>
 <meta name="geo.region" content="BH">
 <meta name="geo.placename" content="Manama">
@@ -2553,38 +2573,19 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
 
       <!-- Stage 4 · MAP (result) — sibling of the quiz form, never nested -->
       <div class="result" id="result" aria-live="polite">
-          <div class="rhead">
-            <span class="eyebrow">Stage 4 &middot; Map</span>
-            <h2>Here is your <em>map</em>.</h2>
-            <p class="rname" id="r-open">A starting direction, not a diagnosis. Your stylist confirms it in the chair.</p>
+          <div class="aha-band">
+            <span class="eyebrow">Your map</span>
+            <span class="aha-q">&ldquo;</span>
+            <h2 class="aha" id="r-aha"></h2>
           </div>
-          <div class="map-pillars" id="r-pillars"></div>
-          <div class="route-card">
-            <span class="rk">Your recommended route</span>
-            <h3 id="r-title"></h3>
-            <p id="r-belief"></p>
-          </div>
-          <div class="nextsteps" id="r-steps"></div>
+          <p class="r-start" id="r-start"></p>
           <div class="goal-band" id="r-goal"></div>
-          <div class="mini-map" id="r-map"></div>
-          <div class="recs" id="r-recs"></div>
-
-          <div class="loop-block">
-            <span class="rk">How your plan works, whatever your map shows</span>
-            <p class="loop-lead">It is read in the chair by the <strong>8-Step Hair Plan</strong>, then built and held through the <strong>Full Loop</strong>. Every plan moves through all three, we just start where your hair needs it most.</p>
-            <div class="loop-3">
-              <div class="lp"><span class="lp-n">1 &middot; Create</span><h4>We fix it in the chair</h4><p>The colour, the cut and the treatment your hair actually needs, matched to you.</p></div>
-              <div class="lp"><span class="lp-n">2 &middot; Protect</span><h4>Home care holds it</h4><p>The right home care between visits. Insurance on the work, never an extra.</p></div>
-              <div class="lp"><span class="lp-n">3 &middot; Keep on Track</span><h4>We keep it on rhythm</h4><p>Topped up before it drifts, so it lasts visit to visit and never starts over.</p></div>
-            </div>
-          </div>
-
-          <p class="map-disclaimer">This map is a starting point, not a diagnosis. Your colour and condition are always confirmed in the chair, in person. The inside matters to us just as much as the outside, and we will always gently encourage you to look after it.</p>
+          <p class="map-disclaimer">A starting point, not a diagnosis. Your colour and condition are always confirmed in the chair, in person.</p>
 
           <div class="capture">
             <div class="chead">
-              <h3>Get your full Confidence Journal</h3>
-              <p>Your map above is yours to keep. Leave your details for the full Journal, your complete plan written to your answers, the home care that protects it, and the rhythm that keeps it, and we will arrange your free Confidence Mapping session.</p>
+              <h3>Your full Confidence Map is written. Shall we send it?</h3>
+              <p>The whole plan, matched to your answers: the exact treatments, your home care, and your rhythm, visit by visit. Leave your details and we will send it, and hold your free Confidence Mapping session.</p>
             </div>
             <form id="capForm" novalidate>
               <div class="field">
@@ -2701,7 +2702,7 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
 
   var form=document.getElementById('cmForm'), steps=[].slice.call(form.querySelectorAll('.qstep'));
   var fill=document.getElementById('fill'), pct=document.getElementById('pct'), stepLabel=document.getElementById('stepLabel');
-  var labels=['Listen','Look','Live']; var i=0;
+  var labels=['Listen','Look','Live']; var i=0; var _routeKey='not-sure';
   function render(){ steps.forEach(function(s,k){ s.classList.toggle('active',k===i); }); var p=[25,50,75][i]||100; fill.style.width=p+'%'; pct.textContent=p+'%'; stepLabel.textContent='Stage '+(i+1)+' of 4 · '+labels[i]; }
   var REQUIRED={1:['confidence'],2:['pain','base','condition'],3:[]};
   function stageValid(){
@@ -2895,6 +2896,15 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
     box.innerHTML = (line ? '<p class="goal-line">'+line+'</p>' : '') + consult;
   }
 
+  function renderResult(key){
+    var P=pains(), st=val('status'), natural=(st==='natural'||st==='growing-out');
+    var PRI=['fade-fast','brassy','colour-fix','flat','breakage','dry','scalp','no-hold','shape-outgrown','buildup','curls','want-smooth','want-length'];
+    var primary=null,x; for(x=0;x<PRI.length;x++){ if(P.indexOf(PRI[x])>-1){ primary=PRI[x]; break; } }
+    var m=(natural&&NATURAL[primary])?NATURAL[primary]:(PAINMAP[primary]||null);
+    document.getElementById('r-aha').textContent = m ? m.why : "Your hair has a plan waiting to be written, and that is exactly what your Confidence Map holds.";
+    var START={blonde:'your Blonde plan',brunette:'your Brunette plan',cut:'your Haircut and Finish',gloss:'a gloss and refresh, no colour needed',restore:'a Restore plan first',length:'extensions, once the condition is ready',colour:'your colour plan','not-sure':'a full read in the chair'};
+    document.getElementById('r-start').innerHTML='Where you would begin: <strong>'+(START[key]||'a full read in the chair')+'</strong>';
+  }
   function note(html){ return '<p class="mm-note">'+html+'</p>'; }
   function noteLink(txt,slug){ return '<p class="mm-note">'+txt+' <a class="mm-note-read" href="/tara-rose-pages/bahrain/education/'+slug+'">Read more &rarr;</a></p>'; }
 
@@ -2958,16 +2968,10 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
   form.addEventListener('submit',function(e){
     e.preventDefault();
     if(!stageValid()) return;
-    var key=computeRoute(), r=ROUTES[key];
-    document.getElementById('r-title').textContent=r.title;
-    document.getElementById('r-belief').textContent='"'+r.belief+'"';
-    var wrap=document.getElementById('r-steps'); wrap.innerHTML='';
-    r.steps.forEach(function(s){ var d=document.createElement('div'); d.className='nstep'; d.innerHTML='<span class="nk">'+s[0]+'</span><h4>'+s[1]+'</h4><p>'+s[2]+'</p>'; wrap.appendChild(d); });
-    document.getElementById('r-title').setAttribute('data-route',key);
-    renderPillars();
+    var key=computeRoute();
+    _routeKey=key;
+    renderResult(key);
     renderGoal(key);
-    renderMini();
-    renderRecs();
     steps.forEach(function(s){ s.classList.remove('active'); });
     fill.style.width='100%'; pct.textContent='100%'; stepLabel.textContent='Stage 4 of 4 · Map';
     document.getElementById('result').classList.add('show');
@@ -2980,7 +2984,7 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
     e.preventDefault();
     var req=cap.querySelectorAll('[required]');
     for(var k=0;k<req.length;k++){ var el=req[k]; if((el.type==='checkbox'&&!el.checked)||(el.type!=='checkbox'&&!String(el.value).trim())){ el.focus(); return; } }
-    var data={ source:"confidence-mapping", experience:"mapping", stage:"journal", route:document.getElementById('r-title').getAttribute('data-route')||'not-sure' };
+    var data={ source:"confidence-mapping", experience:"mapping", stage:"journal", route:_routeKey };
     data.pain=pains();
     ['confidence','history_bad','goal','change','base','status','hennakeratin','condition','routine','homecare','detox','occasion','wellbeing','supplements'].forEach(function(n){ data[n]=val(n); });
     data.firstName=document.getElementById('fname').value.trim();
