@@ -1,3 +1,7 @@
+> ⚠️ **SUPERSEDED (15 Jul 2026).** This describes the early-July hand-edit workflow, before the build
+> became template-driven. For how the site is actually built and deployed today, read
+> **`../_HANDOVER/`** — start with `README.md`. Kept only for historical reference.
+
 # Hosting & Sharing Guide
 
 _Where to put the Tara Rose pages so you can share them, run campaigns, and edit copy without a developer. Last updated 5 July 2026._

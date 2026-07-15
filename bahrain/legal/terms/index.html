@@ -1811,6 +1811,11 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
   .navrow:has(> .nav__zone-l) > .nav__zone-r{ display:none }
 }
 
+/* Skip-to-content link — offscreen until focused (keyboard + screen-reader users). */
+.skip{position:absolute;left:-9999px;top:0;z-index:200;background:var(--ink);color:#fff;
+  padding:12px 20px;border-radius:0 0 10px 0;font-family:var(--ff-body);font-size:14px;font-weight:500}
+.skip:focus{left:0}
+
 </style>
 <meta name="geo.region" content="BH">
 <meta name="geo.placename" content="Manama">
@@ -1818,6 +1823,7 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
 
 </head>
 <body>
+<a href="#main" class="skip">Skip to content</a>
 <nav class="trs-nav"><div class="wrap row">
   <a class="brand" href="/tara-rose-pages/bahrain/" aria-label="Tara Rose, home"><span class="brand__tick"></span><span class="brand__wm">TARA ROSE</span><small>BAHRAIN</small></a>
   <a class="navlink" href="/tara-rose-pages/bahrain/">Back to site &rarr;</a>
@@ -1830,7 +1836,7 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
   <p class="updated">Last updated 13 July 2026</p>
 </div></header>
 
-<main><div class="wrap">
+<main id="main"><div class="wrap">
   <h2>Using this website</h2>
   <p>This site is run by Tara Rose Bahrain, owned and run by Daisy Charlotte Cropper. By using it, you agree to these terms. The content is here to help you understand our services and plans, and to reach us. Please do not copy or reuse our words, images or designs without our permission.</p>
 

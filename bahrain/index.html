@@ -1775,5 +1775,10 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
   .navrow:has(> .nav__zone-l) > .nav__zone-r{ display:none }
 }
 
+/* Skip-to-content link — offscreen until focused (keyboard + screen-reader users). */
+.skip{position:absolute;left:-9999px;top:0;z-index:200;background:var(--ink);color:#fff;
+  padding:12px 20px;border-radius:0 0 10px 0;font-family:var(--ff-body);font-size:14px;font-weight:500}
+.skip:focus{left:0}
+
 </style>
 </head><body><p>Taking you to <a href="/tara-rose-pages/bahrain/home/">Tara Rose Bahrain</a>.</p></body></html>
