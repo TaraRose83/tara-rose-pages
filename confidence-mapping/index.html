@@ -2199,6 +2199,22 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
   border-radius:0 12px 12px 0; padding:16px 20px; margin:18px 0 0; font-size:15.5px;
   line-height:1.55; color:var(--ink); font-style:italic; font-family:var(--ff-display) }
 
+/* ── QUIZ: the layer sub-headings + the whole-woman notes ────────────────────
+   The problem picker is grouped by education layer (Condition · Colour · Shape).
+   The report closes with life/wellness notes drawn from her answers. */
+.qgroup-head{ font-family:var(--ff-body); font-weight:600; font-size:11px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--accent-text); margin:22px 0 10px }
+.qgroup-head:first-of-type{ margin-top:6px }
+.mm-notes{ margin:22px 0 0; display:grid; gap:12px }
+.mm-note-read{ display:inline-block; margin-top:4px; font-family:var(--ff-body); font-weight:500;
+  font-size:13px; color:var(--accent-text); text-decoration:none; border-bottom:1px solid var(--accent) }
+.ghost-btn{ background:none; border:0; font-family:var(--ff-body); font-weight:500; font-size:14px;
+  color:var(--taupe); cursor:pointer; padding:8px 4px }
+.ghost-btn:hover{ color:var(--ink) }
+.qbtns{ display:flex; align-items:center; justify-content:space-between; gap:16px; margin-top:30px }
+.opts.scale{ display:flex; flex-wrap:wrap; gap:8px }
+.opts.scale .opt{ flex:1 1 auto }
+
 </style>
 <meta name="geo.region" content="AE">
 <meta name="geo.placename" content="Dubai, Abu Dhabi">
@@ -2247,146 +2263,224 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
 
 <!-- ============ THE QUIZ (Listen · Look · Map) ============ -->
 <section class="quiz" id="quiz">
-  <div class="wrap inner">
-    <div class="sec-head center" style="margin-bottom:32px">
-      <span class="eyebrow">The Three Stages</span>
-      <h2 style="font-family:var(--fd);font-weight:500;font-size:clamp(30px,4.4vw,46px);line-height:1.04;letter-spacing:-.012em;color:var(--ink)">Listen. Look. Map.</h2>
-      <p class="sub" style="max-width:54ch;margin-left:auto;margin-right:auto">Answer at your own pace. Nothing is stored on your device, and you decide at the end whether to have your map sent to you.</p>
+    <div class="wrap inner">
+      <div class="sec-head center" style="margin-bottom:32px">
+        <span class="eyebrow">Your Confidence Map</span>
+        <h2 style="font-family:var(--fd);font-weight:500;font-size:clamp(30px,4.4vw,46px);line-height:1.04;letter-spacing:-.012em;color:var(--ink)">Listen. Look. Live. Map.</h2>
+        <p class="sub" style="max-width:56ch;margin-left:auto;margin-right:auto">A few honest questions about your hair and how you feel in it. Nothing is stored on your device, and you decide at the end whether to have your full Journal sent to you.</p>
+      </div>
+      <form id="cmForm" novalidate>
+        <div class="progress-wrap">
+          <div class="progress-meta"><span class="step-label" id="stepLabel">Stage 1 of 4 &middot; Listen</span><span class="pct" id="pct">25%</span></div>
+          <div class="progress-bar"><div class="progress-fill" id="fill" style="width:25%"></div></div>
+        </div>
+
+        <!-- Stage 1 · LISTEN -->
+        <div class="qstep active" data-step="1">
+          <h2>First, how you feel in it.</h2>
+          <div class="qgroup">
+            <span class="qlabel">When did you last feel really confident about your hair?</span>
+            <div class="opts">
+              <div class="opt"><input type="radio" id="cf1" name="confidence" value="recent"><label for="cf1"><span class="tk"></span>In the last week or two</label></div>
+              <div class="opt"><input type="radio" id="cf2" name="confidence" value="months"><label for="cf2"><span class="tk"></span>A few months ago</label></div>
+              <div class="opt"><input type="radio" id="cf3" name="confidence" value="long"><label for="cf3"><span class="tk"></span>Longer than I can remember</label></div>
+              <div class="opt"><input type="radio" id="cf4" name="confidence" value="never"><label for="cf4"><span class="tk"></span>I am not sure I ever really have</label></div>
+            </div>
+          </div>
+          <div class="qgroup">
+            <span class="qlabel">Have you had a salon experience that was hard to move past?</span>
+            <div class="opts">
+              <div class="opt"><input type="radio" id="bx1" name="history_bad" value="recent"><label for="bx1"><span class="tk"></span>Yes, recently</label></div>
+              <div class="opt"><input type="radio" id="bx2" name="history_bad" value="past"><label for="bx2"><span class="tk"></span>Yes, in the past</label></div>
+              <div class="opt"><input type="radio" id="bx3" name="history_bad" value="no"><label for="bx3"><span class="tk"></span>No, not really</label></div>
+            </div>
+          </div>
+          <div class="qbtns"><span></span><button type="button" class="pill pill--accent" data-next>Continue <span class="arr">&rarr;</span></button></div>
+        </div>
+
+        <!-- Stage 2 · LOOK -->
+        <div class="qstep" data-step="2">
+          <h2>What your hair is doing.</h2>
+          <div class="qgroup">
+            <span class="qlabel">What would you like to change? Choose any that sound like you.</span>
+            <p class="qgroup-head">Condition</p>
+            <div class="opts">
+              <div class="opt"><input type="checkbox" id="p-dry" name="pain" value="dry"><label for="p-dry"><span class="tk"></span>Dry, frizzy or hard to manage</label></div>
+              <div class="opt"><input type="checkbox" id="p-break" name="pain" value="breakage"><label for="p-break"><span class="tk"></span>Breakage, damage or weakness</label></div>
+              <div class="opt"><input type="checkbox" id="p-scalp" name="pain" value="scalp"><label for="p-scalp"><span class="tk"></span>Itchy, oily or flaky scalp</label></div>
+              <div class="opt"><input type="checkbox" id="p-curl" name="pain" value="curls"><label for="p-curl"><span class="tk"></span>Curls or texture that will not behave</label></div>
+              <div class="opt"><input type="checkbox" id="p-build" name="pain" value="buildup"><label for="p-build"><span class="tk"></span>Feels coated, heavy or weighed down</label></div>
+              <div class="opt"><input type="checkbox" id="p-smooth" name="pain" value="want-smooth"><label for="p-smooth"><span class="tk"></span>I want it smoother, less styling time</label></div>
+            </div>
+            <p class="qgroup-head">Colour</p>
+            <div class="opts">
+              <div class="opt"><input type="checkbox" id="p-brassy" name="pain" value="brassy"><label for="p-brassy"><span class="tk"></span>My blonde goes brassy or warm</label></div>
+              <div class="opt"><input type="checkbox" id="p-flat" name="pain" value="flat"><label for="p-flat"><span class="tk"></span>My brunette looks flat or dull</label></div>
+              <div class="opt"><input type="checkbox" id="p-fade" name="pain" value="fade-fast"><label for="p-fade"><span class="tk"></span>My colour fades too fast</label></div>
+              <div class="opt"><input type="checkbox" id="p-fix" name="pain" value="colour-fix"><label for="p-fix"><span class="tk"></span>A colour I want to correct or fix</label></div>
+            </div>
+            <p class="qgroup-head">Shape and length</p>
+            <div class="opts">
+              <div class="opt"><input type="checkbox" id="p-outgrown" name="pain" value="shape-outgrown"><label for="p-outgrown"><span class="tk"></span>The shape has grown out</label></div>
+              <div class="opt"><input type="checkbox" id="p-nohold" name="pain" value="no-hold"><label for="p-nohold"><span class="tk"></span>A trim that never holds its shape</label></div>
+              <div class="opt"><input type="checkbox" id="p-length" name="pain" value="want-length"><label for="p-length"><span class="tk"></span>I want more length or thickness</label></div>
+            </div>
+          </div>
+          <div class="qgroup">
+            <span class="qlabel">Have you noticed your hair changing recently?</span>
+            <div class="opts">
+              <div class="opt"><input type="radio" id="ch1" name="change" value="shedding"><label for="ch1"><span class="tk"></span>More shedding or thinning</label></div>
+              <div class="opt"><input type="radio" id="ch2" name="change" value="weaker"><label for="ch2"><span class="tk"></span>Drier or weaker than it was</label></div>
+              <div class="opt"><input type="radio" id="ch3" name="change" value="greying"><label for="ch3"><span class="tk"></span>More grey coming through</label></div>
+              <div class="opt"><input type="radio" id="ch4" name="change" value="texture"><label for="ch4"><span class="tk"></span>The texture has changed</label></div>
+              <div class="opt"><input type="radio" id="ch5" name="change" value="none"><label for="ch5"><span class="tk"></span>No real change</label></div>
+            </div>
+          </div>
+          <div class="qgroup">
+            <span class="qlabel">Your natural base?</span>
+            <div class="opts">
+              <div class="opt"><input type="radio" id="b1" name="base" value="blonde"><label for="b1"><span class="tk"></span>Blonde or light</label></div>
+              <div class="opt"><input type="radio" id="b2" name="base" value="brunette"><label for="b2"><span class="tk"></span>Brunette or dark</label></div>
+              <div class="opt"><input type="radio" id="b3" name="base" value="red"><label for="b3"><span class="tk"></span>Red or auburn</label></div>
+              <div class="opt"><input type="radio" id="b4" name="base" value="grey"><label for="b4"><span class="tk"></span>Grey or silver coming through</label></div>
+              <div class="opt"><input type="radio" id="b5" name="base" value="mixed"><label for="b5"><span class="tk"></span>A mix</label></div>
+              <div class="opt"><input type="radio" id="b6" name="base" value="not-sure"><label for="b6"><span class="tk"></span>Not sure</label></div>
+            </div>
+          </div>
+          <div class="qgroup">
+            <span class="qlabel">Coloured or natural right now?</span>
+            <div class="opts">
+              <div class="opt"><input type="radio" id="s1" name="status" value="coloured"><label for="s1"><span class="tk"></span>Coloured</label></div>
+              <div class="opt"><input type="radio" id="s2" name="status" value="natural"><label for="s2"><span class="tk"></span>Natural</label></div>
+              <div class="opt"><input type="radio" id="s3" name="status" value="growing-out"><label for="s3"><span class="tk"></span>Growing colour out</label></div>
+              <div class="opt"><input type="radio" id="s4" name="status" value="highlights"><label for="s4"><span class="tk"></span>Highlights or balayage</label></div>
+            </div>
+          </div>
+          <div class="qgroup">
+            <span class="qlabel">Has your hair ever had henna or a keratin treatment?</span>
+            <div class="opts">
+              <div class="opt"><input type="radio" id="hk1" name="hennakeratin" value="henna"><label for="hk1"><span class="tk"></span>Yes, henna</label></div>
+              <div class="opt"><input type="radio" id="hk2" name="hennakeratin" value="keratin"><label for="hk2"><span class="tk"></span>Yes, keratin or a smoothing treatment</label></div>
+              <div class="opt"><input type="radio" id="hk3" name="hennakeratin" value="both"><label for="hk3"><span class="tk"></span>Both</label></div>
+              <div class="opt"><input type="radio" id="hk4" name="hennakeratin" value="no"><label for="hk4"><span class="tk"></span>Neither</label></div>
+              <div class="opt"><input type="radio" id="hk5" name="hennakeratin" value="not-sure"><label for="hk5"><span class="tk"></span>Not sure</label></div>
+            </div>
+          </div>
+          <div class="qgroup">
+            <span class="qlabel">How does the condition feel today? 1 fragile to 5 strong.</span>
+            <div class="opts scale">
+              <div class="opt"><input type="radio" id="c1" name="condition" value="1"><label for="c1"><span class="tk"></span>1 &middot; Fragile</label></div>
+              <div class="opt"><input type="radio" id="c2" name="condition" value="2"><label for="c2"><span class="tk"></span>2</label></div>
+              <div class="opt"><input type="radio" id="c3" name="condition" value="3"><label for="c3"><span class="tk"></span>3</label></div>
+              <div class="opt"><input type="radio" id="c4" name="condition" value="4"><label for="c4"><span class="tk"></span>4</label></div>
+              <div class="opt"><input type="radio" id="c5" name="condition" value="5"><label for="c5"><span class="tk"></span>5 &middot; Strong</label></div>
+            </div>
+          </div>
+          <div class="qbtns"><button type="button" class="ghost-btn" data-back>&larr; Back</button><button type="button" class="pill pill--accent" data-next>Continue <span class="arr">&rarr;</span></button></div>
+        </div>
+
+        <!-- Stage 3 · LIVE -->
+        <div class="qstep" data-step="3">
+          <h2>Your routine, and your life.</h2>
+          <div class="qgroup">
+            <span class="qlabel">What is your daily routine with your hair?</span>
+            <div class="opts">
+              <div class="opt"><input type="radio" id="r1" name="routine" value="heat-daily"><label for="r1"><span class="tk"></span>Heat styling most days</label></div>
+              <div class="opt"><input type="radio" id="r2" name="routine" value="wash-go"><label for="r2"><span class="tk"></span>Wash and go</label></div>
+              <div class="opt"><input type="radio" id="r3" name="routine" value="air-dry"><label for="r3"><span class="tk"></span>Air dry, minimal styling</label></div>
+              <div class="opt"><input type="radio" id="r4" name="routine" value="protective"><label for="r4"><span class="tk"></span>Tied back or protective styles</label></div>
+              <div class="opt"><input type="radio" id="r5" name="routine" value="varies"><label for="r5"><span class="tk"></span>It varies a lot</label></div>
+            </div>
+          </div>
+          <div class="qgroup">
+            <span class="qlabel">What do you use at home?</span>
+            <div class="opts">
+              <div class="opt"><input type="radio" id="hc1" name="homecare" value="salon"><label for="hc1"><span class="tk"></span>Salon products, matched to my hair</label></div>
+              <div class="opt"><input type="radio" id="hc2" name="homecare" value="supermarket"><label for="hc2"><span class="tk"></span>Whatever is on the supermarket shelf</label></div>
+              <div class="opt"><input type="radio" id="hc3" name="homecare" value="mix"><label for="hc3"><span class="tk"></span>A mix of things</label></div>
+              <div class="opt"><input type="radio" id="hc4" name="homecare" value="not-sure"><label for="hc4"><span class="tk"></span>Honestly, I am not sure</label></div>
+              <div class="opt"><input type="radio" id="hc5" name="homecare" value="minimal"><label for="hc5"><span class="tk"></span>Not much at all</label></div>
+            </div>
+          </div>
+          <div class="qgroup">
+            <span class="qlabel">How often do you reset or detox your scalp?</span>
+            <div class="opts">
+              <div class="opt"><input type="radio" id="d1" name="detox" value="regular"><label for="d1"><span class="tk"></span>Regularly</label></div>
+              <div class="opt"><input type="radio" id="d2" name="detox" value="sometimes"><label for="d2"><span class="tk"></span>Now and then</label></div>
+              <div class="opt"><input type="radio" id="d3" name="detox" value="rarely"><label for="d3"><span class="tk"></span>Rarely</label></div>
+              <div class="opt"><input type="radio" id="d4" name="detox" value="never"><label for="d4"><span class="tk"></span>Never, I did not know I should</label></div>
+            </div>
+          </div>
+          <div class="qgroup">
+            <span class="qlabel">Anything coming up you would love to feel incredible for?</span>
+            <div class="opts">
+              <div class="opt"><input type="radio" id="o1" name="occasion" value="wedding"><label for="o1"><span class="tk"></span>A wedding or a big event</label></div>
+              <div class="opt"><input type="radio" id="o2" name="occasion" value="holiday"><label for="o2"><span class="tk"></span>A holiday</label></div>
+              <div class="opt"><input type="radio" id="o3" name="occasion" value="photos"><label for="o3"><span class="tk"></span>Photos or a shoot</label></div>
+              <div class="opt"><input type="radio" id="o4" name="occasion" value="fresh"><label for="o4"><span class="tk"></span>A fresh start for a new season</label></div>
+              <div class="opt"><input type="radio" id="o5" name="occasion" value="none"><label for="o5"><span class="tk"></span>Nothing specific, just for me</label></div>
+            </div>
+          </div>
+          <div class="qgroup">
+            <span class="qlabel">And you. How are your energy and sleep lately?</span>
+            <div class="opts">
+              <div class="opt"><input type="radio" id="e1" name="wellbeing" value="great"><label for="e1"><span class="tk"></span>Full and rested</label></div>
+              <div class="opt"><input type="radio" id="e2" name="wellbeing" value="variable"><label for="e2"><span class="tk"></span>Up and down</label></div>
+              <div class="opt"><input type="radio" id="e3" name="wellbeing" value="low"><label for="e3"><span class="tk"></span>Running low</label></div>
+              <div class="opt"><input type="radio" id="e4" name="wellbeing" value="exhausted"><label for="e4"><span class="tk"></span>Honestly, exhausted</label></div>
+            </div>
+          </div>
+          <div class="qbtns"><button type="button" class="ghost-btn" data-back>&larr; Back</button><button type="submit" class="pill pill--accent">See my map <span class="arr">&rarr;</span></button></div>
+        </div>
+
+        <!-- Stage 4 · MAP (result) -->
+        <div class="result" id="result" aria-live="polite">
+          <div class="rhead">
+            <span class="eyebrow">Stage 4 &middot; Map</span>
+            <h2>Here is your <em>map</em>.</h2>
+            <p class="rname" id="r-open">A starting direction, not a diagnosis. Your stylist confirms it in the chair.</p>
+          </div>
+          <div class="route-card">
+            <span class="rk">Your recommended route</span>
+            <h3 id="r-title"></h3>
+            <p id="r-belief"></p>
+          </div>
+          <div class="nextsteps" id="r-steps"></div>
+          <div class="mini-map" id="r-map"></div>
+
+          <div class="capture">
+            <div class="chead">
+              <h3>Get your full Confidence Journal</h3>
+              <p>Your map above is yours to keep. Leave your details for the full Journal, your complete plan written to your answers, the home care that protects it, and the rhythm that keeps it, and we will arrange your free Confidence Mapping session.</p>
+            </div>
+            <form id="capForm" novalidate>
+              <div class="field">
+                <label for="fname">First name <span class="req">*</span></label>
+                <input id="fname" name="firstName" type="text" autocomplete="given-name" placeholder="Your first name" required>
+              </div>
+              <div class="field">
+                <label for="wa">WhatsApp number <span class="req">*</span></label>
+                <div class="phone-wrap">
+                  <select id="cc" name="cc" aria-label="Country code" autocomplete="tel-country-code"><optgroup label="Gulf and UK"><option value="+973" selected>&#127463;&#127469; +973 &middot; Bahrain</option><option value="+971">&#127462;&#127466; +971 &middot; United Arab Emirates</option><option value="+966">&#127480;&#127462; +966 &middot; Saudi Arabia</option><option value="+965">&#127472;&#127484; +965 &middot; Kuwait</option><option value="+974">&#127478;&#127462; +974 &middot; Qatar</option><option value="+968">&#127476;&#127474; +968 &middot; Oman</option><option value="+44">&#127468;&#127463; +44 &middot; United Kingdom</option></optgroup></select>
+                  <input id="wa" name="whatsapp" type="tel" autocomplete="tel" placeholder="3300 0000" required>
+                </div>
+              </div>
+              <div class="field">
+                <label for="email">Email <span class="req">*</span></label>
+                <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+              </div>
+              <div class="consent">
+                <label class="check"><input type="checkbox" id="consent" name="consent_marketing"><span class="cbx"></span><span>Send me my Journal and helpful hair guidance. I can stop any time.</span></label>
+                <label class="check"><input type="checkbox" id="consentwa" name="consent_whatsapp"><span class="cbx"></span><span>You may reach me on WhatsApp about my session.</span></label>
+              </div>
+              <button type="submit" class="pill pill--accent wide">Send my Journal <span class="arr">&rarr;</span></button>
+              <p class="vs-legal">Free, before the chair. No obligation to book. Your details stay with Tara Rose.</p>
+            </form>
+          </div>
+        </div>
+      </form>
     </div>
-
-    <form id="cmForm" novalidate>
-      <div class="progress-wrap">
-        <div class="progress-meta"><span class="step-label" id="stepLabel">Stage 1 of 3 · Listen</span><span class="pct" id="pct">33%</span></div>
-        <div class="progress-bar"><div class="progress-fill" id="fill" style="width:33%"></div></div>
-      </div>
-
-      <!-- Stage 1 · Listen -->
-      <div class="qstep active" data-step="1">
-        <h2>What has your hair been doing?</h2>
-        <div class="qgroup">
-          <span class="qlabel">What is your hair doing that you would like to change? (choose any)</span>
-          <div class="opts">
-            <div class="opt"><input type="checkbox" id="p1" name="pain" value="fade-fast"><label for="p1"><span class="tk"></span>Colour fades or turns warm too fast</label></div>
-            <div class="opt"><input type="checkbox" id="p2" name="pain" value="flat"><label for="p2"><span class="tk"></span>Feels flat, dull or lifeless</label></div>
-            <div class="opt"><input type="checkbox" id="p3" name="pain" value="shape-outgrown"><label for="p3"><span class="tk"></span>The shape has grown out</label></div>
-            <div class="opt"><input type="checkbox" id="p4" name="pain" value="dry"><label for="p4"><span class="tk"></span>Dry, frizzy or hard to manage</label></div>
-            <div class="opt"><input type="checkbox" id="p5" name="pain" value="breakage"><label for="p5"><span class="tk"></span>Breakage or weakness</label></div>
-            <div class="opt"><input type="checkbox" id="p6" name="pain" value="inconsistent"><label for="p6"><span class="tk"></span>Results that never look the same twice</label></div>
-          </div>
-        </div>
-        <div class="qgroup">
-          <span class="qlabel">How often is that happening?</span>
-          <div class="opts two">
-            <div class="opt"><input type="radio" id="f1" name="frequency" value="constant"><label for="f1"><span class="tk"></span>Constantly, every day</label></div>
-            <div class="opt"><input type="radio" id="f2" name="frequency" value="weekly"><label for="f2"><span class="tk"></span>Most weeks</label></div>
-            <div class="opt"><input type="radio" id="f3" name="frequency" value="between-visits"><label for="f3"><span class="tk"></span>Between salon visits</label></div>
-            <div class="opt"><input type="radio" id="f4" name="frequency" value="occasional"><label for="f4"><span class="tk"></span>Now and then</label></div>
-          </div>
-        </div>
-        <div class="qgroup">
-          <span class="qlabel">What have you already tried? (choose any)</span>
-          <div class="opts two">
-            <div class="opt"><input type="checkbox" id="h1" name="history" value="home-masks"><label for="h1"><span class="tk"></span>Home masks and treatments</label></div>
-            <div class="opt"><input type="checkbox" id="h2" name="history" value="changed-salon"><label for="h2"><span class="tk"></span>Changing salon or stylist</label></div>
-            <div class="opt"><input type="checkbox" id="h3" name="history" value="colour-correction"><label for="h3"><span class="tk"></span>Colour correction</label></div>
-            <div class="opt"><input type="checkbox" id="h4" name="history" value="cutting-shorter"><label for="h4"><span class="tk"></span>Cutting it shorter</label></div>
-            <div class="opt"><input type="checkbox" id="h5" name="history" value="nothing-yet"><label for="h5"><span class="tk"></span>Nothing yet, starting here</label></div>
-          </div>
-        </div>
-        <div class="qnav"><button type="button" class="back" data-back hidden>Back</button><button type="button" class="pill pill--accent" data-next>Continue <span class="arr">&rsaquo;</span></button></div>
-      </div>
-
-      <!-- Stage 2 · Look -->
-      <div class="qstep" data-step="2">
-        <h2>Your hair type and condition.</h2>
-        <div class="qgroup">
-          <span class="qlabel">Which best describes your natural colour?</span>
-          <div class="opts two">
-            <div class="opt"><input type="radio" id="b1" name="base" value="blonde"><label for="b1"><span class="tk"></span>Blonde or light</label></div>
-            <div class="opt"><input type="radio" id="b2" name="base" value="brunette"><label for="b2"><span class="tk"></span>Brunette or dark</label></div>
-            <div class="opt"><input type="radio" id="b3" name="base" value="red"><label for="b3"><span class="tk"></span>Red or auburn</label></div>
-            <div class="opt"><input type="radio" id="b4" name="base" value="grey"><label for="b4"><span class="tk"></span>Grey or silver coming through</label></div>
-            <div class="opt"><input type="radio" id="b5" name="base" value="mixed"><label for="b5"><span class="tk"></span>A mix</label></div>
-            <div class="opt"><input type="radio" id="b6" name="base" value="not-sure"><label for="b6"><span class="tk"></span>Not sure</label></div>
-          </div>
-        </div>
-        <div class="qgroup">
-          <span class="qlabel">Colour or natural right now?</span>
-          <div class="opts two">
-            <div class="opt"><input type="radio" id="s1" name="status" value="coloured"><label for="s1"><span class="tk"></span>Coloured</label></div>
-            <div class="opt"><input type="radio" id="s2" name="status" value="natural"><label for="s2"><span class="tk"></span>Natural</label></div>
-            <div class="opt"><input type="radio" id="s3" name="status" value="growing-out"><label for="s3"><span class="tk"></span>Growing colour out</label></div>
-            <div class="opt"><input type="radio" id="s4" name="status" value="highlights"><label for="s4"><span class="tk"></span>Highlights or balayage</label></div>
-          </div>
-        </div>
-        <div class="qgroup">
-          <span class="qlabel">How would you describe the condition today? (1 fragile to 5 strong)</span>
-          <div class="opts two">
-            <div class="opt"><input type="radio" id="c1" name="condition" value="1"><label for="c1"><span class="tk"></span>1 · Fragile</label></div>
-            <div class="opt"><input type="radio" id="c2" name="condition" value="2"><label for="c2"><span class="tk"></span>2</label></div>
-            <div class="opt"><input type="radio" id="c3" name="condition" value="3"><label for="c3"><span class="tk"></span>3</label></div>
-            <div class="opt"><input type="radio" id="c4" name="condition" value="4"><label for="c4"><span class="tk"></span>4</label></div>
-            <div class="opt"><input type="radio" id="c5" name="condition" value="5"><label for="c5"><span class="tk"></span>5 · Strong</label></div>
-          </div>
-        </div>
-        <div class="qnav"><button type="button" class="back" data-back>Back</button><button type="submit" class="pill pill--accent">See my map <span class="arr">&rsaquo;</span></button></div>
-      </div>
-    </form>
-
-    <!-- Stage 3 · Map (result, contact-LAST) -->
-    <div class="result" id="result" aria-live="polite">
-      <div class="rhead">
-        <span class="eyebrow">Stage 3 · Map</span>
-        <h2>Here is your <em>map</em>.</h2>
-        <p class="rname">A starting direction, not a diagnosis. Your stylist confirms it in the chair.</p>
-      </div>
-      <div class="route-card">
-        <span class="rk">Your recommended route</span>
-        <h3 id="r-title"></h3>
-        <p id="r-belief"></p>
-      </div>
-      <div class="nextsteps" id="r-steps"></div>
-      <div class="mini-map" id="r-map"></div>
-
-      <div class="capture">
-        <div class="chead">
-          <h3>Get your full Confidence Journal</h3>
-          <p>Your map above is yours to keep. Leave your details for the full Journal, your complete plan written to your answers, the home care that protects it, and the rhythm that keeps it, and we will arrange your free Confidence Mapping session.</p>
-        </div>
-        <form id="capForm" novalidate>
-          <div class="field">
-            <label for="fname">First name <span class="req">*</span></label>
-            <input id="fname" name="firstName" type="text" autocomplete="given-name" placeholder="Your first name" required>
-          </div>
-          <div class="field">
-            <label for="wa">WhatsApp number <span class="req">*</span></label>
-            <div class="phone-wrap">
-              <select id="cc" name="cc" aria-label="Country code" autocomplete="tel-country-code"><optgroup label="Gulf and UK"><option value="+973">🇧🇭 +973 &middot; Bahrain</option><option value="+971" selected>🇦🇪 +971 &middot; United Arab Emirates</option><option value="+966">🇸🇦 +966 &middot; Saudi Arabia</option><option value="+965">🇰🇼 +965 &middot; Kuwait</option><option value="+974">🇶🇦 +974 &middot; Qatar</option><option value="+968">🇴🇲 +968 &middot; Oman</option><option value="+44">🇬🇧 +44 &middot; United Kingdom</option></optgroup><optgroup label="All countries"><option value="+93">🇦🇫 +93 &middot; Afghanistan</option><option value="+355">🇦🇱 +355 &middot; Albania</option><option value="+213">🇩🇿 +213 &middot; Algeria</option><option value="+54">🇦🇷 +54 &middot; Argentina</option><option value="+374">🇦🇲 +374 &middot; Armenia</option><option value="+61">🇦🇺 +61 &middot; Australia</option><option value="+43">🇦🇹 +43 &middot; Austria</option><option value="+994">🇦🇿 +994 &middot; Azerbaijan</option><option value="+880">🇧🇩 +880 &middot; Bangladesh</option><option value="+375">🇧🇾 +375 &middot; Belarus</option><option value="+32">🇧🇪 +32 &middot; Belgium</option><option value="+387">🇧🇦 +387 &middot; Bosnia and Herzegovina</option><option value="+55">🇧🇷 +55 &middot; Brazil</option><option value="+359">🇧🇬 +359 &middot; Bulgaria</option><option value="+855">🇰🇭 +855 &middot; Cambodia</option><option value="+237">🇨🇲 +237 &middot; Cameroon</option><option value="+1">🇨🇦 +1 &middot; Canada</option><option value="+56">🇨🇱 +56 &middot; Chile</option><option value="+86">🇨🇳 +86 &middot; China</option><option value="+57">🇨🇴 +57 &middot; Colombia</option><option value="+385">🇭🇷 +385 &middot; Croatia</option><option value="+357">🇨🇾 +357 &middot; Cyprus</option><option value="+420">🇨🇿 +420 &middot; Czechia</option><option value="+45">🇩🇰 +45 &middot; Denmark</option><option value="+20">🇪🇬 +20 &middot; Egypt</option><option value="+372">🇪🇪 +372 &middot; Estonia</option><option value="+251">🇪🇹 +251 &middot; Ethiopia</option><option value="+358">🇫🇮 +358 &middot; Finland</option><option value="+33">🇫🇷 +33 &middot; France</option><option value="+995">🇬🇪 +995 &middot; Georgia</option><option value="+49">🇩🇪 +49 &middot; Germany</option><option value="+233">🇬🇭 +233 &middot; Ghana</option><option value="+30">🇬🇷 +30 &middot; Greece</option><option value="+852">🇭🇰 +852 &middot; Hong Kong</option><option value="+36">🇭🇺 +36 &middot; Hungary</option><option value="+354">🇮🇸 +354 &middot; Iceland</option><option value="+91">🇮🇳 +91 &middot; India</option><option value="+62">🇮🇩 +62 &middot; Indonesia</option><option value="+98">🇮🇷 +98 &middot; Iran</option><option value="+964">🇮🇶 +964 &middot; Iraq</option><option value="+353">🇮🇪 +353 &middot; Ireland</option><option value="+972">🇮🇱 +972 &middot; Israel</option><option value="+39">🇮🇹 +39 &middot; Italy</option><option value="+81">🇯🇵 +81 &middot; Japan</option><option value="+962">🇯🇴 +962 &middot; Jordan</option><option value="+7">🇰🇿 +7 &middot; Kazakhstan</option><option value="+254">🇰🇪 +254 &middot; Kenya</option><option value="+371">🇱🇻 +371 &middot; Latvia</option><option value="+961">🇱🇧 +961 &middot; Lebanon</option><option value="+218">🇱🇾 +218 &middot; Libya</option><option value="+370">🇱🇹 +370 &middot; Lithuania</option><option value="+352">🇱🇺 +352 &middot; Luxembourg</option><option value="+60">🇲🇾 +60 &middot; Malaysia</option><option value="+960">🇲🇻 +960 &middot; Maldives</option><option value="+356">🇲🇹 +356 &middot; Malta</option><option value="+230">🇲🇺 +230 &middot; Mauritius</option><option value="+52">🇲🇽 +52 &middot; Mexico</option><option value="+373">🇲🇩 +373 &middot; Moldova</option><option value="+382">🇲🇪 +382 &middot; Montenegro</option><option value="+212">🇲🇦 +212 &middot; Morocco</option><option value="+977">🇳🇵 +977 &middot; Nepal</option><option value="+31">🇳🇱 +31 &middot; Netherlands</option><option value="+64">🇳🇿 +64 &middot; New Zealand</option><option value="+234">🇳🇬 +234 &middot; Nigeria</option><option value="+389">🇲🇰 +389 &middot; North Macedonia</option><option value="+47">🇳🇴 +47 &middot; Norway</option><option value="+92">🇵🇰 +92 &middot; Pakistan</option><option value="+970">🇵🇸 +970 &middot; Palestine</option><option value="+63">🇵🇭 +63 &middot; Philippines</option><option value="+48">🇵🇱 +48 &middot; Poland</option><option value="+351">🇵🇹 +351 &middot; Portugal</option><option value="+40">🇷🇴 +40 &middot; Romania</option><option value="+7">🇷🇺 +7 &middot; Russia</option><option value="+250">🇷🇼 +250 &middot; Rwanda</option><option value="+221">🇸🇳 +221 &middot; Senegal</option><option value="+381">🇷🇸 +381 &middot; Serbia</option><option value="+65">🇸🇬 +65 &middot; Singapore</option><option value="+421">🇸🇰 +421 &middot; Slovakia</option><option value="+386">🇸🇮 +386 &middot; Slovenia</option><option value="+252">🇸🇴 +252 &middot; Somalia</option><option value="+27">🇿🇦 +27 &middot; South Africa</option><option value="+82">🇰🇷 +82 &middot; South Korea</option><option value="+34">🇪🇸 +34 &middot; Spain</option><option value="+94">🇱🇰 +94 &middot; Sri Lanka</option><option value="+249">🇸🇩 +249 &middot; Sudan</option><option value="+46">🇸🇪 +46 &middot; Sweden</option><option value="+41">🇨🇭 +41 &middot; Switzerland</option><option value="+963">🇸🇾 +963 &middot; Syria</option><option value="+886">🇹🇼 +886 &middot; Taiwan</option><option value="+255">🇹🇿 +255 &middot; Tanzania</option><option value="+66">🇹🇭 +66 &middot; Thailand</option><option value="+216">🇹🇳 +216 &middot; Tunisia</option><option value="+90">🇹🇷 +90 &middot; Turkey</option><option value="+256">🇺🇬 +256 &middot; Uganda</option><option value="+380">🇺🇦 +380 &middot; Ukraine</option><option value="+1">🇺🇸 +1 &middot; United States</option><option value="+998">🇺🇿 +998 &middot; Uzbekistan</option><option value="+84">🇻🇳 +84 &middot; Vietnam</option><option value="+967">🇾🇪 +967 &middot; Yemen</option><option value="+263">🇿🇼 +263 &middot; Zimbabwe</option></optgroup></select>
-              <input id="wa" name="whatsapp" type="tel" autocomplete="tel" placeholder="50 123 4567" required>
-            </div>
-          </div>
-          <div class="field">
-            <label for="email">Email <span class="req">*</span></label>
-            <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
-          </div>
-          <div class="pdpl">
-            <div class="pdpl__group">
-              <input type="checkbox" class="pdpl__checkbox" id="consent" name="consent_marketing" required>
-              <label class="pdpl__label" for="consent">I agree to receive my Confidence Mapping and related updates from Tara Rose by email. <span>(required)</span></label>
-            </div>
-            <div class="pdpl__group">
-              <input type="checkbox" class="pdpl__checkbox" id="consentwa" name="consent_whatsapp">
-              <label class="pdpl__label" for="consentwa">I agree to receive updates from Tara Rose by WhatsApp. <span>(optional)</span></label>
-            </div>
-            <p class="pdpl__note"><strong>How we handle your details.</strong> Tara Rose Salon Group is the data controller. We use your details to send your map, arrange your Confidence Mapping session, and send related updates. We keep them for 24 months from your last interaction, then delete. Your details may be processed by our marketing tools outside the UAE. You can ask us to access, correct or delete your data at any time. See our <a href="/tara-rose-pages/legal/privacy">Privacy Policy</a>.</p>
-          </div>
-          <div class="submit-row"><button type="submit" class="pill pill--accent">Send me my map <span class="arr">&rsaquo;</span></button></div>
-          <p class="rnote">Free, before the chair, no obligation. Held by the Confidence Promise.</p>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
 <!-- ============ NOT A CONSULTATION ============ -->
 <section>
@@ -2465,7 +2559,7 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
 </footer>
 
 <script>
-/* TEMPLATE: swap __FORM_ENDPOINT__ for your CRM/GHL inbound webhook URL. Inert until set. Contact-LAST per spec. */
+/* TEMPLATE: swap __FORM_ENDPOINT__ for your CRM/GHL inbound webhook URL. Inert until set. Value-first: free map on screen, email unlocks the full Journal. */
 (function(){
   var nav=document.getElementById('nav');
   var _os=function(){ if(window.scrollY>8){ nav.classList.add('scrolled'); } else { nav.classList.remove('scrolled'); } };
@@ -2475,89 +2569,103 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
 
   var form=document.getElementById('cmForm'), steps=[].slice.call(form.querySelectorAll('.qstep'));
   var fill=document.getElementById('fill'), pct=document.getElementById('pct'), stepLabel=document.getElementById('stepLabel');
-  var labels=['Listen','Look']; var i=0;
-  function render(){ steps.forEach(function(s,k){ s.classList.toggle('active',k===i); }); var p=(i===0)?33:66; fill.style.width=p+'%'; pct.textContent=p+'%'; stepLabel.textContent='Stage '+(i+1)+' of 3 · '+labels[i]; var b=steps[i].querySelector('[data-back]'); if(b) b.hidden=(i===0); }
+  var labels=['Listen','Look','Live']; var i=0;
+  function render(){ steps.forEach(function(s,k){ s.classList.toggle('active',k===i); }); var p=[25,50,75][i]||100; fill.style.width=p+'%'; pct.textContent=p+'%'; stepLabel.textContent='Stage '+(i+1)+' of 4 · '+labels[i]; }
+  var REQUIRED={1:['confidence'],2:['pain','base','condition'],3:[]};
   function stageValid(){
-    var s=steps[i];
-    // every radio group + at least one checkbox per checkbox group
-    var groups={};
-    s.querySelectorAll('input[name]').forEach(function(el){ (groups[el.name]=groups[el.name]||[]).push(el); });
-    for(var name in groups){ var els=groups[name]; var type=els[0].type; var ok=els.some(function(e){return e.checked;}); if(!ok){ els[0].scrollIntoView({behavior:'smooth',block:'center'}); return false; } }
-    return true;
+    var need=REQUIRED[i+1]||[], s=steps[i], ok=true, first=null;
+    need.forEach(function(name){ var els=s.querySelectorAll('input[name="'+name+'"]'); var got=[].some.call(els,function(e){return e.checked;}); if(!got){ ok=false; if(!first) first=els[0]; } });
+    if(!ok && first){ first.scrollIntoView({behavior:'smooth',block:'center'}); }
+    return ok;
   }
   form.addEventListener('click',function(e){
     if(e.target.closest('[data-next]')){ if(!stageValid()) return; if(i<steps.length-1){ i++; render(); document.getElementById('quiz').scrollIntoView({behavior:'smooth'}); } }
-    if(e.target.closest('[data-back]')){ if(i>0){ i--; render(); } }
+    if(e.target.closest('[data-back]')){ if(i>0){ i--; render(); document.getElementById('quiz').scrollIntoView({behavior:'smooth'}); } }
   });
 
-  var ROUTES={
-    blonde:{ title:"Blonde route recommended", belief:"The environment moves your colour. Your plan holds it.",
-      steps:[["Colour","A blonde plan","Matched to your tone, cool, creamy, honey or golden, and built to hold."],["Care","Colour Longevity","A treatment prescribed to keep the tone true and the hair strong."],["Rhythm","Glossing on rhythm","Topped up before the warmth returns, so it never drifts."]] },
-    brunette:{ title:"Brunette route recommended", belief:"Same architecture, different prescription.",
-      steps:[["Colour","A brunette plan","Depth, dimension and gloss read to the hair you have."],["Care","Colour Longevity","A treatment to hold the shine and the richness."],["Rhythm","Gloss on rhythm","Kept reflecting light between visits, never flat."]] },
-    cut:{ title:"Haircut & Finish route recommended", belief:"A shape asks for a plan, not just a trim.",
-      steps:[["Haircut & Finish","Your shape, built","Shape, frame and finish for your face and texture."],["Finish","The blow-dry","The finish that shows the shape and holds it in the heat here."],["Rhythm","Reshape on rhythm","A quick reshape before the frame loosens, never a restyle."]] },
-    "not-sure":{ title:"Not sure yet, and that is fine", belief:"That was never yours to work out alone.",
-      steps:[["Diagnose","A full read","We read your hair in the chair, free, no obligation."],["Plan","Your Hair Plan","Colour, care and home care matched to your hair."],["Rhythm","Kept on rhythm","Held on track so it lasts, visit to visit."]] }
-  };
-
+  // ── the map: every problem → family, what helps, Full Loop stage, the lesson ──
   var PAINMAP={
-    'fade-fast':{problem:"Your colour will not hold",
-      why:"The water and heat here lift colour out faster than colour was ever built to hold. Not a personal failure.",
-      fix:"A gloss and a colour-safe routine that keep the tone true between visits.",
-      loop:"Protect", edu:"colour-why-colour-fades-faster-here", eduT:"Why colour fades faster here"},
-    'flat':{problem:"The light has gone out of it",
-      why:"As the tone flattens, the cuticle stops reflecting light, so it reads dull even when the colour is fine.",
-      fix:"Gloss and dimension, read to your hair, to put the light back in.",
-      loop:"Create", edu:"colour-why-brunette-goes-flat", eduT:"Why brunette goes flat"},
-    'shape-outgrown':{problem:"It was not cut to grow out",
-      why:"A cut loses its shape as it grows unless it was built for the way your hair grows.",
-      fix:"A Haircut and Finish shaped to your growth, with a reshape on rhythm before the frame loosens.",
-      loop:"Keep on Track", edu:"cut-why-your-cut-grows-out-awkwardly", eduT:"Why your cut grows out awkwardly"},
-    'dry':{problem:"It is losing moisture to the climate",
-      why:"The cuticle is raised and giving up moisture to the heat and water faster than it can hold it.",
-      fix:"A hydration treatment in the chair, and home care that keeps the moisture in.",
-      loop:"Create", edu:"treatments-why-frizz-keeps-coming-back", eduT:"Why frizz keeps coming back"},
-    'breakage':{problem:"The strength is breaking faster than it rebuilds",
-      why:"The internal bonds that hold hair together have been broken faster than they have had a chance to rebuild.",
-      fix:"Bond repair to rebuild the strength, then home care that protects it.",
-      loop:"Create", edu:"treatments-why-nothing-you-tried-held", eduT:"Why nothing you tried held"},
-    'inconsistent':{problem:"Every visit starts from a different place",
-      why:"Without a detox and a plan, each visit begins from a different baseline, so the result cannot be repeated.",
-      fix:"A detox reset to level the ground, then a plan that builds the same result every time.",
-      loop:"the full Loop", edu:"treatments-why-treatments-are-not-extras", eduT:"Why treatments are not extras"}
+    'dry':{p:"It is losing moisture to the climate",why:"The cuticle is raised and giving up moisture to the heat and water faster than it can hold it.",fix:"A hydration treatment in the chair, and home care that keeps the moisture in.",loop:"Create",edu:"treatments-why-frizz-keeps-coming-back",eduT:"Why frizz keeps coming back"},
+    'breakage':{p:"The strength is breaking faster than it rebuilds",why:"The internal bonds that hold hair together have been broken faster than they have had a chance to rebuild.",fix:"Bond repair to rebuild the strength, then home care that protects it.",loop:"Create",edu:"treatments-why-nothing-you-tried-held",eduT:"Why nothing you tried held"},
+    'scalp':{p:"The scalp needs looking after first",why:"Scalp is the soil. When it is irritated, oily or flaky, the hair growing from it cannot be at its best.",fix:"A scalp reset and the right ongoing care, before anything else.",loop:"Create",edu:"treatments-why-treatments-are-not-extras",eduT:"Why treatments are not extras"},
+    'curls':{p:"Your curl or texture is not being worked with",why:"Curl and texture need moisture and a cut that reads them, or they read as frizz instead of shape.",fix:"A hydration treatment and a cut shaped to your texture.",loop:"Create",edu:"treatments-why-frizz-keeps-coming-back",eduT:"Why frizz keeps coming back"},
+    'buildup':{p:"It is coated and needs a reset",why:"Product, minerals and hard water build up and coat the hair, so it feels heavy and nothing else absorbs.",fix:"A detox to clear the ground, so colour and treatments actually take.",loop:"Create",edu:"treatments-why-treatments-are-not-extras",eduT:"Why treatments are not extras"},
+    'want-smooth':{p:"You want it smoother, with less effort",why:"Frizz and styling time come from a raised cuticle fighting the climate every morning.",fix:"A smoothing or keratin treatment to calm it, matched to your hair, never one-size.",loop:"Create",edu:"treatments-why-frizz-keeps-coming-back",eduT:"Why frizz keeps coming back"},
+    'brassy':{p:"Your blonde is turning warm",why:"The water and light here pull warmth back into blonde between visits. It is chemistry, not you.",fix:"A toner and a gloss on rhythm, with blonde-safe home care to hold the tone.",loop:"Protect",edu:"colour-why-blonde-goes-warm",eduT:"Why your blonde goes warm"},
+    'flat':{p:"The light has gone out of it",why:"As the tone flattens, the cuticle stops reflecting light, so it reads dull even when the colour is fine.",fix:"Gloss and dimension, read to your hair, to put the light back in.",loop:"Create",edu:"colour-why-brunette-goes-flat",eduT:"Why brunette goes flat"},
+    'fade-fast':{p:"Your colour will not hold",why:"The water and heat here lift colour out faster than colour was ever built to hold. Not a personal failure.",fix:"A gloss and a colour-safe routine that keep the tone true between visits.",loop:"Protect",edu:"colour-why-colour-fades-faster-here",eduT:"Why colour fades faster here"},
+    'colour-fix':{p:"A colour you want to put right",why:"A colour that went wrong is not the end of the road. It is a correction, planned carefully, not rushed.",fix:"A colour correction, read in the chair first, then built over the visits it safely takes.",loop:"Create",edu:"colour-why-colour-fades-faster-here",eduT:"Why colour behaves the way it does here"},
+    'shape-outgrown':{p:"It was not cut to grow out",why:"A cut loses its shape as it grows unless it was built for the way your hair grows.",fix:"A Haircut and Finish shaped to your growth, with a reshape on rhythm before the frame loosens.",loop:"Keep on Track",edu:"cut-why-your-cut-grows-out-awkwardly",eduT:"Why your cut grows out awkwardly"},
+    'no-hold':{p:"A trim that never held its shape",why:"A trim takes length off. A cut builds shape. Without the shape, it falls out of place within weeks.",fix:"A Haircut and Finish that builds the shape in, so it holds far longer.",loop:"Create",edu:"cut-why-just-a-trim-never-holds",eduT:"Why just a trim never holds"},
+    'want-length':{p:"You want more length or thickness",why:"Length and fullness can be added, but only onto hair that is strong enough to carry it.",fix:"Extensions matched to your hair, once the condition underneath is ready.",loop:"Create",edu:"treatments-why-treatments-are-not-extras",eduT:"Why the condition comes first"}
   };
-  var LOOPNOTE={Create:"Create",Protect:"Protect","Keep on Track":"Keep on Track","the full Loop":"The full Loop"};
+  var LOOPTAG={Create:"Create",Protect:"Protect","Keep on Track":"Keep on Track","the full Loop":"The full Loop"};
+
+  var ROUTES={
+    blonde:{title:"Blonde route recommended",belief:"The environment moves your colour. Your plan holds it.",steps:[["Colour","A blonde plan","Matched to your tone and built to hold, warm managed out on rhythm."],["Care","Colour Longevity","A treatment to keep the tone true and the hair strong."],["Rhythm","Glossing on rhythm","Topped up before the warmth returns, so it never drifts."]]},
+    brunette:{title:"Brunette route recommended",belief:"Same architecture, different prescription.",steps:[["Colour","A brunette plan","Depth, dimension and gloss read to the hair you have."],["Care","Colour Longevity","A treatment to hold the shine and the richness."],["Rhythm","Gloss on rhythm","Kept reflecting light between visits, never flat."]]},
+    cut:{title:"Haircut and Finish route recommended",belief:"A shape asks for a plan, not just a trim.",steps:[["Cut","Your shape, built","Shape, frame and finish for your face and texture."],["Finish","The blow-dry","The finish that shows the shape and holds it in the heat here."],["Rhythm","Reshape on rhythm","A quick reshape before the frame loosens, never a restyle."]]},
+    restore:{title:"A restore plan first",belief:"Healthy hair holds everything else.",steps:[["Reset","Detox and scalp","We clear the ground so everything after it works."],["Repair","Strength and moisture","The condition rebuilt in the chair, matched to your hair."],["Protect","Home care","Matched to your hair, to hold the work between visits."]]},
+    "not-sure":{title:"Not sure yet, and that is fine",belief:"That was never yours to work out alone.",steps:[["Diagnose","A full read","We read your hair in the chair, free, no obligation."],["Plan","Your Hair Plan","Colour, care and home care matched to your hair."],["Rhythm","Kept on rhythm","Held on track so it lasts, visit to visit."]]}
+  };
+  function val(n){ var el=form.querySelector('input[name="'+n+'"]:checked'); return el?el.value:''; }
+  function pains(){ return [].slice.call(form.querySelectorAll('input[name="pain"]:checked')).map(function(e){return e.value;}); }
+  function computeRoute(){
+    var P=pains(), base=val('base');
+    if(P.indexOf('colour-fix')>-1) return base==='brunette'?'brunette':'blonde';
+    if(P.indexOf('brassy')>-1 || (P.indexOf('fade-fast')>-1 && base==='blonde')) return 'blonde';
+    if(P.indexOf('flat')>-1 || (P.indexOf('fade-fast')>-1 && base==='brunette')) return 'brunette';
+    if(P.indexOf('shape-outgrown')>-1 || P.indexOf('no-hold')>-1) return 'cut';
+    var cond=['dry','breakage','scalp','curls','buildup','want-smooth'];
+    if(P.length && P.every(function(x){return cond.indexOf(x)>-1;})) return 'restore';
+    return 'not-sure';
+  }
+  function note(html){ return '<p class="mm-note">'+html+'</p>'; }
+  function noteLink(txt,slug){ return '<p class="mm-note">'+txt+' <a class="mm-note-read" href="/tara-rose-pages/education/'+slug+'">Read more &rarr;</a></p>'; }
+
   function renderMini(){
     var map=document.getElementById('r-map'); if(!map) return;
-    var pains=[].slice.call(form.querySelectorAll('input[name="pain"]:checked')).map(function(e){return e.value;});
-    var cond=(form.querySelector('input[name="condition"]:checked')||{}).value||'';
-    var freq=(form.querySelector('input[name="frequency"]:checked')||{}).value||'';
-    var html='';
-    if(pains.length){
+    var P=pains(), html='';
+    if(P.length){
       html+='<div class="mm-head"><span class="rk">What you told us, and what it means</span></div>';
-      pains.forEach(function(p){ var m=PAINMAP[p]; if(!m) return;
-        html+='<div class="mm-card"><div class="mm-top"><h4>'+m.problem+'</h4><span class="mm-loop">'+LOOPNOTE[m.loop]+'</span></div>'
+      P.forEach(function(k){ var m=PAINMAP[k]; if(!m) return;
+        html+='<div class="mm-card"><div class="mm-top"><h4>'+m.p+'</h4><span class="mm-loop">'+LOOPTAG[m.loop]+'</span></div>'
           +'<p class="mm-why">'+m.why+'</p>'
           +'<p class="mm-fix"><span>What helps</span> '+m.fix+'</p>'
           +'<a class="mm-read" href="/tara-rose-pages/education/'+m.edu+'">Read: '+m.eduT+' &rarr;</a></div>';
       });
     }
-    var note='';
-    if(cond==='1'||cond==='2'){ note="Your hair is asking to be rebuilt first, so your plan starts with strength and then protects it."; }
-    else if(pains.indexOf('fade-fast')>-1 || freq==='constant' || freq==='weekly'){ note="Your plan leans on Protect, holding the result at home so it does not drift between visits."; }
-    if(note){ html+='<p class="mm-note">'+note+'</p>'; }
-    map.innerHTML=html;
+    // the whole-woman + life notes
+    var notes='', cond=val('condition'), chg=val('change'), well=val('wellbeing'),
+        hc=val('homecare'), det=val('detox'), hk=val('hennakeratin'), occ=val('occasion');
+    if(chg==='shedding'||chg==='weaker'||chg==='texture'||well==='low'||well==='exhausted'){
+      notes+=noteLink("What shows up on the hair almost always started on the inside. When energy, sleep or stress shift, hair is often the first place it shows, so we look after the whole picture, not just the strand.","whole-woman-why-we-look-after-more-than-the-hair");
+    }
+    if(hk==='henna'||hk==='both'){
+      notes+=note("Because your hair has had henna, any colour is planned carefully with a strand test first. It is not a no, it just changes the order we work in.");
+    }
+    if(det==='rarely'||det==='never'){
+      notes+=noteLink("Scalp is the soil. A reset clears the build-up so colour and treatments actually take, this is usually where your plan begins.","treatments-why-treatments-are-not-extras");
+    }
+    if(hc==='supermarket'||hc==='not-sure'||hc==='minimal'){
+      notes+=noteLink("What you use at home decides whether the result lasts. The right home care is insurance on the work, not an extra.","home-care-why-the-products-you-bought-did-nothing");
+    }
+    if(cond==='1'||cond==='2'){
+      notes+=note("Your hair is asking to be rebuilt first, so your plan starts with strength and then protects it.");
+    }
+    var occT={wedding:"your wedding or event",holiday:"your holiday",photos:"your photos"};
+    if(occT[occ]){
+      notes+=note("And we will time your plan around "+occT[occ]+", so you are at your very best for it.");
+    }
+    map.innerHTML=html+(notes?'<div class="mm-notes">'+notes+'</div>':'');
+    // the confidence-led opening line
+    var conf=val('confidence'), open=document.getElementById('r-open');
+    if(open){
+      if(conf==='recent'){ open.textContent="You felt good about your hair recently. This is how you keep it there, not just for one visit."; }
+      else if(conf){ open.textContent="You said it has been a while since your hair felt right. This is the map back, one honest step at a time."; }
+    }
   }
 
-  function computeRoute(){
-    var pains=[].slice.call(form.querySelectorAll('input[name="pain"]:checked')).map(function(e){return e.value;});
-    var base=(form.querySelector('input[name="base"]:checked')||{}).value||'';
-    if(pains.indexOf('fade-fast')>-1 && base==='blonde') return 'blonde';
-    if(pains.indexOf('flat')>-1 && base==='brunette') return 'brunette';
-    if(pains.indexOf('shape-outgrown')>-1) return 'cut';
-    return 'not-sure';
-  }
   form.addEventListener('submit',function(e){
     e.preventDefault();
     if(!stageValid()) return;
@@ -2568,20 +2676,21 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
     r.steps.forEach(function(s){ var d=document.createElement('div'); d.className='nstep'; d.innerHTML='<span class="nk">'+s[0]+'</span><h4>'+s[1]+'</h4><p>'+s[2]+'</p>'; wrap.appendChild(d); });
     document.getElementById('r-title').setAttribute('data-route',key);
     renderMini();
-    form.style.display='none';
+    steps.forEach(function(s){ s.classList.remove('active'); });
+    fill.style.width='100%'; pct.textContent='100%'; stepLabel.textContent='Stage 4 of 4 · Map';
     document.getElementById('result').classList.add('show');
     document.getElementById('quiz').scrollIntoView({behavior:'smooth'});
   });
 
-  // capture (contact-LAST)
+  // the full Journal — email unlocks it
   var cap=document.getElementById('capForm');
   cap.addEventListener('submit',function(e){
     e.preventDefault();
     var req=cap.querySelectorAll('[required]');
     for(var k=0;k<req.length;k++){ var el=req[k]; if((el.type==='checkbox'&&!el.checked)||(el.type!=='checkbox'&&!String(el.value).trim())){ el.focus(); return; } }
-    var data={ source:"confidence-mapping", experience:"mapping", stage:"capture", route:document.getElementById('r-title').getAttribute('data-route')||'not-sure' };
-    ['pain','history'].forEach(function(n){ data[n]=[].slice.call(form.querySelectorAll('input[name="'+n+'"]:checked')).map(function(e){return e.value;}); });
-    ['frequency','base','status','condition'].forEach(function(n){ var el=form.querySelector('input[name="'+n+'"]:checked'); data[n]=el?el.value:''; });
+    var data={ source:"confidence-mapping", experience:"mapping", stage:"journal", route:document.getElementById('r-title').getAttribute('data-route')||'not-sure' };
+    data.pain=pains();
+    ['confidence','history_bad','change','base','status','hennakeratin','condition','routine','homecare','detox','occasion','wellbeing'].forEach(function(n){ data[n]=val(n); });
     data.firstName=document.getElementById('fname').value.trim();
     data.whatsapp=document.getElementById('cc').value+' '+document.getElementById('wa').value.trim();
     data.email=document.getElementById('email').value.trim();
