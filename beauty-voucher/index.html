@@ -2037,6 +2037,30 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
   .navrow:has(> .nav-links) > .nav__cta{ order:3; justify-self:end }
 }
 
+/* ── ONE LOGO POSITION: LEFT, EVERYWHERE ON TABLET + DESKTOP ─────────────────
+   The wordmark was jumping between centre and left from page to page — centred on the
+   funnel pages and the tablet menu nav, left on everything else. A logo that moves as
+   you browse reads as three different sites. Pin it LEFT on every ≥768 layout. (Phone
+   keeps the burger-nav's own arrangement; the bug Tara flagged is tablet + desktop.) */
+
+/* Funnel nav (Founding · Voucher): was brand-CENTRED on desktop, brand-left on phone —
+   inconsistent even within one page. Flex it brand-left, Main Website + Reserve right. */
+@media (min-width:561px){
+  .navrow:has(> .nav__cta):has(> .nav-link){ display:flex; align-items:center; gap:24px }
+  .navrow:has(> .nav__cta):has(> .nav-link) > .brand{ order:1; margin-right:auto; justify-self:start }
+  .navrow:has(> .nav__cta):has(> .nav-link) > .nav-link{ order:2 }
+  .navrow:has(> .nav__cta):has(> .nav-link) > .nav__cta{ order:3 }
+}
+
+/* Site menu nav on TABLET (768–1024): was burger-left + wordmark-CENTRED. Standard
+   premium pattern is wordmark-left, burger-right — and it matches the desktop layout. */
+@media (min-width:768px) and (max-width:1024px){
+  .navrow:has(> .nav__zone-l){ grid-template-columns:auto 1fr; column-gap:16px }
+  .navrow:has(> .nav__zone-l) > .brand{ order:1; justify-self:start; padding-inline:0 }
+  .navrow:has(> .nav__zone-l) > .nav__zone-l{ order:2; justify-self:end }
+  .navrow:has(> .nav__zone-l) > .nav__zone-r{ display:none }
+}
+
 </style>
 <meta name="geo.region" content="AE">
 <meta name="geo.placename" content="Dubai, Abu Dhabi">
