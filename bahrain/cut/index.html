@@ -2114,6 +2114,13 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
   .navrow:has(> .nav__cta):has(> .nav-link) > .nav__cta{ font-size:10px; padding-inline:13px; letter-spacing:.06em }
 }
 
+/* ── DAISY'S PORTRAIT MUST NOT CLIP HER HEAD ─────────────────────────────────
+   The photo is a tall portrait (1200×1800) and the desktop frame was 5/4 landscape
+   with object-position 50% 20% — cropping ~73px straight off the crown. A 4/5 frame
+   matches the source and a 15% top-bias keeps her whole head with air above it.
+   Injected last, so it overrides the page's inline crop. */
+.owner--stacked .ph-frame--tall .ph{ aspect-ratio:4 / 5; object-position:50% 15% }
+
 </style>
 <meta name="geo.region" content="BH">
 <meta name="geo.placename" content="Manama">
