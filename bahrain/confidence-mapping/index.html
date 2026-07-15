@@ -2526,14 +2526,6 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
               <div class="opt"><input type="radio" id="su4" name="supplements" value="unsure"><label for="su4"><span class="tk"></span>I would not know what to take</label></div>
             </div>
           </div>
-          <div class="qgroup">
-            <span class="qlabel">When did you last have blood work done?</span>
-            <div class="opts">
-              <div class="opt"><input type="radio" id="bw1" name="bloodwork" value="recent"><label for="bw1"><span class="tk"></span>In the last year</label></div>
-              <div class="opt"><input type="radio" id="bw2" name="bloodwork" value="over-year"><label for="bw2"><span class="tk"></span>Over a year ago</label></div>
-              <div class="opt"><input type="radio" id="bw3" name="bloodwork" value="long"><label for="bw3"><span class="tk"></span>Longer than that</label></div>
-              <div class="opt"><input type="radio" id="bw4" name="bloodwork" value="never"><label for="bw4"><span class="tk"></span>Never, or I cannot remember</label></div>
-            </div>
           </div>
           <div class="qbtns"><button type="button" class="ghost-btn" data-back>&larr; Back</button><button type="submit" class="pill pill--accent">See my map <span class="arr">&rarr;</span></button></div>
         </div>
@@ -2567,7 +2559,7 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
             </div>
           </div>
 
-          <p class="map-disclaimer">This map is a starting point, not a diagnosis. Your colour and condition are always confirmed in the chair, in person. We are not doctors, so any testing is one for your GP, but the inside matters to us just as much, and we will always encourage you to look after it.</p>
+          <p class="map-disclaimer">This map is a starting point, not a diagnosis. Your colour and condition are always confirmed in the chair, in person. The inside matters to us just as much as the outside, and we will always gently encourage you to look after it.</p>
 
           <div class="capture">
             <div class="chead">
@@ -2762,7 +2754,7 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
     var box=document.getElementById('r-pillars'); if(!box) return;
     var P=pains(), status=val('status'), cond=val('condition'), det=val('detox'),
         hc=val('homecare'), routine=val('routine'), well=val('wellbeing'), chg=val('change'),
-        conf=val('confidence'), bw=val('bloodwork');
+        conf=val('confidence');
     var coloured=(status==='coloured'||status==='highlights');
     function pillar(name,sub,line){ return '<div class="mp"><div class="mp-h"><span class="mp-n">'+name+'</span><span class="mp-s">'+sub+'</span></div><p>'+line+'</p></div>'; }
 
@@ -2796,7 +2788,6 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
     // 5 · WELLBEING (the inside + how she feels)
     var wb=[];
     if(chg==='shedding'||chg==='weaker'||well==='low'||well==='exhausted') wb.push('stress and sleep are showing in it');
-    if((chg==='shedding'||chg==='weaker')&&(bw==='over-year'||bw==='long'||bw==='never')) wb.push('a simple blood test is worth doing');
     var wbLine = wb.length ? ucfirst(wb.join(', and ')) + '.' : 'The inside looks steady, which shows on the outside.';
     if(conf==='recent') wbLine += ' You felt good recently, this keeps you there.';
     else if(conf) wbLine += ' It has been a while since it felt right, and this is the way back.';
@@ -2909,15 +2900,15 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
     // the whole-woman + life notes
     var notes='', cond=val('condition'), chg=val('change'), well=val('wellbeing'),
         hc=val('homecare'), det=val('detox'), hk=val('hennakeratin'), occ=val('occasion');
-    var sup=val('supplements'), bw=val('bloodwork'), shed=(chg==='shedding'||chg==='weaker');
+    var sup=val('supplements'), shed=(chg==='shedding'||chg==='weaker');
     if(chg==='shedding'||chg==='weaker'||chg==='texture'||well==='low'||well==='exhausted'){
       notes+=noteLink("What shows up on the hair almost always started on the inside. When stress rises, sleep is short or things shift hormonally, hair is often the first place it shows, so we look after the whole picture, not just the strand.","whole-woman-why-we-look-after-more-than-the-hair");
     }
-    if(shed || well==='low'||well==='exhausted'||bw==='over-year'||bw==='long'||bw==='never'){
-      notes+=note("When hair sheds or thins, or stress is high and sleep is short, we always suggest having your blood work checked with your GP for deficiencies. Iron, thyroid and vitamin D are the common ones. We cannot test or diagnose, but the inside is worth checking, and it often matters just as much as anything we do on the outside.");
+    if(shed || well==='low'||well==='exhausted'){
+      notes+=note("When hair sheds or thins, or stress is high and sleep is short, the inside is often asking for care first. Rest, nutrition and looking after yourself show up in the hair, and it matters just as much as anything we do on the outside.");
     }
     if(shed || sup==='no'||sup==='unsure'){
-      notes+=note("Beyond a blood test, regular supplements and looking after your gut health can support your hair from within. Once you know what your body is short of, we will point you gently in the right direction, never sell you a shelf of pills.");
+      notes+=note("Regular supplements and looking after your gut health can support your hair from within. We will point you gently in the right direction, never sell you a shelf of pills.");
     }
     if(hk==='henna'||hk==='both'){
       notes+=note("Because your hair has had henna, any colour is planned carefully with a strand test first. It is not a no, it just changes the order we work in.");
@@ -2971,7 +2962,7 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
     for(var k=0;k<req.length;k++){ var el=req[k]; if((el.type==='checkbox'&&!el.checked)||(el.type!=='checkbox'&&!String(el.value).trim())){ el.focus(); return; } }
     var data={ source:"confidence-mapping", experience:"mapping", stage:"journal", route:document.getElementById('r-title').getAttribute('data-route')||'not-sure' };
     data.pain=pains();
-    ['confidence','history_bad','goal','change','base','status','hennakeratin','condition','routine','homecare','detox','occasion','wellbeing','supplements','bloodwork'].forEach(function(n){ data[n]=val(n); });
+    ['confidence','history_bad','goal','change','base','status','hennakeratin','condition','routine','homecare','detox','occasion','wellbeing','supplements'].forEach(function(n){ data[n]=val(n); });
     data.firstName=document.getElementById('fname').value.trim();
     data.whatsapp=document.getElementById('cc').value+' '+document.getElementById('wa').value.trim();
     data.email=document.getElementById('email').value.trim();
