@@ -2276,6 +2276,12 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
   font-size:17px; line-height:1.45; color:var(--ink); text-align:center }
 .goal-band:empty{ display:none }
 
+/* ── QUIZ: consultation-required note (transformations, keratin, henna, extensions) ── */
+.consult-req{ margin:12px 0 0; padding:16px 18px; background:var(--ink-deep); color:#F3F1EB;
+  border-radius:12px; font-size:14.5px; line-height:1.55 }
+.consult-req span{ display:block; font-family:var(--ff-body); font-weight:600; font-size:11px;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--accent-deep, var(--accent)); margin:0 0 6px }
+
 </style>
 <meta name="geo.region" content="BH">
 <meta name="geo.placename" content="Manama">
@@ -2846,7 +2852,7 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
   // ── MAINTENANCE vs TRANSFORMATION intent, incl. the haircut ──
   function renderGoal(routeKey){
     var box=document.getElementById('r-goal'); if(!box) return;
-    var goal=val('goal'), GB={
+    var goal=val('goal'), P=pains(), GB={
       maintain:"This is a maintenance plan, keeping what you have at its best and holding it on rhythm.",
       refresh:"This is a refresh, a gentle lift from where you are now.",
       transform:"This is a transformation, a real change, built safely over the visits it honestly takes.",
@@ -2858,7 +2864,13 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
       else if(goal==='maintain') line="For your cut, this is keeping the shape sharp, a reshape on rhythm before it loosens.";
       else if(!line) line="For your cut, we shape it to your face and how your hair grows, then keep it on rhythm.";
     }
-    box.innerHTML = line ? '<p class="goal-line">'+line+'</p>' : '';
+    // Never booked blind: a transformation, a correction, extensions, keratin/smoothing, or any hair
+    // that has had henna (it reacts with colour and lightener). Consultation first, always.
+    var hk=val('hennakeratin');
+    var needsConsult = (goal==='transform') || routeKey==='length' || P.indexOf('colour-fix')>-1
+      || P.indexOf('want-smooth')>-1 || hk==='henna' || hk==='both';
+    var consult = needsConsult ? '<p class="consult-req"><span>Consultation first, always</span> A change like this is never booked blind. It begins with a consultation so we can read your hair, check it is ready, and plan it properly before anything starts.</p>' : '';
+    box.innerHTML = (line ? '<p class="goal-line">'+line+'</p>' : '') + consult;
   }
 
   function note(html){ return '<p class="mm-note">'+html+'</p>'; }
