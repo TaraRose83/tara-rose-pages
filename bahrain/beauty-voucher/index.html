@@ -2361,6 +2361,11 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
 .cta-row{ justify-content:center; }
 [class*="hero"] .cta-row, .navrow .cta-row, .trs-nav .cta-row, header .cta-row{ justify-content:flex-start; }
 
+/* Full Loop ring: the top node's label was overlapping node 1 — give it clearance (Tara 16 Jul) */
+.loopring{ margin-top:66px; }
+.lr-lab.n1{ transform:translateX(-50%) translateY(-48px); }
+@media(max-width:560px){ .loopring{ margin-top:58px; } .lr-lab.n1{ transform:translateX(-50%) translateY(-42px); } }
+
 </style>
 <meta name="geo.region" content="BH">
 <meta name="geo.placename" content="Manama">
