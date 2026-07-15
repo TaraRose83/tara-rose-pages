@@ -2956,13 +2956,13 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
     if((cond==='1'||cond==='2') && hair.indexOf('strength to rebuild')<0) hair.push('condition that is fragile right now');
     var hairLine = hair.length ? ucfirst(hair.slice(0,2).join(', and ')) + '.' : 'In good shape, and worth keeping there.';
 
-    // 2 · SCALP (the foundation — scalp-first doctrine)
+    // 2 · SCALP (the foundation, scalp-first doctrine)
     var scalpLine;
     if(P.indexOf('scalp')>-1) scalpLine='Needs looking after first. It is the soil everything grows from.';
     else if(det==='rarely'||det==='never'||P.indexOf('buildup')>-1) scalpLine='Due a reset, so colour and treatments can actually take.';
     else scalpLine='A healthy base to build on.';
 
-    // 3 · ENVIRONMENT (the Gulf — always relevant; validated by the science)
+    // 3 · ENVIRONMENT (the Gulf, always relevant; validated by the science)
     var envLine;
     if(coloured) envLine='Hard water, heat and sun here move your colour faster than it can hold. Chemistry, not you.';
     else envLine='The hard water and heat here work on every head of hair, yours included. We plan around it.';
@@ -3158,7 +3158,7 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
     var rt=document.getElementById('r-turn'); if(rt){ rt.setAttribute('tabindex','-1'); rt.focus({preventScroll:true}); }
   });
 
-  // the full Journal — email unlocks it
+  // the full Journal, email unlocks it
   var cap=document.getElementById('capForm');
   cap.addEventListener('submit',function(e){
     e.preventDefault();
