@@ -2562,7 +2562,7 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
             </div>
           </div>
 
-          <p class="map-disclaimer">This map is a starting point, not a diagnosis. Your colour and condition are always confirmed in the chair, in person, and anything to do with your health is one for your GP, not for us. We look after your hair.</p>
+          <p class="map-disclaimer">This map is a starting point, not a diagnosis. Your colour and condition are always confirmed in the chair, in person. We are not doctors, so any testing is one for your GP, but the inside matters to us just as much, and we will always encourage you to look after it.</p>
 
           <div class="capture">
             <div class="chead">
@@ -2908,11 +2908,11 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
     if(chg==='shedding'||chg==='weaker'||chg==='texture'||well==='low'||well==='exhausted'){
       notes+=noteLink("What shows up on the hair almost always started on the inside. When stress rises, sleep is short or things shift hormonally, hair is often the first place it shows, so we look after the whole picture, not just the strand.","whole-woman-why-we-look-after-more-than-the-hair");
     }
-    if(shed && (well==='low'||well==='exhausted'||bw==='over-year'||bw==='long'||bw==='never')){
-      notes+=note("When hair sheds or thins and stress is high or sleep is short, the body is often asking for something first. Iron, thyroid and hormones are the usual ones, and a simple blood test with your GP is worth doing before we change anything on the outside. This is the inside piece, and it matters just as much.");
+    if(shed || well==='low'||well==='exhausted'||bw==='over-year'||bw==='long'||bw==='never'){
+      notes+=note("When hair sheds or thins, or stress is high and sleep is short, we always suggest having your blood work checked with your GP for deficiencies. Iron, thyroid and vitamin D are the common ones. We cannot test or diagnose, but the inside is worth checking, and it often matters just as much as anything we do on the outside.");
     }
-    if(shed && (sup==='no'||sup==='unsure')){
-      notes+=note("The right supplements can support your hair from within, once a blood test shows what your body is actually short of. We will point you in the right direction, gently, never sell you a shelf of pills.");
+    if(shed || sup==='no'||sup==='unsure'){
+      notes+=note("Beyond a blood test, regular supplements and looking after your gut health can support your hair from within. Once you know what your body is short of, we will point you gently in the right direction, never sell you a shelf of pills.");
     }
     if(hk==='henna'||hk==='both'){
       notes+=note("Because your hair has had henna, any colour is planned carefully with a strand test first. It is not a no, it just changes the order we work in.");
