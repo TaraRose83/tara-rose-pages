@@ -2020,7 +2020,13 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
   .navrow:has(> .nav__cta):has(> .nav-link){ grid-template-columns:1fr auto; column-gap:12px }
   .navrow:has(> .nav__cta):has(> .nav-link) > .nav-link{ display:none }
   .navrow:has(> .nav__cta):has(> .nav-link) > .brand{ justify-self:start }
-  .navrow:has(> .nav__cta):has(> .nav-link) > .nav__cta{ justify-self:end; padding-inline:15px }
+  .navrow:has(> .nav__cta):has(> .nav-link) > .nav__cta{ justify-self:end }
+  /* Even in two columns, the wide-letterspaced wordmark (148px) + a nowrap pill
+     ("Reserve Your Voucher", 220px) overrun 390px. Tighten both so the row fits any
+     phone with room — the wordmark keeps its character at 16px, the pill stays one
+     tappable line. */
+  .navrow:has(> .nav__cta):has(> .nav-link) > .brand .brand__wm{ font-size:16px; letter-spacing:.2em }
+  .navrow:has(> .nav__cta):has(> .nav-link) > .nav__cta{ font-size:10px; padding-inline:13px; letter-spacing:.06em }
 }
 
 </style>
