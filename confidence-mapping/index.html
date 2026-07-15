@@ -2336,6 +2336,21 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
 .r-read a{ font-family:var(--ff-body); font-weight:500; font-size:13.5px; color:var(--accent-text);
   text-decoration:none; border-bottom:1px solid var(--accent) }
 
+/* ── TRUST STRIP: one clean check per chip (the .tk badge collided into a mess) ── */
+.safety .wrap{ gap:0 }
+.safety .snet, .safety .chip{ gap:10px !important; color:var(--ink) !important }
+.safety .snet .tk, .safety .chip .tk{
+  width:16px; height:16px; min-width:16px; border-radius:50%;
+  background:var(--accent) !important; background-image:none !important; box-shadow:none !important;
+  position:relative; flex:none;
+}
+.safety .snet .tk::after, .safety .chip .tk::after{
+  content:""; position:absolute; left:5.5px; top:3.6px; width:3px; height:6.5px;
+  border:solid var(--ink) !important; border-width:0 1.7px 1.7px 0 !important;
+  transform:rotate(45deg); background:none !important;
+}
+.safety .snet .tk::before, .safety .chip .tk::before{ content:none !important }
+
 </style>
 <meta name="geo.region" content="AE">
 <meta name="geo.placename" content="Dubai, Abu Dhabi">
