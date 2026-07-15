@@ -2910,10 +2910,15 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
     // Never booked blind: a transformation, a correction, extensions, keratin/smoothing, or any hair
     // that has had henna (it reacts with colour and lightener). Consultation first, always.
     var hk=val('hennakeratin');
+    var hadHK = (hk==='henna'||hk==='keratin'||hk==='both');
+    var colourRoute = (routeKey==='blonde'||routeKey==='brunette'||routeKey==='colour'||routeKey==='gloss');
     var needsConsult = (goal==='transform') || routeKey==='length' || P.indexOf('colour-fix')>-1
-      || P.indexOf('want-smooth')>-1 || hk==='henna' || hk==='both';
-    var consult = needsConsult ? '<p class="consult-req"><span>Consultation first, always</span> A change like this is never booked blind. It begins with a consultation so we can read your hair, check it is ready, and plan it properly before anything starts.</p>' : '';
-    box.innerHTML = (line ? '<p class="goal-line">'+line+'</p>' : '') + consult;
+      || P.indexOf('want-smooth')>-1 || hadHK;
+    // Non-negotiable safety rule: never colour over henna or keratin without a strand test first.
+    var hkWord = (hk==='both') ? 'henna and keratin' : (hk==='keratin' ? 'a keratin or smoothing treatment' : 'henna');
+    var strand = (hadHK && colourRoute) ? '<p class="consult-req consult-req--strand"><span>A strand test comes first</span> Your hair has had '+hkWord+', and that reacts with colour and lightener. We never put colour near it without testing a small section first, so nothing is a surprise. It is not a no, it is how we keep your hair safe.</p>' : '';
+    var consult = (needsConsult && !strand) ? '<p class="consult-req"><span>Consultation first, always</span> A change like this is never booked blind. It begins with a consultation so we can read your hair, check it is ready, and plan it properly before anything starts.</p>' : (needsConsult && strand ? '<p class="consult-req"><span>Consultation first, always</span> Alongside the strand test, we read your hair in full and plan the change properly before anything starts.</p>' : '');
+    box.innerHTML = (line ? '<p class="goal-line">'+line+'</p>' : '') + strand + consult;
   }
 
   function renderResult(key){
@@ -2923,7 +2928,10 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
     var m=(natural&&NATURAL[primary])?NATURAL[primary]:(PAINMAP[primary]||null);
     document.getElementById('r-turn').textContent = m ? m.why : "Your hair has a plan waiting to be written, and that is exactly what your Confidence Map holds.";
     var START={blonde:'your Blonde plan',brunette:'your Brunette plan',cut:'your Haircut and Finish',gloss:'a gloss and refresh, no colour needed',restore:'a Restore plan first',length:'extensions, once the condition is ready',colour:'your colour plan','not-sure':'a full read in the chair'};
-    document.getElementById('r-start').innerHTML='Where you would begin: <strong>'+(START[key]||'a full read in the chair')+'</strong>';
+    var startTxt=START[key]||'a full read in the chair';
+    var _hk=val('hennakeratin'), _colour=(key==='blonde'||key==='brunette'||key==='colour'||key==='gloss');
+    if((_hk==='henna'||_hk==='keratin'||_hk==='both') && _colour){ startTxt='a strand test, then '+startTxt; }
+    document.getElementById('r-start').innerHTML='Where you would begin: <strong>'+startTxt+'</strong>';
     var _rd=document.getElementById('r-read');
     if(_rd){ if(m&&m.edu){ _rd.innerHTML='<a href="/tara-rose-pages/education/'+m.edu+'">Read why this happens &rarr;</a>'; _rd.hidden=false; } else { _rd.hidden=true; } }
   }
