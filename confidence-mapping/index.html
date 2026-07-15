@@ -2432,9 +2432,10 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
           </div>
           <div class="qbtns"><button type="button" class="ghost-btn" data-back>&larr; Back</button><button type="submit" class="pill pill--accent">See my map <span class="arr">&rarr;</span></button></div>
         </div>
+      </form>
 
-        <!-- Stage 4 · MAP (result) -->
-        <div class="result" id="result" aria-live="polite">
+      <!-- Stage 4 · MAP (result) — sibling of the quiz form, never nested -->
+      <div class="result" id="result" aria-live="polite">
           <div class="rhead">
             <span class="eyebrow">Stage 4 &middot; Map</span>
             <h2>Here is your <em>map</em>.</h2>
@@ -2478,7 +2479,6 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
             </form>
           </div>
         </div>
-      </form>
     </div>
   </section>
 
