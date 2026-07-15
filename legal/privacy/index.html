@@ -1928,6 +1928,27 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
 .map-disclaimer{ margin:26px 0 0; padding:0 4px; font-size:13px; line-height:1.55; color:var(--taupe-soft);
   text-align:center; max-width:56ch; margin-left:auto; margin-right:auto }
 
+/* ── FOUNDING: the payment-method choice (Gold/Platinum) + the link-sent next steps ── */
+.pay-method{ display:block }
+.pay-method[hidden]{ display:none }
+.pay-method .pay-q{ display:block; font-family:var(--ff-body); font-weight:600; font-size:13px;
+  letter-spacing:.02em; color:var(--ink); margin:0 0 10px }
+.pay-opt{ display:flex; align-items:flex-start; gap:12px; padding:14px 16px; margin:0 0 10px;
+  background:var(--surface); border:1px solid var(--hairline); border-radius:12px; cursor:pointer;
+  font-size:14.5px; line-height:1.5; color:var(--taupe) }
+.pay-opt:has(input:checked){ border-color:var(--accent); box-shadow:inset 0 0 0 1px var(--accent) }
+.pay-opt strong{ color:var(--ink); font-weight:600 }
+.pay-opt input{ position:absolute; opacity:0; width:0; height:0 }
+.pay-opt .cbx{ flex:none; width:20px; height:20px; margin-top:1px; border-radius:50%;
+  border:1.5px solid var(--hairline-strong, var(--hairline)); position:relative }
+.pay-opt input:checked + .cbx{ border-color:var(--accent-dark, var(--accent-text)) }
+.pay-opt input:checked + .cbx::after{ content:""; position:absolute; inset:4px; border-radius:50%;
+  background:var(--accent-dark, var(--accent-text)) }
+.pay-opt input:focus-visible + .cbx{ outline:2px solid var(--accent-text); outline-offset:2px }
+.next-steps{ margin:14px 0 0; padding:0 0 0 22px; display:grid; gap:9px }
+.next-steps li{ font-size:15.5px; line-height:1.55; color:var(--taupe) }
+.form-thanks .fine{ margin:16px 0 0; font-size:13.5px; line-height:1.55; color:var(--taupe-soft) }
+
 </style>
 <meta name="geo.region" content="AE">
 <meta name="geo.placename" content="Dubai, Abu Dhabi">

@@ -2401,6 +2401,27 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
 .map-disclaimer{ margin:26px 0 0; padding:0 4px; font-size:13px; line-height:1.55; color:var(--taupe-soft);
   text-align:center; max-width:56ch; margin-left:auto; margin-right:auto }
 
+/* ── FOUNDING: the payment-method choice (Gold/Platinum) + the link-sent next steps ── */
+.pay-method{ display:block }
+.pay-method[hidden]{ display:none }
+.pay-method .pay-q{ display:block; font-family:var(--ff-body); font-weight:600; font-size:13px;
+  letter-spacing:.02em; color:var(--ink); margin:0 0 10px }
+.pay-opt{ display:flex; align-items:flex-start; gap:12px; padding:14px 16px; margin:0 0 10px;
+  background:var(--surface); border:1px solid var(--hairline); border-radius:12px; cursor:pointer;
+  font-size:14.5px; line-height:1.5; color:var(--taupe) }
+.pay-opt:has(input:checked){ border-color:var(--accent); box-shadow:inset 0 0 0 1px var(--accent) }
+.pay-opt strong{ color:var(--ink); font-weight:600 }
+.pay-opt input{ position:absolute; opacity:0; width:0; height:0 }
+.pay-opt .cbx{ flex:none; width:20px; height:20px; margin-top:1px; border-radius:50%;
+  border:1.5px solid var(--hairline-strong, var(--hairline)); position:relative }
+.pay-opt input:checked + .cbx{ border-color:var(--accent-dark, var(--accent-text)) }
+.pay-opt input:checked + .cbx::after{ content:""; position:absolute; inset:4px; border-radius:50%;
+  background:var(--accent-dark, var(--accent-text)) }
+.pay-opt input:focus-visible + .cbx{ outline:2px solid var(--accent-text); outline-offset:2px }
+.next-steps{ margin:14px 0 0; padding:0 0 0 22px; display:grid; gap:9px }
+.next-steps li{ font-size:15.5px; line-height:1.55; color:var(--taupe) }
+.form-thanks .fine{ margin:16px 0 0; font-size:13.5px; line-height:1.55; color:var(--taupe-soft) }
+
 </style>
 <meta name="geo.region" content="BH">
 <meta name="geo.placename" content="Manama">
@@ -2788,7 +2809,12 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
           </select>
         </div>
 
-        <div class="pdpl">
+        <div class="field pay-method" id="payMethod" hidden>
+              <span class="pay-q">How would you like to pay?</span>
+              <label class="pay-opt"><input type="radio" name="pay" value="tap" checked><span class="cbx"></span><span><strong>One payment</strong>, in full, securely through Tap.</span></label>
+              <label class="pay-opt"><input type="radio" name="pay" value="flooss"><span class="cbx"></span><span><strong>Split it with FLOOSS</strong>, over interest-free instalments. Your founding value stays exactly the same.</span></label>
+            </div>
+            <div class="pdpl">
           <div class="pdpl__group">
             <input type="checkbox" class="pdpl__checkbox" id="c-service" name="consent_service" required>
             <label class="pdpl__label" for="c-service">Tara Rose may contact me to manage my founding place. <span>(required)</span></label>
@@ -2872,6 +2898,7 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
 (function(){
   var FORM_ENDPOINT="__FORM_ENDPOINT__";
   var f=document.querySelector('main form')||document.querySelector('form'); if(!f) return;
+  var _cs=document.getElementById('circle'),_pm=document.getElementById('payMethod');if(_cs&&_pm){_cs.addEventListener('change',function(){_pm.hidden=!(_cs.value==='gold'||_cs.value==='platinum');});}
   f.addEventListener('submit',function(e){
     e.preventDefault();
     var req=f.querySelectorAll('[required]');
@@ -2881,7 +2908,7 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
     if(data.cc && data.whatsapp){ data.whatsapp = data.cc + " " + data.whatsapp; delete data.cc; }
     if(FORM_ENDPOINT.indexOf("__FORM_ENDPOINT__")===-1){ try{ fetch(FORM_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)}); }catch(err){} }
     var t=document.createElement('div'); t.className='form-thanks';
-    t.innerHTML='<h3>Thank you. We have you.</h3><p>Our team will reply within one working day.</p>';
+    var _T={rose:['Rose Circle','100 BHD'],gold:['Gold Circle','250 BHD'],platinum:['Platinum Circle','500 BHD']};var _ti=_T[data.circle]||_T.rose;var _pl=(data.pay==='flooss')?('Your secure FLOOSS link is on its way to your WhatsApp and email, so you can split your '+_ti[1]+' into interest-free instalments.'):('Your secure Tap payment link is on its way to your WhatsApp and email, to complete your '+_ti[1]+' in one payment.');t.innerHTML='<h3>Thank you. Your '+_ti[0]+' place is held.</h3>'+'<p>Here is what happens next.</p>'+'<ol class="next-steps">'+'<li>We hold your place for 48 hours while you complete your payment.</li>'+'<li>'+_pl+'</li>'+'<li>The moment it is paid, your founding credit, your bonus and your founder\u2019s rate are set aside in your name, and you are one of the forty-five.</li>'+'</ol>'+'<p class="fine">Your credit and the full founding terms are confirmed in the payment link, readable before you pay. Any question first, just reply on WhatsApp.</p>';
     f.parentNode.replaceChild(t,f); t.scrollIntoView({behavior:'smooth'});
   });
 })();
