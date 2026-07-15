@@ -2057,6 +2057,22 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
    Injected last, so it overrides the page's inline crop. */
 .owner--stacked .ph-frame--tall .ph{ aspect-ratio:4 / 5; object-position:50% 15% }
 
+/* ── STRUCTURE-B NAV (Confidence Mapping · Contact) MUST NOT OVERLAP ──────────
+   These two page types use a different nav: a `1fr auto 1fr` grid with the six-link
+   menu in the LEFT column and the wordmark centred in the middle. The link run needs
+   ~670px; the 1fr column gives ~546 — so the links overran into the centre column and
+   printed straight over "TARA ROSE / BAHRAIN". Same bug as the site nav, different
+   markup, so the earlier `:has(> .nav__zone-l)` fix never reached it.
+
+   Bring it onto the same brand-LEFT layout as every other desktop nav: brand → links →
+   CTA, so the wordmark is consistent across the whole site and nothing overlaps. */
+@media (min-width:1025px){
+  .navrow:has(> .nav-links){ grid-template-columns:auto 1fr auto; column-gap:30px }
+  .navrow:has(> .nav-links) > .brand{ order:1; justify-self:start; padding-inline:0 }
+  .navrow:has(> .nav-links) > .nav-links{ order:2; justify-self:start }
+  .navrow:has(> .nav-links) > .nav__cta{ order:3; justify-self:end }
+}
+
 </style>
 <meta name="geo.region" content="BH">
 <meta name="geo.placename" content="Manama">
