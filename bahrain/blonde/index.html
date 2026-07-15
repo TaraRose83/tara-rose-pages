@@ -2500,6 +2500,11 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
 .trust .tick-i{ width:13px; height:13px; background:none !important; position:relative; display:inline-block; vertical-align:-2px; margin-right:4px; }
 .trust .tick-i::after{ content:""; position:absolute; left:3px; top:1px; width:4px; height:8px; border:solid var(--accent-deep); border-width:0 2px 2px 0; transform:rotate(45deg); }
 
+/* Menu depth: warm panels + a feature image per family (Tara 16 Jul) */
+.menu-fam, .menu-block{ background:var(--surface-soft, #F4F0E9); border:1px solid var(--hair); border-radius:20px; padding:34px 36px 36px; box-shadow:var(--sh-rim-light), var(--sh-card); margin-top:30px; }
+.menu-feat{ width:100%; aspect-ratio:16/4.4; border-radius:13px; overflow:hidden; margin:0 0 26px; position:relative; box-shadow:var(--sh-rim-light); }
+@media(max-width:640px){ .menu-fam, .menu-block{ padding:24px 22px 28px; border-radius:16px; } .menu-feat{ aspect-ratio:16/7; margin-bottom:22px; } }
+
 </style>
 <meta name="geo.region" content="BH">
 <meta name="geo.placename" content="Manama">
@@ -2594,7 +2599,7 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
       <div class="shade" style="background:radial-gradient(130% 120% at 30% 15%,#efce8c 0%,#cf9f4f 42%,#8a6226 80%,#2a1b0b 100%)"><span class="sl">Golden</span></div>
     </div>
     <p class="shades-cap">Cool, creamy, honey or golden. We match the tone to you, then build the plan that holds it.</p>
-    <div class="menu-fam">
+    <div class="menu-fam"><div class="menu-feat" style="background:radial-gradient(120% 160% at 22% 8%,#ecdcbd 0%,#c3a878 42%,#6a563c 80%,#2a2016 100%)" role="img" aria-label="Blonde highlighting at Tara Rose"></div>
       <h3 class="menu-fam__head">Blonde Highlighting</h3>
       <div class="mcols">
         <div class="mcol"><div class="mcol__label">Refresh Services</div><div class="mitem"><div class="mi-top"><span class="mi-name">Root Touch</span><span class="mi-price">BHD 25 &ndash; 43</span></div><p class="mi-desc">Essential root maintenance between visits: a colour top-up that keeps your base fresh and your regrowth seamlessly blended.</p></div><div class="mitem"><div class="mi-top"><span class="mi-name">Blonde Veil</span><span class="mi-price">BHD 55 &ndash; 73</span></div><p class="mi-desc">Partial highlights to freshen your parting and hairline between full services.</p></div><div class="mitem"><div class="mi-top"><span class="mi-name">Classic Halo</span><span class="mi-price">BHD 70 &ndash; 88</span></div><p class="mi-desc">Half-head highlights for soft dimension and a natural lift throughout the top and sides.</p></div><div class="mitem"><div class="mi-top"><span class="mi-name">Full Blonde Coverage</span><span class="mi-price">BHD 90 &ndash; 108</span></div><p class="mi-desc">Full-head highlights for a luminous, all-over blonde look.</p></div></div>
@@ -2604,21 +2609,21 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
     <div class="look-band" style="background:radial-gradient(120% 160% at 22% 8%,#e8d6b4 0%,#b79a6e 40%,#5c4a34 78%,#231a12 100%)" role="img" aria-label="A hand-painted blonde balayage">
       <div class="ll"><span class="lk">Blonde Balayage</span><span class="lt">Hand-painted, lived-in, and yours</span></div>
     </div>
-    <div class="menu-fam">
+    <div class="menu-fam"><div class="menu-feat" style="background:radial-gradient(120% 160% at 78% 10%,#e6d3b0 0%,#b99b6d 44%,#5c4a34 82%,#241b12 100%)" role="img" aria-label="Hand-painted blonde balayage"></div>
       <h3 class="menu-fam__head">Blonde Balayage</h3>
       <div class="mcols">
         <div class="mcol"><div class="mcol__label">Refresh Services</div><div class="mitem"><div class="mi-top"><span class="mi-name">Blonde Face Frame</span><span class="mi-price">BHD __</span></div><p class="mi-desc">Brightness placed softly around your hairline to lift and frame your face between full services.</p></div><div class="mitem"><div class="mi-top"><span class="mi-name">Balayage Refresh</span><span class="mi-price">BHD 74 &ndash; 92</span></div><p class="mi-desc">A subtle refresh through your parting and hairline to maintain softness between full balayage services.</p></div></div>
         <div class="mcol"><div class="mcol__label">Transformation Services</div><div class="mitem"><span class="mi-tag">New placement</span><div class="mi-top"><span class="mi-name">Blonde Custom Face Frame</span><span class="mi-price">BHD __</span></div><p class="mi-desc">A brand-new placement. Custom face-framing brightness, mapped to your features and placed to give you a whole new look.</p></div><div class="mitem"><div class="mi-top"><span class="mi-name">Classic Balayage</span><span class="mi-price">BHD 84 &ndash; 102</span></div><p class="mi-desc">Our most-requested look: natural, hand-painted lightness through the top and sides for effortless dimension.</p></div><div class="mitem"><div class="mi-top"><span class="mi-name">Full Balayage</span><span class="mi-price">BHD 94 &ndash; 112</span></div><p class="mi-desc">Balayage throughout the full head to create a luminous, blended colour with depth and movement.</p></div></div>
       </div>
     </div>
-    <div class="menu-block">
+    <div class="menu-block"><div class="menu-feat" style="background:radial-gradient(120% 160% at 22% 8%,#ecdcbd 0%,#c3a878 42%,#6a563c 80%,#2a2016 100%)" role="img" aria-label="A blonde transformation"></div>
       <h3 class="menu-block__head">Transformation Blondes: Colour Correction</h3>
       <div class="menu-grid2">
         <div class="mitem"><div class="mi-top"><span class="mi-name">Colour Correction</span><span class="mi-price poa">Price on application</span></div><p class="mi-desc">Bespoke lightening and correction work, quoted individually after a full consultation.</p></div>
         <div class="mitem"><div class="mi-top"><span class="mi-name">Balayage Transformation</span><span class="mi-price poa">Price on application</span></div><p class="mi-desc">For dramatic changes, colour corrections, or a complete lightening journey. Includes full balayage and root-to-tip blending.</p></div>
       </div>
     </div>
-    <div class="menu-block">
+    <div class="menu-block"><div class="menu-feat" style="background:radial-gradient(120% 160% at 78% 10%,#e6d3b0 0%,#b99b6d 44%,#5c4a34 82%,#241b12 100%)" role="img" aria-label="A finishing colour enhancement"></div>
       <h3 class="menu-block__head">Colour Enhancements</h3>
       <p class="menu-lead" style="margin-bottom:20px">Tailor any colour service with a finishing enhancement.</p>
       <div class="menu-grid2">

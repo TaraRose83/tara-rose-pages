@@ -2138,6 +2138,11 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
 .trust .tick-i{ width:13px; height:13px; background:none !important; position:relative; display:inline-block; vertical-align:-2px; margin-right:4px; }
 .trust .tick-i::after{ content:""; position:absolute; left:3px; top:1px; width:4px; height:8px; border:solid var(--accent-deep); border-width:0 2px 2px 0; transform:rotate(45deg); }
 
+/* Menu depth: warm panels + a feature image per family (Tara 16 Jul) */
+.menu-fam, .menu-block{ background:var(--surface-soft, #F4F0E9); border:1px solid var(--hair); border-radius:20px; padding:34px 36px 36px; box-shadow:var(--sh-rim-light), var(--sh-card); margin-top:30px; }
+.menu-feat{ width:100%; aspect-ratio:16/4.4; border-radius:13px; overflow:hidden; margin:0 0 26px; position:relative; box-shadow:var(--sh-rim-light); }
+@media(max-width:640px){ .menu-fam, .menu-block{ padding:24px 22px 28px; border-radius:16px; } .menu-feat{ aspect-ratio:16/7; margin-bottom:22px; } }
+
 </style>
 <meta name="geo.region" content="BH">
 <meta name="geo.placename" content="Manama">
