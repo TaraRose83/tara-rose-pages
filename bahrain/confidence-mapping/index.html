@@ -2702,7 +2702,7 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
     if(P.length && P.every(function(x){return cond.indexOf(x)>-1;})) return 'restore';
     return 'not-sure';
   }
-  function cap(s){ return s ? s.charAt(0).toUpperCase()+s.slice(1) : s; }
+  function ucfirst(s){ return s ? s.charAt(0).toUpperCase()+s.slice(1) : s; }
   function has(arr,list){ return list.some(function(x){return arr.indexOf(x)>-1;}); }
   // ── THE MAP TOP: five pillars a professional actually reads, filled from her answers ──
   function renderPillars(){
@@ -2720,7 +2720,7 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
     if(P.indexOf('dry')>-1||P.indexOf('curls')>-1||P.indexOf('want-smooth')>-1) hair.push('moisture it is missing');
     if(P.indexOf('want-length')>-1) hair.push('length to build once it is strong enough');
     if((cond==='1'||cond==='2') && hair.indexOf('strength to rebuild')<0) hair.push('condition that is fragile right now');
-    var hairLine = hair.length ? cap(hair.slice(0,2).join(', and ')) + '.' : 'In good shape, and worth keeping there.';
+    var hairLine = hair.length ? ucfirst(hair.slice(0,2).join(', and ')) + '.' : 'In good shape, and worth keeping there.';
 
     // 2 · SCALP (the foundation — scalp-first doctrine)
     var scalpLine;
@@ -2744,7 +2744,7 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
     var wb=[];
     if(chg==='shedding'||chg==='weaker'||well==='low'||well==='exhausted') wb.push('stress and sleep are showing in it');
     if((chg==='shedding'||chg==='weaker')&&(bw==='over-year'||bw==='long'||bw==='never')) wb.push('a simple blood test is worth doing');
-    var wbLine = wb.length ? cap(wb.join(', and ')) + '.' : 'The inside looks steady, which shows on the outside.';
+    var wbLine = wb.length ? ucfirst(wb.join(', and ')) + '.' : 'The inside looks steady, which shows on the outside.';
     if(conf==='recent') wbLine += ' You felt good recently, this keeps you there.';
     else if(conf) wbLine += ' It has been a while since it felt right, and this is the way back.';
 
