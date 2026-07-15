@@ -2357,6 +2357,10 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
 .qerr{ margin:8px 0 0; font-family:var(--ff-body); font-size:13.5px; font-weight:500; color:var(--err, #C9685F); }
 .qgroup[aria-invalid="true"] > .qlabel{ color:var(--err, #C9685F); }
 
+/* CTA alignment: centre section CTAs; split-hero + nav CTAs stay left (Tara 16 Jul) */
+.cta-row{ justify-content:center; }
+[class*="hero"] .cta-row, .navrow .cta-row, .trs-nav .cta-row, header .cta-row{ justify-content:flex-start; }
+
 </style>
 <meta name="geo.region" content="AE">
 <meta name="geo.placename" content="Dubai, Abu Dhabi">
