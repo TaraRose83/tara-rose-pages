@@ -2252,6 +2252,23 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
   .map-pillars .mp-h{ flex-direction:row; align-items:baseline; gap:10px }
 }
 
+/* ── QUIZ REPORT: treatments + home-care recommendations, mapped from answers ─ */
+.recs{ margin:26px 0 0 }
+.rec-block{ margin:0 0 22px }
+.rec-block .rk{ display:block; font-family:var(--ff-body); font-weight:500; font-size:11px;
+  letter-spacing:.2em; text-transform:uppercase; color:var(--taupe); margin:0 0 14px }
+.rec-list{ display:grid; gap:10px }
+.rec-row{ background:var(--surface); border:1px solid var(--hairline); border-radius:12px; padding:16px 18px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.6) }
+.rec-row h4{ font-family:var(--ff-display); font-weight:500; font-size:17px; color:var(--ink); margin:0 0 4px; line-height:1.15 }
+.rec-row p{ margin:0; font-size:14.5px; line-height:1.5; color:var(--taupe) }
+.hc-card{ background:var(--surface); border:1px solid var(--hairline); border-left:3px solid var(--accent);
+  border-radius:0 12px 12px 0; padding:18px 20px }
+.hc-card h4{ font-family:var(--ff-display); font-weight:500; font-size:20px; color:var(--ink); margin:0 0 6px; line-height:1.15 }
+.hc-card p{ margin:0; font-size:15px; line-height:1.55; color:var(--taupe) }
+.rec-link{ display:inline-block; margin:12px 0 0; font-family:var(--ff-body); font-weight:500; font-size:13.5px;
+  color:var(--accent-text); text-decoration:none; border-bottom:1px solid var(--accent) }
+
 </style>
 <meta name="geo.region" content="BH">
 <meta name="geo.placename" content="Manama">
@@ -2505,6 +2522,7 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
           </div>
           <div class="nextsteps" id="r-steps"></div>
           <div class="mini-map" id="r-map"></div>
+          <div class="recs" id="r-recs"></div>
 
           <div class="loop-block">
             <span class="rk">How your plan works, whatever your map shows</span>
@@ -2756,6 +2774,57 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
       + pillar('Wellbeing','the inside, and how you feel',wbLine);
   }
 
+  // ── TREATMENTS (the 8) + HOME CARE ladder, mapped from her answers ──
+  var TREATMAP={ dry:'hydration',curls:'curls',breakage:'strength',scalp:'scalp',buildup:'detox',
+    'want-smooth':'keratin',brassy:'longevity',flat:'longevity','fade-fast':'longevity','colour-fix':'longevity','want-length':'extensions' };
+  var TREATMENTS={
+    detox:{name:"Detox",line:"Clears the fine film the water leaves behind, so colour and care can sink in again."},
+    scalp:{name:"Scalp Health",line:"Looks after the skin your hair grows from, so what grows can be at its best."},
+    strength:{name:"Strength",line:"Rebuilds the structure inside the hair where colour, lightening and heat have loosened it."},
+    hydration:{name:"Hydration & Frizz",line:"Puts moisture back and seals it in, so frizz settles and the hair calms."},
+    curls:{name:"Curls",line:"A routine that works with your curl pattern instead of against it."},
+    longevity:{name:"Colour Longevity",line:"Holds the tone and the shine, so the colour lasts far longer between visits."},
+    keratin:{name:"Keratin & Smoothing",line:"Seals the surface so humidity cannot swell it, for less frizz and less styling time."},
+    extensions:{name:"Extensions",line:"Length or fullness, fitted well and kept on a care plan alongside your own hair."}
+  };
+  var HOMECARE={
+    protect:{name:"Protect",line:"The daily shields, heat, UV and sealing matched to your hair. It stops today's result being undone."},
+    maintain:{name:"Protect & Maintain",line:"The full routine every wash, the shields plus shampoo and conditioner matched to your hair. What most women here need."},
+    full:{name:"Full Insurance",line:"Everything, plus a weekly mask and a water filter. For coloured, worked or fragile hair in this water, the result compounds visit on visit."}
+  };
+  function homeCareTier(){
+    var P=pains(), status=val('status'), cond=val('condition'), hc=val('homecare'), routine=val('routine');
+    var coloured=(status==='coloured'||status==='highlights'), score=1;
+    if(coloured) score+=2;
+    if(cond==='1'||cond==='2') score+=2;
+    if(routine==='heat-daily') score+=1;
+    if(hc==='supermarket'||hc==='minimal'||hc==='not-sure') score+=1;
+    if(has(P,['breakage','dry','brassy','flat','fade-fast'])) score+=1;
+    if(score>=6) return 'full';
+    if(score>=3) return 'maintain';
+    return 'protect';
+  }
+  function renderRecs(){
+    var box=document.getElementById('r-recs'); if(!box) return;
+    var P=pains(), set={};
+    P.forEach(function(k){ if(TREATMAP[k]) set[TREATMAP[k]]=1; });
+    if(val('detox')==='never'||val('detox')==='rarely') set.detox=1;
+    if(val('condition')==='1'||val('condition')==='2') set.strength=1;
+    var order=['detox','scalp','strength','hydration','curls','longevity','keratin','extensions'];
+    var treats=order.filter(function(k){return set[k];});
+    var html='';
+    if(treats.length){
+      html+='<div class="rec-block"><span class="rk">The treatments your answers point to</span><div class="rec-list">';
+      treats.forEach(function(k){ var t=TREATMENTS[k]; html+='<div class="rec-row"><h4>'+t.name+'</h4><p>'+t.line+'</p></div>'; });
+      html+='</div><a class="rec-link" href="/tara-rose-pages/bahrain/treatments">See the full treatment menu &rarr;</a></div>';
+    }
+    var tier=HOMECARE[homeCareTier()];
+    html+='<div class="rec-block"><span class="rk">Your home care level</span>'
+      +'<div class="hc-card"><h4>'+tier.name+'</h4><p>'+tier.line+'</p></div>'
+      +'<a class="rec-link" href="/tara-rose-pages/bahrain/home-care">See home care &rarr;</a></div>';
+    box.innerHTML=html;
+  }
+
   function note(html){ return '<p class="mm-note">'+html+'</p>'; }
   function noteLink(txt,slug){ return '<p class="mm-note">'+txt+' <a class="mm-note-read" href="/tara-rose-pages/bahrain/education/'+slug+'">Read more &rarr;</a></p>'; }
 
@@ -2827,6 +2896,7 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
     document.getElementById('r-title').setAttribute('data-route',key);
     renderPillars();
     renderMini();
+    renderRecs();
     steps.forEach(function(s){ s.classList.remove('active'); });
     fill.style.width='100%'; pct.textContent='100%'; stepLabel.textContent='Stage 4 of 4 · Map';
     document.getElementById('result').classList.add('show');
