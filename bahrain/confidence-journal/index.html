@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#FAF8F4">
 <title>Your Confidence Journal · Tara Rose Bahrain</title>
-<meta name="description" content="Your personalised Confidence Journal — the plan written to your answers: your reads, treatments, home care and rhythm, visit by visit.">
+<meta name="description" content="Your personalised Confidence Journal, the plan written to your answers: your reads, treatments, home care and rhythm, visit by visit.">
 <link rel="canonical" href="https://www.tararosesalon.com/en/bh/confidence-mapping"
 <link rel="alternate" hreflang="en-ae" href="https://www.tararosesalon.com/confidence-mapping">
 <link rel="alternate" hreflang="en-bh" href="https://www.tararosesalon.com/en/bh/confidence-mapping">
@@ -2436,9 +2436,8 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
   text-transform:uppercase; color:var(--accent-text); margin-bottom:10px }
 .jr-step h4{ margin:0 0 6px; font-family:var(--ff-display); font-weight:500; font-size:18px; color:var(--ink) }
 .jr-step p{ margin:0; font-family:var(--ff-body); font-size:13.5px; line-height:1.55; color:var(--taupe, #7C756A) }
-.jr-read{ } .jr-sec--plan .jr-read{ }
 #j-consult{ max-width:640px; margin:22px auto 0 }
-.jr-sec--plan .jr-read-link, .jr-read#j-read{ margin:16px 0 0; text-align:center }
+.jr-readmore#j-read{ margin:16px auto 0; text-align:center }
 #j-read a{ font-family:var(--ff-body); font-weight:500; font-size:13.5px; color:var(--accent-text) }
 
 /* treatments */
@@ -2519,7 +2518,7 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
         <span class="jr-quote">&ldquo;</span>
         <p class="jr-turn" id="j-turn"></p>
       </div>
-      <p class="jr-intro">This is your plan, written to what you told us &mdash; the reads, the treatments, the home care, and the rhythm that holds it. Bring it to your free Confidence Mapping session, or keep it as your own. Nothing here is fixed until we see your hair in person.</p>
+      <p class="jr-intro">This is your plan, written to what you told us: the reads, the treatments, the home care, and the rhythm that holds it. Bring it to your free Confidence Mapping session, or keep it as your own. Nothing here is fixed until we see your hair in person.</p>
     </div>
   </section>
 
@@ -2540,7 +2539,7 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
       <p class="jr-belief" id="j-belief"></p>
       <div class="jr-steps" id="j-plan-steps"></div>
       <div id="j-consult"></div>
-      <p class="jr-read" id="j-read" hidden></p>
+      <p class="jr-readmore" id="j-read" hidden></p>
     </div>
   </section>
 
@@ -2578,11 +2577,11 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
   <section class="jr-sec jr-sec--promise">
     <div class="wrap">
       <span class="eyebrow">The Confidence Promise</span>
-      <p class="jr-promise">If something does not feel right within seven days of any colour or treatment service, we invite you back to refine it &mdash; no blame, just care.</p>
+      <p class="jr-promise">If something does not feel right within seven days of any colour or treatment service, we invite you back to refine it. No blame, just care.</p>
       <div class="jr-cta">
         <a class="pill pill--accent" href="/tara-rose-pages/bahrain/confidence-mapping#quiz">Book your free Confidence Mapping session <span class="arr">&rarr;</span></a>
       </div>
-      <p class="jr-signoff">We see you &mdash; beyond the hair, beyond the mirror.</p>
+      <p class="jr-signoff">We see you. Beyond the hair, beyond the mirror.</p>
     </div>
   </section>
 
@@ -2703,7 +2702,7 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
   var PRI=['fade-fast','brassy','colour-fix','flat','breakage','dry','scalp','no-hold','shape-outgrown','buildup','curls','want-smooth','want-length'];
   var primary=null; for(var x=0;x<PRI.length;x++){ if(P.indexOf(PRI[x])>-1){ primary=PRI[x]; break; } }
   var m=(natural&&NATURAL[primary])?{why:NATURAL[primary].why}:(PAINMAP[primary]||null);
-  el('j-title').textContent = fname ? (fname+', your hair — mapped.') : 'Your hair, mapped.';
+  el('j-title').textContent = fname ? (fname+', your hair, mapped.') : 'Your hair, mapped.';
   el('j-turn').textContent = m? m.why : 'Your hair has a plan waiting to be written, and this is where it begins.';
 
   // ---------- 2 · FIVE READS ----------
@@ -2761,7 +2760,11 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
   el('j-homecare').innerHTML = '<div class="jr-hc"><span class="jr-hc-tag">Recommended for you</span><h4>'+tier.name+'</h4><p>'+esc(tier.line)+'</p></div>';
 
   // ---------- 6 · RHYTHM (the Full Loop, visit by visit) ----------
-  var VIS=[['Visit 1','Create',R.steps[0][2]],['Visit 2','Protect',R.steps[1][2]],['Visit 3','Keep on Track',R.steps[2][2]]];
+  var VIS=[
+    ['Visit 1','Create','The first visit builds the result, read in the chair, planned and made. This is where your plan begins.'],
+    ['Visit 2','Protect','We protect the work, a treatment and the home care matched to your hair, so what we made does not undo between visits.'],
+    ['Visit 3','Keep on Track','A gloss, refresh or reshape on rhythm, before it drifts, so it holds, visit to visit, not just for one.']
+  ];
   el('j-rhythm').innerHTML = VIS.map(function(v,i){ return '<div class="jr-visit'+(i===0?' is-start':'')+'"><span class="jr-visit-n">'+v[0]+'</span><h4>'+v[1]+'</h4><p>'+esc(v[2])+'</p></div>'; }).join('');
 
   // ---------- occasion timing ----------
