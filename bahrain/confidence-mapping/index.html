@@ -2269,6 +2269,13 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
 .rec-link{ display:inline-block; margin:12px 0 0; font-family:var(--ff-body); font-weight:500; font-size:13.5px;
   color:var(--accent-text); text-decoration:none; border-bottom:1px solid var(--accent) }
 
+/* ── QUIZ: the maintenance vs transformation framing line ─────────────────── */
+.goal-band{ margin:18px 0 0 }
+.goal-band .goal-line{ margin:0; padding:16px 20px; background:var(--surface-soft, var(--surface));
+  border:1px solid var(--hairline); border-radius:12px; font-family:var(--ff-display); font-style:italic;
+  font-size:17px; line-height:1.45; color:var(--ink); text-align:center }
+.goal-band:empty{ display:none }
+
 </style>
 <meta name="geo.region" content="BH">
 <meta name="geo.placename" content="Manama">
@@ -2378,6 +2385,16 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
               <div class="opt"><input type="checkbox" id="p-outgrown" name="pain" value="shape-outgrown"><label for="p-outgrown"><span class="tk"></span>The shape has grown out</label></div>
               <div class="opt"><input type="checkbox" id="p-nohold" name="pain" value="no-hold"><label for="p-nohold"><span class="tk"></span>A trim that never holds its shape</label></div>
               <div class="opt"><input type="checkbox" id="p-length" name="pain" value="want-length"><label for="p-length"><span class="tk"></span>I want more length or thickness</label></div>
+            </div>
+          </div>
+          <div class="qgroup">
+            <span class="qlabel">And what are you hoping for?</span>
+            <div class="opts">
+              <div class="opt"><input type="radio" id="g1" name="goal" value="maintain"><label for="g1"><span class="tk"></span>To maintain what I have, keep it at its best</label></div>
+              <div class="opt"><input type="radio" id="g2" name="goal" value="refresh"><label for="g2"><span class="tk"></span>A refresh, a gentle update</label></div>
+              <div class="opt"><input type="radio" id="g3" name="goal" value="transform"><label for="g3"><span class="tk"></span>A transformation, a real change</label></div>
+              <div class="opt"><input type="radio" id="g4" name="goal" value="fix"><label for="g4"><span class="tk"></span>To fix or correct something</label></div>
+              <div class="opt"><input type="radio" id="g5" name="goal" value="guide"><label for="g5"><span class="tk"></span>Not sure yet, guide me</label></div>
             </div>
           </div>
           <div class="qgroup">
@@ -2521,6 +2538,7 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
             <p id="r-belief"></p>
           </div>
           <div class="nextsteps" id="r-steps"></div>
+          <div class="goal-band" id="r-goal"></div>
           <div class="mini-map" id="r-map"></div>
           <div class="recs" id="r-recs"></div>
 
@@ -2825,6 +2843,24 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
     box.innerHTML=html;
   }
 
+  // ── MAINTENANCE vs TRANSFORMATION intent, incl. the haircut ──
+  function renderGoal(routeKey){
+    var box=document.getElementById('r-goal'); if(!box) return;
+    var goal=val('goal'), GB={
+      maintain:"This is a maintenance plan, keeping what you have at its best and holding it on rhythm.",
+      refresh:"This is a refresh, a gentle lift from where you are now.",
+      transform:"This is a transformation, a real change, built safely over the visits it honestly takes.",
+      fix:"This starts with a correction, done carefully, then becomes a plan to keep it."
+    };
+    var line=GB[goal]||'';
+    if(routeKey==='cut'){
+      if(goal==='transform') line="For your cut, this is a restyle, a new shape built for your face and texture, not just a trim.";
+      else if(goal==='maintain') line="For your cut, this is keeping the shape sharp, a reshape on rhythm before it loosens.";
+      else if(!line) line="For your cut, we shape it to your face and how your hair grows, then keep it on rhythm.";
+    }
+    box.innerHTML = line ? '<p class="goal-line">'+line+'</p>' : '';
+  }
+
   function note(html){ return '<p class="mm-note">'+html+'</p>'; }
   function noteLink(txt,slug){ return '<p class="mm-note">'+txt+' <a class="mm-note-read" href="/tara-rose-pages/bahrain/education/'+slug+'">Read more &rarr;</a></p>'; }
 
@@ -2895,6 +2931,7 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
     r.steps.forEach(function(s){ var d=document.createElement('div'); d.className='nstep'; d.innerHTML='<span class="nk">'+s[0]+'</span><h4>'+s[1]+'</h4><p>'+s[2]+'</p>'; wrap.appendChild(d); });
     document.getElementById('r-title').setAttribute('data-route',key);
     renderPillars();
+    renderGoal(key);
     renderMini();
     renderRecs();
     steps.forEach(function(s){ s.classList.remove('active'); });
@@ -2911,7 +2948,7 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
     for(var k=0;k<req.length;k++){ var el=req[k]; if((el.type==='checkbox'&&!el.checked)||(el.type!=='checkbox'&&!String(el.value).trim())){ el.focus(); return; } }
     var data={ source:"confidence-mapping", experience:"mapping", stage:"journal", route:document.getElementById('r-title').getAttribute('data-route')||'not-sure' };
     data.pain=pains();
-    ['confidence','history_bad','change','base','status','hennakeratin','condition','routine','homecare','detox','occasion','wellbeing','supplements','bloodwork'].forEach(function(n){ data[n]=val(n); });
+    ['confidence','history_bad','goal','change','base','status','hennakeratin','condition','routine','homecare','detox','occasion','wellbeing','supplements','bloodwork'].forEach(function(n){ data[n]=val(n); });
     data.firstName=document.getElementById('fname').value.trim();
     data.whatsapp=document.getElementById('cc').value+' '+document.getElementById('wa').value.trim();
     data.email=document.getElementById('email').value.trim();
