@@ -2171,6 +2171,34 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
   padding:12px 20px;border-radius:0 0 10px 0;font-family:var(--ff-body);font-size:14px;font-weight:500}
 .skip:focus{left:0}
 
+/* ── THE CONFIDENCE MAP — the free mini-report from her answers ───────────────
+   Each pain she checked becomes a card: the problem named, the blame released, what
+   helps, where it sits in the Full Loop, and a link to the lesson that explains it.
+   Given free on screen; the email below unlocks the full Journal. */
+.mini-map{ margin:30px 0 8px }
+.mini-map .mm-head{ margin:0 0 16px }
+.mini-map .rk{ font-family:var(--ff-body); font-weight:500; font-size:11px; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--taupe) }
+.mm-card{ background:var(--surface); border:1px solid var(--hairline); border-radius:14px;
+  padding:22px 24px; margin:0 0 14px; box-shadow:inset 0 1px 0 rgba(255,255,255,.6) }
+.mm-top{ display:flex; align-items:baseline; justify-content:space-between; gap:14px; margin:0 0 10px }
+.mm-top h4{ font-family:var(--ff-display); font-weight:500; font-size:20px; line-height:1.2;
+  color:var(--ink); margin:0 }
+.mm-loop{ flex:none; font-family:var(--ff-body); font-weight:500; font-size:10px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--accent-dark, var(--accent-text)); border:1px solid var(--accent);
+  border-radius:100px; padding:3px 11px; white-space:nowrap }
+.mm-why{ font-size:15.5px; line-height:1.6; color:var(--taupe); margin:0 0 12px }
+.mm-fix{ font-size:15px; line-height:1.55; color:var(--ink); margin:0 0 14px }
+.mm-fix span{ font-family:var(--ff-body); font-weight:600; font-size:11px; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--accent-text); margin-right:6px }
+.mm-read{ display:inline-block; font-family:var(--ff-body); font-weight:500; font-size:13.5px;
+  letter-spacing:.02em; color:var(--accent-text); text-decoration:none;
+  border-bottom:1px solid var(--accent) }
+.mm-read:hover{ border-bottom-color:var(--accent-dark, var(--accent-text)) }
+.mm-note{ background:var(--surface-soft, var(--surface)); border-left:3px solid var(--accent);
+  border-radius:0 12px 12px 0; padding:16px 20px; margin:18px 0 0; font-size:15.5px;
+  line-height:1.55; color:var(--ink); font-style:italic; font-family:var(--ff-display) }
+
 </style>
 <meta name="geo.region" content="AE">
 <meta name="geo.placename" content="Dubai, Abu Dhabi">
@@ -2318,11 +2346,12 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
         <p id="r-belief"></p>
       </div>
       <div class="nextsteps" id="r-steps"></div>
+      <div class="mini-map" id="r-map"></div>
 
       <div class="capture">
         <div class="chead">
-          <h3>Want this map sent to you?</h3>
-          <p>Leave your details and we will send your personalised map, then arrange your Confidence Mapping session. Free, before the chair, no obligation to book.</p>
+          <h3>Get your full Confidence Journal</h3>
+          <p>Your map above is yours to keep. Leave your details for the full Journal, your complete plan written to your answers, the home care that protects it, and the rhythm that keeps it, and we will arrange your free Confidence Mapping session.</p>
         </div>
         <form id="capForm" novalidate>
           <div class="field">
@@ -2471,6 +2500,56 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
     "not-sure":{ title:"Not sure yet, and that is fine", belief:"That was never yours to work out alone.",
       steps:[["Diagnose","A full read","We read your hair in the chair, free, no obligation."],["Plan","Your Hair Plan","Colour, care and home care matched to your hair."],["Rhythm","Kept on rhythm","Held on track so it lasts, visit to visit."]] }
   };
+
+  var PAINMAP={
+    'fade-fast':{problem:"Your colour will not hold",
+      why:"The water and heat here lift colour out faster than colour was ever built to hold. That was never yours to manage alone.",
+      fix:"A gloss and a colour-safe routine that keep the tone true between visits.",
+      loop:"Protect", edu:"colour-why-colour-fades-faster-here", eduT:"Why colour fades faster here"},
+    'flat':{problem:"The light has gone out of it",
+      why:"As the tone flattens, the cuticle stops reflecting light, so it reads dull even when the colour is fine.",
+      fix:"Gloss and dimension, read to your hair, to put the light back in.",
+      loop:"Create", edu:"colour-why-brunette-goes-flat", eduT:"Why brunette goes flat"},
+    'shape-outgrown':{problem:"It was not cut to grow out",
+      why:"A cut loses its shape as it grows unless it was built for the way your hair grows.",
+      fix:"A Haircut and Finish shaped to your growth, with a reshape on rhythm before the frame loosens.",
+      loop:"Keep on Track", edu:"cut-why-your-cut-grows-out-awkwardly", eduT:"Why your cut grows out awkwardly"},
+    'dry':{problem:"It is losing moisture to the climate",
+      why:"The cuticle is raised and giving up moisture to the heat and water faster than it can hold it.",
+      fix:"A hydration treatment in the chair, and home care that keeps the moisture in.",
+      loop:"Create", edu:"treatments-why-frizz-keeps-coming-back", eduT:"Why frizz keeps coming back"},
+    'breakage':{problem:"The strength is breaking faster than it rebuilds",
+      why:"The internal bonds that hold hair together have been broken faster than they have had a chance to rebuild.",
+      fix:"Bond repair to rebuild the strength, then home care that protects it.",
+      loop:"Create", edu:"treatments-why-nothing-you-tried-held", eduT:"Why nothing you tried held"},
+    'inconsistent':{problem:"Every visit starts from a different place",
+      why:"Without a detox and a plan, each visit begins from a different baseline, so the result cannot be repeated.",
+      fix:"A detox reset to level the ground, then a plan that builds the same result every time.",
+      loop:"the full Loop", edu:"treatments-why-treatments-are-not-extras", eduT:"Why treatments are not extras"}
+  };
+  var LOOPNOTE={Create:"Create",Protect:"Protect","Keep on Track":"Keep on Track","the full Loop":"The full Loop"};
+  function renderMini(){
+    var map=document.getElementById('r-map'); if(!map) return;
+    var pains=[].slice.call(form.querySelectorAll('input[name="pain"]:checked')).map(function(e){return e.value;});
+    var cond=(form.querySelector('input[name="condition"]:checked')||{}).value||'';
+    var freq=(form.querySelector('input[name="frequency"]:checked')||{}).value||'';
+    var html='';
+    if(pains.length){
+      html+='<div class="mm-head"><span class="rk">What you told us, and what it means</span></div>';
+      pains.forEach(function(p){ var m=PAINMAP[p]; if(!m) return;
+        html+='<div class="mm-card"><div class="mm-top"><h4>'+m.problem+'</h4><span class="mm-loop">'+LOOPNOTE[m.loop]+'</span></div>'
+          +'<p class="mm-why">'+m.why+'</p>'
+          +'<p class="mm-fix"><span>What helps</span> '+m.fix+'</p>'
+          +'<a class="mm-read" href="/tara-rose-pages/education/'+m.edu+'">Read: '+m.eduT+' &rarr;</a></div>';
+      });
+    }
+    var note='';
+    if(cond==='1'||cond==='2'){ note="Your hair is asking to be rebuilt first, so your plan starts with strength and then protects it."; }
+    else if(pains.indexOf('fade-fast')>-1 || freq==='constant' || freq==='weekly'){ note="Your plan leans on Protect, holding the result at home so it does not drift between visits."; }
+    if(note){ html+='<p class="mm-note">'+note+'</p>'; }
+    map.innerHTML=html;
+  }
+
   function computeRoute(){
     var pains=[].slice.call(form.querySelectorAll('input[name="pain"]:checked')).map(function(e){return e.value;});
     var base=(form.querySelector('input[name="base"]:checked')||{}).value||'';
@@ -2488,6 +2567,7 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
     var wrap=document.getElementById('r-steps'); wrap.innerHTML='';
     r.steps.forEach(function(s){ var d=document.createElement('div'); d.className='nstep'; d.innerHTML='<span class="nk">'+s[0]+'</span><h4>'+s[1]+'</h4><p>'+s[2]+'</p>'; wrap.appendChild(d); });
     document.getElementById('r-title').setAttribute('data-route',key);
+    renderMini();
     form.style.display='none';
     document.getElementById('result').classList.add('show');
     document.getElementById('quiz').scrollIntoView({behavior:'smooth'});

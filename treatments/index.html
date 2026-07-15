@@ -2077,6 +2077,34 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
   padding:12px 20px;border-radius:0 0 10px 0;font-family:var(--ff-body);font-size:14px;font-weight:500}
 .skip:focus{left:0}
 
+/* ── THE CONFIDENCE MAP — the free mini-report from her answers ───────────────
+   Each pain she checked becomes a card: the problem named, the blame released, what
+   helps, where it sits in the Full Loop, and a link to the lesson that explains it.
+   Given free on screen; the email below unlocks the full Journal. */
+.mini-map{ margin:30px 0 8px }
+.mini-map .mm-head{ margin:0 0 16px }
+.mini-map .rk{ font-family:var(--ff-body); font-weight:500; font-size:11px; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--taupe) }
+.mm-card{ background:var(--surface); border:1px solid var(--hairline); border-radius:14px;
+  padding:22px 24px; margin:0 0 14px; box-shadow:inset 0 1px 0 rgba(255,255,255,.6) }
+.mm-top{ display:flex; align-items:baseline; justify-content:space-between; gap:14px; margin:0 0 10px }
+.mm-top h4{ font-family:var(--ff-display); font-weight:500; font-size:20px; line-height:1.2;
+  color:var(--ink); margin:0 }
+.mm-loop{ flex:none; font-family:var(--ff-body); font-weight:500; font-size:10px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--accent-dark, var(--accent-text)); border:1px solid var(--accent);
+  border-radius:100px; padding:3px 11px; white-space:nowrap }
+.mm-why{ font-size:15.5px; line-height:1.6; color:var(--taupe); margin:0 0 12px }
+.mm-fix{ font-size:15px; line-height:1.55; color:var(--ink); margin:0 0 14px }
+.mm-fix span{ font-family:var(--ff-body); font-weight:600; font-size:11px; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--accent-text); margin-right:6px }
+.mm-read{ display:inline-block; font-family:var(--ff-body); font-weight:500; font-size:13.5px;
+  letter-spacing:.02em; color:var(--accent-text); text-decoration:none;
+  border-bottom:1px solid var(--accent) }
+.mm-read:hover{ border-bottom-color:var(--accent-dark, var(--accent-text)) }
+.mm-note{ background:var(--surface-soft, var(--surface)); border-left:3px solid var(--accent);
+  border-radius:0 12px 12px 0; padding:16px 20px; margin:18px 0 0; font-size:15.5px;
+  line-height:1.55; color:var(--ink); font-style:italic; font-family:var(--ff-display) }
+
 </style>
 <meta name="geo.region" content="AE">
 <meta name="geo.placename" content="Dubai, Abu Dhabi">
