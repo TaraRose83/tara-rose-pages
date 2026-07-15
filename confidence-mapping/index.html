@@ -2654,29 +2654,51 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
     brunette:{title:"Brunette route recommended",belief:"Same architecture, different prescription.",steps:[["Colour","A brunette plan","Depth, dimension and gloss read to the hair you have."],["Care","Colour Longevity","A treatment to hold the shine and the richness."],["Rhythm","Gloss on rhythm","Kept reflecting light between visits, never flat."]]},
     cut:{title:"Haircut and Finish route recommended",belief:"A shape asks for a plan, not just a trim.",steps:[["Cut","Your shape, built","Shape, frame and finish for your face and texture."],["Finish","The blow-dry","The finish that shows the shape and holds it in the heat here."],["Rhythm","Reshape on rhythm","A quick reshape before the frame loosens, never a restyle."]]},
     restore:{title:"A restore plan first",belief:"Healthy hair holds everything else.",steps:[["Reset","Detox and scalp","We clear the ground so everything after it works."],["Repair","Strength and moisture","The condition rebuilt in the chair, matched to your hair."],["Protect","Home care","Matched to your hair, to hold the work between visits."]]},
+    gloss:{title:"A gloss and refresh, no colour needed",belief:"Shine is a service, not only for coloured hair.",steps:[["Refresh","A clear or toning gloss","Cools warmth or brings shine back to your natural colour, no commitment to colour."],["Care","A treatment","Condition and shine, matched to your hair."],["Rhythm","Kept fresh","A quick gloss before it dulls again, so it stays bright."]]},
+    length:{title:"Length and fullness, when your hair is ready",belief:"Fullness is built on strength.",steps:[["Read","Is it ready","We check the condition first, because extensions are only ever added to hair strong enough to carry them."],["Add","Extensions matched to you","Length or thickness, blended to your own hair and colour."],["Care","Held on rhythm","Looked after and moved on rhythm, so your own hair stays healthy underneath."]]},
+    colour:{title:"A colour plan, matched to you",belief:"Same architecture, different prescription.",steps:[["Colour","Read to your hair","Grey blending, a refresh or a correction, planned to what your hair needs."],["Care","Colour Longevity","A treatment to hold the tone and the condition."],["Rhythm","On rhythm","Topped up before it drifts, so it lasts between visits."]]},
     "not-sure":{title:"Not sure yet, and that is fine",belief:"That was never yours to work out alone.",steps:[["Diagnose","A full read","We read your hair in the chair, free, no obligation."],["Plan","Your Hair Plan","Colour, care and home care matched to your hair."],["Rhythm","Kept on rhythm","Held on track so it lasts, visit to visit."]]}
   };
   function val(n){ var el=form.querySelector('input[name="'+n+'"]:checked'); return el?el.value:''; }
   function pains(){ return [].slice.call(form.querySelectorAll('input[name="pain"]:checked')).map(function(e){return e.value;}); }
   function computeRoute(){
-    var P=pains(), base=val('base');
-    if(P.indexOf('colour-fix')>-1) return base==='brunette'?'brunette':'blonde';
-    if(P.indexOf('brassy')>-1 || (P.indexOf('fade-fast')>-1 && base==='blonde')) return 'blonde';
-    if(P.indexOf('flat')>-1 || (P.indexOf('fade-fast')>-1 && base==='brunette')) return 'brunette';
-    if(P.indexOf('shape-outgrown')>-1 || P.indexOf('no-hold')>-1) return 'cut';
+    var P=pains(), base=val('base'), status=val('status');
+    var coloured=(status==='coloured'||status==='highlights');
     var cond=['dry','breakage','scalp','curls','buildup','want-smooth'];
+    // a clear service first: extensions
+    if(P.indexOf('want-length')>-1) return 'length';
+    // correction is colour work whatever the base
+    if(P.indexOf('colour-fix')>-1) return base==='brunette'?'brunette':(base==='blonde'?'blonde':'colour');
+    // COLOURED hair with a colour symptom → the matching colour plan
+    if(coloured && (P.indexOf('brassy')>-1||P.indexOf('flat')>-1||P.indexOf('fade-fast')>-1)){
+      if(base==='blonde'||P.indexOf('brassy')>-1) return 'blonde';
+      if(base==='brunette'||P.indexOf('flat')>-1) return 'brunette';
+      return 'colour'; // grey / red / mixed, coloured
+    }
+    // NATURAL hair with a colour symptom → gloss/tone, never a colour plan she did not ask for
+    if(!coloured && (P.indexOf('brassy')>-1||P.indexOf('flat')>-1||P.indexOf('fade-fast')>-1)) return 'gloss';
+    // shape
+    if(P.indexOf('shape-outgrown')>-1||P.indexOf('no-hold')>-1) return 'cut';
+    // pure condition
     if(P.length && P.every(function(x){return cond.indexOf(x)>-1;})) return 'restore';
     return 'not-sure';
   }
   function note(html){ return '<p class="mm-note">'+html+'</p>'; }
   function noteLink(txt,slug){ return '<p class="mm-note">'+txt+' <a class="mm-note-read" href="/tara-rose-pages/education/'+slug+'">Read more &rarr;</a></p>'; }
 
+  var NATURAL={
+    'brassy':{p:"Your natural blonde is warming up",why:"Even natural blonde picks up warmth from the water and light here. It is minerals oxidising, not colour damage.",fix:"A toning gloss to cool it, no colour commitment needed.",loop:"Protect",edu:"colour-why-blonde-goes-warm",eduT:"Why your blonde goes warm"},
+    'flat':{p:"Your natural colour looks flat",why:"A fine film from hard water and product dulls natural hair too, so it cannot reflect the light underneath.",fix:"A clarify and a clear gloss to bring the shine back, no colour needed.",loop:"Create",edu:"colour-why-brunette-goes-flat",eduT:"Why hair goes flat"},
+    'fade-fast':{p:"About your colour fading",why:"You told us your hair is natural, so there is nothing coloured to fade, we will read exactly what you are seeing in the chair.",fix:"A free read to name what your hair is actually doing.",loop:"Create",edu:"colour-why-colour-fades-faster-here",eduT:"How colour behaves here"},
+    'colour-fix':{p:"About correcting a colour",why:"You told us your hair is natural, so there may be nothing to correct, or you may be thinking of a first colour. We will talk it through in the chair.",fix:"A free read, no obligation, to see what you actually want.",loop:"Create",edu:"colour-why-colour-fades-faster-here",eduT:"How colour behaves here"}
+  };
   function renderMini(){
     var map=document.getElementById('r-map'); if(!map) return;
     var P=pains(), html='';
     if(P.length){
       html+='<div class="mm-head"><span class="rk">What you told us, and what it means</span></div>';
-      P.forEach(function(k){ var m=PAINMAP[k]; if(!m) return;
+      var natural=(val('status')==='natural'||val('status')==='growing-out');
+      P.forEach(function(k){ var m=(natural && NATURAL[k])?NATURAL[k]:PAINMAP[k]; if(!m) return;
         html+='<div class="mm-card"><div class="mm-top"><h4>'+m.p+'</h4><span class="mm-loop">'+LOOPTAG[m.loop]+'</span></div>'
           +'<p class="mm-why">'+m.why+'</p>'
           +'<p class="mm-fix"><span>What helps</span> '+m.fix+'</p>'
