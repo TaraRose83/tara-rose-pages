@@ -2316,15 +2316,15 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
    The map was card-soup giving the whole consultation away. Now it is one moment:
    the belief-shift line (her problem named, blame released) on the dark band, one
    quiet direction, then the invite. The plan/treatments/home-care move to the Journal. */
-.aha-band{ position:relative; isolation:isolate; overflow:hidden; text-align:center;
+.map-turn{ position:relative; isolation:isolate; overflow:hidden; text-align:center;
   background:var(--ink-deep); color:#F3F1EB; border-radius:18px; padding:46px 38px 48px; margin:6px 0 0 }
-.aha-band::after{ content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
+.map-turn::after{ content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
   background:radial-gradient(78% 70% at 20% 82%, rgba(125,230,210,.16), transparent 62%),
              radial-gradient(70% 60% at 88% 8%, rgba(125,230,210,.08), transparent 60%) }
-.aha-band .eyebrow{ color:var(--accent-deep, var(--accent)); display:block; margin:0 0 18px }
-.aha-band .aha-q{ display:block; font-family:var(--ff-display); font-style:italic; font-size:56px;
+.map-turn .eyebrow{ color:var(--accent-deep, var(--accent)); display:block; margin:0 0 18px }
+.map-turn .turn-q{ display:block; font-family:var(--ff-display); font-style:italic; font-size:56px;
   line-height:.5; color:var(--accent-deep, var(--accent)); margin:0 0 14px }
-.aha-band .aha{ font-family:var(--ff-display); font-weight:500; font-style:italic;
+.map-turn .turn-line{ font-family:var(--ff-display); font-weight:500; font-style:italic;
   font-size:clamp(24px,4.2vw,34px); line-height:1.32; color:#fff; margin:0 auto; max-width:22ch;
   text-wrap:balance }
 .r-start{ text-align:center; margin:24px 0 0; font-family:var(--ff-body); font-size:16px;
@@ -2573,10 +2573,10 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
 
       <!-- Stage 4 · MAP (result) — sibling of the quiz form, never nested -->
       <div class="result" id="result" aria-live="polite">
-          <div class="aha-band">
+          <div class="map-turn">
             <span class="eyebrow">Your map</span>
-            <span class="aha-q">&ldquo;</span>
-            <h2 class="aha" id="r-aha"></h2>
+            <span class="turn-q">&ldquo;</span>
+            <h2 class="turn-line" id="r-turn"></h2>
           </div>
           <p class="r-start" id="r-start"></p>
           <div class="goal-band" id="r-goal"></div>
@@ -2901,7 +2901,7 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
     var PRI=['fade-fast','brassy','colour-fix','flat','breakage','dry','scalp','no-hold','shape-outgrown','buildup','curls','want-smooth','want-length'];
     var primary=null,x; for(x=0;x<PRI.length;x++){ if(P.indexOf(PRI[x])>-1){ primary=PRI[x]; break; } }
     var m=(natural&&NATURAL[primary])?NATURAL[primary]:(PAINMAP[primary]||null);
-    document.getElementById('r-aha').textContent = m ? m.why : "Your hair has a plan waiting to be written, and that is exactly what your Confidence Map holds.";
+    document.getElementById('r-turn').textContent = m ? m.why : "Your hair has a plan waiting to be written, and that is exactly what your Confidence Map holds.";
     var START={blonde:'your Blonde plan',brunette:'your Brunette plan',cut:'your Haircut and Finish',gloss:'a gloss and refresh, no colour needed',restore:'a Restore plan first',length:'extensions, once the condition is ready',colour:'your colour plan','not-sure':'a full read in the chair'};
     document.getElementById('r-start').innerHTML='Where you would begin: <strong>'+(START[key]||'a full read in the chair')+'</strong>';
   }
