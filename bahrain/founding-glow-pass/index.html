@@ -2344,6 +2344,24 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
 .loop-3 .lp h4{ font-family:var(--ff-display); font-weight:500; font-size:18px; color:#fff; margin:8px 0 6px; line-height:1.2 }
 .loop-3 .lp p{ font-size:14px; line-height:1.55; color:rgba(243,241,235,.72); margin:0 }
 
+/* ── THE MAP TOP: five pillars a professional reads (research-grounded) ───────
+   Hair · Scalp · Environment · Rhythm · Wellbeing — each filled from her answers.
+   Sits above the route card, so the map reads as a whole-woman diagnosis first. */
+.map-pillars{ margin:8px 0 28px }
+.map-pillars .rk{ display:block; font-family:var(--ff-body); font-weight:500; font-size:11px;
+  letter-spacing:.2em; text-transform:uppercase; color:var(--taupe); margin:0 0 16px }
+.map-pillars .mp{ display:grid; grid-template-columns:132px 1fr; gap:18px; align-items:baseline;
+  padding:15px 0; border-top:1px solid var(--hairline) }
+.map-pillars .mp:last-child{ border-bottom:1px solid var(--hairline) }
+.map-pillars .mp-h{ display:flex; flex-direction:column; gap:2px }
+.map-pillars .mp-n{ font-family:var(--ff-display); font-weight:500; font-size:19px; color:var(--ink); line-height:1.1 }
+.map-pillars .mp-s{ font-family:var(--ff-body); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-text) }
+.map-pillars .mp p{ margin:0; font-size:15.5px; line-height:1.55; color:var(--taupe) }
+@media(max-width:520px){
+  .map-pillars .mp{ grid-template-columns:1fr; gap:6px }
+  .map-pillars .mp-h{ flex-direction:row; align-items:baseline; gap:10px }
+}
+
 </style>
 <meta name="geo.region" content="BH">
 <meta name="geo.placename" content="Manama">

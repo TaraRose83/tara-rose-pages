@@ -2234,6 +2234,24 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
 .loop-3 .lp h4{ font-family:var(--ff-display); font-weight:500; font-size:18px; color:#fff; margin:8px 0 6px; line-height:1.2 }
 .loop-3 .lp p{ font-size:14px; line-height:1.55; color:rgba(243,241,235,.72); margin:0 }
 
+/* ── THE MAP TOP: five pillars a professional reads (research-grounded) ───────
+   Hair · Scalp · Environment · Rhythm · Wellbeing — each filled from her answers.
+   Sits above the route card, so the map reads as a whole-woman diagnosis first. */
+.map-pillars{ margin:8px 0 28px }
+.map-pillars .rk{ display:block; font-family:var(--ff-body); font-weight:500; font-size:11px;
+  letter-spacing:.2em; text-transform:uppercase; color:var(--taupe); margin:0 0 16px }
+.map-pillars .mp{ display:grid; grid-template-columns:132px 1fr; gap:18px; align-items:baseline;
+  padding:15px 0; border-top:1px solid var(--hairline) }
+.map-pillars .mp:last-child{ border-bottom:1px solid var(--hairline) }
+.map-pillars .mp-h{ display:flex; flex-direction:column; gap:2px }
+.map-pillars .mp-n{ font-family:var(--ff-display); font-weight:500; font-size:19px; color:var(--ink); line-height:1.1 }
+.map-pillars .mp-s{ font-family:var(--ff-body); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-text) }
+.map-pillars .mp p{ margin:0; font-size:15.5px; line-height:1.55; color:var(--taupe) }
+@media(max-width:520px){
+  .map-pillars .mp{ grid-template-columns:1fr; gap:6px }
+  .map-pillars .mp-h{ flex-direction:row; align-items:baseline; gap:10px }
+}
+
 </style>
 <meta name="geo.region" content="BH">
 <meta name="geo.placename" content="Manama">
@@ -2479,6 +2497,7 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
             <h2>Here is your <em>map</em>.</h2>
             <p class="rname" id="r-open">A starting direction, not a diagnosis. Your stylist confirms it in the chair.</p>
           </div>
+          <div class="map-pillars" id="r-pillars"></div>
           <div class="route-card">
             <span class="rk">Your recommended route</span>
             <h3 id="r-title"></h3>
@@ -2683,6 +2702,60 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
     if(P.length && P.every(function(x){return cond.indexOf(x)>-1;})) return 'restore';
     return 'not-sure';
   }
+  function cap(s){ return s ? s.charAt(0).toUpperCase()+s.slice(1) : s; }
+  function has(arr,list){ return list.some(function(x){return arr.indexOf(x)>-1;}); }
+  // ── THE MAP TOP: five pillars a professional actually reads, filled from her answers ──
+  function renderPillars(){
+    var box=document.getElementById('r-pillars'); if(!box) return;
+    var P=pains(), status=val('status'), cond=val('condition'), det=val('detox'),
+        hc=val('homecare'), routine=val('routine'), well=val('wellbeing'), chg=val('change'),
+        conf=val('confidence'), bw=val('bloodwork');
+    var coloured=(status==='coloured'||status==='highlights');
+    function pillar(name,sub,line){ return '<div class="mp"><div class="mp-h"><span class="mp-n">'+name+'</span><span class="mp-s">'+sub+'</span></div><p>'+line+'</p></div>'; }
+
+    // 1 · HAIR (strand + colour)
+    var hair=[];
+    if(has(P,['brassy','flat','fade-fast','colour-fix'])) hair.push(coloured?'colour that needs holding':'shine to bring back');
+    if(P.indexOf('breakage')>-1) hair.push('strength to rebuild');
+    if(P.indexOf('dry')>-1||P.indexOf('curls')>-1||P.indexOf('want-smooth')>-1) hair.push('moisture it is missing');
+    if(P.indexOf('want-length')>-1) hair.push('length to build once it is strong enough');
+    if((cond==='1'||cond==='2') && hair.indexOf('strength to rebuild')<0) hair.push('condition that is fragile right now');
+    var hairLine = hair.length ? cap(hair.slice(0,2).join(', and ')) + '.' : 'In good shape, and worth keeping there.';
+
+    // 2 · SCALP (the foundation — scalp-first doctrine)
+    var scalpLine;
+    if(P.indexOf('scalp')>-1) scalpLine='Needs looking after first. It is the soil everything grows from.';
+    else if(det==='rarely'||det==='never'||P.indexOf('buildup')>-1) scalpLine='Due a reset, so colour and treatments can actually take.';
+    else scalpLine='A healthy base to build on.';
+
+    // 3 · ENVIRONMENT (the Gulf — always relevant; validated by the science)
+    var envLine;
+    if(coloured) envLine='Hard water, heat and sun here move your colour faster than it can hold. Chemistry, not you.';
+    else envLine='The hard water and heat here work on every head of hair, yours included. We plan around it.';
+    if(routine==='heat-daily') envLine='Daily heat, on top of the hard water and sun here, is a lot for hair to hold.';
+
+    // 4 · RHYTHM (the plan + home care)
+    var rhyLine;
+    if(hc==='supermarket'||hc==='not-sure'||hc==='minimal') rhyLine='Home care is not protecting the work between visits yet. The easiest win.';
+    else if(hc==='salon') rhyLine='Good home care already. We match it to the plan.';
+    else rhyLine='We set the rhythm that keeps it, home care and timing together.';
+
+    // 5 · WELLBEING (the inside + how she feels)
+    var wb=[];
+    if(chg==='shedding'||chg==='weaker'||well==='low'||well==='exhausted') wb.push('stress and sleep are showing in it');
+    if((chg==='shedding'||chg==='weaker')&&(bw==='over-year'||bw==='long'||bw==='never')) wb.push('a simple blood test is worth doing');
+    var wbLine = wb.length ? cap(wb.join(', and ')) + '.' : 'The inside looks steady, which shows on the outside.';
+    if(conf==='recent') wbLine += ' You felt good recently, this keeps you there.';
+    else if(conf) wbLine += ' It has been a while since it felt right, and this is the way back.';
+
+    box.innerHTML = '<span class="rk">Your map, read across five things</span>'
+      + pillar('Hair','the strand',hairLine)
+      + pillar('Scalp','the foundation',scalpLine)
+      + pillar('Environment','the Gulf climate',envLine)
+      + pillar('Rhythm','your plan and home care',rhyLine)
+      + pillar('Wellbeing','the inside, and how you feel',wbLine);
+  }
+
   function note(html){ return '<p class="mm-note">'+html+'</p>'; }
   function noteLink(txt,slug){ return '<p class="mm-note">'+txt+' <a class="mm-note-read" href="/tara-rose-pages/bahrain/education/'+slug+'">Read more &rarr;</a></p>'; }
 
@@ -2752,6 +2825,7 @@ input, select, textarea, input[type="text"], input[type="email"], input[type="te
     var wrap=document.getElementById('r-steps'); wrap.innerHTML='';
     r.steps.forEach(function(s){ var d=document.createElement('div'); d.className='nstep'; d.innerHTML='<span class="nk">'+s[0]+'</span><h4>'+s[1]+'</h4><p>'+s[2]+'</p>'; wrap.appendChild(d); });
     document.getElementById('r-title').setAttribute('data-route',key);
+    renderPillars();
     renderMini();
     steps.forEach(function(s){ s.classList.remove('active'); });
     fill.style.width='100%'; pct.textContent='100%'; stepLabel.textContent='Stage 4 of 4 · Map';
