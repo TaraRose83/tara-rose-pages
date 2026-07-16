@@ -567,8 +567,9 @@ body{ overflow-x:clip }
   }
   .vgrid::-webkit-scrollbar{ display:none }
   .vstack{ scroll-snap-align:center; height:auto }
-  /* a hint that there is more to the right */
-  .vgrid::after{ content:""; flex:0 0 4px }
+  /* No ::after end-spacer here: in a grid-auto-flow:column track it inherits
+     grid-auto-columns:82% and becomes a phantom empty card after Platinum.
+     The container's right padding gives the trailing space instead. */
 
   /* Long-form text. Centred paragraphs of 16px/1.62 are what made it read
      endless. Editorial long-form is LEFT-aligned, a touch smaller, tighter. */
