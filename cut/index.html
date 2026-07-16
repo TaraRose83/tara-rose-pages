@@ -2475,6 +2475,10 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
 .menu-feat{ width:100%; aspect-ratio:16/4.4; border-radius:13px; overflow:hidden; margin:0 0 26px; position:relative; box-shadow:var(--sh-rim-light); }
 @media(max-width:640px){ .menu-fam, .menu-block{ padding:24px 22px 28px; border-radius:16px; } .menu-feat{ aspect-ratio:16/7; margin-bottom:22px; } }
 
+/* Cut menu: panel depth on the flat ruled list + feature image (Tara 16 Jul) */
+.menu-list{ background:var(--surface-soft, #F4F0E9); border:1px solid var(--hair); border-radius:20px; padding:34px 40px 26px; box-shadow:var(--sh-rim-light), var(--sh-card); }
+@media(max-width:640px){ .menu-list{ padding:24px 22px 18px; border-radius:16px; } }
+
 </style>
 <meta name="geo.region" content="AE">
 <meta name="geo.placename" content="Dubai, Abu Dhabi">
@@ -2577,7 +2581,7 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
       <h2>Every haircut is a cut and a finish.</h2>
     </div>
     <p class="menu-lead">A shape built for your face, cut and styled to leave. Choose how much: a reshape that keeps your shape on rhythm, or a complete new shape.</p>
-    <div class="menu-list">
+    <div class="menu-list"><div class="menu-feat" style="background:radial-gradient(120% 160% at 25% 8%,#c9c7c2 0%,#8f8c86 42%,#4c4a46 82%,#22211f 100%)" role="img" aria-label="A haircut and finish at Tara Rose"></div>
       <div class="mrow"><div class="mtop"><span class="mname">Maintenance Haircut</span><span class="mdots"></span><span class="mprice">AED __</span></div><div class="mcad">Every 6 to 8 weeks</div><p class="mdesc">A reshape that keeps your frame, cut and finished. Caught on rhythm, it is a quick reshape, not starting over.</p></div>
       <div class="mrow"><div class="mtop"><span class="mname">Full Restyle</span><span class="mdots"></span><span class="mprice">AED __</span></div><p class="mdesc">A complete new shape, built for your face and texture, cut and finished. For a fresh start or a real change.</p></div>
     </div>
