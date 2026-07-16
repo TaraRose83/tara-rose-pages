@@ -2458,6 +2458,16 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
   .jr-steps, .jr-visits{ grid-template-columns:1fr }
 }
 
+/* Confidence Mapping hero: the two women behind the map (Tara 16 Jul) */
+.hero-a .hero-portrait{ margin:42px auto 0; max-width:470px; }
+.hero-a .hero-portrait img{ width:100%; height:auto; aspect-ratio:16/10; object-fit:cover; object-position:50% 26%; border-radius:var(--r-lg,22px); box-shadow:0 20px 48px -22px rgba(45,46,55,.5); }
+.hero-a .hero-portrait figcaption{ margin-top:12px; font-family:var(--ff-body); font-size:12.5px; letter-spacing:.04em; color:var(--ink-soft); text-align:center; }
+@media(max-width:560px){ .hero-a .hero-portrait{ margin-top:32px; } .hero-a .hero-portrait img{ aspect-ratio:4/3; } }
+
+/* Confidence Mapping: per-stage purpose line — tells the story, so a longer quiz feels guided not endless (Tara 16 Jul) */
+.quiz .qstep .q-why{ margin:-8px 0 26px; max-width:48ch; font-family:var(--ff-body); font-size:15px; line-height:1.55; color:var(--ink-soft); }
+@media(max-width:560px){ .quiz .qstep .q-why{ font-size:14.5px; margin:-4px 0 22px; } }
+
 /* Confidence Mapping: accessible inline validation message (WCAG 3.3.1) */
 .qerr{ margin:8px 0 0; font-family:var(--ff-body); font-size:13.5px; font-weight:500; color:var(--err, #C9685F); }
 .qgroup[aria-invalid="true"] > .qlabel{ color:var(--err, #C9685F); }
@@ -2537,9 +2547,10 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
   <div class="wrap">
     <span class="eyebrow">Confidence Mapping</span>
     <h1 class="h-1"><em>Free</em>. Before the chair.</h1>
-    <p class="lede">Three stages. Answer a few questions at your own pace, and we map what your hair needs, before you commit to anything.</p>
+    <p class="lede">Five short steps, at your own pace. We map what your hair needs before you commit to anything, the way a stylist would.</p>
     <div class="cta-row"><a class="pill pill--accent" href="#quiz">Start your Confidence Mapping <span class="arr">&rsaquo;</span></a></div>
     <p class="micro">A diagnosis, not a commitment · Free · No pressure</p>
+      <figure class="hero-portrait"><picture><source type="image/webp" srcset="/tara-rose-pages/bahrain/assets/tara-and-daisy-sm.webp 820w, /tara-rose-pages/bahrain/assets/tara-and-daisy.webp 1600w" sizes="(max-width:640px) 92vw, 560px"><img src="/tara-rose-pages/bahrain/assets/tara-and-daisy.jpg" alt="Tara Rose Kidd and Daisy Charlotte Cropper" loading="eager" decoding="async"></picture><figcaption>Tara Rose Kidd and Daisy Charlotte Cropper</figcaption></figure>
   </div>
 </section>
 
@@ -2549,7 +2560,7 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
     <span class="snet"><span class="tk"></span>Free</span>
     <span class="snet"><span class="tk"></span>No pressure</span>
     <span class="snet"><span class="tk"></span>Personalised</span>
-    <span class="snet"><span class="tk"></span>Three stages</span>
+    <span class="snet"><span class="tk"></span>Five steps</span>
   </div>
 </section>
 
@@ -2559,17 +2570,18 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
       <div class="sec-head center" style="margin-bottom:32px">
         <span class="eyebrow">Your Confidence Map</span>
         <h2 style="font-family:var(--fd);font-weight:500;font-size:clamp(30px,4.4vw,46px);line-height:1.04;letter-spacing:-.012em;color:var(--ink)">Listen. Look. Live. Map.</h2>
-        <p class="sub" style="max-width:56ch;margin-left:auto;margin-right:auto">A few honest questions about your hair and how you feel in it. Nothing is stored on your device, and you decide at the end whether to have your full Journal sent to you.</p>
+        <p class="sub" style="max-width:58ch;margin-left:auto;margin-right:auto">This is how a Tara Rose stylist reads your hair, before you ever sit in the chair. Five short steps, honest answers, and at the end a full plan written for you: the treatments, the home care, the rhythm. It is free, there is no obligation to book, and nothing is stored on your device unless you choose to have your Journal sent.</p>
       </div>
       <form id="cmForm" novalidate>
         <div class="progress-wrap">
-          <div class="progress-meta"><span class="step-label" id="stepLabel">Stage 1 of 4 &middot; Listen</span><span class="pct" id="pct">25%</span></div>
-          <div class="progress-bar"><div class="progress-fill" id="fill" style="width:25%"></div></div>
+          <div class="progress-meta"><span class="step-label" id="stepLabel">Stage 1 of 6 &middot; Listen</span><span class="pct" id="pct">17%</span></div>
+          <div class="progress-bar"><div class="progress-fill" id="fill" style="width:17%"></div></div>
         </div>
 
         <!-- Stage 1 · LISTEN -->
         <div class="qstep active" data-step="1">
           <h2>First, how you feel in it.</h2>
+          <p class="q-why">Confidence is the real reason you are here, not just the hair. So we start with you.</p>
           <div class="qgroup" role="radiogroup" aria-labelledby="qg-1">
             <span class="qlabel" id="qg-1">When did you last feel really confident about your hair?</span>
             <div class="opts">
@@ -2593,6 +2605,7 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
         <!-- Stage 2 · LOOK -->
         <div class="qstep" data-step="2">
           <h2>What your hair is doing.</h2>
+          <p class="q-why">The same read your stylist makes before she picks up a brush.</p>
           <div class="qgroup" role="group" aria-labelledby="qg-3">
             <span class="qlabel" id="qg-3">What would you like to change? Choose any that sound like you.</span>
             <p class="qgroup-head">Condition</p>
@@ -2638,6 +2651,23 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
               <div class="opt"><input type="radio" id="ch5" name="change" value="none"><label for="ch5"><span class="tk"></span>No real change</label></div>
             </div>
           </div>
+          <div class="qgroup" role="radiogroup" aria-labelledby="qg-9">
+            <span class="qlabel" id="qg-9">How does the condition feel today? 1 fragile to 5 strong.</span>
+            <div class="opts scale">
+              <div class="opt"><input type="radio" id="c1" name="condition" value="1"><label for="c1"><span class="tk"></span>1 &middot; Fragile</label></div>
+              <div class="opt"><input type="radio" id="c2" name="condition" value="2"><label for="c2"><span class="tk"></span>2</label></div>
+              <div class="opt"><input type="radio" id="c3" name="condition" value="3"><label for="c3"><span class="tk"></span>3</label></div>
+              <div class="opt"><input type="radio" id="c4" name="condition" value="4"><label for="c4"><span class="tk"></span>4</label></div>
+              <div class="opt"><input type="radio" id="c5" name="condition" value="5"><label for="c5"><span class="tk"></span>5 &middot; Strong</label></div>
+            </div>
+          </div>
+          <div class="qbtns"><button type="button" class="ghost-btn" data-back>&larr; Back</button><button type="button" class="pill pill--accent" data-next>Continue <span class="arr">&rarr;</span></button></div>
+        </div>
+
+        <!-- Stage 3 · COLOUR -->
+        <div class="qstep" data-step="3">
+          <h2>Your colour, honestly.</h2>
+          <p class="q-why">So any plan is safe for the hair you have, henna and keratin included.</p>
           <div class="qgroup" role="radiogroup" aria-labelledby="qg-6">
             <span class="qlabel" id="qg-6">Your natural base?</span>
             <div class="opts">
@@ -2668,22 +2698,13 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
               <div class="opt"><input type="radio" id="hk5" name="hennakeratin" value="not-sure"><label for="hk5"><span class="tk"></span>Not sure</label></div>
             </div>
           </div>
-          <div class="qgroup" role="radiogroup" aria-labelledby="qg-9">
-            <span class="qlabel" id="qg-9">How does the condition feel today? 1 fragile to 5 strong.</span>
-            <div class="opts scale">
-              <div class="opt"><input type="radio" id="c1" name="condition" value="1"><label for="c1"><span class="tk"></span>1 &middot; Fragile</label></div>
-              <div class="opt"><input type="radio" id="c2" name="condition" value="2"><label for="c2"><span class="tk"></span>2</label></div>
-              <div class="opt"><input type="radio" id="c3" name="condition" value="3"><label for="c3"><span class="tk"></span>3</label></div>
-              <div class="opt"><input type="radio" id="c4" name="condition" value="4"><label for="c4"><span class="tk"></span>4</label></div>
-              <div class="opt"><input type="radio" id="c5" name="condition" value="5"><label for="c5"><span class="tk"></span>5 &middot; Strong</label></div>
-            </div>
-          </div>
           <div class="qbtns"><button type="button" class="ghost-btn" data-back>&larr; Back</button><button type="button" class="pill pill--accent" data-next>Continue <span class="arr">&rarr;</span></button></div>
         </div>
 
-        <!-- Stage 3 · LIVE -->
-        <div class="qstep" data-step="3">
-          <h2>Your routine, and your life.</h2>
+        <!-- Stage 4 · LIVE -->
+        <div class="qstep" data-step="4">
+          <h2>Your routine, and the life around it.</h2>
+          <p class="q-why">Half of what happens to hair happens at home, in the water and heat you live in.</p>
           <div class="qgroup" role="radiogroup" aria-labelledby="qg-10">
             <span class="qlabel" id="qg-10">What is your daily routine with your hair?</span>
             <div class="opts">
@@ -2713,6 +2734,13 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
               <div class="opt"><input type="radio" id="d4" name="detox" value="never"><label for="d4"><span class="tk"></span>Never, I did not know I should</label></div>
             </div>
           </div>
+          <div class="qbtns"><button type="button" class="ghost-btn" data-back>&larr; Back</button><button type="button" class="pill pill--accent" data-next>Continue <span class="arr">&rarr;</span></button></div>
+        </div>
+
+        <!-- Stage 5 · YOU -->
+        <div class="qstep" data-step="5">
+          <h2>And you, not just your hair.</h2>
+          <p class="q-why">What shows up on the hair often started on the inside. So we look at the whole picture.</p>
           <div class="qgroup" role="radiogroup" aria-labelledby="qg-13">
             <span class="qlabel" id="qg-13">Anything coming up you would love to feel incredible for?</span>
             <div class="opts">
@@ -2723,7 +2751,6 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
               <div class="opt"><input type="radio" id="o5" name="occasion" value="none"><label for="o5"><span class="tk"></span>Nothing specific, just for me</label></div>
             </div>
           </div>
-          <p class="qgroup-head" style="margin-top:6px">And you, not just your hair</p>
           <div class="qgroup" role="radiogroup" aria-labelledby="qg-14">
             <span class="qlabel" id="qg-14">How are your stress and sleep lately?</span>
             <div class="opts">
@@ -2746,7 +2773,7 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
         </div>
       </form>
 
-      <!-- Stage 4 · MAP (result), sibling of the quiz form, never nested -->
+      <!-- Stage 6 · MAP (result), sibling of the quiz form, never nested -->
       <div class="result" id="result" aria-live="polite">
           <div class="map-turn">
             <span class="eyebrow">Your map</span>
@@ -2888,9 +2915,9 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
 
   var form=document.getElementById('cmForm'), steps=[].slice.call(form.querySelectorAll('.qstep'));
   var fill=document.getElementById('fill'), pct=document.getElementById('pct'), stepLabel=document.getElementById('stepLabel');
-  var labels=['Listen','Look','Live']; var i=0; var _routeKey='not-sure';
-  function render(){ steps.forEach(function(s,k){ s.classList.toggle('active',k===i); }); var p=[25,50,75][i]||100; fill.style.width=p+'%'; pct.textContent=p+'%'; stepLabel.textContent='Stage '+(i+1)+' of 4 · '+labels[i]; }
-  var REQUIRED={1:['confidence'],2:['pain','base','condition'],3:[]};
+  var labels=['Listen','Look','Colour','Live','You']; var i=0; var _routeKey='not-sure';
+  function render(){ steps.forEach(function(s,k){ s.classList.toggle('active',k===i); }); var tot=steps.length+1; var p=Math.round((i+1)/tot*100); fill.style.width=p+'%'; pct.textContent=p+'%'; stepLabel.textContent='Stage '+(i+1)+' of '+tot+' · '+labels[i]; }
+  var REQUIRED={1:['confidence'],2:['pain','condition'],3:['base','hennakeratin'],4:[],5:[]};
   function stageValid(){
     var need=REQUIRED[i+1]||[], s=steps[i], ok=true, first=null;
     [].forEach.call(s.querySelectorAll('.qerr'),function(e){e.remove();});
@@ -3191,7 +3218,7 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
     renderResult(key);
     renderGoal(key);
     steps.forEach(function(s){ s.classList.remove('active'); });
-    fill.style.width='100%'; pct.textContent='100%'; stepLabel.textContent='Stage 4 of 4 · Map';
+    fill.style.width='100%'; pct.textContent='100%'; stepLabel.textContent='Stage '+(steps.length+1)+' of '+(steps.length+1)+' · Map';
     document.getElementById('result').classList.add('show');
     document.getElementById('quiz').scrollIntoView({behavior:RM?'auto':'smooth'});
     var rt=document.getElementById('r-turn'); if(rt){ rt.setAttribute('tabindex','-1'); rt.focus({preventScroll:true}); }
