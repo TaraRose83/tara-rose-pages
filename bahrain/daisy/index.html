@@ -38,6 +38,10 @@ h1{font-family:var(--fd);font-weight:500;font-size:clamp(38px,6vw,64px);line-hei
 .chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:26px 0 0}
 .chip{font-size:12px;font-weight:500;letter-spacing:.02em;color:var(--ink);background:var(--cream);border:1px solid var(--hair);border-radius:100px;padding:8px 16px;display:inline-flex;align-items:center;gap:8px}
 .chip .tk{width:6px;height:6px;border-radius:50%;background:var(--accent-deep)}
+.daisy-social{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:9px 20px;margin:24px 0 0}
+.daisy-social .ds-lbl{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+.daisy-social .soc{font-size:13px;font-weight:500;color:var(--ink-soft);text-decoration:none}
+.daisy-social .soc:hover{color:var(--accent-text)}
 .media{border-radius:22px;border:1px solid var(--hair);min-height:420px;display:flex;align-items:flex-end;padding:26px;margin:44px 0;color:#fff;position:relative;overflow:hidden;background:radial-gradient(130% 120% at 26% 10%,#d8b493 0%,#9c7757 34%,#5a4233 72%,#241a14 100%)}
 .media[data-status]::after{content:attr(data-status);position:absolute;top:14px;left:14px;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6);background:rgba(0,0,0,.28);padding:5px 9px;border-radius:6px}
 .media .cap{font-family:var(--fd);font-style:italic;font-size:19px}
@@ -2219,6 +2223,11 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
     <span class="chip"><span class="tk"></span>Ten years inside Tara Rose</span>
     <span class="chip"><span class="tk"></span>Three-year Manager of the Year finalist</span>
     <span class="chip"><span class="tk"></span>Owner, Tara Rose Bahrain</span>
+  </div>
+  <div class="daisy-social">
+    <span class="ds-lbl">Connect with Daisy</span>
+    <a class="soc" href="https://www.linkedin.com/in/daisycropper" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="soc" href= target="_blank" rel="noopener">Instagram</a>
   </div>
 </div>
 
