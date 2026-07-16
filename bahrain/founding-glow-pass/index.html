@@ -378,6 +378,16 @@ em.accent{ font-style:italic; color:var(--accent-text); }
 .pay-trust .pay-logo{height:23px;width:auto;display:block}
 .pay-trust .pay-logo--floos{height:17px}
 .pay-inline-logo{height:15px;width:auto;display:inline-block;vertical-align:middle;margin:0 1px}
+/* Scarcity band: the REAL cap, made visual. Never a fabricated counter. */
+.scarband__h{font-family:var(--fd);font-weight:500;font-size:clamp(28px,4vw,44px);color:#fff;max-width:18ch;margin:0 auto;line-height:1.06;letter-spacing:-.01em}
+.scarband__h em{font-style:italic;color:var(--accent)}
+.scarband__tiers{display:flex;justify-content:center;gap:clamp(24px,7vw,66px);margin:34px 0 6px;flex-wrap:wrap}
+.sb-tier{display:flex;flex-direction:column;align-items:center}
+.sb-n{font-family:var(--fd);font-weight:500;font-size:clamp(46px,8vw,74px);line-height:1;color:rgba(255,255,255,.92)}
+.sb-l{margin-top:9px;font-family:var(--fb);font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.58)}
+.sb-tier--last .sb-n,.sb-tier--last .sb-l{color:var(--accent)}
+.sb-only{margin-top:6px;font-family:var(--fb);font-style:italic;font-size:12.5px;color:rgba(255,255,255,.5)}
+.scarband__note{max-width:46ch;margin:22px auto 30px;font-family:var(--fb);font-size:15px;line-height:1.6;color:rgba(255,255,255,.72)}
 
 /* The Preview Evening and the Founder's Say. Her own research rates the preview
    evening as a BELIEF lever - "she experiences it before committing" - and a
@@ -2965,10 +2975,16 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
 </section>
 
 <!-- SAFETY CHIPS -->
-<section class="dark" style="text-align:center; padding:66px 0;">
+<section class="dark scarband" style="text-align:center; padding:70px 0;">
   <div class="wrap">
-    <span class="eyebrow" style="display:block; margin-bottom:14px; color:rgba(255,255,255,.55);">45 founding places, ever</span>
-    <h2 style="font-family:var(--fd); font-weight:500; font-size:clamp(28px,4vw,44px); color:#fff; max-width:20ch; margin:0 auto; line-height:1.06; letter-spacing:-.01em;">Your founding place is held the moment you reserve.</h2>
+    <span class="eyebrow" style="display:block; margin-bottom:16px; color:rgba(255,255,255,.55);">The founding cap</span>
+    <h2 class="scarband__h">Forty-five places. <em>Then never again.</em></h2>
+    <div class="scarband__tiers">
+      <div class="sb-tier"><span class="sb-n">25</span><span class="sb-l">Rose</span></div>
+      <div class="sb-tier"><span class="sb-n">15</span><span class="sb-l">Gold</span></div>
+      <div class="sb-tier sb-tier--last"><span class="sb-n">5</span><span class="sb-l">Platinum</span><span class="sb-only">only five, ever</span></div>
+    </div>
+    <p class="scarband__note">When the forty-five are taken, founding closes for good. There is no second cohort at this rate.</p>
     <div class="cta-row" style="justify-content:center;">
       <a class="pill pill--accent" href="#reserve">Reserve Your Founding Place <span class="arr">&rarr;</span></a>
     </div>
