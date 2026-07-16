@@ -2166,6 +2166,10 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
 .press-row a:hover{ color:var(--accent-text); }
 @media(max-width:560px){ .press-row a{ padding:2px 13px; letter-spacing:.1em; } }
 
+/* Any social link whose handle is not set (token fell back to ) is hidden, so an
+   unset profile never ships as a dead link. It reappears the moment a real URL is set. */
+.soc[href=]{ display:none !important; }
+
 /* Footer social links: monochrome platform glyphs, keyed on the URL so no markup
    changes are needed and the icon inherits the link colour. Scoped per platform so
    a link with no matching glyph (podcast placeholders) never shows an empty square. */
