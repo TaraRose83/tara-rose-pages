@@ -71,7 +71,19 @@ em.accent{ font-style:italic; color:var(--accent-text); }
 .media{ position:relative; border-radius:var(--r-lg); overflow:hidden; aspect-ratio:4/3;
   background: radial-gradient(140% 120% at 26% 6%, #dccbab 0%, #9c8968 30%, #524a41 66%, #201c17 100%); }
 .media--warm{ background: radial-gradient(140% 120% at 26% 6%, #d8b493 0%, #9c7757 30%, #533f31 66%, #1e1712 100%); }
+.media--cool{ background: radial-gradient(140% 120% at 26% 6%, #b9d6cf 0%, #6f9a90 30%, #37524c 66%, #16211e 100%); }
+.media--rose{ background: radial-gradient(140% 120% at 26% 6%, #e6cbc4 0%, #b78d82 30%, #5c4139 66%, #23140f 100%); }
 .media--hero{ aspect-ratio:4/4.4; }
+/* Experience gallery — swipeable placeholder rail */
+.exp{ background:var(--paper); }
+.exp .sec-head{ margin-bottom:32px; }
+.exp-rail{ display:flex; gap:18px; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; padding:2px 0 16px; scrollbar-width:none; }
+.exp-rail::-webkit-scrollbar{ display:none; }
+.exp-tile{ flex:0 0 auto; width:min(76vw,330px); scroll-snap-align:start; margin:0; }
+.exp-tile .media{ aspect-ratio:4/5; width:100%; box-shadow:0 14px 34px -18px rgba(45,46,55,.4); }
+.exp-tile figcaption{ margin-top:13px; font-family:var(--fb); font-size:14px; line-height:1.5; color:var(--ink-soft); max-width:32ch; }
+.exp-hint{ text-align:center; margin-top:2px; font-family:var(--fb); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-soft); }
+@media(min-width:900px){ .exp-hint{ display:none; } .exp-rail{ gap:22px; } }
 .media::before{ content:attr(data-label); position:absolute; inset:0; display:flex; align-items:flex-end; padding:22px 26px; color:rgba(255,255,255,.82); font-family:var(--fb); font-size:10px; font-weight:600; letter-spacing:.24em; text-transform:uppercase; z-index:3; }
 .media::after{ content:""; position:absolute; inset:0; z-index:2; pointer-events:none;
   background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='680' height='210'><text x='340' y='118' fill='rgba(255,255,255,0.085)' font-family='Georgia,serif' font-style='italic' font-size='30' letter-spacing='15' text-anchor='middle'>TARA ROSE</text></svg>") center 44% / 58% no-repeat,
@@ -2822,6 +2834,24 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
       <a class="pill pill--accent" href="#reserve">Reserve Your Founding Place <span class="arr">&rarr;</span></a>
     </div>
 </div>
+</section>
+
+<section class="exp">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">A first look</span>
+      <h2>The space we are building <em>for you.</em></h2>
+      <p class="p-lg" style="max-width:54ch;margin:14px auto 0;color:var(--ink-soft)">Tara Rose Bahrain is being made ready. Swipe through the moments that will make a visit here feel like yours.</p>
+    </div>
+    <div class="exp-rail" role="list" aria-label="A first look at Tara Rose Bahrain">
+      <figure class="exp-tile" role="listitem"><div class="media media--cool" data-label="The welcome"></div><figcaption>The welcome, and the first question we ask you.</figcaption></figure>
+      <figure class="exp-tile" role="listitem"><div class="media" data-label="Confidence Mapping"></div><figcaption>Your Confidence Mapping, before a brush is picked up.</figcaption></figure>
+      <figure class="exp-tile" role="listitem"><div class="media media--warm" data-label="The colour room"></div><figcaption>Where your plan is created, and protected.</figcaption></figure>
+      <figure class="exp-tile" role="listitem"><div class="media media--rose" data-label="The finish"></div><figcaption>The mirror moment, when you sit up a little taller.</figcaption></figure>
+      <figure class="exp-tile" role="listitem"><div class="media media--cool" data-label="The founding evening"></div><figcaption>The evening that belongs to the forty-five.</figcaption></figure>
+    </div>
+    <p class="exp-hint">Swipe to see more &rarr;</p>
+  </div>
 </section>
 
 <!-- SAFETY CHIPS -->
