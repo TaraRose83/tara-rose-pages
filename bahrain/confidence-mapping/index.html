@@ -292,6 +292,16 @@ em.accent{ font-style:italic; color:var(--accent-text); }
 .hero-a .lede{ max-width:52ch; margin:24px auto 0; font-size:18px; font-weight:300; color:var(--ink-soft); line-height:1.6; }
 .hero-a .cta-row{ justify-content:center; }
 .hero-a .micro{ margin-top:16px; font-family:var(--fb); font-size:12.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-soft); }
+/* Photographic hero: the image sits behind the text, dark overlay keeps the font readable */
+.hero-a.hero-a--photo{ position:relative; overflow:hidden; background:var(--ink-deep); padding:118px 0 94px; }
+.hero-a--photo::before{ content:""; position:absolute; inset:0; z-index:0; background:var(--hero-img) center 28%/cover no-repeat; }
+.hero-a--photo::after{ content:""; position:absolute; inset:0; z-index:1; background:linear-gradient(180deg,rgba(22,19,16,.48),rgba(22,19,16,.68)); }
+.hero-a--photo > .wrap{ position:relative; z-index:2; }
+.hero-a--photo .eyebrow{ color:var(--accent); }
+.hero-a--photo h1{ color:#fff; }
+.hero-a--photo h1 em{ color:var(--accent); }
+.hero-a--photo .lede{ color:rgba(255,255,255,.86); }
+.hero-a--photo .micro{ color:rgba(255,255,255,.72); }
 
 /* Quiz shell */
 .quiz{ background:var(--stone-soft); }
@@ -2562,15 +2572,13 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
 
 <main id="main">
 <!-- ============ HERO ============ -->
-<section class="hero-a">
+<section class="hero-a hero-a--photo" style="--hero-img:url(/tara-rose-pages/bahrain/assets/daisy-consultation.jpg)">
   <div class="wrap">
     <span class="eyebrow">Confidence Mapping</span>
     <h1 class="h-1"><em>Free</em>. Before the chair.</h1>
     <p class="lede">Five short steps, at your own pace. We map what your hair needs before you commit to anything, the way a stylist would.</p>
     <div class="cta-row"><a class="pill pill--accent" href="#quiz">Start your Confidence Mapping <span class="arr">&rsaquo;</span></a></div>
-    <p class="micro">A diagnosis, not a commitment · Free · No pressure</p>
-      <figure class="hero-portrait"><picture><source type="image/webp" srcset="/tara-rose-pages/bahrain/assets/tara-and-daisy-sm.webp 820w, /tara-rose-pages/bahrain/assets/tara-and-daisy.webp 1600w" sizes="(max-width:640px) 92vw, 560px"><img src="/tara-rose-pages/bahrain/assets/tara-and-daisy.jpg" alt="Tara Rose Kidd and Daisy Charlotte Cropper" loading="eager" decoding="async"></picture><figcaption>Tara Rose Kidd and Daisy Charlotte Cropper</figcaption></figure>
-  </div>
+    <p class="micro">A diagnosis, not a commitment · Free · No pressure</p>  </div>
 </section>
 
 <!-- ============ TRUST ============ -->

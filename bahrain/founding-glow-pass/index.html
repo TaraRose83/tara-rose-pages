@@ -81,6 +81,7 @@ em.accent{ font-style:italic; color:var(--accent-text); }
 .exp-rail::-webkit-scrollbar{ display:none; }
 .exp-tile{ flex:0 0 auto; width:min(76vw,330px); scroll-snap-align:start; margin:0; }
 .exp-tile .media{ aspect-ratio:4/5; width:100%; box-shadow:0 14px 34px -18px rgba(45,46,55,.4); }
+.exp-tile img.exp-photo{ aspect-ratio:4/5; width:100%; object-fit:cover; object-position:center; border-radius:var(--r-lg,22px); box-shadow:0 14px 34px -18px rgba(45,46,55,.4); display:block; }
 .exp-tile figcaption{ margin-top:13px; font-family:var(--fb); font-size:14px; line-height:1.5; color:var(--ink-soft); max-width:32ch; }
 .exp-hint{ text-align:center; margin-top:2px; font-family:var(--fb); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-soft); }
 @media(min-width:900px){ .exp-hint{ display:none; } .exp-rail{ gap:22px; } }
@@ -2693,7 +2694,7 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
 
 <main id="main">
 <!-- HERO-C -->
-<section class="hero-c hero-c--photo" style="--hero-img:url(/tara-rose-pages/bahrain/assets/daisy-consultation.jpg)">
+<section class="hero-c hero-c--photo" style="--hero-img:url(/tara-rose-pages/bahrain/assets/founding-hero.jpg)">
   <div class="wrap">
     <div class="inner">
       <span class="pill-tag"><span class="dot"></span>Tara Rose &middot; Now opening in Bahrain</span>
@@ -2887,15 +2888,15 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
   <div class="wrap">
     <div class="sec-head center">
       <span class="eyebrow">A first look</span>
-      <h2>The space we are building <em>for you.</em></h2>
-      <p class="p-lg" style="max-width:54ch;margin:14px auto 0;color:var(--ink-soft)">Tara Rose Bahrain is being made ready. Swipe through the moments that will make a visit here feel like yours.</p>
+      <h2>This is what a visit <em>feels like.</em></h2>
+      <p class="p-lg" style="max-width:54ch;margin:14px auto 0;color:var(--ink-soft)">The room, the people, the care. Eleven years across Dubai and Abu Dhabi, now opening in Janabiyah. Swipe through what is coming to Bahrain.</p>
     </div>
     <div class="exp-rail" role="list" aria-label="A first look at Tara Rose Bahrain">
-      <figure class="exp-tile" role="listitem"><div class="media media--cool" data-label="The welcome"></div><figcaption>The welcome, and the first question we ask you.</figcaption></figure>
-      <figure class="exp-tile" role="listitem"><div class="media" data-label="Confidence Mapping"></div><figcaption>Your Confidence Mapping, before a brush is picked up.</figcaption></figure>
-      <figure class="exp-tile" role="listitem"><div class="media media--warm" data-label="The colour room"></div><figcaption>Where your plan is created, and protected.</figcaption></figure>
-      <figure class="exp-tile" role="listitem"><div class="media media--rose" data-label="The finish"></div><figcaption>The mirror moment, when you sit up a little taller.</figcaption></figure>
-      <figure class="exp-tile" role="listitem"><div class="media media--cool" data-label="The founding evening"></div><figcaption>The evening that belongs to the forty-five.</figcaption></figure>
+      <figure class="exp-tile" role="listitem"><picture><source type="image/webp" srcset="/tara-rose-pages/bahrain/assets/exp-welcome-sm.webp 820w, /tara-rose-pages/bahrain/assets/exp-welcome.webp 1600w" sizes="(max-width:640px) 92vw, 560px"><img class="exp-photo" src="/tara-rose-pages/bahrain/assets/exp-welcome.jpg" alt="The Tara Rose lounge" loading="lazy" decoding="async"></picture><figcaption>The welcome, and the first question we ask you.</figcaption></figure>
+      <figure class="exp-tile" role="listitem"><picture><source type="image/webp" srcset="/tara-rose-pages/bahrain/assets/exp-authentic-sm.webp 820w, /tara-rose-pages/bahrain/assets/exp-authentic.webp 1600w" sizes="(max-width:640px) 92vw, 560px"><img class="exp-photo" src="/tara-rose-pages/bahrain/assets/exp-authentic.jpg" alt="Women in the salon by the authentic beauty wall" loading="lazy" decoding="async"></picture><figcaption>Beauty that is yours, never a filter.</figcaption></figure>
+      <figure class="exp-tile" role="listitem"><picture><source type="image/webp" srcset="/tara-rose-pages/bahrain/assets/exp-colour-sm.webp 820w, /tara-rose-pages/bahrain/assets/exp-colour.webp 1600w" sizes="(max-width:640px) 92vw, 560px"><img class="exp-photo" src="/tara-rose-pages/bahrain/assets/exp-colour.jpg" alt="Colour being created on the salon floor" loading="lazy" decoding="async"></picture><figcaption>Where your colour is created, and protected.</figcaption></figure>
+      <figure class="exp-tile" role="listitem"><picture><source type="image/webp" srcset="/tara-rose-pages/bahrain/assets/exp-floor-sm.webp 820w, /tara-rose-pages/bahrain/assets/exp-floor.webp 1600w" sizes="(max-width:640px) 92vw, 560px"><img class="exp-photo" src="/tara-rose-pages/bahrain/assets/exp-floor.jpg" alt="Stylists at work in the salon" loading="lazy" decoding="async"></picture><figcaption>Every visit, read to the hair you have.</figcaption></figure>
+      <figure class="exp-tile" role="listitem"><picture><source type="image/webp" srcset="/tara-rose-pages/bahrain/assets/exp-people-sm.webp 820w, /tara-rose-pages/bahrain/assets/exp-people.webp 1600w" sizes="(max-width:640px) 92vw, 560px"><img class="exp-photo" src="/tara-rose-pages/bahrain/assets/exp-people.jpg" alt="The Tara Rose team" loading="lazy" decoding="async"></picture><figcaption>The team who will know you by name.</figcaption></figure>
     </div>
     <p class="exp-hint">Swipe to see more &rarr;</p>
   </div>
