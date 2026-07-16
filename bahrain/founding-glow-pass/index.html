@@ -372,6 +372,11 @@ em.accent{ font-style:italic; color:var(--accent-text); }
 .floos__logo{height:16px;width:auto;display:block}
 .flooss-mark:has(.floos__logo){font-size:0}
 .vs-flooss{align-items:center!important}
+/* Payment trust: card marks under the submit button, flooss inline in its option */
+.pay-trust{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:13px;margin:15px 0 2px}
+.pay-trust__lbl{font-family:var(--fb);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.pay-trust .pay-logo{height:23px;width:auto;display:block}
+.pay-inline-logo{height:15px;width:auto;display:inline-block;vertical-align:middle;margin:0 1px}
 
 /* The Preview Evening and the Founder's Say. Her own research rates the preview
    evening as a BELIEF lever - "she experiences it before committing" - and a
@@ -3048,7 +3053,7 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
         <div class="field pay-method" id="payMethod" hidden>
               <span class="pay-q">How would you like to pay?</span>
               <label class="pay-opt"><input type="radio" name="pay" value="tap" checked><span class="cbx"></span><span><strong>One payment</strong>, in full, securely through Tap.</span></label>
-              <label class="pay-opt"><input type="radio" name="pay" value="flooss"><span class="cbx"></span><span><strong>Split it with FLOOSS</strong>, over interest-free instalments. Your founding value stays exactly the same.</span></label>
+              <label class="pay-opt"><input type="radio" name="pay" value="flooss"><span class="cbx"></span><span><strong>Split it with <img src="/tara-rose-pages/bahrain/assets/flooss-logo@2x.png" alt="FLOOSS" class="pay-inline-logo"></strong>, over interest-free instalments. Your founding value stays exactly the same.</span></label>
             </div>
             <div class="pdpl">
           <div class="pdpl__group">
@@ -3068,6 +3073,11 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
 
         <div class="submit-row">
           <button class="pill pill--accent" type="submit">Continue to secure payment <span class="arr">&rarr;</span></button>
+        </div>
+        <div class="pay-trust" aria-label="Accepted payment methods">
+          <span class="pay-trust__lbl">Secured payment</span>
+          <img src="/tara-rose-pages/bahrain/assets/visa.png" alt="Visa" class="pay-logo" loading="lazy" decoding="async">
+          <img src="/tara-rose-pages/bahrain/assets/mastercard.png" alt="Mastercard" class="pay-logo" loading="lazy" decoding="async">
         </div>
         <p class="consent">You pay your Circle in full to reserve your place. It is not a deposit and it is not spent, it becomes your credit and founding bonus, ready for your plan. Full terms, including your right to withdraw, are in our <a href="/tara-rose-pages/bahrain/legal/terms">Terms and Conditions</a>, readable before you pay.</p>
         <p class="consent">Payment is one secure tap, by card, through a protected link. Your card is never stored.</p>
