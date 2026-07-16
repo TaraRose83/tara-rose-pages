@@ -2122,6 +2122,14 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
 .menu-list{ background:var(--surface-soft, #F4F0E9); border:1px solid var(--hair); border-radius:20px; padding:34px 40px 26px; box-shadow:var(--sh-rim-light), var(--sh-card); }
 @media(max-width:640px){ .menu-list{ padding:24px 22px 18px; border-radius:16px; } }
 
+/* Confidence Promise band — refined (Tara 16 Jul): tighter column, balanced breaks, gallery air, hairline-flanked label */
+.promise-band{ padding-block:clamp(50px,6vw,74px); }
+.promise-band .inner{ max-width:660px; }
+.promise-band .eyebrow{ color:var(--accent-text); }
+.promise-band .q{ font-size:clamp(22px,2.5vw,29px) !important; line-height:1.4 !important; letter-spacing:-.003em; margin-top:26px !important; text-wrap:balance; }
+.promise-band .lbl{ display:inline-flex !important; align-items:center; gap:15px; margin-top:30px !important; font-size:10px !important; letter-spacing:.34em !important; color:var(--accent-text) !important; }
+.promise-band .lbl::before, .promise-band .lbl::after{ content:""; width:26px; height:1px; background:var(--accent-deep); opacity:.55; }
+
 </style>
 <meta name="geo.region" content="AE">
 <meta name="geo.placename" content="Dubai, Abu Dhabi">
