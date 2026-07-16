@@ -320,6 +320,7 @@ em.accent{ font-style:italic; color:var(--accent-text); }
 .vs-cta{margin-top:18px;width:100%}
 .vs-legal{margin:26px auto 0;max-width:72ch;font-size:12.5px;line-height:1.65;color:var(--ink-soft);text-align:center}
 .stack-anchor{max-width:60ch;margin:14px auto 0;color:var(--ink-soft)}
+@media(max-width:900px){.shift-grid{grid-template-columns:1fr 1fr!important}}@media(max-width:520px){.shift-grid{grid-template-columns:1fr!important}}
 
 /* ── TRS DESIGN SYSTEM (build-injected: tokens.json + normalise.css) ── */
 /* GENERATED from _content/tokens.json by gen-tokens.py - do not hand-edit.
@@ -2478,9 +2479,9 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
   <div class="wrap">
     <div class="inner">
       <span class="pill-tag"><span class="dot"></span>The Beauty Voucher · Autumn Window · Open until 15 August</span>
-      <h1 class="h-1">Your hair, <em>worth more</em>, for one season.</h1>
-      <p class="lede">Add to your credit before the window closes. You already come back. This makes every visit worth more, and locks your rhythm for the months ahead.</p>
-      <div class="scarcity"><span class="dot"></span><span id="pledged">Open until 15 August, then closed until next season</span></div>
+      <h1 class="h-1">A small circle of our clients <em>get this first.</em></h1>
+      <p class="lede">For eleven years we have looked after women across four salons in Dubai and Abu Dhabi. We are sharing three prepaid Beauty Ritual vouchers with our VIP and long-term clients. You place credit on your plan, we add a bonus on top, and it is mapped around you from day one. Not money off. A plan.</p>
+      <div class="scarcity"><span class="dot"></span><span id="pledged">Shared with our VIP and long-term clients &middot; Three tiers &middot; AED 1,000 to AED 4,500</span></div>
       <div class="countdown" data-deadline="2026-08-15T20:00:00+04:00" aria-label="Time to the window close">
         <div class="cd"><span class="cd__n" data-cd="d">--</span><span class="cd__l">Days</span></div>
         <div class="cd"><span class="cd__n" data-cd="h">--</span><span class="cd__l">Hours</span></div>
@@ -2488,7 +2489,7 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
         <div class="cd"><span class="cd__n" data-cd="s">--</span><span class="cd__l">Secs</span></div>
       </div>
       <div class="cta-row">
-        <a class="pill pill--accent" href="#reserve">Reserve Your Beauty Voucher <span class="arr">&rarr;</span></a>
+        <a class="pill pill--accent" href="#reserve">Reserve Your Ritual <span class="arr">&rarr;</span></a>
         <a class="nav-link" href="#reserve" style="align-self:center">Gift it instead &rarr;</a>
       </div>
     </div>
@@ -2530,8 +2531,31 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
 <section class="dark belief">
   <div class="wrap">
     <span class="q">&ldquo;</span>
-    <h2>We see the woman, not just the hair. The voucher is how we make looking after her the easy thing to do.</h2>
-    <span class="attr">&middot; The Tara Rose way</span>
+    <h2>We see the woman. Not just the hair.</h2>
+    <div style="max-width:60ch;margin:26px auto 0;text-align:left">
+      <p style="font-family:var(--fb);font-size:16px;font-weight:300;line-height:1.68;color:rgba(255,255,255,.78)">As women, we put ourselves last. Beauty becomes the thing we skip while we carry everyone and everything else. It is the first thing to go, and it is never really about the hair.</p>
+      <p style="font-family:var(--fb);font-size:16px;font-weight:300;line-height:1.68;color:rgba(255,255,255,.78)">Beauty is a form of self-care, and self-care is not the indulgence you were taught it was. We see the person in the chair, moving through every phase of her life, not just booking another appointment.</p>
+      <p style="font-family:var(--fd);font-style:italic;font-size:20px;line-height:1.45;color:var(--accent);margin-top:26px">If you keep starting from scratch, that was never yours to work out alone.</p>
+    </div>
+    <span class="attr">&middot; Tara Rose Kidd, Founder</span>
+  </div>
+</section>
+
+<!-- TARA'S WHY (v2 §3) -->
+<section style="background:var(--cream);">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Tara Rose Kidd &middot; My Why</span>
+      <h2>Why I built this, and why it is <em>not money off.</em></h2>
+    </div>
+    <div style="max-width:62ch;margin:0 auto;font-family:var(--fb);font-size:16px;line-height:1.7;color:var(--ink-soft)">
+      <p>Eleven years ago I started Tara Rose. Not because the world needed another salon, but because I believed the team and the client should always be at the front of it. Everything we have built since comes back to that.</p>
+      <p>I am a busy working mum, so I know exactly what an hour like this is worth. It is never really about the hair. It is the one part of the week that belongs to you. Which is why, year on year, we keep asking ourselves the same question: how do we make that hour mean more.</p>
+      <p>So this voucher is not money off. It is a thank-you held in place, for the clients who keep choosing us, visit after visit.</p>
+      <p>Tara Rose is not new to you. For eleven years, across four salons in Dubai and Abu Dhabi, we have looked after women exactly this way. This voucher is just a smarter way to do what you already do here.</p>
+      <p>The credit is yours to spend on your plan. The bonus is my thank-you. And a plan you have already committed to is worth more than a visit you keep meaning to book.</p>
+      <p style="margin-top:22px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink)">&middot; Tara Rose Kidd, Founder</p>
+    </div>
   </div>
 </section>
 
@@ -2646,12 +2670,28 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
   </div>
 </section>
 
+<!-- THE FOUR SHIFTS (v2 §6) -->
+<section>
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">The journey</span>
+      <h2>The four shifts that make <em>a plan.</em></h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px" class="shift-grid">
+      <div class="inc"><span class="plabel">1</span><h3>Service to Plan</h3><p style="margin:8px 0 0;font-size:14px;line-height:1.6;color:var(--ink-soft)">A plan, not a visit. A one-off appointment becomes an ongoing plan for your hair and beauty.</p></div>
+      <div class="inc"><span class="plabel">2</span><h3>Price to Investment</h3><p style="margin:8px 0 0;font-size:14px;line-height:1.6;color:var(--ink-soft)">Something to protect. A cost becomes something you are protecting, on rhythm.</p></div>
+      <div class="inc"><span class="plabel">3</span><h3>Cure to Rhythm</h3><p style="margin:8px 0 0;font-size:14px;line-height:1.6;color:var(--ink-soft)">A rhythm, not a rescue. A rescue becomes a rhythm that keeps the result working.</p></div>
+      <div class="inc"><span class="plabel">4</span><h3>Customer to Known</h3><p style="margin:8px 0 0;font-size:14px;line-height:1.6;color:var(--ink-soft)">Known, not processed. A transaction becomes a relationship where you are seen.</p></div>
+    </div>
+  </div>
+</section>
+
 <!-- ANCHOR (deck §3) -->
 <section class="dark belief">
   <div class="wrap">
     <span class="q">&ldquo;</span>
-    <h2>The more you set aside, the more we add. That is the whole idea.</h2>
-    <span class="attr">&middot; The Tara Rose way</span>
+    <h2>Great hair is not one visit. The plan is what makes it last.</h2>
+    <span class="attr">&middot; The Tara Rose Belief</span>
   </div>
 </section>
 
@@ -2668,7 +2708,7 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
       <div class="inc"><span class="plabel">03</span><h3>No surprises at the till</h3><ul><li><span class="tk"></span>Larger colour work is covered up to a set amount per visit</li><li><span class="tk"></span>Any remainder is settled in the usual way</li><li><span class="tk"></span>Your stylist tells you before, never at the till</li></ul></div>
     </div>
     <div class="cta-row" style="justify-content:center;margin-top:34px;">
-      <a class="pill pill--accent" href="#reserve">Reserve Your Beauty Voucher <span class="arr">&rarr;</span></a>
+      <a class="pill pill--accent" href="#reserve">Reserve Your Ritual <span class="arr">&rarr;</span></a>
     </div>
   </div>
 </section>
@@ -2825,7 +2865,7 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
         </div>
 
         <div class="submit-row">
-          <button class="pill pill--accent" type="submit">Reserve Your Beauty Voucher <span class="arr">&rarr;</span></button>
+          <button class="pill pill--accent" type="submit">Reserve Your Ritual <span class="arr">&rarr;</span></button>
         </div>
         <p class="consent">Payment via secure link. Your credit is added the moment your voucher is reserved.</p>
         <p class="consent">Prefer to spread the cost? You can pay over time with Tabby in the UAE. Same care, more flexibility.</p>
