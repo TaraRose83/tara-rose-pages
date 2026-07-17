@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-<link rel="preload" as="font" type="font/woff2" crossorigin href="/tara-rose-pages/tara-rose-pages/assets/fonts/playfair-display-500.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="/tara-rose-pages/tara-rose-pages/assets/fonts/inter-300.woff2"><style>/* Font faces linked to same-origin woff2 files (cached across pages). Generated. */
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/tara-rose-pages/assets/fonts/playfair-display-500.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="/tara-rose-pages/assets/fonts/inter-300.woff2"><style>/* Font faces linked to same-origin woff2 files (cached across pages). Generated. */
 @font-face{font-family:'Inter';font-style:normal;font-weight:300 600;font-display:swap;src:url(/tara-rose-pages/assets/fonts/inter-300.woff2) format('woff2')}
 @font-face{font-family:'Playfair Display';font-style:normal;font-weight:500;font-display:swap;src:url(/tara-rose-pages/assets/fonts/playfair-display-500.woff2) format('woff2')}
 @font-face{font-family:'Playfair Display';font-style:italic;font-weight:500;font-display:swap;src:url(/tara-rose-pages/assets/fonts/playfair-display-500-italic.woff2) format('woff2')}
@@ -250,6 +250,12 @@ em.accent{ font-style:italic; color:var(--accent-text); }
 .rcard input:checked+label{ border-color:var(--accent-deep); background:rgba(153,246,228,.14); }
 .reserve .submit-row{ margin-top:28px; }
 .reserve .submit-row .pill{ width:100%; justify-content:center; padding:18px 40px; font-size:14px; }
+/* Payment trust row. UAE is Stripe (the gateway, which stays invisible) plus the card
+   brands plus Tabby. Tabby renders as a text chip, not a logo: no Tabby asset exists yet. */
+.pay-trust{ display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:13px; margin:15px 0 2px; }
+.pay-trust__lbl{ font-family:var(--fb); font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft); }
+.pay-trust .pay-logo{ height:23px; width:auto; display:block; }
+.pay-trust .pay-chip{ font-family:var(--fb); font-size:12px; font-weight:600; letter-spacing:.03em; color:var(--ink-soft); border:1px solid var(--hair); border-radius:var(--r-sm); padding:5px 11px; line-height:1; }
 .reserve .consent{ text-align:center; margin-top:20px; font-family:var(--fb); font-size:13px; font-weight:300; color:var(--ink-soft); }
 
 /* PDPL consent block */
@@ -2478,11 +2484,11 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
 <section class="hero-c">
   <div class="wrap">
     <div class="inner">
-      <span class="pill-tag"><span class="dot"></span>The Beauty Voucher · Autumn Window · Open until 15 August</span>
-      <h1 class="h-1">A small circle of our clients <em>get this first.</em></h1>
-      <p class="lede">For eleven years we have looked after women across four salons in Dubai and Abu Dhabi. We are sharing three prepaid Beauty Ritual vouchers with our VIP and long-term clients. You place credit on your plan, we add a bonus on top, and it is mapped around you from day one. Not money off. A plan.</p>
-      <div class="scarcity"><span class="dot"></span><span id="pledged">Shared with our VIP and long-term clients &middot; Three tiers &middot; AED 1,000 to AED 4,500</span></div>
-      <div class="countdown" data-deadline="2026-08-15T20:00:00+04:00" aria-label="Time to the window close">
+      <span class="pill-tag"><span class="dot"></span>The Beauty Voucher · Summer Window · Open until 28 August</span>
+      <h1 class="h-1">You never skip your hair. <em>You skip everything else.</em></h1>
+      <p class="lede">For eleven years we have looked after women across four salons in Dubai and Abu Dhabi. You never miss your colour. What you skip is the facial, the treatment, the hour that is only yours. So we built three prepaid Beauty Ritual vouchers: you place credit on your plan, we add a Self-Care Bonus on top pointed at exactly the part you keep putting off, and it is mapped around you from day one. Not money off. A plan.</p>
+      <div class="scarcity"><span class="dot"></span><span id="pledged">Three tiers &middot; AED 1,000 to AED 4,500 &middot; Your credit spends on any service</span></div>
+      <div class="countdown" data-deadline="2026-08-28T20:00:00+04:00" aria-label="Time to the window close">
         <div class="cd"><span class="cd__n" data-cd="d">--</span><span class="cd__l">Days</span></div>
         <div class="cd"><span class="cd__n" data-cd="h">--</span><span class="cd__l">Hours</span></div>
         <div class="cd"><span class="cd__n" data-cd="m">--</span><span class="cd__l">Mins</span></div>
@@ -2495,6 +2501,9 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
     </div>
   </div>
 </section>
+
+<!-- PRESS STRIP (matches Founding 45). Every link verified July 2026. Never add one unread. -->
+<section class="press-strip"><div class="wrap"><p class="press-eyebrow">As featured in</p><div class="press-row"><a href="https://www.cosmopolitanme.com/beauty/best-dubai-salons-2026" target="_blank" rel="noopener">Cosmopolitan</a><a href="https://visitabudhabi.ae/en/where-to-go/spa-and-wellness/tara-rose" target="_blank" rel="noopener">Experience Abu Dhabi</a><a href="https://professionalbeauty.co.uk/site/newsdetails/salon-spotlight--tara-rose,-abu-dhabi" target="_blank" rel="noopener">Professional Beauty</a><a href="https://www.goodsalonguide.com/community/news/congratulations-to-tara-rose-salon-abu-dhabi-and-dubai" target="_blank" rel="noopener">Good Salon Guide</a></div><p class="press-quote">&ldquo;Tara Rose is a salon where we hope clients will feel at home when they visit.&rdquo;<span>Tara Rose Kidd &middot; in Professional Beauty</span></p></div></section>
 
 <!-- SAFETY CHIPS -->
 <section class="safety" style="padding-top:26px;">
@@ -2551,10 +2560,25 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
     <div style="max-width:62ch;margin:0 auto;font-family:var(--fb);font-size:16px;line-height:1.7;color:var(--ink-soft)">
       <p>Eleven years ago I started Tara Rose. Not because the world needed another salon, but because I believed the team and the client should always be at the front of it. Everything we have built since comes back to that.</p>
       <p>I am a busy working mum, so I know exactly what an hour like this is worth. It is never really about the hair. It is the one part of the week that belongs to you. Which is why, year on year, we keep asking ourselves the same question: how do we make that hour mean more.</p>
-      <p>So this voucher is not money off. It is a thank-you held in place, for the clients who keep choosing us, visit after visit.</p>
-      <p>Tara Rose is not new to you. For eleven years, across four salons in Dubai and Abu Dhabi, we have looked after women exactly this way. This voucher is just a smarter way to do what you already do here.</p>
-      <p>The credit is yours to spend on your plan. The bonus is my thank-you. And a plan you have already committed to is worth more than a visit you keep meaning to book.</p>
+      <p>Beauty is a form of self-care, and self-care is not the thing you get to once everyone else is handled. It is how you stay well. Eleven years in this chair has taught me that what shows up in a woman&rsquo;s hair almost always started somewhere else in her life.</p>
+      <p>So this voucher is not money off, and it is not a reward for staying. It is me giving something back to the women who spend their lives looking after everyone else.</p>
+      <p>The credit is yours, to spend on whatever you want. The Self-Care Bonus is pointed at the part you would never book for yourself. And a plan you have already backed is worth more than a visit you keep meaning to make.</p>
       <p style="margin-top:22px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink)">&middot; Tara Rose Kidd, Founder</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF + AUTHORITY, awards floor (deck §7) -->
+<section style="background:var(--cream);">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Real diagnosis. Real results.</span>
+      <h2>Why the season is worth setting aside with us.</h2>
+    </div>
+    <div class="grid-3">
+      <div class="inc"><h3>Recognised work</h3><p style="margin:8px 0 0;font-size:14.5px;line-height:1.62;color:var(--ink-soft)">Tara Rose Kidd, Business Director of the Year three years running, inducted into the Professional Beauty Hall of Fame.</p></div>
+      <div class="inc"><h3>An awarded team</h3><p style="margin:8px 0 0;font-size:14.5px;line-height:1.62;color:var(--ink-soft)">Team of the Year, four times. Colourist of the Year, Salon Stylist of the Year, and Hair Salon of the Year at Saadiyat.</p></div>
+      <div class="inc"><h3>Eleven years, four salons</h3><p style="margin:8px 0 0;font-size:14.5px;line-height:1.62;color:var(--ink-soft)">Eleven years looking after women across Dubai and Abu Dhabi. The same method at every chair.</p></div>
     </div>
   </div>
 </section>
@@ -2565,7 +2589,7 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
     <div class="sec-head center">
       <span class="eyebrow">The value, made visible</span>
       <h2>Everything your voucher puts <em>on the table.</em></h2>
-      <p class="stack-anchor">Nothing here is money off. You place credit on your plan, we add a bonus on top of it, and the rest is what being one of our VIP and long-term clients actually gives you.</p>
+      <p class="stack-anchor">Nothing here is money off. You place credit on your plan, we add a Self-Care Bonus on top of it, and the rest is what an hour that belongs to you actually looks like when someone plans it properly.</p>
     </div>
     <div class="vgrid">
 
@@ -2652,24 +2676,6 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
   </div>
 </section>
 
-<!-- WHAT IS INSIDE THE VALUE (deck §4) -->
-<section>
-  <div class="wrap">
-    <div class="sec-head center">
-      <span class="eyebrow">What the credit is really worth</span>
-      <h2>Set aside AED 2,500. Unlock <em>AED 3,000</em>.</h2>
-    </div>
-    <div style="max-width:640px;margin:0 auto">
-      <div style="display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--hair)"><span style="font-size:15px">Bespoke colour or a cut, read and prescribed</span><span style="font-size:15px;white-space:nowrap;color:var(--ink-soft)">worth AED 450</span></div>
-      <div style="display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--hair)"><span style="font-size:15px">Professional hair analysis and documentation</span><span style="font-size:15px;white-space:nowrap;color:var(--ink-soft)">worth AED 250</span></div>
-      <div style="display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--hair)"><span style="font-size:15px">A personalised 90-day care plan with stylist support</span><span style="font-size:15px;white-space:nowrap;color:var(--ink-soft)">worth AED 400</span></div>
-      <div style="display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--hair)"><span style="font-size:15px">Priority booking access through the season</span><span style="font-size:15px;white-space:nowrap;color:var(--ink-soft)">worth AED 200</span></div>
-      <div style="display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--hair)"><span style="font-size:15px">One treatment prescribed to your hair, gloss, mask or smoothing</span><span style="font-size:15px;white-space:nowrap;color:var(--ink-soft)">worth AED 150</span></div>
-      <p style="margin:20px 0 0;font-size:14.5px;line-height:1.62;color:var(--ink-soft)">This is why the voucher is worth more than the credit alone. You are not buying money off. You are buying the plan, the priority and the care around it.</p>
-    </div>
-  </div>
-</section>
-
 <!-- THE FOUR SHIFTS (v2 §6) -->
 <section>
   <div class="wrap">
@@ -2713,13 +2719,49 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
   </div>
 </section>
 
-<!-- SPLIT IT, AND WE ADD TO IT (deck §6, Tabby) -->
+<!-- WHERE YOUR CREDIT SPENDS (the four salons; reuses the home-page .loc block + uae.json tokens) -->
+<section style="background:var(--cream);">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Where your credit spends</span>
+      <h2>Four salons, one plan.</h2>
+    </div>
+    <div class="grid-4">
+      <div class="loc">
+        <span class="city">Abu Dhabi</span>
+        <h3>Mamsha al Saadiyat</h3>
+        <p>Mamsha al Saadiyat, Abu Dhabi<br>9:00am&ndash;8:00pm daily</p>
+        <a class="go" href="/tara-rose-pages/contact">Take me there &rarr;</a>
+      </div>
+      <div class="loc">
+        <span class="city">Abu Dhabi</span>
+        <h3>Khalifa City A</h3>
+        <p>Khalifa City A, Abu Dhabi<br>9:00am&ndash;8:00pm daily</p>
+        <a class="go" href="/tara-rose-pages/contact">Take me there &rarr;</a>
+      </div>
+      <div class="loc">
+        <span class="city">Dubai</span>
+        <h3>Al Quoz</h3>
+        <p>Arenco Warehouse 10, Al Quoz 1, Dubai<br>9:00am&ndash;8:00pm daily<br>+971 4 457 2309</p>
+        <a class="go" href="/tara-rose-pages/contact">Take me there &rarr;</a>
+      </div>
+      <div class="loc">
+        <span class="city">Dubai</span>
+        <h3>Motor City</h3>
+        <p>Daytona House, Unit LB 03, Motor City, Dubai<br>9:00am&ndash;8:00pm daily<br>+971 4 324 6613</p>
+        <a class="go" href="/tara-rose-pages/contact">Take me there &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPLIT IT OVER FOUR (deck §6, Tabby · uplift RETIRED 16 Jul: Tabby adds no credit, T2/T3 only) -->
 <section class="dark" style="text-align:center; padding:66px 0;">
   <div class="wrap">
     <span class="eyebrow" style="display:block; margin-bottom:14px; color:rgba(255,255,255,.55);">An easier way in</span>
-    <h2 style="font-family:var(--fd); font-weight:500; font-size:clamp(28px,4vw,44px); color:#fff; max-width:22ch; margin:0 auto 16px; line-height:1.06; letter-spacing:-.01em;">Split the payment. Keep the bonus.</h2>
-    <p style="max-width:56ch;margin:0 auto;font-size:15px;line-height:1.62;color:rgba(255,255,255,.78)">Prefer to spread it across the season. You can, with Tabby, at no extra cost to you. Same credit, same bonus, paid your way. It is our way of making the sensible thing the easy thing, not a finance product, just a kinder path to the same result.</p>
-    <p style="margin:18px 0 0;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5)">Tabby in the UAE &middot; floos in Bahrain</p>
+    <h2 style="font-family:var(--fd); font-weight:500; font-size:clamp(28px,4vw,44px); color:#fff; max-width:22ch; margin:0 auto 16px; line-height:1.06; letter-spacing:-.01em;">Split the payment. Same credit.</h2>
+    <p style="max-width:56ch;margin:0 auto;font-size:15px;line-height:1.62;color:rgba(255,255,255,.78)">Prefer to spread it across the season. You can, with Tabby, at no extra cost to you. The same credit, the same bonus, paid in four. It is our way of making the sensible thing the easy thing, not a finance product, just a kinder path to the same result.</p>
+    <p style="margin:18px 0 0;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5)">Tabby &middot; Season of You and All-In VIP Year</p>
   </div>
 </section>
 
@@ -2738,21 +2780,22 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
   </div>
 </section>
 
-<!-- PROOF + AUTHORITY, awards floor (deck §7) -->
-<section style="background:var(--cream);">
+<!-- WHAT HAPPENS NEXT (matches Founding 45) -->
+<section>
   <div class="wrap">
-    <div class="sec-head center">
-      <span class="eyebrow">Real diagnosis. Real results.</span>
-      <h2>Why the season is worth setting aside with us.</h2>
+    <div class="sec-head">
+      <span class="eyebrow">After you reserve</span>
+      <h2>What happens next.</h2>
     </div>
-    <div class="grid-3">
-      <div class="inc"><h3>Recognised work</h3><p style="margin:8px 0 0;font-size:14.5px;line-height:1.62;color:var(--ink-soft)">Tara Rose Kidd, Business Director of the Year three years running, inducted into the Professional Beauty Hall of Fame.</p></div>
-      <div class="inc"><h3>An awarded team</h3><p style="margin:8px 0 0;font-size:14.5px;line-height:1.62;color:var(--ink-soft)">Team of the Year, four times. Colourist of the Year, Salon Stylist of the Year, and Hair Salon of the Year at Saadiyat.</p></div>
-      <div class="inc"><h3>Eleven years, four salons</h3><p style="margin:8px 0 0;font-size:14.5px;line-height:1.62;color:var(--ink-soft)">Eleven years looking after women across Dubai and Abu Dhabi. The same method at every chair.</p></div>
+    <div class="timeline">
+      <div class="tstep"><span class="wk">Step 1</span><b>Your voucher is reserved</b></div>
+      <div class="tstep"><span class="wk">Step 2</span><b>Your credit goes on your account</b></div>
+      <div class="tstep"><span class="wk">Step 3</span><b>Your Confidence Map, free</b></div>
+      <div class="tstep"><span class="wk">Step 4</span><b>Your first visit, planned around you</b></div>
+      <div class="tstep"><span class="wk">Step 5</span><b>Your season, held on rhythm</b></div>
     </div>
   </div>
 </section>
-
 
 <!-- FAQ -->
 <section class="dark faq">
@@ -2848,7 +2891,7 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
         <div class="field" style="border:1px solid var(--hair);border-radius:var(--r-sm);padding:16px;background:var(--paper)">
           <div class="pdpl__group" style="align-items:flex-start;margin:0">
             <input type="checkbox" class="pdpl__checkbox" id="c-tabby" name="tabby_bonus">
-            <label class="pdpl__label" for="c-tabby"><strong>Split it, and we add to it.</strong> Pay with Tabby and receive extra credit. Spread your voucher across the season at no extra cost, and we add a loyalty bonus for choosing to commit. Same outlay, more hair.</label>
+            <label class="pdpl__label" for="c-tabby"><strong>Split it over four.</strong> Pay with Tabby and spread your voucher across the season at no extra cost. The same credit, the same bonus, paid in four. Available on Season of You and All-In VIP Year.</label>
           </div>
         </div>
 
@@ -2867,8 +2910,14 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
         <div class="submit-row">
           <button class="pill pill--accent" type="submit">Reserve Your Ritual <span class="arr">&rarr;</span></button>
         </div>
-        <p class="consent">Payment via secure link. Your credit is added the moment your voucher is reserved.</p>
-        <p class="consent">Prefer to spread the cost? You can pay over time with Tabby in the UAE. Same care, more flexibility.</p>
+        <div class="pay-trust" aria-label="Accepted payment methods">
+          <span class="pay-trust__lbl">Secured payment</span>
+          <img src="/tara-rose-pages/assets/visa.png" alt="Visa" class="pay-logo" loading="lazy" decoding="async">
+          <img src="/tara-rose-pages/assets/mastercard.png" alt="Mastercard" class="pay-logo" loading="lazy" decoding="async">
+          <span class="pay-chip">Tabby</span>
+        </div>
+        <p class="consent">Payment is one secure tap, by card, through a protected link. Your card is never stored. Your credit is added the moment your voucher is reserved.</p>
+        <p class="consent">Prefer to spread the cost? Season of You and All-In VIP Year can be paid over four with Tabby, at no extra cost. The same credit, the same bonus, paid in four.</p>
       </form>
     </div>
   </div>
