@@ -55,6 +55,8 @@ body{ font-family:var(--fb); color:var(--ink); background:var(--paper); line-hei
 .serif-em,h1,h2,h3,h4{ font-optical-sizing:auto; }
 img{ max-width:100%; display:block; }
 a{ color:inherit; text-decoration:none; }
+.inc p a{ color:var(--accent-text); text-decoration:underline; text-decoration-color:rgba(58,168,146,.5); text-underline-offset:2px; transition:text-decoration-color .2s; }
+.inc p a:hover{ text-decoration-color:var(--accent-text); }
 .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 var(--pad-x); }
 section{ padding:var(--sec-y) 0; }
 .skip{ position:absolute; top:-100px; left:16px; z-index:999; background:var(--ink); color:var(--paper); padding:12px 20px; border-radius:var(--r-pill); font-family:var(--fb); font-size:13px; font-weight:500; }
@@ -2729,7 +2731,7 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
     </div>
     <div class="grid-3">
       <div class="inc"><h3>Eleven years, not a new brand</h3><p style="margin:8px 0 0;font-size:14.5px;line-height:1.62;color:var(--ink-soft);">Eleven years looking after women in the UAE. The same method, the same standards. Bahrain is a new address, not a new brand.</p></div>
-      <div class="inc"><h3>Four salons, and eleven years of reviews</h3><p style="margin:8px 0 0;font-size:14.5px;line-height:1.62;color:var(--ink-soft);">Motor City and Al Quoz in Dubai. Khalifa City A and Mamsha al Saadiyat in Abu Dhabi. Eleven years of reviews sit with those salons, and we would rather you read them before you trust us with anything.</p></div>
+      <div class="inc"><h3>Four salons, and eleven years of reviews</h3><p style="margin:8px 0 0;font-size:14.5px;line-height:1.62;color:var(--ink-soft);"><a href="https://www.tararosesalon.com/en/ae/locations/dubai/motor-city/" target="_blank" rel="noopener">Motor City</a> and <a href="https://www.tararosesalon.com/en/ae/locations/dubai/al-quoz/" target="_blank" rel="noopener">Al Quoz</a> in Dubai. <a href="https://www.tararosesalon.com/en/ae/locations/abu-dhabi/khalifa-city/" target="_blank" rel="noopener">Khalifa City A</a> and <a href="https://www.tararosesalon.com/en/ae/locations/abu-dhabi/mamsha-al-saadiyat/" target="_blank" rel="noopener">Mamsha al Saadiyat</a> in Abu Dhabi. Eleven years of reviews sit with those salons, and we would rather you read them before you trust us with anything.</p></div>
       <div class="inc"><h3>Daisy, running it herself</h3><p style="margin:8px 0 0;font-size:14.5px;line-height:1.62;color:var(--ink-soft);">Daisy Charlotte Cropper worked inside Tara Rose for ten years, a three-year Manager of the Year finalist. She owns and runs Bahrain herself, and she is here, in the room, from the first day.</p></div>
     </div>
     <div class="mid-cta">
@@ -3206,7 +3208,7 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
   /* Choosing a Circle from the stack carries it into the form, so she never picks twice. */
   document.querySelectorAll('.vs-cta[data-pick], .acard[data-circle]').forEach(function(c){
     var pick=c.getAttribute('data-pick')||c.getAttribute('data-circle');
-    var go=function(){ var sel=document.getElementById('circle'); if(sel) sel.value=pick; };
+    var go=function(){ var sel=document.getElementById('circle'); if(sel){ sel.value=pick; sel.dispatchEvent(new Event('change')); } };
     c.addEventListener('click',go);
     c.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ go(); } });
   });
