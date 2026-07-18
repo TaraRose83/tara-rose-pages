@@ -3126,6 +3126,7 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
         </div>
         <p class="consent">You pay your Circle in full to reserve your place. It is not a deposit and it is not spent, it becomes your credit and founding bonus, ready for your plan. Full terms, including your right to withdraw, are in our <a href="/tara-rose-pages/bahrain/legal/terms">Terms and Conditions</a>, readable before you pay.</p>
         <p class="consent">Payment is one secure tap, by card, through a protected link. Your card is never stored.</p>
+        <p class="consent">Card payments are securely processed by Tap.</p>
         <p class="consent">Gold and Platinum can be spread over time with flooss, so the larger Circles are within reach without changing anything you receive. The founding value stays exactly the same.</p>
       </form>
     </div>
@@ -3192,6 +3193,9 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
 /* TEMPLATE: swap __FORM_ENDPOINT__ for your CRM/GHL inbound webhook URL. Inert until set. */
 (function(){
   var FORM_ENDPOINT="__FORM_ENDPOINT__";
+  /* TEMPLATE: paste each tier's Tap hosted-checkout link in _content/bahrain.json (TAP_LINK_*). Unset = the link is sent after capture instead. FLOOSS is a server-side integration, never wired on the page. */
+  var TAP={rose:"",gold:"",platinum:""};
+  function _live(u){ return u && u.indexOf("__TAP_LINK")===-1; }
   var f=document.querySelector('main form')||document.querySelector('form'); if(!f) return;
   var _cs=document.getElementById('circle'),_pm=document.getElementById('payMethod');if(_cs&&_pm){_cs.addEventListener('change',function(){_pm.hidden=!(_cs.value==='gold'||_cs.value==='platinum');});}
   f.addEventListener('submit',function(e){
@@ -3201,7 +3205,10 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
     var data={source:(document.title||'').split('·')[0].trim()};
     f.querySelectorAll('[name]').forEach(function(el){ if(el.type==='checkbox'){data[el.name]=el.checked;} else if(el.type==='radio'){ if(el.checked) data[el.name]=el.value; } else if(el.value){ data[el.name]=el.value; } });
     if(data.cc && data.whatsapp){ data.whatsapp = data.cc + " " + data.whatsapp; delete data.cc; }
-    if(FORM_ENDPOINT.indexOf("__FORM_ENDPOINT__")===-1){ try{ fetch(FORM_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)}); }catch(err){} }
+    if(FORM_ENDPOINT.indexOf("__FORM_ENDPOINT__")===-1){ try{ fetch(FORM_ENDPOINT,{method:"POST",keepalive:true,headers:{"Content-Type":"application/json"},body:JSON.stringify(data)}); }catch(err){} }
+    /* Tap: the lead is captured above (keepalive survives navigation), then she goes straight to the hosted checkout for her tier. FLOOSS or an unset Tap link falls through to the "link on its way" message. */
+    var _tap=TAP[data.circle];
+    if(data.pay==='tap' && _live(_tap)){ window.location.href=_tap; return; }
     var t=document.createElement('div'); t.className='form-thanks';
     var _T={rose:['Rose Circle','100 BHD'],gold:['Gold Circle','250 BHD'],platinum:['Platinum Circle','500 BHD']};var _ti=_T[data.circle]||_T.rose;var _pl=(data.pay==='flooss')?('Your secure FLOOSS link is on its way to your WhatsApp and email, so you can split your '+_ti[1]+' into interest-free instalments.'):('Your secure Tap payment link is on its way to your WhatsApp and email, to complete your '+_ti[1]+' in one payment.');t.innerHTML='<h3>Thank you. Your '+_ti[0]+' place is held.</h3>'+'<p>Here is what happens next.</p>'+'<ol class="next-steps">'+'<li>We hold your place for 48 hours while you complete your payment.</li>'+'<li>'+_pl+'</li>'+'<li>The moment it is paid, your founding credit, your bonus and your founder\u2019s rate are set aside in your name, and you are one of the forty-five.</li>'+'</ol>'+'<p class="fine">Your credit and the full founding terms are confirmed in the payment link, readable before you pay. Any question first, just reply on WhatsApp.</p>';
     f.parentNode.replaceChild(t,f); t.scrollIntoView({behavior:'smooth'});
