@@ -11,7 +11,7 @@
 <meta name="theme-color" content="#FAF8F4">
 <title>The Beauty Voucher · Tara Rose</title>
 <meta name="description" content="You never skip your hair. You skip everything else. Place your credit, we add a Self-Care Bonus on top, and it is mapped around you from day one. Not money off. A plan.">
-<link rel="canonical" href="https://www.tararosesalon.com/beauty-voucher"
+<link rel="canonical" href="https://www.tararosesalon.com/beauty-voucher">
 <link rel="alternate" hreflang="en-ae" href="https://www.tararosesalon.com/beauty-voucher">
 <link rel="alternate" hreflang="en-bh" href="https://www.tararosesalon.com/en/bh/beauty-voucher">
 <link rel="alternate" hreflang="x-default" href="https://www.tararosesalon.com/beauty-voucher">
@@ -38,7 +38,7 @@
 :root{
   --paper:#FAF8F4; --cream:#F1ECE3; --stone-soft:#EFEBE3; --stone:#E7E2D8; --sand:#E7DFD2;
   --ink:#2D2E37; --ink-deep:#1C1B18; --ink-soft:#74747B; --hair:rgba(45,46,55,.11);
-  --accent:#99F6E4; --accent-deep:#7DE6D2; --accent-text:#3aa892; --accent-soft:#EEF3C7;
+  --accent:#99F6E4; --accent-deep:#7DE6D2; --accent-text:#1C7563; --accent-soft:#EEF3C7;
   --lime:#EEF3C7; --lavender:#C4B5FD; --coral:#FF9B9B; --err:#C9685F;
   --r-lg:22px; --r-md:16px; --r-sm:14px; --r-pill:100px;
   --ease:cubic-bezier(.22,.61,.36,1); --dur:.3s;
@@ -85,7 +85,7 @@ em.accent{ font-style:italic; color:var(--accent-text); }
 .btn:hover,.pill:hover{ transform:translateY(-2px); background:#3b3c47; box-shadow:0 11px 24px -10px rgba(45,46,55,.42); }
 .btn--accent,.pill--accent{ background:var(--accent); color:var(--ink); box-shadow:0 1px 2px rgba(61,140,127,.20); }
 .btn--accent:hover,.pill--accent:hover{ background:var(--accent-deep); box-shadow:0 12px 26px -10px rgba(61,140,127,.5); }
-.cta-row{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; margin-top:30px; }
+.cta-row{ display:flex; align-items:center; justify-content:center; gap:18px; flex-wrap:wrap; margin-top:30px; }
 
 /* Nav (campaign minimal) */
 .trs-nav{ position:sticky; top:0; z-index:60; background:rgba(250,248,244,.86); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid var(--hair); transition:box-shadow .4s var(--ease),background .4s var(--ease); }
@@ -306,7 +306,7 @@ em.accent{ font-style:italic; color:var(--accent-text); }
 .form-thanks p{ font-family:var(--fb); font-size:15px; font-weight:300; color:var(--ink-soft); margin-top:10px; }
 [id]{scroll-margin-top:84px}::selection{background:var(--accent);color:var(--ink)}::-moz-selection{background:var(--accent);color:var(--ink)}
 /* Footer Connect column. Unfilled handles are stripped at build, never shipped dead. */
-.foot .soc-grp{margin:14px 0 4px;font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-text,#3aa892)}
+.foot .soc-grp{margin:14px 0 4px;font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent,#99F6E4)}
 .foot .soc-grp:first-of-type{margin-top:0}
 .foot .row{flex-wrap:wrap}
 
@@ -339,6 +339,20 @@ em.accent{ font-style:italic; color:var(--accent-text); }
 .vs-pay b{color:var(--ink);font-weight:600}
 .vs-cta{margin-top:18px;width:100%}
 .vs-legal{margin:26px auto 0;max-width:72ch;font-size:12.5px;line-height:1.65;color:var(--ink-soft);text-align:center}
+.exits{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:780px;margin:38px auto 0}
+.xcard{position:relative;display:flex;flex-direction:column;gap:11px;padding:26px 22px 22px;background:var(--paper);border:1px solid var(--hair);border-radius:var(--r-md);text-decoration:none;color:var(--ink);overflow:hidden;transition:transform var(--dur) var(--ease),box-shadow var(--dur) var(--ease),border-color var(--dur) var(--ease);box-shadow:0 1px 2px rgba(45,46,55,.05)}
+.xcard::before{content:"";position:absolute;left:0;top:0;height:3px;width:100%;background:linear-gradient(90deg,var(--accent),var(--accent-deep));transform:scaleX(0);transform-origin:left;transition:transform var(--dur) var(--ease)}
+.xcard:hover{transform:translateY(-4px);box-shadow:0 18px 40px -24px rgba(45,46,55,.5);border-color:transparent}
+.xcard:hover::before{transform:scaleX(1)}
+.xcard:focus-visible{outline:2px solid var(--accent-text);outline-offset:3px}
+.xcard .xnum{font-family:var(--fb);font-size:10.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-text)}
+.xcard .xttl{font-family:var(--fd);font-weight:500;font-size:19px;line-height:1.2;color:var(--ink)}
+.xcard .xsub{font-family:var(--fb);font-size:12.5px;font-weight:300;line-height:1.5;color:var(--ink-soft);flex:1}
+.xcard .xgo{display:inline-flex;align-items:center;gap:7px;margin-top:6px;font-family:var(--fb);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text)}
+.xcard .xgo i{font-style:normal;transition:transform var(--dur) var(--ease)}
+.xcard:hover .xgo i{transform:translateX(4px)}
+@media(prefers-reduced-motion:reduce){.xcard,.xcard::before,.xcard .xgo i{transition:none}}
+@media(max-width:720px){.exits{grid-template-columns:1fr;max-width:420px}}
 .stack-anchor{max-width:60ch;margin:14px auto 0;color:var(--ink-soft)}
 @media(max-width:900px){.shift-grid{grid-template-columns:1fr 1fr!important}}@media(max-width:520px){.shift-grid{grid-template-columns:1fr!important}}
 
@@ -2565,6 +2579,10 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
       <span class="eyebrow">Tara Rose Kidd &middot; My Why</span>
       <h2>Why I built this, and why it is <em>not money off.</em></h2>
     </div>
+    <figure style="max-width:300px;margin:8px auto 30px">
+      <img src="/tara-rose-pages/assets/exp-placeholder.svg" alt="Tara Rose Kidd, Founder of Tara Rose" loading="lazy" decoding="async" style="width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--r-lg);background:var(--stone);display:block;box-shadow:0 14px 34px -18px rgba(45,46,55,.4)">
+      <figcaption style="text-align:center;margin-top:12px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)">Tara Rose Kidd, Founder</figcaption>
+    </figure>
     <div style="max-width:62ch;margin:0 auto;font-family:var(--fb);font-size:16px;line-height:1.7;color:var(--ink-soft)">
       <p>Eleven years ago I started Tara Rose. Not because the world needed another salon, but because I believed the team and the client should always be at the front of it. Everything we have built since comes back to that.</p>
       <p>I am a busy working mum, so I know exactly what an hour like this is worth. It is never really about the hair. It is the one part of the week that belongs to you. Which is why, year on year, we keep asking ourselves the same question: how do we make that hour mean more.</p>
@@ -2573,48 +2591,26 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
       <p>The credit is yours, to spend on whatever you want. The Self-Care Bonus is pointed at the part you would never book for yourself. And a plan you have already backed is worth more than a visit you keep meaning to make.</p>
       <p style="margin-top:22px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink)">&middot; Tara Rose Kidd, Founder</p>
     </div>
-    <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;max-width:640px;margin:34px auto 0">
-      <a href="/tara-rose-pages/meet-tara" style="flex:1 1 260px;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 22px;border:1px solid var(--hair);border-radius:var(--r-md);background:var(--paper);text-decoration:none;color:var(--ink)">
-        <span style="display:flex;flex-direction:column;gap:3px">
-          <strong style="font-family:var(--fd);font-weight:500;font-size:17px">Meet Tara</strong>
-          <em style="font-style:normal;font-size:12.5px;line-height:1.4;color:var(--ink-soft)">Eleven years, and a philosophy that was never about the hair</em>
-        </span>
-        <span style="font-size:18px;color:var(--accent-text);flex-shrink:0">&rarr;</span>
+    <div class="exits">
+      <a class="xcard" href="/tara-rose-pages/meet-tara">
+        <span class="xnum">Her story</span>
+        <span class="xttl">Meet Tara</span>
+        <span class="xsub">Eleven years, and a philosophy that was never about the hair.</span>
+        <span class="xgo">Read her story <i>&rarr;</i></span>
       </a>
-      <a href="#confidence-promise" style="flex:1 1 240px;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 22px;border:1px solid var(--hair);border-radius:var(--r-md);background:var(--paper);text-decoration:none;color:var(--ink)">
-        <span style="display:flex;flex-direction:column;gap:3px">
-          <strong style="font-family:var(--fd);font-weight:500;font-size:17px">The Confidence Promise</strong>
-          <em style="font-style:normal;font-size:12.5px;line-height:1.4;color:var(--ink-soft)">If it does not feel right, we refine it. No blame, just care</em>
-        </span>
-        <span style="font-size:18px;color:var(--accent-text);flex-shrink:0">&rarr;</span>
+      <a class="xcard" href="#confidence-promise">
+        <span class="xnum">Our care</span>
+        <span class="xttl">The Confidence Promise</span>
+        <span class="xsub">The care behind every colour and treatment we do.</span>
+        <span class="xgo">See the promise <i>&rarr;</i></span>
       </a>
-      <a href="/tara-rose-pages/confidence-mapping" style="flex:1 1 240px;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 22px;border:1px solid var(--hair);border-radius:var(--r-md);background:var(--paper);text-decoration:none;color:var(--ink)">
-        <span style="display:flex;flex-direction:column;gap:3px">
-          <strong style="font-family:var(--fd);font-weight:500;font-size:17px">Start your Confidence Mapping</strong>
-          <em style="font-style:normal;font-size:12.5px;line-height:1.4;color:var(--ink-soft)">A free read of your hair, before you decide anything</em>
-        </span>
-        <span style="font-size:18px;color:var(--accent-text);flex-shrink:0">&rarr;</span>
+      <a class="xcard" href="/tara-rose-pages/confidence-mapping">
+        <span class="xnum">Start here</span>
+        <span class="xttl">Confidence Mapping</span>
+        <span class="xsub">A free read of your hair, before you decide anything.</span>
+        <span class="xgo">Map your hair <i>&rarr;</i></span>
       </a>
     </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE PHOTO RAIL (same structure as Bahrain founding; IMG_EXP tokens fill from uae.json) -->
-<section class="exp" style="background:var(--cream);">
-  <div class="wrap">
-    <div class="sec-head center">
-      <span class="eyebrow">A first look</span>
-      <h2>What a visit actually <em>feels like.</em></h2>
-      <p class="p-lg" style="max-width:54ch;margin:14px auto 0;color:var(--ink-soft)">The room, the people, the care. Eleven years across Dubai and Abu Dhabi. Swipe through the hour that is yours.</p>
-    </div>
-    <div class="exp-rail" role="list" aria-label="A first look at Tara Rose">
-      <figure class="exp-tile" role="listitem"><img class="exp-photo" src="/tara-rose-pages/assets/exp-placeholder.svg" alt="The Tara Rose welcome" loading="lazy" decoding="async"><figcaption>The welcome, and the first question we ask you.</figcaption></figure>
-      <figure class="exp-tile" role="listitem"><img class="exp-photo" src="/tara-rose-pages/assets/exp-placeholder.svg" alt="Beauty that is yours" loading="lazy" decoding="async"><figcaption>Beauty that is yours, never a filter.</figcaption></figure>
-      <figure class="exp-tile" role="listitem"><img class="exp-photo" src="/tara-rose-pages/assets/exp-placeholder.svg" alt="Colour being created on the salon floor" loading="lazy" decoding="async"><figcaption>Where your colour is created, and protected.</figcaption></figure>
-      <figure class="exp-tile" role="listitem"><img class="exp-photo" src="/tara-rose-pages/assets/exp-placeholder.svg" alt="Stylists at work in the salon" loading="lazy" decoding="async"><figcaption>Every visit, read to the hair you have.</figcaption></figure>
-      <figure class="exp-tile" role="listitem"><img class="exp-photo" src="/tara-rose-pages/assets/exp-placeholder.svg" alt="The Tara Rose team" loading="lazy" decoding="async"><figcaption>The team who will know you by name.</figcaption></figure>
-    </div>
-    <p class="exp-hint">Swipe to see more &rarr;</p>
   </div>
 </section>
 
@@ -2736,7 +2732,7 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
 <section>
   <div class="wrap">
     <div class="sec-head center">
-      <span class="eyebrow">The journey</span>
+      <span class="eyebrow">The four shifts</span>
       <h2>The four shifts that make <em>a plan.</em></h2>
     </div>
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px" class="shift-grid">
@@ -2808,6 +2804,25 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
         <a class="go" href="/tara-rose-pages/contact">Take me there &rarr;</a>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE PHOTO RAIL (moved lower, after the salons; IMG_EXP tokens fill from uae.json) -->
+<section class="exp" style="background:var(--cream);">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">A first look</span>
+      <h2>What a visit actually <em>feels like.</em></h2>
+      <p class="p-lg" style="max-width:54ch;margin:14px auto 0;color:var(--ink-soft)">The room, the people, the care. Eleven years across Dubai and Abu Dhabi. Swipe through the hour that is yours.</p>
+    </div>
+    <div class="exp-rail" role="list" aria-label="A first look at Tara Rose">
+      <figure class="exp-tile" role="listitem"><img class="exp-photo" src="/tara-rose-pages/assets/exp-placeholder.svg" alt="The Tara Rose welcome" loading="lazy" decoding="async"><figcaption>The welcome, and the first question we ask you.</figcaption></figure>
+      <figure class="exp-tile" role="listitem"><img class="exp-photo" src="/tara-rose-pages/assets/exp-placeholder.svg" alt="Beauty that is yours" loading="lazy" decoding="async"><figcaption>Beauty that is yours, never a filter.</figcaption></figure>
+      <figure class="exp-tile" role="listitem"><img class="exp-photo" src="/tara-rose-pages/assets/exp-placeholder.svg" alt="Colour being created on the salon floor" loading="lazy" decoding="async"><figcaption>Where your colour is created, and protected.</figcaption></figure>
+      <figure class="exp-tile" role="listitem"><img class="exp-photo" src="/tara-rose-pages/assets/exp-placeholder.svg" alt="Stylists at work in the salon" loading="lazy" decoding="async"><figcaption>Every visit, read to the hair you have.</figcaption></figure>
+      <figure class="exp-tile" role="listitem"><img class="exp-photo" src="/tara-rose-pages/assets/exp-placeholder.svg" alt="The Tara Rose team" loading="lazy" decoding="async"><figcaption>The team who will know you by name.</figcaption></figure>
+    </div>
+    <p class="exp-hint">Swipe to see more &rarr;</p>
   </div>
 </section>
 
