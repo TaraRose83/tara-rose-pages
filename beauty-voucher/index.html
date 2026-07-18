@@ -118,13 +118,16 @@ em.accent{ font-style:italic; color:var(--accent-text); }
 .cd__n{ font-family:var(--fd); font-size:30px; color:#fff; line-height:1; display:block; font-weight:500; font-variant-numeric:tabular-nums; }
 .cd__l{ font-size:9px; letter-spacing:.22em; text-transform:uppercase; color:rgba(255,255,255,.6); margin-top:8px; display:block; }
 .hero-c .inner .cta-row{ justify-content:center; }
-/* Experience photo rail — placeholders until real photography drops in. Aspect-ratio reserved (no layout shift). */
-.photo-rail{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:36px 0 0; }
-@media(max-width:720px){ .photo-rail{ grid-template-columns:1fr 1fr; } }
-@media(max-width:460px){ .photo-rail{ grid-template-columns:1fr; } }
-.photo-ph{ position:relative; aspect-ratio:4/5; border-radius:var(--r-md); overflow:hidden; border:1px solid var(--hair); background:radial-gradient(130% 120% at 30% 15%,#e8dccb,#c9b6a0 45%,#6f5f4f 100%); display:flex; align-items:flex-end; padding:18px; }
-.photo-ph::after{ content:"Photo"; position:absolute; top:12px; left:12px; font-family:var(--fb); font-size:9px; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.78); background:rgba(0,0,0,.3); padding:4px 9px; border-radius:6px; }
-.photo-ph span{ font-family:var(--fd); font-style:italic; font-size:15px; color:#fff; line-height:1.3; text-shadow:0 1px 8px rgba(0,0,0,.4); }
+/* Experience photo rail — SAME structure as the Bahrain founding page (.exp-rail).
+   Uses <img> with the IMG_EXP tokens: real UAE photos drop in by editing uae.json only. */
+.exp .sec-head{ margin-bottom:32px; }
+.exp-rail{ display:flex; gap:18px; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; padding:2px 0 16px; scrollbar-width:none; }
+.exp-rail::-webkit-scrollbar{ display:none; }
+.exp-tile{ flex:0 0 auto; width:min(76vw,330px); scroll-snap-align:start; margin:0; }
+.exp-tile img.exp-photo{ aspect-ratio:4/5; width:100%; object-fit:cover; object-position:center; border-radius:var(--r-lg,22px); box-shadow:0 14px 34px -18px rgba(45,46,55,.4); display:block; background:var(--stone); }
+.exp-tile figcaption{ margin-top:13px; font-family:var(--fb); font-size:14px; line-height:1.5; color:var(--ink-soft); max-width:32ch; }
+.exp-hint{ text-align:center; margin-top:2px; font-family:var(--fb); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-soft); }
+@media(min-width:900px){ .exp-hint{ display:none; } .exp-rail{ gap:22px; } }
 
 /* Safety chips */
 .safety{ border-bottom:1px solid var(--hair); padding:26px 0; }
@@ -2596,18 +2599,22 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
   </div>
 </section>
 
-<!-- EXPERIENCE PHOTO RAIL (placeholders — real photography drops in here) -->
-<section style="background:var(--cream);">
+<!-- EXPERIENCE PHOTO RAIL (same structure as Bahrain founding; IMG_EXP tokens fill from uae.json) -->
+<section class="exp" style="background:var(--cream);">
   <div class="wrap">
     <div class="sec-head center">
-      <span class="eyebrow">The hour that is yours</span>
+      <span class="eyebrow">A first look</span>
       <h2>What a visit actually <em>feels like.</em></h2>
+      <p class="p-lg" style="max-width:54ch;margin:14px auto 0;color:var(--ink-soft)">The room, the people, the care. Eleven years across Dubai and Abu Dhabi. Swipe through the hour that is yours.</p>
     </div>
-    <div class="photo-rail">
-      <div class="photo-ph"><span>The welcome, a drink, the chair that is yours</span></div>
-      <div class="photo-ph"><span>The read, hands in your hair, the plan taking shape</span></div>
-      <div class="photo-ph"><span>The mirror, and how you sit up taller leaving</span></div>
+    <div class="exp-rail" role="list" aria-label="A first look at Tara Rose">
+      <figure class="exp-tile" role="listitem"><img class="exp-photo" src="/tara-rose-pages/assets/exp-placeholder.svg" alt="The Tara Rose welcome" loading="lazy" decoding="async"><figcaption>The welcome, and the first question we ask you.</figcaption></figure>
+      <figure class="exp-tile" role="listitem"><img class="exp-photo" src="/tara-rose-pages/assets/exp-placeholder.svg" alt="Beauty that is yours" loading="lazy" decoding="async"><figcaption>Beauty that is yours, never a filter.</figcaption></figure>
+      <figure class="exp-tile" role="listitem"><img class="exp-photo" src="/tara-rose-pages/assets/exp-placeholder.svg" alt="Colour being created on the salon floor" loading="lazy" decoding="async"><figcaption>Where your colour is created, and protected.</figcaption></figure>
+      <figure class="exp-tile" role="listitem"><img class="exp-photo" src="/tara-rose-pages/assets/exp-placeholder.svg" alt="Stylists at work in the salon" loading="lazy" decoding="async"><figcaption>Every visit, read to the hair you have.</figcaption></figure>
+      <figure class="exp-tile" role="listitem"><img class="exp-photo" src="/tara-rose-pages/assets/exp-placeholder.svg" alt="The Tara Rose team" loading="lazy" decoding="async"><figcaption>The team who will know you by name.</figcaption></figure>
     </div>
+    <p class="exp-hint">Swipe to see more &rarr;</p>
   </div>
 </section>
 

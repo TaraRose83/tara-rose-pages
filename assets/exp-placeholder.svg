@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500">
+  <defs>
+    <radialGradient id="g" cx="30%" cy="12%" r="125%">
+      <stop offset="0%" stop-color="#e8dccb"/>
+      <stop offset="45%" stop-color="#c9b6a0"/>
+      <stop offset="100%" stop-color="#6f5f4f"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="500" fill="url(#g)"/>
+  <text x="24" y="34" font-family="Inter, system-ui, sans-serif" font-size="12" letter-spacing="3" fill="rgba(255,255,255,0.8)">PHOTO</text>
+  <text x="200" y="258" font-family="Georgia, 'Playfair Display', serif" font-style="italic" font-size="21" fill="rgba(255,255,255,0.92)" text-anchor="middle">Photo to come</text>
+</svg>
