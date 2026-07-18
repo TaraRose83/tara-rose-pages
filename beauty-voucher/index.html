@@ -353,6 +353,10 @@ em.accent{ font-style:italic; color:var(--accent-text); }
 .xcard:hover .xgo i{transform:translateX(4px)}
 @media(prefers-reduced-motion:reduce){.xcard,.xcard::before,.xcard .xgo i{transition:none}}
 @media(max-width:720px){.exits{grid-template-columns:1fr;max-width:420px}}
+.float-cta{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(22px);z-index:70;opacity:0;pointer-events:none;transition:opacity .3s var(--ease),transform .3s var(--ease)}
+.float-cta.show{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.float-cta .pill{box-shadow:0 14px 36px -10px rgba(45,46,55,.55)}
+@media(prefers-reduced-motion:reduce){.float-cta{transition:opacity .2s var(--ease)}}
 .stack-anchor{max-width:60ch;margin:14px auto 0;color:var(--ink-soft)}
 @media(max-width:900px){.shift-grid{grid-template-columns:1fr 1fr!important}}@media(max-width:520px){.shift-grid{grid-template-columns:1fr!important}}
 
@@ -3112,6 +3116,30 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
     f.addEventListener('change', sync);
     sync();
   });
+})();
+</script>
+
+<!-- PERSISTENT FLOATING CTA — always reachable on scroll, centred, hides while the reserve form is on screen -->
+<div class="float-cta" id="floatCta" aria-hidden="true">
+  <a class="pill pill--accent" href="#reserve">Reserve Your Voucher <span class="arr">&rarr;</span></a>
+</div>
+<script>
+(function(){
+  var fc = document.getElementById('floatCta');
+  if (!fc) return;
+  var hero = document.querySelector('.hero-c');
+  var reserve = document.getElementById('reserve');
+  function upd(){
+    var pastHero = hero ? (hero.getBoundingClientRect().bottom < 40) : (window.scrollY > 500);
+    var reserveVisible = false;
+    if (reserve){ var r = reserve.getBoundingClientRect(); reserveVisible = r.top < window.innerHeight && r.bottom > 0; }
+    var show = pastHero && !reserveVisible;
+    fc.classList.toggle('show', show);
+    fc.setAttribute('aria-hidden', show ? 'false' : 'true');
+  }
+  window.addEventListener('scroll', upd, { passive:true });
+  window.addEventListener('resize', upd);
+  upd();
 })();
 </script>
 </body>
