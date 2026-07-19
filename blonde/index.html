@@ -3000,6 +3000,10 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
 <script>
 (function(){var fc=document.getElementById('floatMap');if(!fc)return;var why=document.querySelector('.whyband');function upd(){var past=window.scrollY>600;var wv=false;if(why){var r=why.getBoundingClientRect();wv=r.top<window.innerHeight&&r.bottom>0;}var show=past&&!wv;fc.classList.toggle('show',show);fc.setAttribute('aria-hidden',show?'false':'true');}window.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();})();
 </script>
+<!-- INTERIM · placeholder WhatsApp (971500000000) not live yet: route those CTAs to the working free map. Auto-reverts when the real number is set. -->
+<script>
+(function(){var wa=document.querySelectorAll('a[href*="wa.me/971500000000"]');if(!wa.length)return;var m=document.querySelector('a[href*="/confidence-mapping"]');var t=m?m.getAttribute('href'):'/confidence-mapping';for(var i=0;i<wa.length;i++){wa[i].setAttribute('href',t);wa[i].setAttribute('data-interim-map','1');}})();
+</script>
 <!-- FOOTER -->
 <footer class="foot">
   <div class="wrap">
