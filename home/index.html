@@ -340,6 +340,12 @@ section{ padding:var(--sec-y) 0; }
 .whyband .wprom{margin-top:22px;font-family:var(--fb);font-size:12.5px;color:rgba(255,255,255,.6)}
 .whyband .wprom b{color:rgba(255,255,255,.85);font-weight:500}
 
+/* floating Map-your-hair CTA */
+.float-map{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(20px);z-index:70;opacity:0;pointer-events:none;transition:opacity .3s ease,transform .3s ease}
+.float-map.show{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.float-map .pill{box-shadow:0 14px 36px -10px rgba(45,46,55,.55)}
+@media(prefers-reduced-motion:reduce){.float-map{transition:opacity .2s ease}}
+
 /* ── TRS DESIGN SYSTEM (build-injected: tokens.json + normalise.css) ── */
 /* GENERATED from _content/tokens.json by gen-tokens.py - do not hand-edit.
    Swap tokens.json to re-skin the system, or to make it a different salon. */
@@ -2830,6 +2836,11 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
   </div>
 </section>
 
+<!-- FLOATING CTA · free Confidence Mapping (hides while the Why band is on screen) -->
+<div class="float-map" id="floatMap" aria-hidden="true"><a class="pill pill--accent" href="/tara-rose-pages/confidence-mapping">Map your hair, free &rarr;</a></div>
+<script>
+(function(){var fc=document.getElementById('floatMap');if(!fc)return;var why=document.querySelector('.whyband');function upd(){var past=window.scrollY>600;var wv=false;if(why){var r=why.getBoundingClientRect();wv=r.top<window.innerHeight&&r.bottom>0;}var show=past&&!wv;fc.classList.toggle('show',show);fc.setAttribute('aria-hidden',show?'false':'true');}window.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();})();
+</script>
 <footer class="foot">
   <div class="wrap">
     <div class="row">
