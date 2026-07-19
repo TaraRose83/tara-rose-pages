@@ -311,7 +311,7 @@ section{ padding:var(--sec-y) 0; }
 .foot .row{flex-wrap:wrap}
 
 /* WHERE TO NEXT · exit cards */
-.exits-sec{padding:46px 0;background:var(--cream,#F1ECE3)}
+.exits-sec{padding:var(--sec-y,72px) 0;background:var(--cream,#F1ECE3)}
 .exits-wrap{max-width:820px;margin:0 auto;padding:0 22px;text-align:center}
 .exits-eye{font-family:var(--fb);font-size:11px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--accent-text)}
 .exits{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:780px;margin:22px auto 0;text-align:left}
@@ -330,13 +330,13 @@ section{ padding:var(--sec-y) 0; }
 @media(max-width:720px){.exits{grid-template-columns:1fr;max-width:420px}}
 
 /* THE WHY band */
-.whyband{background:var(--ink,#2D2E37);color:#fff;padding:60px 0;text-align:center}
+.whyband{background:var(--ink,#2D2E37);color:#fff;padding:var(--sec-y,72px) 0;text-align:center}
 .whyband .w{max-width:660px;margin:0 auto;padding:0 22px}
 .whyband .weye{font-family:var(--fb);font-size:11px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--accent,#99F6E4)}
 .whyband h2{font-family:var(--fd);font-weight:500;font-size:clamp(26px,4vw,38px);line-height:1.12;color:#fff;margin:14px 0 0;letter-spacing:-.01em}
 .whyband h2 em{font-style:italic;color:var(--accent,#99F6E4)}
 .whyband .wp{font-family:var(--fb);font-size:15.5px;font-weight:300;line-height:1.62;color:rgba(255,255,255,.8);margin:16px auto 0;max-width:58ch}
-.whyband .wcta{display:inline-flex;align-items:center;gap:9px;margin-top:26px;background:var(--accent,#99F6E4);color:var(--ink,#2D2E37);text-decoration:none;font-family:var(--fb);font-weight:600;font-size:13px;letter-spacing:.04em;padding:14px 28px;border-radius:100px}
+.whyband .pill{margin-top:26px}
 .whyband .wprom{margin-top:22px;font-family:var(--fb);font-size:12.5px;color:rgba(255,255,255,.6)}
 .whyband .wprom b{color:rgba(255,255,255,.85);font-weight:500}
 
@@ -2819,7 +2819,7 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
     <span class="weye">The why behind Tara Rose</span>
     <h2>We see the woman, <em>not just the hair.</em></h2>
     <p class="wp">Before we touch your hair, we read it. Your free Confidence Mapping is where every plan begins, so what we do is matched to you, and yours from the first visit. This was never really about the hair. It is about how you feel when you leave.</p>
-    <a class="wcta" href="/tara-rose-pages/confidence-mapping">Map your hair, free &rarr;</a>
+    <a class="pill pill--accent" href="/tara-rose-pages/confidence-mapping">Map your hair, free &rarr;</a>
     <p class="wprom">Every colour and treatment is held by the Confidence Promise. <b>Refine, never refund.</b></p>
   </div>
 </section>
