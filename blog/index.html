@@ -444,12 +444,12 @@ section{ padding:var(--sec-y) 0; }
      brunette keeps warm shadows and blonde keeps cool ones. */
   --sh-rgb:45,46,55;
   --sh-cta-rgb:61,140,127;
-  --sh-btn:        0 1px 2px         rgba(var(--sh-rgb),.10);
-  --sh-btn-hover:  0 11px 24px -10px rgba(var(--sh-rgb),.42);
-  --sh-cta:        0 1px 2px         rgba(var(--sh-cta-rgb),.20);
-  --sh-cta-hover:  0 12px 26px -10px rgba(var(--sh-cta-rgb),.50);
-  --sh-card:       0 1px 2px rgba(var(--sh-rgb),.05), 0 12px 28px -20px rgba(var(--sh-rgb),.16);
-  --sh-card-hover: 0 2px 4px rgba(var(--sh-rgb),.05), 0 22px 44px -22px rgba(var(--sh-rgb),.24);
+  --sh-btn:        0 1px 2px rgba(var(--sh-rgb),.10), 0 6px 16px -8px rgba(var(--sh-rgb),.16);
+  --sh-btn-hover:  0 2px 6px rgba(var(--sh-rgb),.12), 0 16px 30px -12px rgba(var(--sh-rgb),.42);
+  --sh-cta:        0 1px 2px rgba(var(--sh-cta-rgb),.16), 0 6px 18px -8px rgba(var(--sh-cta-rgb),.32);
+  --sh-cta-hover:  0 2px 6px rgba(var(--sh-cta-rgb),.18), 0 18px 34px -12px rgba(var(--sh-cta-rgb),.50);
+  --sh-card:       0 1px 3px rgba(var(--sh-rgb),.05), 0 14px 34px -22px rgba(var(--sh-rgb),.18);
+  --sh-card-hover: 0 3px 8px rgba(var(--sh-rgb),.06), 0 26px 50px -24px rgba(var(--sh-rgb),.26);
   --sh-media:      0 1px 2px rgba(var(--sh-rgb),.04), 0 18px 44px -28px rgba(var(--sh-rgb),.14);
   --sh-hero:       0 2px 6px rgba(var(--sh-rgb),.10), 0 24px 48px -24px rgba(var(--sh-rgb),.45);
   --sh-nav:        0 8px 30px -18px rgba(var(--sh-rgb),.28);
@@ -584,6 +584,10 @@ body{ overflow-x:clip }
   color:var(--accent-text);
 }
 .cred .cnum{ color:var(--accent-text) }
+/* Turquoise micro-labels on DARK grounds need the bright value; --accent-text (deep) is a light-ground colour and reads too dark on the ink footer / dark sections. */
+.foot h4, .foot h3, .foot .eyebrow, .foot .eyebrow-label, .foot .soc-grp, .foot .cnote, .foot .alabel, .foot .go,
+.dark .cnote, .dark .alabel, .dark .vs-note, .dark .go, .dark .soc-grp,
+.closing .cnote, .closing .go{ color:var(--accent-deep); }
 
 /* Prose goes warm neutral. This is the actual elevation - a cool grey body copy
    is what was making it read cheap. */
