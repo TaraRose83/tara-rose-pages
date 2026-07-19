@@ -343,10 +343,13 @@ em.accent{ font-style:italic; color:var(--accent-text); }
 .vs-sum span{font-weight:500;color:var(--ink)}
 .vs-sum b{font-family:var(--fd);font-size:19px}
 .vs-flooss{border-bottom:none!important;color:var(--accent-text)!important;font-weight:500}
-.vs-foot{margin-top:auto;padding-top:20px}
-.vs-total{margin:0;font-family:var(--fd);font-weight:500;font-size:27px;color:var(--accent-text)}
-.vs-pay{margin:4px 0 0;font-size:13.5px;color:var(--ink-soft)}
-.vs-pay b{color:var(--ink);font-weight:600}
+.vs-foot{margin-top:auto;padding-top:18px}
+.vs-break{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:5px 0;font-size:13.5px;color:var(--ink-soft)}
+.vs-break b{font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+.vs-break.pay b{color:var(--ink-soft);font-weight:400}
+.vs-break.gift b{color:var(--accent-text)}
+.vs-total{margin:12px 0 0;font-family:var(--fd);font-weight:600;font-size:34px;line-height:1;letter-spacing:-.02em;color:var(--accent-text)}
+.vs-total span{display:block;font-family:var(--fb);font-weight:600;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-top:7px}
 .vs-cta{margin-top:18px;width:100%}
 .vs-legal{margin:26px auto 0;max-width:74ch;text-align:center;font-size:12.5px;line-height:1.6;color:var(--ink-soft)}
 
@@ -2810,8 +2813,10 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
           
         </ul>
         <div class="vs-foot">
-          <p class="vs-total">200 BHD on the table</p>
-          <p class="vs-pay">You place <b>100 BHD</b></p>
+          <div class="vs-break pay"><span>You place</span><b>100 BHD</b></div>
+          <div class="vs-break"><span>Your credit + bonus</span><b>150 BHD</b></div>
+          <div class="vs-break gift"><span>Gifts on top</span><b>50 BHD+</b></div>
+          <p class="vs-total">200 BHD<span>On the table</span></p>
         </div>
         <a class="pill pill--accent vs-cta" href="#reserve" data-pick="rose">Take the Rose place</a>
       </div>
@@ -2832,8 +2837,10 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
           <li class="vs-flooss"><span>Or 4 interest-free payments with flooss</span><b>4 &times; 62.5 BHD</b></li>
         </ul>
         <div class="vs-foot">
-          <p class="vs-total">425 BHD on the table</p>
-          <p class="vs-pay">You place <b>250 BHD</b></p>
+          <div class="vs-break pay"><span>You place</span><b>250 BHD</b></div>
+          <div class="vs-break"><span>Your credit + bonus</span><b>375 BHD</b></div>
+          <div class="vs-break gift"><span>Gifts on top</span><b>50 BHD+</b></div>
+          <p class="vs-total">425 BHD<span>On the table</span></p>
         </div>
         <a class="pill pill--accent vs-cta" href="#reserve" data-pick="gold">Take the Gold place</a>
       </div>
@@ -2854,8 +2861,10 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
           <li class="vs-flooss"><span>Or 4 interest-free payments with flooss</span><b>4 &times; 125 BHD</b></li>
         </ul>
         <div class="vs-foot">
-          <p class="vs-total">800 BHD on the table</p>
-          <p class="vs-pay">You place <b>500 BHD</b></p>
+          <div class="vs-break pay"><span>You place</span><b>500 BHD</b></div>
+          <div class="vs-break"><span>Your credit + bonus</span><b>750 BHD</b></div>
+          <div class="vs-break gift"><span>Gifts on top</span><b>50 BHD+</b></div>
+          <p class="vs-total">800 BHD<span>On the table</span></p>
         </div>
         <a class="pill pill--accent vs-cta" href="#reserve" data-pick="platinum">Take the Platinum place</a>
       </div>
