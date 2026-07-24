@@ -323,6 +323,10 @@ section[style*="var(--cream)"]{ background:#EFE8DB !important; }
 .brandcard h3{ font-family:var(--fd); font-weight:500; font-size:20px; color:var(--ink); margin:0 0 3px; }
 .brandcard .role{ font-family:var(--fb); font-size:11px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--accent-text); margin:0 0 12px; }
 .brandcard p{ font-family:var(--fb); font-size:14px; font-weight:300; line-height:1.6; color:var(--ink-soft); margin:0; }
+.brandcard .cover{ list-style:none; margin:14px 0 0; padding:0; border-top:1px solid var(--hair,#e6e6e1); }
+.brandcard .cover li{ font-family:var(--fb); font-size:13px; font-weight:300; line-height:1.5; color:var(--ink-soft); padding:9px 0 0; }
+.brandcard .cover li b{ font-weight:600; color:var(--accent-text); }
+.brands-note{ text-align:center; font-family:var(--fb); font-size:13px; font-weight:300; color:var(--ink-soft); max-width:640px; margin:26px auto 0; line-height:1.6; }
 
 /* ── TRS DESIGN SYSTEM (build-injected: tokens.json + normalise.css) ── */
 /* GENERATED from _content/tokens.json by gen-tokens.py - do not hand-edit.
@@ -2643,23 +2647,29 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
   </div>
 </section>
 
-<!-- ============================ BRANDS WE TRUST ============================ -->
+<!-- ============================ THE COVER, BY PROBLEM ============================ -->
 <section>
   <div class="wrap">
     <div class="sec-head center">
-      <span class="eyebrow">The brands we trust</span>
-      <h2>Every brand has a job. We prescribe, we never pick from the shelf.</h2>
-      <p class="sub">We diagnose your hair first, then reach for the family built to protect that result. These are the systems behind your bundle.</p>
+      <span class="eyebrow">The cover matched to your hair</span>
+      <h2>The insurance changes with what your hair is fighting.</h2>
+      <p class="sub">Your treatment fixes one real problem in the chair. Your home care is the cover that keeps it fixed, and what goes in each level flexes to that problem. Here is what the three levels focus on, by what you came in for.</p>
     </div>
     <div class="brandwall">
-      <div class="brandcard"><h3>Malibu C</h3><p class="role">Water &amp; detox</p><p>The water here leaves minerals on your hair like limescale, so colour, treatments and masks fade faster. Malibu C lifts that away, so the work we do keeps performing at home. It sits in every Full Insurance plan.</p></div>
-      <div class="brandcard"><h3>Fibre Clinix</h3><p class="role">Repair &amp; strength</p><p>The technical repair system, matched to how much your hair needs. Designed to help strengthen the hair, reduce breakage, and protect shine and colour, from a signature in-salon repair to the routine you take home.</p></div>
-      <div class="brandcard"><h3>Authentic Beauty Concept</h3><p class="role">Mindful, clean care</p><p>Clean, simple, sensory care that stays kind to the scalp and easy to live with, while still protecting what we have done. The natural-feeling layer for dry, curly, or sensitive hair.</p></div>
-      <div class="brandcard"><h3>BLONDME</h3><p class="role">Blonde tone</p><p>Blonde needs two kinds of protection: the tone, and the condition underneath it. BLONDME holds the tone cool and true between visits, so the brass the water keeps pulling back is kept in check.</p></div>
-      <div class="brandcard"><h3>Alterna Caviar</h3><p class="role">Elevated moisture &amp; finish</p><p>Deep moisture, softness and an elevated finish. For dryness, frizz, brunette shine, and the routine that is meant to feel a little more indulgent.</p></div>
-      <div class="brandcard"><h3>Scalp Clinix</h3><p class="role">Scalp health</p><p>Scalp is the soil. A scalp-first routine that calms, balances and looks after the skin your hair grows from, so what grows can be at its best.</p></div>
+      <div class="brandcard"><h3>Colour that fades or turns brassy</h3><p class="role">Colour &amp; Blonde Longevity</p><p>The water here drags the tone back, like limescale on a kettle. It is the minerals, not you.</p>
+        <ul class="cover"><li><b>Protect</b> a tone shield, plus heat and UV protection</li><li><b>Protect &amp; Maintain</b> the above, plus a colour-safe wash</li><li><b>Full Insurance</b> the above, plus a water filter, so the minerals stop undoing it every wash</li></ul></div>
+      <div class="brandcard"><h3>Hair that snaps or will not grow</h3><p class="role">Strength</p><p>The bonds inside the strand are stressed by colour and heat. We rebuild them, then stop home life breaking them back down.</p>
+        <ul class="cover"><li><b>Protect</b> a bond leave-in and heat protection</li><li><b>Protect &amp; Maintain</b> the above, plus a strengthening wash</li><li><b>Full Insurance</b> the above, plus a weekly bond mask</li></ul></div>
+      <div class="brandcard"><h3>Dry, and frizzy in the humidity</h3><p class="role">Hydration &amp; Frizz</p><p>Frizz is thirst. Dry hair grabs moisture from the air and swells. We hydrate it first, then shield it.</p>
+        <ul class="cover"><li><b>Protect</b> moisture, anti-humidity and heat protection</li><li><b>Protect &amp; Maintain</b> the above, plus a hydrating wash</li><li><b>Full Insurance</b> the above, plus a weekly moisture mask and a filter</li></ul></div>
+      <div class="brandcard"><h3>Dull, coated, nothing seems to work</h3><p class="role">Detox</p><p>Minerals and product sit on the surface like old make-up that never came off, so everything you put on works harder and fades faster.</p>
+        <ul class="cover"><li><b>Protect</b> a clarifying step and water protection</li><li><b>Protect &amp; Maintain</b> the above, plus a reset wash</li><li><b>Full Insurance</b> the above, plus a water filter and a weekly hard-water remedy</li></ul></div>
+      <div class="brandcard"><h3>Curls losing their pattern</h3><p class="role">Curls</p><p>Curl is thirsty by nature. Cleanse without stripping, hydrate without weighing down, and the pattern comes back.</p>
+        <ul class="cover"><li><b>Protect</b> a curl definer and anti-humidity</li><li><b>Protect &amp; Maintain</b> the above, plus a curl-safe wash</li><li><b>Full Insurance</b> the above, plus a weekly curl mask and a filter</li></ul></div>
+      <div class="brandcard"><h3>An oily, tight, or flaky scalp</h3><p class="role">Scalp Health</p><p>Scalp is the soil. If the surface is congested or tight, the hair growing from it cannot be its best.</p>
+        <ul class="cover"><li><b>Protect</b> a balancing scalp step</li><li><b>Protect &amp; Maintain</b> the above, plus a scalp wash and tonic</li><li><b>Full Insurance</b> the above, plus a weekly scalp treatment and a filter</li></ul></div>
     </div>
-    <p class="menu-foot" style="text-align:center;margin-top:30px">Your stylist maps the exact products to your hair in the chair. Nothing is chosen blind.</p>
+    <p class="brands-note">The systems behind the cover are chosen to the problem, not the shelf: Malibu C for the water here, Fibre Clinix for repair, BLONDME for blonde tone, Authentic Beauty Concept, Alterna Caviar and Scalp Clinix for the rest. Your stylist maps the exact ones to your hair. <a href="/tara-rose-pages/bahrain/education/home-care-why-the-products-you-bought-did-nothing">Read why the products you bought did nothing &rarr;</a></p>
   </div>
 </section>
 
