@@ -316,6 +316,13 @@ section[style*="var(--cream)"]{ background:#EFE8DB !important; }
 .foot .soc-grp{margin:14px 0 4px;font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-text,#3aa892)}
 .foot .soc-grp:first-of-type{margin-top:0}
 .foot .row{flex-wrap:wrap}
+.brandwall{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:8px; }
+@media (max-width:860px){ .brandwall{ grid-template-columns:1fr 1fr; } }
+@media (max-width:560px){ .brandwall{ grid-template-columns:1fr; } }
+.brandcard{ background:#fff; border:1px solid var(--hair,#e6e6e1); border-radius:14px; padding:22px 22px 24px; }
+.brandcard h3{ font-family:var(--fd); font-weight:500; font-size:20px; color:var(--ink); margin:0 0 3px; }
+.brandcard .role{ font-family:var(--fb); font-size:11px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--accent-text); margin:0 0 12px; }
+.brandcard p{ font-family:var(--fb); font-size:14px; font-weight:300; line-height:1.6; color:var(--ink-soft); margin:0; }
 
 /* ── TRS DESIGN SYSTEM (build-injected: tokens.json + normalise.css) ── */
 /* GENERATED from _content/tokens.json by gen-tokens.py - do not hand-edit.
@@ -2633,6 +2640,26 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
         <span class="foot-note">Builds visit on visit.</span>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ============================ BRANDS WE TRUST ============================ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">The brands we trust</span>
+      <h2>Every brand has a job. We prescribe, we never pick from the shelf.</h2>
+      <p class="sub">We diagnose your hair first, then reach for the family built to protect that result. These are the systems behind your bundle.</p>
+    </div>
+    <div class="brandwall">
+      <div class="brandcard"><h3>Malibu C</h3><p class="role">Water &amp; detox</p><p>The water here leaves minerals on your hair like limescale, so colour, treatments and masks fade faster. Malibu C lifts that away, so the work we do keeps performing at home. It sits in every Full Insurance plan.</p></div>
+      <div class="brandcard"><h3>Fibre Clinix</h3><p class="role">Repair &amp; strength</p><p>The technical repair system, matched to how much your hair needs. Designed to help strengthen the hair, reduce breakage, and protect shine and colour, from a signature in-salon repair to the routine you take home.</p></div>
+      <div class="brandcard"><h3>Authentic Beauty Concept</h3><p class="role">Mindful, clean care</p><p>Clean, simple, sensory care that stays kind to the scalp and easy to live with, while still protecting what we have done. The natural-feeling layer for dry, curly, or sensitive hair.</p></div>
+      <div class="brandcard"><h3>BLONDME</h3><p class="role">Blonde tone</p><p>Blonde needs two kinds of protection: the tone, and the condition underneath it. BLONDME holds the tone cool and true between visits, so the brass the water keeps pulling back is kept in check.</p></div>
+      <div class="brandcard"><h3>Alterna Caviar</h3><p class="role">Elevated moisture &amp; finish</p><p>Deep moisture, softness and an elevated finish. For dryness, frizz, brunette shine, and the routine that is meant to feel a little more indulgent.</p></div>
+      <div class="brandcard"><h3>Scalp Clinix</h3><p class="role">Scalp health</p><p>Scalp is the soil. A scalp-first routine that calms, balances and looks after the skin your hair grows from, so what grows can be at its best.</p></div>
+    </div>
+    <p class="menu-foot" style="text-align:center;margin-top:30px">Your stylist maps the exact products to your hair in the chair. Nothing is chosen blind.</p>
   </div>
 </section>
 
