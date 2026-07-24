@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#FAF8F4">
 <title>Brunette, but richer · The brunette plan · Tara Rose</title>
-<meta name="description" content="Brunette, but richer. Tone, gloss and dimension over darker pigment. Brunette with Dimension, The Expensive Brunette, or a Brunette Correction at Tara Rose.">
+<meta name="description" content="Brunette, but richer. Tone, gloss and dimension, not just deeper colour. Brunette with Dimension, The Expensive Brunette, or a Brunette Correction at Tara Rose.">
 <link rel="canonical" href="https://www.tararosesalon.com/en/bh/colour/brunette">
 <link rel="alternate" hreflang="en-ae" href="https://www.tararosesalon.com/colour/brunette">
 <link rel="alternate" hreflang="en-bh" href="https://www.tararosesalon.com/en/bh/colour/brunette">
@@ -19,7 +19,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Brunette, but richer · The brunette plan · Tara Rose">
-<meta property="og:description" content="Brunette, but richer. Tone, gloss and dimension over darker pigment. Brunette with Dimension, The Expensive Brunette, or a Brunette Correction at Tara Rose.">
+<meta property="og:description" content="Brunette, but richer. Tone, gloss and dimension, not just deeper colour. Brunette with Dimension, The Expensive Brunette, or a Brunette Correction at Tara Rose.">
 <meta property="og:url" content="https://www.tararosesalon.com/en/bh/colour/brunette">
 <meta property="og:image" content="https://www.tararosesalon.com/og/brunette.jpg">
 <meta property="og:image:width" content="1200">
@@ -29,7 +29,7 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Brunette, but richer · The brunette plan · Tara Rose">
-<meta name="twitter:description" content="Brunette, but richer. Tone, gloss and dimension over darker pigment. Brunette with Dimension, The Expensive Brunette, or a Brunette Correction at Tara Rose.">
+<meta name="twitter:description" content="Brunette, but richer. Tone, gloss and dimension, not just deeper colour. Brunette with Dimension, The Expensive Brunette, or a Brunette Correction at Tara Rose.">
 <meta name="twitter:image" content="https://www.tararosesalon.com/og/brunette.jpg">
 
 
@@ -78,7 +78,7 @@ section{ padding:var(--sec-y) 0; }
 /* Media */
 .media{ position:relative; border-radius:var(--r-lg); overflow:hidden; aspect-ratio:4/3; background:radial-gradient(140% 120% at 26% 6%, #dccbab 0%, #9c8968 30%, #524a41 66%, #201c17 100%); }
 .media::before{ content:attr(data-label); position:absolute; inset:0; display:flex; align-items:flex-end; padding:22px 26px; color:rgba(255,255,255,.82); font-family:var(--fb); font-size:10px; font-weight:600; letter-spacing:.24em; text-transform:uppercase; z-index:3; }
-.media::after{ content:""; position:absolute; inset:0; z-index:2; pointer-events:none; background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='680' height='210'><text x='340' y='118' fill='rgba(255,255,255,0.085)' font-family='Georgia,serif' font-style='italic' font-size='30' letter-spacing='15' text-anchor='middle'>TARA ROSE</text></svg>") center 44% / 58% no-repeat,url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='150' height='150' filter='url(%23n)' opacity='0.2'/></svg>") top left / 150px 150px repeat,linear-gradient(to top, rgba(18,15,11,.5), transparent 48%); }
+.media::after{ content:""; position:absolute; inset:0; z-index:2; pointer-events:none; background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='150' height='150' filter='url(%23n)' opacity='0.2'/></svg>") top left / 150px 150px repeat,linear-gradient(to top, rgba(18,15,11,.5), transparent 48%); }
 .media--sand{ background:radial-gradient(140% 120% at 26% 6%, #e0d0b2 0%, #a08c6c 30%, #574d41 66%, #201c17 100%); }
 .media--warm{ background:radial-gradient(140% 120% at 26% 6%, #d8b493 0%, #9c7757 30%, #533f31 66%, #1e1712 100%); }
 .media--hero{ aspect-ratio:4/4.4; }
@@ -140,6 +140,17 @@ section{ padding:var(--sec-y) 0; }
 .hero-a .cta-row{ justify-content:center; }
 .hero-a em.accent{ font-style:italic; color:var(--accent-text); }
 @media (max-width:900px){ .hero-a{ padding:84px 0 48px; } }
+/* Editorial split hero (matches Blonde) */
+.hero-ed{ display:grid; grid-template-columns:1.05fr .95fr; align-items:stretch; border-bottom:1px solid var(--hair); }
+.hero-ed .txt{ padding:96px 60px 96px var(--pad-x); max-width:620px; margin-left:auto; }
+.hero-ed .eyebrow{ display:block; margin-bottom:20px; }
+.hero-ed h1{ font-family:var(--fd); font-weight:500; font-size:clamp(46px,6.4vw,90px); line-height:.95; letter-spacing:-.022em; }
+.hero-ed h1 em{ font-style:italic; color:var(--accent-text); }
+.hero-ed .lede{ margin-top:24px; max-width:46ch; }
+.hero-ed .media{ border-radius:0; aspect-ratio:auto; min-height:520px; }
+@media (max-width:1080px){ .hero-ed .txt{ padding:80px 44px 80px var(--pad-x); } }
+@media (max-width:900px){ .hero-ed{ grid-template-columns:1fr; } .hero-ed .txt{ padding:64px var(--pad-x) 52px; margin:0; max-width:none; } .hero-ed .media{ min-height:300px; order:-1; } }
+@media (max-width:560px){ .hero-ed .media{ min-height:230px; } }
 
 /* Chips + safety */
 .chip{ display:inline-flex; align-items:center; gap:8px; font-family:var(--fb); font-size:11.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; padding:8px 16px; border-radius:var(--r-pill); background:var(--stone-soft); color:var(--ink); border:1px solid var(--hair); }
@@ -370,7 +381,7 @@ section[style*="var(--cream)"]{ background:#EFE6D9 !important; }
 .mi-price{ font-family:var(--fb); font-size:13.5px; font-weight:600; color:var(--ink); white-space:nowrap; letter-spacing:.01em; order:3; flex:0 0 auto; }
 .mi-price.poa{ font-size:11.5px; font-weight:600; color:var(--accent-text); }
 .feature-band{ position:relative; width:100%; aspect-ratio:16/5; border-radius:var(--r-md); overflow:hidden; margin:0 0 8px; }
-.feature-band::after{ content:""; position:absolute; inset:0; background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='680' height='210'><text x='340' y='118' fill='rgba(255,255,255,0.10)' font-family='Georgia,serif' font-style='italic' font-size='30' letter-spacing='15' text-anchor='middle'>TARA ROSE</text></svg>") center/46% no-repeat, url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><filter id='fnfb'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='150' height='150' filter='url(%23fnfb)' opacity='0.14'/></svg>") top left/150px 150px repeat, linear-gradient(to top,rgba(16,18,18,.42),transparent 62%); }
+.feature-band::after{ content:""; position:absolute; inset:0; background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><filter id='fnfb'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='150' height='150' filter='url(%23fnfb)' opacity='0.14'/></svg>") top left/150px 150px repeat, linear-gradient(to top,rgba(16,18,18,.42),transparent 62%); }
 @media(max-width:640px){ .feature-band{ aspect-ratio:3/2; } .look-band{ aspect-ratio:4/3; } }
 .feature-band .fb-txt{ position:absolute; left:0; bottom:0; z-index:2; padding:24px 28px; }
 .feature-band .fb-k{ font-family:var(--fb); font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:rgba(255,255,255,.82); display:block; margin-bottom:6px; }
@@ -2653,17 +2664,17 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
 
 <main id="main">
 <!-- ============================ HERO-A ============================ -->
-<section class="hero-a">
-  <div class="wrap">
-    <span class="eyebrow">Brunette at Tara Rose</span>
-    <div class="tick"></div>
-    <h1 class="h-1">Brunette, <em class="serif-em accent">but richer.</em></h1>
-    <p class="lede p-lg">Your brunette may not need to be darker. It may need tone, gloss and dimension. A flat one-note brunette is usually a sign the colour needs richness added, not more pigment piled on.</p>
+<section class="hero-ed" style="padding:0;">
+  <div class="txt">
+    <span class="eyebrow">Colour · Brunette</span>
+    <h1 class="h-1">Brunette, <em>but richer.</em></h1>
+    <p class="lede p-lg">Your brunette may not need to be darker. It may need tone, gloss and dimension. A flat, one-note brunette is usually a sign the colour needs richness added, not more depth piled on. Choose the look, we build the method in your consultation.</p>
     <div class="cta-row">
       <a class="pill pill--accent" href="https://wa.me/97335323411?text=Hi%20Tara%20Rose%2C%20I%20would%20like%20to%20start%20my%20Brunette%20Plan." target="_blank" rel="noopener">Start Your Brunette Plan</a>
-      <a class="textlink" href="https://wa.me/97335323411?text=Hi%20Tara%20Rose%2C%20I%20would%20like%20to%20start%20my%20Brunette%20Plan." target="_blank" rel="noopener">WhatsApp the Team</a>
+      <a class="textlink" href="#menu">See the Brunette Menu</a>
     </div>
   </div>
+  <div class="media" role="img" aria-label="A rich, glossy dimensional brunette created at Tara Rose" style="background-image:url(/tara-rose-pages/bahrain/assets/brunette-hero.jpg);background-size:cover;background-position:50% 14%"></div>
 </section>
 
 <!-- ============================ SAFETY-NET CHIP ROW ============================ -->
@@ -2702,30 +2713,29 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
       <p class="fam-line"><b>Transformation</b> is the bigger work: more dimension, more depth, a fuller change. Every big change begins with a consultation.</p>
     </div>
     <div class="shades">
-      <div class="shade" style="background:radial-gradient(130% 120% at 30% 15%,#cda06e 0%,#a5764a 40%,#5c3f28 78%,#241811 100%)"><span class="sl">Chestnut</span></div>
-      <div class="shade" style="background:radial-gradient(130% 120% at 30% 15%,#bd9a78 0%,#8a6a4c 42%,#4f3a28 80%,#20160e 100%)"><span class="sl">Mocha</span></div>
-      <div class="shade" style="background:radial-gradient(130% 120% at 30% 15%,#a9764f 0%,#7d5334 42%,#4a3220 80%,#1e130c 100%)"><span class="sl">Chocolate</span></div>
-      <div class="shade" style="background:radial-gradient(130% 120% at 30% 15%,#7f5b3c 0%,#513723 42%,#2e1e13 80%,#140c07 100%)"><span class="sl">Espresso</span></div>
+      <div class="shade" style="background-image:url(/tara-rose-pages/bahrain/assets/brunette-chestnut.jpg);background-size:cover;background-position:50% 20%" role="img" aria-label="Chestnut brunette created at Tara Rose"></div>
+      <div class="shade" style="background-image:url(/tara-rose-pages/bahrain/assets/brunette-warm.jpg);background-size:cover;background-position:50% 20%" role="img" aria-label="Mocha brunette created at Tara Rose"></div>
+      <div class="shade" style="background-image:url(/tara-rose-pages/bahrain/assets/brunette-chocolate.jpg);background-size:cover;background-position:50% 20%" role="img" aria-label="Chocolate brunette created at Tara Rose"></div>
+      <div class="shade" style="background-image:url(/tara-rose-pages/bahrain/assets/brunette-hero.jpg);background-size:cover;background-position:50% 18%" role="img" aria-label="Espresso brunette created at Tara Rose"></div>
     </div>
     <p class="shades-cap">Chestnut, mocha, chocolate or espresso. We build the depth and the dimension to suit you.</p>
-    <div class="menu-fam"><div class="menu-feat" style="background:radial-gradient(120% 160% at 22% 8%,#c9a986 0%,#8a6a4a 42%,#4a3626 80%,#241812 100%)" role="img" aria-label="Dimensional brunette at Tara Rose"></div>
+    <div class="menu-fam"><div class="menu-feat" style="background-image:url(/tara-rose-pages/bahrain/assets/brunette-dim-band.jpg);background-size:cover;background-position:50% 30%;aspect-ratio:4/5;max-width:460px;margin-inline:auto" role="img" aria-label="A dark, dimensional brunette balayage created at Tara Rose"></div>
       <h3 class="menu-fam__head">Brunette Colour</h3>
       <div class="mcols">
         <div class="mcol"><div class="mcol__label">Refresh Services</div><div class="mitem"><div class="mi-top"><span class="mi-name">Root Touch</span><span class="mi-price">BHD 25 &ndash; 43</span></div><p class="mi-desc">Essential root maintenance between visits: a colour top-up that keeps your base fresh and your regrowth seamlessly blended.</p></div><div class="mitem"><div class="mi-top"><span class="mi-name">All-Over Gloss</span><span class="mi-price">BHD 45 &ndash; 63</span></div><p class="mi-desc">A single all-over colour for depth, shine, and grey coverage. Made for refreshing dullness with a healthy, polished finish.</p></div><div class="mitem"><div class="mi-top"><span class="mi-name">Face Frame</span><span class="mi-price">BHD 37 &ndash; 55</span></div><p class="mi-desc">Delicate placement around the hairline to brighten and contour your face. Ideal for soft enhancement without a full service.</p></div><div class="mitem"><div class="mi-top"><span class="mi-name">Balayage Refresh</span><span class="mi-price">BHD 74 &ndash; 92</span></div><p class="mi-desc">A subtle refresh through your parting and hairline to maintain softness between full balayage services.</p></div></div>
         <div class="mcol"><div class="mcol__label">Transformation Services</div><div class="mitem"><span class="mi-tag">New placement</span><div class="mi-top"><span class="mi-name">Brunette Custom Face Frame</span><span class="mi-price">BHD 42 &ndash; 60</span></div><p class="mi-desc">A brand-new placement. Custom face-framing depth and dimension, mapped to your features and placed to give you a whole new look.</p></div><div class="mitem"><span class="mi-tag">Our most-loved</span><div class="mi-top"><span class="mi-name">Brunette with Dimension</span><span class="mi-price">BHD 84 &ndash; 102</span></div><p class="mi-desc">Add soft highlights, lowlights and contouring to create natural movement, richness, and tone variation.</p></div><div class="mitem"><span class="mi-tag">Our most refined</span><div class="mi-top"><span class="mi-name">The Expensive Brunette</span><span class="mi-price">BHD 94 &ndash; 112</span></div><p class="mi-desc">Multi-tonal, high-gloss brunette crafted with strategic placement for an elevated, understated look.</p></div></div>
       </div>
     </div>
-    <div class="look-band" style="background:radial-gradient(120% 160% at 22% 8%,#c8a173 0%,#8a6440 40%,#4a3420 78%,#1c130b 100%)" role="img" aria-label="A multi-tonal high-gloss brunette">
-      <div class="ll"><span class="lk">The Expensive Brunette</span><span class="lt">Multi-tonal, high-gloss, and quietly expensive</span></div>
+    <div class="look-band" style="background-image:url(/tara-rose-pages/bahrain/assets/brunette-mocha.jpg);background-size:cover;background-position:50% 30%;aspect-ratio:4/5;max-width:460px;margin-inline:auto" role="img" aria-label="A multi-tonal, high-gloss brunette created at Tara Rose">
     </div>
-    <div class="menu-block"><div class="menu-feat" style="background:radial-gradient(120% 160% at 78% 10%,#b89876 0%,#7d5e42 44%,#41301f 82%,#20140d 100%)" role="img" aria-label="A glossed brunette"></div>
+    <div class="menu-block"><div class="menu-feat" style="background-image:url(/tara-rose-pages/bahrain/assets/brunette-chocolate.jpg);background-size:cover;background-position:50% 20%;aspect-ratio:4/5;max-width:460px;margin-inline:auto" role="img" aria-label="A glossed, rich brunette created at Tara Rose"></div>
       <h3 class="menu-block__head">Brunette Correction: The Colour Fix</h3>
       <div class="menu-grid2">
-        <div class="mitem"><div class="mi-top"><span class="mi-name">Colour Correction</span><span class="mi-price poa">Price on application</span></div><p class="mi-desc">Bespoke depth, correction and dimension work, quoted individually after a full consultation.</p></div>
+        <div class="mitem"><div class="mi-top"><span class="mi-name">Colour Correction</span><span class="mi-price poa">Price on application</span></div><p class="mi-desc">Custom depth, correction and dimension work, quoted individually after a full consultation.</p></div>
         <div class="mitem"><div class="mi-top"><span class="mi-name">Balayage Correction</span><span class="mi-price poa">Price on application</span></div><p class="mi-desc">For dramatic changes, colour corrections, or a complete lightening service. Includes full balayage and root-to-tip blending.</p></div>
       </div>
     </div>
-    <div class="menu-block"><div class="menu-feat" style="background:radial-gradient(120% 160% at 22% 8%,#c9a986 0%,#8a6a4a 42%,#4a3626 80%,#241812 100%)" role="img" aria-label="A brunette transformation"></div>
+    <div class="menu-block"><div class="menu-feat" style="background-image:url(/tara-rose-pages/bahrain/assets/brunette-warm.jpg);background-size:cover;background-position:50% 20%;aspect-ratio:4/5;max-width:460px;margin-inline:auto" role="img" aria-label="A warm, dimensional brunette created at Tara Rose"></div>
       <h3 class="menu-block__head">Colour Enhancements</h3>
       <p class="menu-lead" style="margin-bottom:20px">Tailor any colour service with a finishing enhancement.</p>
       <div class="menu-grid2">
@@ -2767,20 +2777,20 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
       <div class="rhy">
         <div>
           <h3>Here&rsquo;s what&rsquo;s actually happening, and why brunette goes flat</h3>
-          <p>Shine is part of colour. A coated cuticle can&rsquo;t reflect the depth underneath, so the brunette reads flat even when the tone is fine. The hair is not dirty, it is coated. Brunette needs a rhythm too.</p>
+          <p>Shine is part of colour. A coated surface can&rsquo;t reflect the depth underneath, so the brunette reads flat even when the tone is fine. The hair is not dirty, it is coated. Brunette needs a rhythm too.</p>
         </div>
       </div>
       <div class="rhy">
         <div>
           <h3>It&rsquo;s no wonder you didn&rsquo;t know</h3>
-          <p>Most women are told to go darker when the shine and dimension are what dropped away, so piling on pigment only makes it flatter.</p>
+          <p>Most women are told to go darker when the shine and dimension are what dropped away, so piling on more colour only makes it flatter.</p>
           <span class="locked-line">That was never yours to work out alone.</span>
         </div>
       </div>
       <div class="rhy">
         <div>
           <h3>What this means for you</h3>
-          <p>Tone, gloss and dimension over darker pigment. We read the depth you already have, add the richness back, and keep it reflecting light between visits.</p>
+          <p>Tone, gloss and dimension, not just deeper colour. We read the depth you already have, add the richness back, and keep it reflecting light between visits.</p>
         </div>
       </div>
       <div class="rhy rhy--truth">
@@ -2805,7 +2815,7 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
 
 
 
-<div class="wrap"><div class="feature-band" style="background:radial-gradient(130% 120% at 30% 15%,#bd9a78 0%,#8a6a4c 42%,#4f3a28 80%,#20160e 100%)" role="img" aria-label="Dimension"></div></div>
+<div class="wrap"><div class="feature-band" style="background-image:url(/tara-rose-pages/bahrain/assets/brunette-dimensional.jpg);background-size:cover;background-position:50% 42%;aspect-ratio:16/7" role="img" aria-label="Dimensional brunette at Tara Rose"></div></div>
 
 <!-- ============================ THE BRUNETTE TREATMENT SUBSET ============================ -->
 <section>
@@ -2819,7 +2829,7 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
       <div class="tcard-x">
         <span class="eyebrow">Prescribed at consultation</span>
         <h4>Detox</h4>
-        <p>Clears the film the water leaves behind, so the cuticle can reflect the depth again.</p>
+        <p>Clears the film the water leaves behind, so the surface can reflect the depth again.</p>
       </div>
       <div class="tcard-x">
         <span class="eyebrow">Prescribed at consultation</span>
@@ -2872,20 +2882,20 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
         <g class="lr-n"><circle cx="82.2" cy="268" r="21"/><text x="82.2" y="268">3</text></g>
       </svg>
       <div class="lr-lab n1" style="left:50%;top:-6px"><span class="v">Visit 1</span><span class="a">Create</span><span class="s">We build the depth and the dimension you came for.</span></div>
-      <div class="lr-lab n2" style="left:79.5%;top:79%"><span class="v">Between visits</span><span class="a">Protect</span><span class="s">Home care and gloss hold the shine between visits.</span></div>
+      <div class="lr-lab n2" style="left:79.5%;top:79%"><span class="v">At home</span><span class="a">Protect</span><span class="s">Your home care holds the shine between visits.</span></div>
       <div class="lr-lab n3" style="left:20.5%;top:79%"><span class="v">On rhythm</span><span class="a">Keep on Track</span><span class="s">A visit on rhythm, before it ever reads flat.</span></div>
       <div class="lr-center">
         <span class="eyebrow">The Full Loop</span>
         <p class="lr-title">Your hair,<br>held on rhythm.</p>
         <span class="lr-mark">&#8635; the loop holds it</span>
       </div>
-      <div class="lr-arc" style="left:78%;top:32%">gloss &middot; treat</div>
-      <div class="lr-arc" style="left:22%;top:32%">gloss &middot; finish</div>
+      <div class="lr-arc" style="left:78%;top:32%">home care</div>
+      <div class="lr-arc" style="left:22%;top:32%">on rhythm</div>
     </div>
     <div class="visits">
-      <div class="visit-card"><div class="vn">1</div><span class="vk">Visit One &middot; Week 0</span><h4>Create</h4><p>We build your depth and dimension, then seal it with a gloss for shine and reflection. You leave rich and glossy.</p></div>
-      <div class="visit-card"><div class="vn">2</div><span class="vk">Visit Two &middot; Week 6</span><h4>Protect</h4><p>Before the shine dulls, we re-gloss and treat. A short visit that keeps the dimension alive and the tone true. This is the one that saves the big one.</p></div>
-      <div class="visit-card"><div class="vn">3</div><span class="vk">Visit Three &middot; Week 10 to 12</span><h4>Keep on Track</h4><p>A gloss and re-set, never a rescue. We keep the richness up, so your brunette never goes flat.</p></div>
+      <div class="visit-card"><div class="vn">1</div><span class="vk">Visit One &middot; Week 0</span><h4>Create</h4><p>We build your depth and dimension, then seal in the shine and reflection. You leave rich and glossy.</p></div>
+      <div class="visit-card"><div class="vn">2</div><span class="vk">Visit Two &middot; Week 6</span><h4>Protect</h4><p>Before the shine dulls, a short visit refreshes the tone and treats, held at home by your home care in between. This is the one that saves the big one.</p></div>
+      <div class="visit-card"><div class="vn">3</div><span class="vk">Visit Three &middot; Week 10 to 12</span><h4>Keep on Track</h4><p>A refresh and re-set, never a rescue. We keep the richness up, so your brunette never goes flat.</p></div>
     </div>
     <div class="rhythm-compare">
       <div class="rcmp rcmp--off">
@@ -2915,9 +2925,9 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
       <h2 style="font-size:clamp(26px,3.4vw,36px);">What keeps it between visits</h2>
     </div>
     <table class="ktable">
-      <tr><td class="k">Glossing</td><td>Re-lays your shine and tone before the brunette goes flat. Every 4 to 6 weeks.</td></tr>
+      <tr><td class="k">Home Care</td><td>The insurance on your hair. Prescribed shampoo, conditioner and mask that hold your shine and tone at home, between visits. This is what protects the result day to day.</td></tr>
       <tr><td class="k">Treatments</td><td>Prescribed to your hair across the loop: Detox, Colour Longevity, Hydration &amp; Frizz and Strength. Your stylist prescribes, you do not choose blind.</td></tr>
-      <tr><td class="k">Blow-dry</td><td>Keeps your brunette glossy and protected between washes, finished to last in the heat.</td></tr>
+      <tr><td class="k">The rhythm</td><td>Three visits a cycle, then home care in between. Depth, shine and dimension stay exactly where you left them.</td></tr>
     </table>
     <div class="loop-cta">
       <p class="loop-cta__line">This is the plan, not a single appointment. One conversation sets your rhythm, and we keep your brunette rich and glossy from there.</p>
@@ -2926,7 +2936,7 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
   </div>
 </section>
 
-<div class="wrap"><div class="feature-band" style="background:radial-gradient(120% 160% at 22% 8%,#c8a173 0%,#8a6440 40%,#4a3420 78%,#1c130b 100%)" role="img" aria-label="Home care"></div></div>
+<div class="wrap"><div class="feature-band" style="background-image:url(/tara-rose-pages/bahrain/assets/brunette-warm.jpg);background-size:cover;background-position:50% 40%;aspect-ratio:16/7" role="img" aria-label="Healthy, protected brunette at home"></div></div>
 
 <!-- ============================ HOME CARE LADDER (mini) ============================ -->
 <section class="ladder">
@@ -2981,11 +2991,11 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
 <section>
   <div class="wrap">
     <div class="split">
-      <div class="media media--warm media--hero" data-label="CONSULTATION · READING THE DEPTH IN THE CHAIR" role="img" aria-label="Reading the depth in the chair"></div>
+      <div class="media media--warm media--hero" role="img" aria-label="Reading the depth in the chair at Tara Rose" style="background-image:url(/tara-rose-pages/bahrain/assets/brunette-dimensional.jpg);background-size:cover;background-position:50% 22%"></div>
       <div class="txt">
         <span class="eyebrow">The Brunette Consultation</span>
         <h2 class="h-2">What happens in the chair.</h2>
-        <p class="p" style="margin-top:14px;">Before any colour, we read your brunette. We look at the depth you already have, where the shine and dimension have dropped, and whether richness is the answer rather than darker pigment. Then we name the tier that fits, prescribe the treatments that hold it, and set the rhythm you return on. You leave with a plan and a full quotation, never a guess.</p>
+        <p class="p" style="margin-top:14px;">Before any colour, we read your brunette. We look at the depth you already have, where the shine and dimension have dropped, and whether richness is the answer rather than more depth. Then we name the tier that fits, prescribe the treatments that hold it, and set the rhythm you return on. You leave with a plan and a full quotation, never a guess.</p>
         <div class="cta-row">
           <a class="pill" href="/tara-rose-pages/bahrain/confidence-mapping">Book the Brunette Consultation</a>
           <a class="textlink" href="/tara-rose-pages/bahrain/confidence-mapping">See the 8-Step Hair Plan &rarr;</a>
@@ -3044,11 +3054,11 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
     </div>
     <details>
       <summary>Do I need to go darker?<span class="chev"></span></summary>
-      <div class="ans">Usually not. A flat brunette is more often a sign the shine and dimension dropped away, not that the colour is too light. We add richness with tone and gloss rather than piling on darker pigment.</div>
+      <div class="ans">Usually not. A flat brunette is more often a sign the shine and dimension dropped away, not that the colour is too light. We add richness with tone and gloss rather than piling on more depth.</div>
     </details>
     <details>
       <summary>Why does my brunette look flat?<span class="chev"></span></summary>
-      <div class="ans">Shine is part of colour, and a coated cuticle cannot reflect the depth underneath. The hair is not dirty, it is coated. Clear the film, add gloss and dimension, and the richness comes back.</div>
+      <div class="ans">Shine is part of colour, and a coated surface cannot reflect the depth underneath. The hair is not dirty, it is coated. Clear the film, add gloss and dimension, and the richness comes back.</div>
     </details>
     <details>
       <summary>What is Brunette Correction?<span class="chev"></span></summary>
@@ -3069,7 +3079,7 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
   </div>
 </section>
 
-<div class="wrap"><div class="feature-band" style="background:radial-gradient(130% 120% at 30% 15%,#a9764f 0%,#7d5334 42%,#4a3220 80%,#1e130c 100%)" role="img" aria-label="The truth"></div></div>
+<div class="wrap"><div class="feature-band" style="background-image:url(/tara-rose-pages/bahrain/assets/brunette-hero.jpg);background-size:cover;background-position:50% 30%;aspect-ratio:16/7" role="img" aria-label="A rich, glossy brunette result at Tara Rose"></div></div>
 
 <!-- ============================ MYTHS & TRUTHS (The Shift) ============================ -->
 <section style="background:var(--cream);">
@@ -3173,10 +3183,10 @@ body.jr-nodata .jr-sec--home, body.jr-nodata .jr-sec--rhythm{ display:none }
 {"@context":"https://schema.org","@type":"HairSalon","name":"Tara Rose Salon","url":"https://www.tararosesalon.com","logo":"https://www.tararosesalon.com/logo.svg","sameAs":["https://instagram.com/tararosesalon","https://facebook.com/tararosesalon","https://linkedin.com/company/tararose"],"address":[{"@type":"PostalAddress","streetAddress":"Unit 7, District 2, Road 7901, Janabiyah, Bahrain","addressLocality":"Bahrain","addressCountry":"BH"}],"openingHours":"Mo-Su 09:00-20:00"}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Service","serviceType":"Brunette","provider":{"@type":"HairSalon","@id":"https://www.tararosesalon.com/#hairsalon","parentOrganization":{"@id":"https://www.tararosesalon.com/#organization"},"name":"Tara Rose Salon","url":"https://www.tararosesalon.com"},"areaServed":[{"@type":"Place","name":"Bahrain"},{"@type":"Place","name":"Bahrain"}],"description":"Brunette, but richer. Tone, gloss and dimension over darker pigment. Brunette with Dimension, The Expensive Brunette, or a Brunette Correction at Tara Rose."}
+{"@context":"https://schema.org","@type":"Service","serviceType":"Brunette","provider":{"@type":"HairSalon","@id":"https://www.tararosesalon.com/#hairsalon","parentOrganization":{"@id":"https://www.tararosesalon.com/#organization"},"name":"Tara Rose Salon","url":"https://www.tararosesalon.com"},"areaServed":[{"@type":"Place","name":"Bahrain"},{"@type":"Place","name":"Bahrain"}],"description":"Brunette, but richer. Tone, gloss and dimension, not just deeper colour. Brunette with Dimension, The Expensive Brunette, or a Brunette Correction at Tara Rose."}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do I need to go darker?","acceptedAnswer":{"@type":"Answer","text":"Usually not. A flat brunette is more often a sign the shine and dimension dropped away, not that the colour is too light. We add richness with tone and gloss rather than piling on darker pigment."}},{"@type":"Question","name":"Why does my brunette look flat?","acceptedAnswer":{"@type":"Answer","text":"Shine is part of colour, and a coated cuticle cannot reflect the depth underneath. The hair is not dirty, it is coated. Clear the film, add gloss and dimension, and the richness comes back."}},{"@type":"Question","name":"What is Brunette Correction?","acceptedAnswer":{"@type":"Answer","text":"It is the plan for a big colour change, like lifting out old box colour or evening a heavily banded brunette. It is staged across visits with strength built in, so the hair keeps its condition through the change."}},{"@type":"Question","name":"How often should I gloss?","acceptedAnswer":{"@type":"Answer","text":"Glossing is part of the rhythm, not a one-off. The exact interval is matched to your tier and your hair at consultation, and booked ahead so the shine is refreshed before it drops."}},{"@type":"Question","name":"What is the investment for a Brunette plan?","acceptedAnswer":{"@type":"Answer","text":"Pricing appears only at consultation, and every plan is quoted before you book. The cost depends on the tier your brunette needs and the rhythm to keep it, and your stylist talks you through all of it there."}},{"@type":"Question","name":"Can I go lighter without going blonde?","acceptedAnswer":{"@type":"Answer","text":"Yes. Brunette has plenty of range before it becomes blonde, and we can lift and warm it while keeping it firmly a brunette. Your stylist maps the change into a plan so the hair stays healthy."}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do I need to go darker?","acceptedAnswer":{"@type":"Answer","text":"Usually not. A flat brunette is more often a sign the shine and dimension dropped away, not that the colour is too light. We add richness with tone and gloss rather than piling on more depth."}},{"@type":"Question","name":"Why does my brunette look flat?","acceptedAnswer":{"@type":"Answer","text":"Shine is part of colour, and a coated surface cannot reflect the depth underneath. The hair is not dirty, it is coated. Clear the film, add gloss and dimension, and the richness comes back."}},{"@type":"Question","name":"What is Brunette Correction?","acceptedAnswer":{"@type":"Answer","text":"It is the plan for a big colour change, like lifting out old box colour or evening a heavily banded brunette. It is staged across visits with strength built in, so the hair keeps its condition through the change."}},{"@type":"Question","name":"How often should I gloss?","acceptedAnswer":{"@type":"Answer","text":"Glossing is part of the rhythm, not a one-off. The exact interval is matched to your tier and your hair at consultation, and booked ahead so the shine is refreshed before it drops."}},{"@type":"Question","name":"What is the investment for a Brunette plan?","acceptedAnswer":{"@type":"Answer","text":"Pricing appears only at consultation, and every plan is quoted before you book. The cost depends on the tier your brunette needs and the rhythm to keep it, and your stylist talks you through all of it there."}},{"@type":"Question","name":"Can I go lighter without going blonde?","acceptedAnswer":{"@type":"Answer","text":"Yes. Brunette has plenty of range before it becomes blonde, and we can lift and warm it while keeping it firmly a brunette. Your stylist maps the change into a plan so the hair stays healthy."}}]}
 </script>
 
 <script>
